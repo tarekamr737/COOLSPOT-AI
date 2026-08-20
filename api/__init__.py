@@ -1,0 +1,1 @@
+"""COOLSPOT AI backend package."""
