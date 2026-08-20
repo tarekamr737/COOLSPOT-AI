@@ -275,6 +275,14 @@ class CachedArtifact(BaseModel):
     record_count: int = Field(ge=0)
     metadata: dict[str, str] = Field(default_factory=dict)
 
+    @field_validator("path")
+    @classmethod
+    def require_raw_cache_path(cls, value: str) -> str:
+        path = Path(value)
+        if path.is_absolute() or ".." in path.parts or path.parts[:2] != ("data", "raw"):
+            raise ValueError("cached artifact path must be relative and under data/raw")
+        return value
+
     @field_validator("sha256")
     @classmethod
     def validate_sha256(cls, value: str) -> str:
