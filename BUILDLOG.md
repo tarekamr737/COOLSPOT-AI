@@ -50,3 +50,10 @@
   ranges, exclusions, and source context. Shade/tree candidates may be screened from authoritative
   stop or public-site locations, while cool pavement remains ineligible until direct paved-surface
   evidence exists; no existing shade, canopy gap, or surface condition is inferred.
+- Generated one candidate per authoritative compatible site and selected the highest-priority
+  intersecting heat tile for polygon sites, avoiding duplicate candidates for large school/park
+  geometries. Cool pavement remains at zero candidates rather than treating heat or POI proximity
+  as evidence of a suitable paved surface.
+- Assigned the same neutral `0.5` unverified feasibility/confidence scalar to both supported
+  intervention families. This prevents unsupported intervention-effect differences from changing
+  ranking while retaining the numeric fields required by the deterministic optimizer contract.

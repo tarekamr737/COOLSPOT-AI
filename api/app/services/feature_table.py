@@ -478,7 +478,7 @@ def _area_weighted(values: tuple[tuple[float | int | None, float], ...]) -> floa
     return sum(value * area for value, area in available) / total_area
 
 
-def _published_activity(stop: ProcessedTransitStop) -> float | None:
+def published_patronage_activity(stop: ProcessedTransitStop) -> float | None:
     if stop.patronage is None:
         return None
     pairs = (
@@ -595,7 +595,7 @@ def _build_raw_tiles(
             raise ValueError("heatmap feature and property tile IDs do not match")
 
         stops = tuple(sorted(stops_by_tile[index], key=lambda stop: stop.id))
-        activities = tuple(_published_activity(stop) for stop in stops)
+        activities = tuple(published_patronage_activity(stop) for stop in stops)
         present_activities = tuple(value for value in activities if value is not None)
         patronage_activity = (
             sum(present_activities) if present_activities else 0.0 if not stops else None

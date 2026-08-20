@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "unverified_feasibility_score": 0.5,
+  "unverified_confidence_score": 0.5,
+  "benefit_score_basis": "Use the selected tile's modeled priority score without an intervention-specific effect multiplier.",
+  "equity_score_basis": "Use the selected tile's modeled vulnerability score as context, not as a count of people served.",
+  "screening_score_note": "The value 0.5 is a neutral deterministic scalar for an intervention that has passed data-level compatibility but not field verification; it is not a probability or measured effect.",
+  "representative_tile_rule": "For a site intersecting multiple heat tiles, select the tile with the highest modeled priority score, then heat score, then lowest numeric tile ID."
+}
