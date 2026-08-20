@@ -1,0 +1,248 @@
+{
+  "version": "1.0",
+  "pilot": "Pacoima, Los Angeles",
+  "cost_basis": {
+    "as_of": "2026-08-21",
+    "currency": "USD",
+    "disclaimer": "Rounded COOLSPOT screening allowances for comparing portfolios; these are not contractor quotes, bids, or construction estimates.",
+    "shared_exclusions": [
+      "Property acquisition, major utility relocation, environmental review, and unusual site remediation",
+      "Future inflation, procurement escalation, and costs identified by engineering design",
+      "Benefits or costs outside the stated planning unit"
+    ]
+  },
+  "sources": [
+    {
+      "id": "ladot_la_sombrita_2023",
+      "title": "La Sombrita Shade and Light Pilot Program Unveiled at 4 DASH Stops",
+      "publisher": "Los Angeles Department of Transportation",
+      "url": "https://ladot.lacity.gov/dotnews/weekly-update-may-25-2023",
+      "published_at": "2023-05-25",
+      "retrieved_at": "2026-08-21",
+      "supports": [
+        "LADOT reported that a traditional bus shelter could cost approximately $50,000 to install",
+        "Shade coverage varies with time of day and shelter design"
+      ]
+    },
+    {
+      "id": "metro_bus_stop_hub",
+      "title": "Los Angeles County Bus Stop Hub Maps and Planning Context",
+      "publisher": "Los Angeles County Metropolitan Transportation Authority",
+      "url": "https://busstophub.metro.net/resources/maps/",
+      "published_at": null,
+      "retrieved_at": "2026-08-21",
+      "supports": [
+        "Metro identifies shade and shelter as bus-stop heat mitigation",
+        "Bus-stop improvements require site-specific planning and prioritization"
+      ]
+    },
+    {
+      "id": "epa_tree_vegetation_benefits",
+      "title": "Benefits of Trees and Vegetation for Heat-Island Reduction",
+      "publisher": "United States Environmental Protection Agency",
+      "url": "https://www.epa.gov/heatislands/benefits-trees-and-vegetation",
+      "published_at": null,
+      "retrieved_at": "2026-08-21",
+      "supports": [
+        "Trees and vegetation cool through shade and evapotranspiration",
+        "Cooling outcomes vary by tree, placement, climate, and surrounding form"
+      ]
+    },
+    {
+      "id": "streetsla_tree_guidelines",
+      "title": "City of Los Angeles Street Tree Policies and Guidelines",
+      "publisher": "City of Los Angeles Bureau of Street Services",
+      "url": "https://streets.lacity.gov/resources/policies-and-guidelines",
+      "published_at": null,
+      "retrieved_at": "2026-08-21",
+      "supports": [
+        "Los Angeles requires site inspection and species selection for public-right-of-way trees",
+        "New public-right-of-way trees require a five-year establishment maintenance commitment"
+      ]
+    },
+    {
+      "id": "taha_pacoima_cool_pavement_2024",
+      "title": "Micrometeorological Effects and Thermal-Environmental Benefits of Cool Pavements: Pacoima Field Study",
+      "publisher": "Environmental Research Communications",
+      "url": "https://doi.org/10.1088/2515-7620/ad2a8e",
+      "published_at": "2024-03-13",
+      "retrieved_at": "2026-08-21",
+      "supports": [
+        "A year-long Pacoima observational study found predominantly beneficial but variable surface, air, and thermal-comfort effects",
+        "Measured effects depend on coating properties, weather, surroundings, scale, and comparison method"
+      ]
+    },
+    {
+      "id": "streetsla_cool_pavements_2020",
+      "title": "Cool Pavements Report to Los Angeles City Council",
+      "publisher": "City of Los Angeles Bureau of Street Services",
+      "url": "https://cityclerk.lacity.org/onlinedocs/2019/19-0600-S96_rpt_BOSS_03-04-2020.pdf",
+      "published_at": "2020-03-03",
+      "retrieved_at": "2026-08-21",
+      "supports": [
+        "Los Angeles tested coatings for wet traction, durability, and thermal performance",
+        "The report stated that the public-street replacement cycle was not yet known"
+      ]
+    }
+  ],
+  "interventions": [
+    {
+      "id": "shade_structure",
+      "label": "Shade structure",
+      "description": "A fixed shelter or shade structure sized for a transit waiting area.",
+      "applicability": {
+        "eligible_site_types": [
+          "transit_stop"
+        ],
+        "screening_rule": "Screen only published transit-stop locations; do not infer that an existing stop is unshaded.",
+        "preconstruction_checks": [
+          "Verify existing shade throughout operating hours and seasons",
+          "Confirm agency ownership, permits, ADA clear path, boarding clearance, utilities, drainage, visibility, and crash safety",
+          "Select orientation and dimensions using a site-specific solar and rider-use assessment"
+        ],
+        "exclusion_rule": "Exclude a site when adequate shade already exists or clearance, ownership, safety, or constructability cannot be confirmed."
+      },
+      "planning_cost": {
+        "estimate_usd": 50000,
+        "low_usd": 35000,
+        "high_usd": 75000,
+        "unit": "one transit-stop shelter site",
+        "basis": "The estimate anchors to LADOT's approximate traditional-shelter installation figure; the internal range allows for design and site variability without representing a bid.",
+        "source_ids": [
+          "ladot_la_sombrita_2023"
+        ]
+      },
+      "benefit_evidence": {
+        "kind": "qualitative",
+        "qualitative_benefit": "Well-oriented shade reduces direct solar exposure for people waiting at a transit stop and can improve outdoor thermal comfort.",
+        "transfer_limit": "The catalog does not assign a temperature reduction because actual coverage depends on sun angle, orientation, materials, weather, and how riders use the stop.",
+        "source_ids": [
+          "metro_bus_stop_hub",
+          "ladot_la_sombrita_2023"
+        ]
+      },
+      "uncertainty": {
+        "level": "medium",
+        "summary": "A mapped Metro stop establishes a waiting location, not existing shade, available right-of-way, or shelter feasibility.",
+        "factors": [
+          "Existing tree, building, or shelter shade is absent from the MVP data",
+          "Solar orientation and useful shade coverage are site and time dependent",
+          "Permitting, utilities, ADA clearance, drainage, and ownership can materially change cost or feasibility"
+        ]
+      },
+      "lifespan_maintenance": {
+        "expected_lifespan": "Not established by the cited local planning sources; determine during design and procurement.",
+        "maintenance_note": "Budget for inspection, cleaning, graffiti removal, lighting or panel repair where fitted, and eventual component replacement.",
+        "source_ids": [
+          "ladot_la_sombrita_2023",
+          "metro_bus_stop_hub"
+        ]
+      }
+    },
+    {
+      "id": "tree_canopy",
+      "label": "Tree canopy",
+      "description": "A planning package of approximately ten climate-appropriate shade trees at a public school or park site.",
+      "applicability": {
+        "eligible_site_types": [
+          "school",
+          "park"
+        ],
+        "screening_rule": "Screen mapped public school and park sites as potential hosts; a site record does not prove planting space or low canopy.",
+        "preconstruction_checks": [
+          "Verify ownership approval, existing canopy, planting space, soil volume, species suitability, irrigation, utilities, and accessible clearances",
+          "Confirm a funded five-year establishment and replacement plan",
+          "Use a qualified arborist and the applicable agency planting standards"
+        ],
+        "exclusion_rule": "Exclude sites without verified planting space, establishment water, responsible maintenance, or safe utility and infrastructure clearance."
+      },
+      "planning_cost": {
+        "estimate_usd": 50000,
+        "low_usd": 30000,
+        "high_usd": 80000,
+        "unit": "one approximately ten-tree public-site package",
+        "basis": "A rounded internal allowance of $5,000 per tree covers screening, planting, establishment care, replacement risk, and contingency; quantities and prices require site design and bids.",
+        "source_ids": [
+          "streetsla_tree_guidelines"
+        ]
+      },
+      "benefit_evidence": {
+        "kind": "qualitative",
+        "qualitative_benefit": "Established trees can cool public space through shade and evapotranspiration while providing additional environmental co-benefits.",
+        "transfer_limit": "No near-term temperature effect is assigned because cooling depends on survival, species, maturity, irrigation, placement, weather, and surrounding urban form.",
+        "source_ids": [
+          "epa_tree_vegetation_benefits"
+        ]
+      },
+      "uncertainty": {
+        "level": "high",
+        "summary": "The MVP has authoritative site locations but no tree inventory, canopy-gap layer, soil assessment, utility survey, irrigation plan, or survival forecast.",
+        "factors": [
+          "Young trees need years of successful establishment before providing mature shade",
+          "Drought, heat, pests, species choice, soil volume, and watering affect survival and growth",
+          "Existing canopy and underground or overhead conflicts are not represented"
+        ]
+      },
+      "lifespan_maintenance": {
+        "expected_lifespan": "Potentially multi-decade, but no lifespan is assumed for scoring because survival and species are unknown.",
+        "maintenance_note": "Los Angeles requires a five-year establishment commitment for new public-right-of-way trees; ongoing watering, inspection, pruning, pest response, and replacement remain necessary.",
+        "source_ids": [
+          "streetsla_tree_guidelines",
+          "epa_tree_vegetation_benefits"
+        ]
+      }
+    },
+    {
+      "id": "cool_pavement",
+      "label": "Cool pavement",
+      "description": "A reflective pavement treatment for a verified, suitable public paved surface or corridor segment.",
+      "applicability": {
+        "eligible_site_types": [
+          "public_corridor",
+          "public_paved_surface"
+        ],
+        "screening_rule": "Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence.",
+        "preconstruction_checks": [
+          "Verify ownership, surface material and condition, treatment area, traffic plan, wet traction, drainage, glare, accessibility, and product compatibility",
+          "Evaluate pedestrian radiant exposure and complementary shade for the proposed design",
+          "Confirm product durability, reapplication plan, and life-cycle impacts"
+        ],
+        "exclusion_rule": "Exclude sites lacking verified public pavement geometry or with unresolved traction, glare, surface-condition, pedestrian-comfort, or maintenance concerns."
+      },
+      "planning_cost": {
+        "estimate_usd": 120000,
+        "low_usd": 75000,
+        "high_usd": 200000,
+        "unit": "one approximately 20,000-square-foot public treatment area",
+        "basis": "A rounded internal screening allowance covers surface preparation, coating, mobilization, traffic control, design, and contingency; it is not derived from a current product quote.",
+        "source_ids": [
+          "streetsla_cool_pavements_2020"
+        ]
+      },
+      "benefit_evidence": {
+        "kind": "observational_field_study",
+        "qualitative_benefit": "A year-long Pacoima field study found predominantly beneficial but variable changes in pavement surface temperature, near-surface air temperature, and thermal-comfort indicators.",
+        "transfer_limit": "No study value is applied as a forecast; effects varied with coating properties, weather, surroundings, spatial scale, and comparison method, and other studies have raised pedestrian radiant-exposure concerns.",
+        "source_ids": [
+          "taha_pacoima_cool_pavement_2024"
+        ]
+      },
+      "uncertainty": {
+        "level": "high",
+        "summary": "Pacoima evidence is locally relevant, but the MVP lacks verified pavement area, material, condition, albedo, pedestrian geometry, product choice, and life-cycle data.",
+        "factors": [
+          "Observed cooling varied across locations, times, weather, and analytical comparisons",
+          "Reflective short-wave exposure can affect pedestrian comfort depending on context",
+          "Product durability, replacement interval, and life-cycle impacts require project-specific evidence"
+        ]
+      },
+      "lifespan_maintenance": {
+        "expected_lifespan": "Unknown for the proposed site and product; the cited City report did not establish a public-street replacement cycle.",
+        "maintenance_note": "Inspect wet traction, coating wear, soiling, glare, drainage, and thermal performance, and fund reapplication only after product-specific design review.",
+        "source_ids": [
+          "streetsla_cool_pavements_2020"
+        ]
+      }
+    }
+  ]
+}

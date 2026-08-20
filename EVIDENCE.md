@@ -114,3 +114,29 @@
   `.venv\Scripts\python.exe -m scripts.build_feature_table --check` matches byte-for-byte.
 - Artifact SHA-256: `5DC46CE16B5FBD4D7A939EE4A3BD26A5FD2B333C2E2E96AD30048C168415F4A9`.
 - Scoring-config SHA-256: `9AB6234C4222A680AD011687BCE3F39C3AA9E107709DA9AA26F07B3C2AAC20CD`.
+
+## Versioned intervention catalog is complete and traceable
+
+- Requirement: define the three MVP intervention families with executable applicability rules,
+  disclosed planning costs, evidence, uncertainty, sources, and maintenance/lifespan notes.
+- Artifact: `data/processed/interventions.json`, validated by the strict
+  `InterventionCatalog`/`InterventionDefinition` boundary models in
+  `api/app/services/interventions.py`.
+- Result: the version 1.0 catalog defines shade structures, tree canopy, and cool pavement with
+  positive USD planning estimates inside explicit low/high ranges. The shared disclaimer and each
+  cost basis state that values are rounded screening allowances, not contractor quotes, bids, or
+  construction estimates.
+- Applicability proof: shade structures screen only published transit stops; tree packages screen
+  only mapped schools and parks; cool pavement requires a verified public corridor or paved
+  surface. Every family lists preconstruction checks and exclusion rules, so the catalog does not
+  infer existing shade, canopy gaps, planting feasibility, or pavement from a hot tile or POI.
+- Evidence proof: six cataloged sources resolve all cost-scope, qualitative-benefit, and lifecycle
+  references. They include LADOT and LA Metro shade guidance, EPA and StreetsLA tree guidance, the
+  2024 Pacoima observational cool-pavement study, and StreetsLA's lifecycle caution. Unknown source
+  publication dates remain `null` rather than being inferred.
+- Claim proof: benefits are qualitative and transfer limits prohibit applying cited observations
+  as site forecasts. Uncertainty is explicit, no candidate-level cooling outcome is promised, and
+  tests reject unknown source IDs and planning estimates outside their ranges.
+- Test proof: `.venv\Scripts\python.exe -m pytest api/tests/test_interventions.py` → `3 passed`;
+  focused Ruff and strict Mypy checks pass.
+- Artifact SHA-256: `4969DDD8498C471855FAE0BDC335FF85804979E6E93CE74E753B8E882661A932`.

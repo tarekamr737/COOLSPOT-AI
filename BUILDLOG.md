@@ -40,3 +40,13 @@
 - FortyGuard's returned tiles missed two authoritative AOI-edge Metro points by 3.2 m and 14.6 m.
   Added a versioned 25 m nearest-tile tolerance and per-record proximity flags; all farther points
   would remain visibly unmatched rather than being silently snapped.
+
+## 2026-08-21
+
+- Kept intervention effects qualitative even where the Pacoima cool-pavement study reports numeric
+  observations: transferring a study value into a candidate forecast would imply unsupported
+  precision. The catalog retains the local study, its variability, and its transfer limits.
+- Treated intervention prices as rounded portfolio-screening allowances with explicit units,
+  ranges, exclusions, and source context. Shade/tree candidates may be screened from authoritative
+  stop or public-site locations, while cool pavement remains ineligible until direct paved-surface
+  evidence exists; no existing shade, canopy gap, or surface condition is inferred.
