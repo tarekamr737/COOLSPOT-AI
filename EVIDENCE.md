@@ -67,3 +67,21 @@
   validates request/config agreement, tile alignment, credit deltas, deterministic serialization,
   numeric layer values, and absence of credential/account fields.
 - Artifact SHA-256: `A76E1E9C0310B4725D8AB0A37C12C3A5FD3F2E70FAF8B28A7EFB98A020BEF27A`.
+
+## Unneeded optional FortyGuard capabilities are explicitly disabled
+
+- Requirement: probe only optional endpoint access needed by the core MVP and disable unconfirmed
+  Premium features cleanly without inferring access from the credit balance.
+- Artifact: `data/processed/fortyguard_capabilities.json`, validated by
+  `CapabilityManifest`/`CapabilityRecord` and loaded through a fail-visible feature guard.
+- Result: required cached TCM and persistence capabilities are enabled with confirmed runtime
+  access. Exceedance, environmental parameters, satellite segmentation, street-view segmentation,
+  and Heat Intelligence are disabled with explicit reasons/dependencies and `access=unconfirmed`.
+  Calling `require_enabled` for any disabled feature raises a useful `FeatureDisabledError`.
+- Credit proof: **zero optional live probes** were made because none is required for the core
+  feature table or acceptance path. Usage therefore remained **8,440** with **1,991,560 credits**
+  remaining, preserving the 500,000 reserve.
+- Test proof: `.venv\Scripts\python.exe -m pytest api/tests/test_capabilities.py` → `2 passed`;
+  the tests cover the complete capability set, enabled cached layers, disabled/unconfirmed states,
+  fail-visible guards, zero optional probes, and balanced credit counters.
+- Artifact SHA-256: `118CF5E0E00F2CD8C17BC7A3C835C3E81CB2E73386817068F37A8009A024C269`.

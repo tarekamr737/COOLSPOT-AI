@@ -29,3 +29,7 @@
 - Used a one-hour 14:00 TCM layer and a same-date daily persistence layer on the identical 100 m
   grid. The 30 °C persistence threshold is a versioned, disclosed planning threshold—not a health
   cutoff—so it supports relative hotspot ranking without implying unsupported safety effects.
+- Made no Premium/optional endpoint probes: the next core feature-table task is fully supported by
+  cached TCM, persistence, Metro/POI, and ACS data. Optional access remains explicitly unconfirmed
+  and fail-closed until a ranked-site dependency demonstrates incremental MVP value; this avoids
+  spending credits merely to discover plan entitlements.

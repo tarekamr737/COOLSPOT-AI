@@ -16,7 +16,7 @@
 - [x] Implement credit ledger/governor with 500k hard reserve and `FORTYGUARD_LIVE=0` default.
 - [x] With live mode explicitly enabled, measure one heatmap request's real credit delta; record it.
 - [x] Cache one real Pacoima `tcm` 100m heatmap and one matching `persistence` result without breaching reserve.
-- [ ] Probe only the optional endpoint access actually needed; disable unsupported Premium features cleanly.
+- [x] Probe only the optional endpoint access actually needed; disable unsupported Premium features cleanly.
 
 ## 3 — Decision engine
 - [ ] Build tile feature table: heat + exposure + vulnerability + cooling opportunity; unit-test normalization/missing data.

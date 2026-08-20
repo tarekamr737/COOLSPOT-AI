@@ -1,0 +1,74 @@
+{
+  "capabilities": [
+    {
+      "access": "confirmed",
+      "cached_artifact": "data/processed/pacoima_fortyguard_heatmaps.json",
+      "dependency": null,
+      "enabled": true,
+      "feature": "heatmap_tcm",
+      "probe_attempted": true,
+      "reason": "Required core layer completed successfully and is cached for offline use."
+    },
+    {
+      "access": "confirmed",
+      "cached_artifact": "data/processed/pacoima_fortyguard_heatmaps.json",
+      "dependency": null,
+      "enabled": true,
+      "feature": "heatmap_persistence",
+      "probe_attempted": true,
+      "reason": "Required core layer completed successfully and is cached for offline use."
+    },
+    {
+      "access": "unconfirmed",
+      "cached_artifact": null,
+      "dependency": "Evidence that exceedance materially improves ranking beyond TCM and persistence.",
+      "enabled": false,
+      "feature": "heatmap_exceedance",
+      "probe_attempted": false,
+      "reason": "Not required for core ranking, so no speculative request or access probe was made."
+    },
+    {
+      "access": "unconfirmed",
+      "cached_artifact": null,
+      "dependency": "A ranked top-site set and a demonstrated need for point-level enrichment.",
+      "enabled": false,
+      "feature": "environmental_parameters",
+      "probe_attempted": false,
+      "reason": "Deferred until ranked sites exist; the core tile table does not depend on this endpoint."
+    },
+    {
+      "access": "unconfirmed",
+      "cached_artifact": null,
+      "dependency": "A top-site-only canopy question that cannot be answered from cached public evidence.",
+      "enabled": false,
+      "feature": "satellite_segmentation",
+      "probe_attempted": false,
+      "reason": "Premium access is unconfirmed and segmentation is not required for the core MVP."
+    },
+    {
+      "access": "unconfirmed",
+      "cached_artifact": null,
+      "dependency": "A top-site-only shade question that cannot be answered from cached public evidence.",
+      "enabled": false,
+      "feature": "street_view_segmentation",
+      "probe_attempted": false,
+      "reason": "Premium access is unconfirmed and segmentation is not required for the core MVP."
+    },
+    {
+      "access": "unconfirmed",
+      "cached_artifact": null,
+      "dependency": "A post-MVP reporting requirement not met by deterministic explanations.",
+      "enabled": false,
+      "feature": "heat_intelligence_report",
+      "probe_attempted": false,
+      "reason": "The report endpoint is not an MVP dependency and was not probed or assumed available."
+    }
+  ],
+  "credits_remaining": 1991560,
+  "credits_used": 8440,
+  "evaluated_at": "2026-08-20",
+  "hard_reserve": 500000,
+  "optional_live_probes_made": 0,
+  "total_credits": 2000000,
+  "version": "1.0"
+}
