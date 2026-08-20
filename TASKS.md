@@ -4,7 +4,7 @@
 
 ## 0 — Bootstrap
 - [x] Scaffold `web/` Next.js and `api/` FastAPI; add strict lint/type/test commands and `.env.example`.
-- [ ] Add `GET /health`; run frontend + API locally.
+- [x] Add `GET /health`; run frontend + API locally.
 
 ## 1 — Pilot + sources
 - [ ] Acquire/build `pacoima_aoi.geojson`; programmatically prove area `<10 mi²` and add boundary test.
