@@ -1,0 +1,44 @@
+{
+  "error": false,
+  "status_code": 200,
+  "message": "Completed",
+  "data": {
+    "activity_id": "heatmap-fixture-001",
+    "status": "Completed",
+    "result": {
+      "map_data": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {
+              "tile_id": "tile-1",
+              "value": 38.5
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [-118.42, 34.25],
+                  [-118.419, 34.25],
+                  [-118.419, 34.251],
+                  [-118.42, 34.251],
+                  [-118.42, 34.25]
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "stats_data": {
+        "units": "celsius",
+        "Temperature_stats": {
+          "Minimum": 38.5,
+          "Maximum": 38.5,
+          "Mean": 38.5,
+          "Standard_deviation": 0.0
+        }
+      }
+    }
+  }
+}

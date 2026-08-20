@@ -1,0 +1,9 @@
+{
+  "error": false,
+  "status_code": 200,
+  "message": "Processing",
+  "data": {
+    "activity_id": "heatmap-fixture-001",
+    "status": "Processing"
+  }
+}

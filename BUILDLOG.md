@@ -12,3 +12,7 @@
   available. Switched to the official no-account table-based Summary File, streamed only LA
   County tract rows, and required schema validation before any downloaded response is promoted
   to the raw cache.
+- FortyGuard's heatmap endpoint page documents `filter_type=4` for ranges up to one month, while
+  its general limitations page lists only types 1–3. The adapter accepts type 4 only for heatmaps,
+  keeps environmental/satellite requests to types 1–3, and the MVP will use types 1/3 until a
+  single controlled runtime request confirms behavior.
