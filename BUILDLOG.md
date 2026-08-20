@@ -16,3 +16,6 @@
   its general limitations page lists only types 1–3. The adapter accepts type 4 only for heatmaps,
   keeps environmental/satellite requests to types 1–3, and the MVP will use types 1/3 until a
   single controlled runtime request confirms behavior.
+- FortyGuard documentation names the usage endpoints but does not publish a stable response
+  schema. The credit governor therefore consumes a validated absolute usage reading and does not
+  invent vendor fields; runtime response mapping is deferred to the single controlled usage probe.
