@@ -1,0 +1,235 @@
+{
+  "version": "1.0",
+  "sources": [
+    {
+      "id": "pacoima_boundary",
+      "title": "Neighborhood Councils (Certified) — PACOIMA NC",
+      "publisher": "City of Los Angeles Bureau of Engineering / GIS Mapping Division",
+      "dataset_url": "https://maps.lacity.org/lahub/rest/services/Boundaries/MapServer/18",
+      "retrieved_at": "2026-08-20",
+      "data_vintage": "Live service snapshot retrieved 2026-08-20",
+      "license_notes": "City of Los Angeles public data provided as-is for informational use; no dataset-specific license is stated.",
+      "license_url": "https://data.lacity.org/terms-of-use",
+      "fields": {
+        "NAME": "Certified Neighborhood Council name",
+        "OBJECTID": "Source feature identifier",
+        "NC_ID": "Neighborhood Council identifier"
+      },
+      "limitations": [
+        "This is the official certified Neighborhood Council boundary, not a parcel or construction boundary."
+      ],
+      "artifacts": []
+    },
+    {
+      "id": "lausd_school_sites",
+      "title": "LAUSD School Site Locations",
+      "publisher": "Los Angeles Unified School District via Los Angeles GeoHub",
+      "dataset_url": "https://services5.arcgis.com/7nsPwEMP38bSkCjy/ArcGIS/rest/services/LAUSD_School_Site_Locations/FeatureServer/0",
+      "retrieved_at": "2026-08-20",
+      "data_vintage": "Layer last edited 2024-06-25",
+      "license_notes": "No dataset-specific license is stated in the ArcGIS metadata; use is informational/as-is and attribution is retained.",
+      "license_url": "https://data.lacity.org/terms-of-use",
+      "fields": {
+        "LOCN": "LAUSD location code",
+        "CATEGORY": "Site category",
+        "MPD_NAME": "Master Planning and Development name",
+        "ADDRESS": "Published site address",
+        "FULLNAME": "Published school name",
+        "CDSCODE": "California school code",
+        "ACTIVE": "Published activity status",
+        "SITE_ID": "Site identifier",
+        "LOGRD": "Lowest grade",
+        "HIGRD": "Highest grade"
+      },
+      "limitations": [
+        "The source layer does not publish enrollment or attendance counts; proximity is not treated as footfall."
+      ],
+      "artifacts": [
+        {
+          "id": "lausd_schools_bbox",
+          "retrieval_url": "https://services5.arcgis.com/7nsPwEMP38bSkCjy/ArcGIS/rest/services/LAUSD_School_Site_Locations/FeatureServer/0/query?where=1%3D1&geometry=-118.442067507455%2C34.238798476212%2C-118.371188213577%2C34.2939240168528&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=FID%2CLOCN%2CCATEGORY%2CMPD_NAME%2CADDRESS%2CCITY%2CZIP%2CFULLNAME%2CCDSCODE%2CACTIVE%2CSITE_ID%2CLOGRD%2CHIGRD&returnGeometry=true&outSR=4326&f=geojson",
+          "cache_path": "data/raw/pois/lausd_schools.geojson",
+          "media_type": "application/geo+json"
+        }
+      ]
+    },
+    {
+      "id": "la_city_parks",
+      "title": "Los Angeles City Recreation and Parks Facility Boundaries",
+      "publisher": "City of Los Angeles Department of Recreation and Parks via Los Angeles GeoHub",
+      "dataset_url": "https://services5.arcgis.com/7nsPwEMP38bSkCjy/ArcGIS/rest/services/Los_Angeles_City_Recreation_and_Parks_Facility_Boundaries/FeatureServer/0",
+      "retrieved_at": "2026-08-20",
+      "data_vintage": "Layer last edited 2025-08-18",
+      "license_notes": "City of Los Angeles public data provided as-is for informational use; no dataset-specific license is stated.",
+      "license_url": "https://data.lacity.org/terms-of-use",
+      "fields": {
+        "AssetID": "Facility asset identifier",
+        "Name": "Facility name",
+        "Type": "Facility type",
+        "Park_ID": "Park identifier",
+        "Street": "Published street",
+        "City": "Published city",
+        "Zip": "Published ZIP code"
+      },
+      "limitations": [
+        "Facility polygons do not establish intervention ownership, constructability, canopy, or pavement condition."
+      ],
+      "artifacts": [
+        {
+          "id": "la_city_parks_bbox",
+          "retrieval_url": "https://services5.arcgis.com/7nsPwEMP38bSkCjy/ArcGIS/rest/services/Los_Angeles_City_Recreation_and_Parks_Facility_Boundaries/FeatureServer/0/query?where=1%3D1&geometry=-118.442067507455%2C34.238798476212%2C-118.371188213577%2C34.2939240168528&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=FID%2CAssetID%2CName%2CType%2CPark_ID%2CAddrNumber%2CStreet%2CCity%2CZip&returnGeometry=true&outSR=4326&f=geojson",
+          "cache_path": "data/raw/pois/la_city_parks.geojson",
+          "media_type": "application/geo+json"
+        }
+      ]
+    },
+    {
+      "id": "lapl_branches",
+      "title": "Los Angeles Public Library Branch Locations",
+      "publisher": "Los Angeles Public Library via Los Angeles GeoHub",
+      "dataset_url": "https://services5.arcgis.com/7nsPwEMP38bSkCjy/ArcGIS/rest/services/LAPL_Branch_Locations/FeatureServer/0",
+      "retrieved_at": "2026-08-20",
+      "data_vintage": "Layer last edited 2024-04-09",
+      "license_notes": "City of Los Angeles public data provided as-is for informational use; no dataset-specific license is stated.",
+      "license_url": "https://data.lacity.org/terms-of-use",
+      "fields": {
+        "Branch____Display_Name": "Published branch display name",
+        "Address": "Published branch address",
+        "City": "Published city",
+        "State": "Published state",
+        "Zip": "Published ZIP code"
+      },
+      "limitations": [
+        "Branch locations do not establish cooling-center status, operating hours, or site feasibility."
+      ],
+      "artifacts": [
+        {
+          "id": "lapl_branches_bbox",
+          "retrieval_url": "https://services5.arcgis.com/7nsPwEMP38bSkCjy/ArcGIS/rest/services/LAPL_Branch_Locations/FeatureServer/0/query?where=1%3D1&geometry=-118.442067507455%2C34.238798476212%2C-118.371188213577%2C34.2939240168528&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=ObjectId%2CBranch____Display_Name%2CAddress%2CCity%2CState%2CZip&returnGeometry=true&outSR=4326&f=geojson",
+          "cache_path": "data/raw/pois/lapl_branches.geojson",
+          "media_type": "application/geo+json"
+        }
+      ]
+    },
+    {
+      "id": "la_metro_gtfs_bus",
+      "title": "LA Metro Bus GTFS",
+      "publisher": "Los Angeles County Metropolitan Transportation Authority",
+      "dataset_url": "https://gitlab.com/LACMTA/gtfs_bus",
+      "retrieved_at": "2026-08-20",
+      "data_vintage": "Current master archive at retrieval time; feed dates are validated from feed_info.txt",
+      "license_notes": "Published by LA Metro for developer use. Retain attribution to LA Metro and verify current Metro terms before redistribution.",
+      "license_url": "https://lacmta.github.io/resources/",
+      "fields": {
+        "stop_id": "GTFS stop identifier",
+        "stop_name": "GTFS stop name",
+        "stop_lat": "GTFS stop latitude",
+        "stop_lon": "GTFS stop longitude",
+        "route_id": "GTFS route identifier"
+      },
+      "limitations": [
+        "GTFS contains scheduled service and stop locations, not measured ridership or footfall."
+      ],
+      "artifacts": [
+        {
+          "id": "la_metro_gtfs_bus_zip",
+          "retrieval_url": "https://gitlab.com/LACMTA/gtfs_bus/raw/master/gtfs_bus.zip",
+          "cache_path": "data/raw/metro/gtfs_bus.zip",
+          "media_type": "application/zip"
+        }
+      ]
+    },
+    {
+      "id": "la_metro_bus_patronage_2024",
+      "title": "LA Metro April 2024 Bus Stop Patronage",
+      "publisher": "Los Angeles County Metropolitan Transportation Authority via Los Angeles GeoHub",
+      "dataset_url": "https://busstophub.metro.net/resources/maps/",
+      "retrieved_at": "2026-08-20",
+      "data_vintage": "April 2024 patronage; 2024 Bus Stop Hub analysis snapshot",
+      "license_notes": "Published by LA Metro for bus-stop planning reference. Retain attribution; the hosted layer metadata states no dataset-specific license.",
+      "license_url": "https://lacmta.github.io/resources/",
+      "fields": {
+        "STOPID": "Published Metro stop identifier",
+        "STOPNAME": "Published stop name",
+        "DX_Ons": "Published raw DX boardings field",
+        "DX_Offs": "Published raw DX alightings field",
+        "DX_Trips": "Published raw DX trips field",
+        "SA_Ons": "Published raw SA boardings field",
+        "SA_Offs": "Published raw SA alightings field",
+        "SA_Trips": "Published raw SA trips field",
+        "SU_Ons": "Published raw SU boardings field",
+        "SU_Offs": "Published raw SU alightings field",
+        "SU_Trips": "Published raw SU trips field"
+      },
+      "limitations": [
+        "The ArcGIS layer does not define the DX, SA, and SU abbreviations; raw values are cached without assigning day-type meanings.",
+        "The Bus Stop Hub describes its ridership criterion as published boardings and alightings from a 2024 snapshot; it is not live ridership."
+      ],
+      "artifacts": [
+        {
+          "id": "la_metro_patronage_bbox",
+          "retrieval_url": "https://services5.arcgis.com/7nsPwEMP38bSkCjy/ArcGIS/rest/services/LACMTA_APR24_Patronage_view/FeatureServer/0/query?where=1%3D1&geometry=-118.442067507455%2C34.238798476212%2C-118.371188213577%2C34.2939240168528&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CSTOPID%2CSTOPNAME%2CLAT%2CLONG%2CDX_Ons%2CDX_Offs%2CDX_Trips%2CSA_Ons%2CSA_Offs%2CSA_Trips%2CSU_Ons%2CSU_Offs%2CSU_Trips%2CDistrict&returnGeometry=true&outSR=4326&f=geojson",
+          "cache_path": "data/raw/metro/apr2024_patronage.geojson",
+          "media_type": "application/geo+json"
+        }
+      ]
+    },
+    {
+      "id": "census_acs_2024",
+      "title": "2020–2024 American Community Survey 5-Year Estimates and ACS 2024 Tracts",
+      "publisher": "U.S. Census Bureau",
+      "dataset_url": "https://www.census.gov/programs-surveys/acs/data/summary-file.2024.html",
+      "retrieved_at": "2026-08-20",
+      "data_vintage": "2024 ACS 5-year estimates; January 1, 2024 tract geography",
+      "license_notes": "Public Census Summary File content may be analyzed and displayed; identify Census as the source and do not imply endorsement.",
+      "license_url": "https://www.census.gov/data/developers/about/terms-of-service.html",
+      "fields": {
+        "B01001_E001": "Total population and sex-by-age denominator estimate",
+        "B09001_E001": "Population under 18 estimate",
+        "B01001_E020..B01001_E025": "Male population age 65 and over components",
+        "B01001_E044..B01001_E049": "Female population age 65 and over components",
+        "B17001_E001": "Poverty-status universe estimate",
+        "B17001_E002": "Population below poverty estimate",
+        "B08201_E001": "Household vehicle-availability universe estimate",
+        "B08201_E002": "Households with no vehicle available estimate",
+        "GEO_ID": "2024 ACS summary-file geography identifier"
+      },
+      "limitations": [
+        "ACS values are survey estimates with sampling uncertainty; margins of error are not yet incorporated in the MVP score.",
+        "Tract estimates describe residents and households, not people present at a site at a particular time."
+      ],
+      "artifacts": [
+        {
+          "id": "census_acs_2024_b01001",
+          "retrieval_url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b01001.dat",
+          "cache_path": "data/raw/census/acs2024_b01001_la_county_tracts.dat",
+          "media_type": "text/plain"
+        },
+        {
+          "id": "census_acs_2024_b09001",
+          "retrieval_url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b09001.dat",
+          "cache_path": "data/raw/census/acs2024_b09001_la_county_tracts.dat",
+          "media_type": "text/plain"
+        },
+        {
+          "id": "census_acs_2024_b17001",
+          "retrieval_url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b17001.dat",
+          "cache_path": "data/raw/census/acs2024_b17001_la_county_tracts.dat",
+          "media_type": "text/plain"
+        },
+        {
+          "id": "census_acs_2024_b08201",
+          "retrieval_url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b08201.dat",
+          "cache_path": "data/raw/census/acs2024_b08201_la_county_tracts.dat",
+          "media_type": "text/plain"
+        },
+        {
+          "id": "census_tiger_acs2024_tracts_bbox",
+          "retrieval_url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Tracts_Blocks/MapServer/7/query?where=STATE%3D%2706%27%20AND%20COUNTY%3D%27037%27&geometry=-118.442067507455%2C34.238798476212%2C-118.371188213577%2C34.2939240168528&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=GEOID%2CBASENAME%2CSTATE%2CCOUNTY%2CTRACT&returnGeometry=true&outSR=4326&f=geojson",
+          "cache_path": "data/raw/census/acs2024_tracts_bbox.geojson",
+          "media_type": "application/geo+json"
+        }
+      ]
+    }
+  ]
+}

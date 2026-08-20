@@ -8,7 +8,7 @@
 
 ## 1 — Pilot + sources
 - [x] Acquire/build `pacoima_aoi.geojson`; programmatically prove area `<10 mi²` and add boundary test.
-- [ ] Create `data/sources.json`; ingest/cache pilot POIs + LA Metro + minimal ACS variables.
+- [x] Create `data/sources.json`; ingest/cache pilot POIs + LA Metro + minimal ACS variables.
 - [ ] Produce one clipped, deterministic processed public-data fixture for Pacoima.
 
 ## 2 — FortyGuard safely

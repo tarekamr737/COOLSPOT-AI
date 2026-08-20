@@ -8,3 +8,7 @@
 - Selected the City of Los Angeles certified Pacoima Neighborhood Council polygon as the pilot
   AOI instead of inventing a simplified boundary. Its projected area is 7.763214 mi², so no
   clipping or geometry simplification was needed.
+- The 2024 ACS API returned an HTML `Missing Key` page with HTTP 200 when no Census key was
+  available. Switched to the official no-account table-based Summary File, streamed only LA
+  County tract rows, and required schema validation before any downloaded response is promoted
+  to the raw cache.

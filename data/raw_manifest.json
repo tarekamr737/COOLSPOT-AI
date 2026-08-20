@@ -1,0 +1,109 @@
+{
+  "version": "1.0",
+  "retrieved_at": "2026-08-20",
+  "artifacts": [
+    {
+      "source_id": "lausd_school_sites",
+      "artifact_id": "lausd_schools_bbox",
+      "path": "data/raw/pois/lausd_schools.geojson",
+      "sha256": "8af0eaccac31c0bc5d8cbc90bdc343b60e7c79080b31ee29773c8a8d5b0a9720",
+      "byte_count": 18374,
+      "record_count": 48,
+      "metadata": {}
+    },
+    {
+      "source_id": "la_city_parks",
+      "artifact_id": "la_city_parks_bbox",
+      "path": "data/raw/pois/la_city_parks.geojson",
+      "sha256": "d110767b37ce22b41d81075df558a17f9c4b73322d39d734d33ec46bc0928303",
+      "byte_count": 14727,
+      "record_count": 14,
+      "metadata": {}
+    },
+    {
+      "source_id": "lapl_branches",
+      "artifact_id": "lapl_branches_bbox",
+      "path": "data/raw/pois/lapl_branches.geojson",
+      "sha256": "9663282cb349c1da2b62e33bb804131cc565701b6b8dfd258d2b30951ba5c8ed",
+      "byte_count": 613,
+      "record_count": 2,
+      "metadata": {}
+    },
+    {
+      "source_id": "la_metro_gtfs_bus",
+      "artifact_id": "la_metro_gtfs_bus_zip",
+      "path": "data/raw/metro/gtfs_bus.zip",
+      "sha256": "93275d4b50eb22afcfe64f3fe8fd918dfb5fa43600be2e267658e5f2719eda33",
+      "byte_count": 22244988,
+      "record_count": 11892,
+      "metadata": {
+        "feed_publisher_name": "Los Angeles County Metropolitan Transportation Authority",
+        "feed_start_date": "20260607",
+        "feed_end_date": "20261212",
+        "feed_version": ""
+      }
+    },
+    {
+      "source_id": "la_metro_bus_patronage_2024",
+      "artifact_id": "la_metro_patronage_bbox",
+      "path": "data/raw/metro/apr2024_patronage.geojson",
+      "sha256": "57da3349243858994f690120c0d56a98b143d33e9ccc0596e89cbf82cc41336c",
+      "byte_count": 87100,
+      "record_count": 197,
+      "metadata": {}
+    },
+    {
+      "source_id": "census_acs_2024",
+      "artifact_id": "census_acs_2024_b01001",
+      "path": "data/raw/census/acs2024_b01001_la_county_tracts.dat",
+      "sha256": "868021fab60889c566b52bc3f3d1b281422fad15aa57825d09ba17d850cf2ec0",
+      "byte_count": 850491,
+      "record_count": 2498,
+      "metadata": {
+        "table_id": "B01001"
+      }
+    },
+    {
+      "source_id": "census_acs_2024",
+      "artifact_id": "census_acs_2024_b09001",
+      "path": "data/raw/census/acs2024_b09001_la_county_tracts.dat",
+      "sha256": "674db25e0a0c79ff3cdfffb825bbef549e3302d55d35ae6112d940f0284ce49b",
+      "byte_count": 222293,
+      "record_count": 2498,
+      "metadata": {
+        "table_id": "B09001"
+      }
+    },
+    {
+      "source_id": "census_acs_2024",
+      "artifact_id": "census_acs_2024_b17001",
+      "path": "data/raw/census/acs2024_b17001_la_county_tracts.dat",
+      "sha256": "409c93fc8de4770badd4b012b521d391cf44c7fc8d87b87288c3d3d26d849748",
+      "byte_count": 984531,
+      "record_count": 2498,
+      "metadata": {
+        "table_id": "B17001"
+      }
+    },
+    {
+      "source_id": "census_acs_2024",
+      "artifact_id": "census_acs_2024_b08201",
+      "path": "data/raw/census/acs2024_b08201_la_county_tracts.dat",
+      "sha256": "b8c897104d9334cef06dfaa2b35de3d4a35bd1d7b892dae6d52c157727d5f354",
+      "byte_count": 537532,
+      "record_count": 2498,
+      "metadata": {
+        "table_id": "B08201"
+      }
+    },
+    {
+      "source_id": "census_acs_2024",
+      "artifact_id": "census_tiger_acs2024_tracts_bbox",
+      "path": "data/raw/census/acs2024_tracts_bbox.geojson",
+      "sha256": "cb7f0a839ee582e93040a3fc24537f75a5065920157e03366f9974a85d88831d",
+      "byte_count": 390643,
+      "record_count": 44,
+      "metadata": {}
+    }
+  ]
+}
