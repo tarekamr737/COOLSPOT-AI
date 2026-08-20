@@ -22,7 +22,7 @@
 - [x] Build tile feature table: heat + exposure + vulnerability + cooling opportunity; unit-test normalization/missing data.
 - [x] Add versioned intervention catalog with applicability, planning cost, evidence, uncertainty, and source.
 - [x] Generate >=20 evidence-backed compatible candidates from real pilot data.
-- [ ] Implement deterministic OR-Tools optimizer; prove cost <= budget and <=1 intervention/site for preset budgets.
+- [x] Implement deterministic OR-Tools optimizer; prove cost <= budget and <=1 intervention/site for preset budgets.
 - [ ] Expose pilot/layers/candidates/optimize/site/methodology/data-status API routes.
 
 ## 4 — Product UI

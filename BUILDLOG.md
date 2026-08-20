@@ -57,3 +57,7 @@
 - Assigned the same neutral `0.5` unverified feasibility/confidence scalar to both supported
   intervention families. This prevents unsupported intervention-effect differences from changing
   ranking while retaining the numeric fields required by the deterministic optimizer contract.
+- Implemented CP-SAT with integer-scaled primary impact coefficients and a bounded candidate-ID
+  secondary term: one primary integer unit dominates every possible tie-break contribution. The
+  solver also sorts inputs, uses one worker/fixed seed/fixed search, and rejects any result not
+  proven optimal, so caller order and parallel scheduling cannot alter the portfolio.

@@ -169,3 +169,29 @@
   and strict Mypy checks pass.
 - Artifact SHA-256: `E1C7B55AB1EB466FD2D79D3DEA77068811B12215FD2D7939B5775D60DA12A5D4`.
 - Candidate-config SHA-256: `1D1F4027DB5F5B84744AEEE435FF170AD20E2038683FC4B6B08877CC9E84FBCA`.
+
+## OR-Tools optimizer is deterministic and budget/site feasible
+
+- Requirement: implement a deterministic OR-Tools CP-SAT portfolio optimizer and prove
+  `total_cost <= budget` plus at most one intervention per site for every preset budget.
+- Implementation: `api/app/services/optimizer.py` uses locked OR-Tools 9.15.6755, integer USD
+  costs, Boolean candidate variables, a hard budget constraint, and one `sum(x) <= 1` constraint
+  per site. `config/optimizer.json` versions budget bounds, presets, the `1,000,000` objective
+  scale, solve limit, and claim-safe score definitions.
+- Objective proof: each primary integer coefficient is the candidate's frozen tile priority score
+  multiplied by its disclosed feasibility and confidence screening scalars, then integer-scaled.
+  A bounded candidate-ID secondary term resolves exact ties without overriding one unit of the
+  primary objective.
+- Determinism proof: the solver uses one worker, fixed seed, fixed search, sorted candidate IDs,
+  and requires `OPTIMAL` status. Tests reverse the complete candidate input order and obtain the
+  identical typed result.
+- Preset results: `$250,000` selects 5 sites costing `$250,000`; `$500,000` selects 10 sites
+  costing `$500,000`; `$1,000,000` selects 20 sites costing `$1,000,000`. All have zero budget
+  overrun and unique selected site IDs. Outputs include unused budget, category counts, modeled
+  impact, and mean selected vulnerability-score context.
+- Site-exclusion proof: a synthetic input with two intervention options at the same site and one
+  unrelated option has budget for all costs but selects exactly one same-site option, proving the
+  constraint independently of the current one-candidate-per-site artifact.
+- Test proof: `.venv\Scripts\python.exe -m pytest api/tests/test_optimizer.py` → `3 passed`;
+  focused Ruff and strict Mypy checks pass.
+- Optimizer-config SHA-256: `85388C02C2A2DF7C4D2F32EE42D948DD2878ED29A9D3066A151D09768EE844AF`.
