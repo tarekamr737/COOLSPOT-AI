@@ -26,3 +26,6 @@
   published example and original fixture omitted it. Strict validation caught the difference; the
   model and fixture now accept typed string/integer feature IDs, and polling resumed the original
   cached activity rather than resubmitting it.
+- Used a one-hour 14:00 TCM layer and a same-date daily persistence layer on the identical 100 m
+  grid. The 30 °C persistence threshold is a versioned, disclosed planning threshold—not a health
+  cutoff—so it supports relative hotspot ranking without implying unsupported safety effects.

@@ -1,0 +1,9 @@
+{
+  "granularity_m": 100,
+  "persistence_direction": "above",
+  "persistence_threshold_c": 30.0,
+  "persistence_threshold_rationale": "A transparent planning threshold for counting hours above 30 degrees Celsius; it is not presented as a health or safety cutoff.",
+  "start_date": "2024-07-15",
+  "tcm_start_time": "14:00",
+  "version": "1.0"
+}

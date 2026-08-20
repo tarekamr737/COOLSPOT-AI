@@ -46,3 +46,24 @@
 - Test proof: `.venv\Scripts\python.exe -m pytest api/tests/test_fortyguard.py
   api/tests/test_credits.py api/tests/test_live_measurement.py` → `11 passed`.
 - Artifact SHA-256: `9E3B331310A7CE2F4563225B37F9C8EFDD8C0D311D534437CBDADCB7AF7CB17F`.
+
+## Real Pacoima TCM and persistence layers are cached
+
+- Requirement: cache at least one real successful FortyGuard TCM dataset and one matching
+  persistence dataset at 100 m without breaching the credit reserve.
+- Artifact: `data/processed/pacoima_fortyguard_heatmaps.json`, a deterministic 4,401,985-byte
+  offline artifact validated by `PacoimaHeatmapArtifact`. Raw responses and activity metadata are
+  retained under ignored `data/raw/fortyguard/` on D:.
+- Match proof: both completed layers contain **2,001 tiles** with identical ordered GeoJSON feature
+  IDs and polygon geometries, use the official Pacoima AOI, use 100 m granularity, and share the
+  2024-07-15 date context. The TCM layer represents 14:00; daily persistence counts values above
+  the versioned 30 °C planning threshold in `config/fortyguard_heatmaps.json`.
+- Live proof: TCM activity `fd894ae2-8891-4739-8e4e-d5ca7bc9b889` and persistence activity
+  `840ec657-3a84-4c7e-9a55-1991333d8e83` both completed. Each observed delta was **4,220 credits**;
+  cumulative cycle usage was **8,440**, leaving **1,991,560 credits**, above the 500,000 reserve.
+- Request hashes: TCM `b10fe0b3fd039fa01ccce197f0aaa8167c3c51f6dfce1b0678a363a39fa8fdd7`;
+  persistence `31f95902a1ee11fd073b3be2f2afdb4b083cb3a3c9ff50182efbab013a4dcd81`.
+- Test proof: focused adapter, governor, live-measurement, and real-data suite → `13 passed`; it
+  validates request/config agreement, tile alignment, credit deltas, deterministic serialization,
+  numeric layer values, and absence of credential/account fields.
+- Artifact SHA-256: `A76E1E9C0310B4725D8AB0A37C12C3A5FD3F2E70FAF8B28A7EFB98A020BEF27A`.

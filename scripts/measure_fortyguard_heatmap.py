@@ -24,12 +24,27 @@ from api.app.services.credits import CreditGovernor, CreditLedger, CreditSetting
 from api.app.services.fortyguard import FortyGuardClient, canonical_request_hash
 
 ROOT = Path(__file__).resolve().parents[1]
+CONFIG_PATH = ROOT / "config" / "fortyguard_heatmaps.json"
 AOI_PATH = ROOT / "data" / "processed" / "pacoima_aoi.geojson"
 RAW_ROOT = ROOT / "data" / "raw" / "fortyguard"
 CACHE_ROOT = RAW_ROOT / "cache"
 LEDGER_PATH = RAW_ROOT / "credit_ledger.json"
 JOURNAL_PATH = RAW_ROOT / "tcm_measurement_journal.json"
 REPORT_PATH = ROOT / "data" / "processed" / "fortyguard_credit_measurements.json"
+
+
+class HeatmapPilotConfig(BaseModel):
+    """Versioned request choices shared by the real TCM and persistence layers."""
+
+    model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
+
+    version: Literal["1.0"] = "1.0"
+    start_date: date
+    tcm_start_time: time
+    granularity_m: Literal[100]
+    persistence_threshold_c: float = Field(ge=-100, le=100)
+    persistence_direction: Literal["above", "below"]
+    persistence_threshold_rationale: str = Field(min_length=20)
 
 
 class MeasurementJournal(BaseModel):
@@ -93,17 +108,22 @@ def load_project_env(path: Path) -> dict[str, str]:
 def build_request() -> HeatmapRequest:
     """Build the one-hour, 100 m Pacoima TCM request used for measurement and demo data."""
 
+    config = load_heatmap_config()
     aoi = PolygonAoi.model_validate_json(AOI_PATH.read_text(encoding="utf-8"))
     return HeatmapRequest(
         polygon_aoi=aoi,
         date_time=DateTimeRequest(
-            start_date=date(2024, 7, 15),
-            start_time=time(14),
+            start_date=config.start_date,
+            start_time=config.tcm_start_time,
             filter_type=1,
         ),
-        granularity=100,
+        granularity=config.granularity_m,
         analytic_type="tcm",
     )
+
+
+def load_heatmap_config() -> HeatmapPilotConfig:
+    return HeatmapPilotConfig.model_validate_json(CONFIG_PATH.read_text(encoding="utf-8"))
 
 
 def write_model(path: Path, model: BaseModel) -> None:
@@ -114,10 +134,12 @@ def write_model(path: Path, model: BaseModel) -> None:
     os.replace(temporary_path, path)
 
 
-def load_journal(request_hash: str) -> MeasurementJournal | None:
-    if not JOURNAL_PATH.exists():
+def load_journal(
+    request_hash: str, path: Path = JOURNAL_PATH
+) -> MeasurementJournal | None:
+    if not path.exists():
         return None
-    journal = MeasurementJournal.model_validate_json(JOURNAL_PATH.read_text(encoding="utf-8"))
+    journal = MeasurementJournal.model_validate_json(path.read_text(encoding="utf-8"))
     if journal.request_hash != request_hash:
         raise RuntimeError("measurement journal belongs to a different request")
     return journal
