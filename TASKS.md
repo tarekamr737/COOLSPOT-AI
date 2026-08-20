@@ -19,7 +19,7 @@
 - [x] Probe only the optional endpoint access actually needed; disable unsupported Premium features cleanly.
 
 ## 3 — Decision engine
-- [ ] Build tile feature table: heat + exposure + vulnerability + cooling opportunity; unit-test normalization/missing data.
+- [x] Build tile feature table: heat + exposure + vulnerability + cooling opportunity; unit-test normalization/missing data.
 - [ ] Add versioned intervention catalog with applicability, planning cost, evidence, uncertainty, and source.
 - [ ] Generate >=20 evidence-backed compatible candidates from real pilot data.
 - [ ] Implement deterministic OR-Tools optimizer; prove cost <= budget and <=1 intervention/site for preset budgets.

@@ -33,3 +33,10 @@
   cached TCM, persistence, Metro/POI, and ACS data. Optional access remains explicitly unconfirmed
   and fail-closed until a ranked-site dependency demonstrates incremental MVP value; this avoids
   spending credits merely to discover plan entitlements.
+- The feature table treats ACS totals as area-weighted tract context, not apportioned tile counts,
+  and uses published Metro ons+offs without assigning meanings to the retained DX/SA/SU prefixes.
+  A 0/0 ACS vehicle-household denominator remains explicitly missing and its composite weight is
+  redistributed across available vulnerability rates.
+- FortyGuard's returned tiles missed two authoritative AOI-edge Metro points by 3.2 m and 14.6 m.
+  Added a versioned 25 m nearest-tile tolerance and per-record proximity flags; all farther points
+  would remain visibly unmatched rather than being silently snapped.

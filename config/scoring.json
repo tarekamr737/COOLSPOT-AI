@@ -1,0 +1,38 @@
+{
+  "constant_feature_score": 0.0,
+  "cooling_opportunity_note": "Cooling opportunity represents evidence of an actionable public site or transit waiting area; no canopy, shade, or surface condition is inferred.",
+  "exposure_weights": {
+    "poi_count": 0.1,
+    "population_context": 0.4,
+    "published_patronage": 0.4,
+    "transit_stop_count": 0.1
+  },
+  "heat_weights": {
+    "persistence": 0.5,
+    "temperature": 0.5
+  },
+  "lower_quantile": 0.02,
+  "missing_strategy": "Preserve missing raw/normalized values and renormalize each composite across only its available weighted inputs.",
+  "opportunity_weights": {
+    "public_site": 0.6,
+    "transit_stop": 0.4
+  },
+  "patronage_metric": "For each stop, use the maximum published boardings plus alightings across retained DX, SA, and SU categories without assigning meanings to those day-code prefixes; then sum stops in a tile.",
+  "point_join_max_distance_m": 25.0,
+  "point_join_note": "Points outside the returned heat-tile coverage by at most 25 meters are assigned to the nearest tile and explicitly flagged as proximity joins; farther points remain unmatched.",
+  "population_context_note": "ACS total population is an area-weighted intersecting-tract context estimate; it is not apportioned to or claimed as a tile population.",
+  "priority_weights": {
+    "cooling_opportunity": 0.1,
+    "exposure": 0.3,
+    "heat": 0.4,
+    "vulnerability": 0.2
+  },
+  "upper_quantile": 0.98,
+  "version": "1.0",
+  "vulnerability_weights": {
+    "children": 0.25,
+    "no_vehicle": 0.25,
+    "older_adults": 0.25,
+    "poverty": 0.25
+  }
+}

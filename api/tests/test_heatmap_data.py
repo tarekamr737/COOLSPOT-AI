@@ -5,9 +5,9 @@ from pathlib import Path
 
 from api.app.fortyguard_models import FortyGuardEndpoint
 from api.app.services.fortyguard import canonical_request_hash
+from api.app.services.heatmap_data import PacoimaHeatmapArtifact
 from scripts.cache_fortyguard_heatmaps import (
     OUTPUT_PATH,
-    PacoimaHeatmapArtifact,
     build_persistence_request,
 )
 from scripts.measure_fortyguard_heatmap import build_request, load_heatmap_config
