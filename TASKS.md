@@ -7,7 +7,7 @@
 - [x] Add `GET /health`; run frontend + API locally.
 
 ## 1 — Pilot + sources
-- [ ] Acquire/build `pacoima_aoi.geojson`; programmatically prove area `<10 mi²` and add boundary test.
+- [x] Acquire/build `pacoima_aoi.geojson`; programmatically prove area `<10 mi²` and add boundary test.
 - [ ] Create `data/sources.json`; ingest/cache pilot POIs + LA Metro + minimal ACS variables.
 - [ ] Produce one clipped, deterministic processed public-data fixture for Pacoima.
 
