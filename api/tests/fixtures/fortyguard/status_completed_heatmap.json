@@ -11,6 +11,7 @@
         "features": [
           {
             "type": "Feature",
+            "id": "0",
             "properties": {
               "tile_id": "tile-1",
               "value": 38.5

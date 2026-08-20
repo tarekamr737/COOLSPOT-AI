@@ -19,3 +19,10 @@
 - FortyGuard documentation names the usage endpoints but does not publish a stable response
   schema. The credit governor therefore consumes a validated absolute usage reading and does not
   invent vendor fields; runtime response mapping is deferred to the single controlled usage probe.
+- The live usage endpoint rejected the documented header-style authentication shape with HTTP 422
+  and required `api_key` in its JSON body. The adapter now uses that runtime contract over HTTPS,
+  validates only the current-cycle credit counters, and never logs or caches the credential.
+- The completed live heatmap contained a standard GeoJSON `id` on every feature, although the
+  published example and original fixture omitted it. Strict validation caught the difference; the
+  model and fixture now accept typed string/integer feature IDs, and polling resumed the original
+  cached activity rather than resubmitting it.

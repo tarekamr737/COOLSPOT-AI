@@ -28,3 +28,21 @@
   the fixture from cache and matched it byte-for-byte.
 - Test proof: `.venv\Scripts\python.exe -m pytest api/tests/test_processed_data.py` → `2 passed`.
 - Artifact SHA-256: `705BC38A92026E7AA5009D1111570E256A2FF7211C59DB4BBD809AF13279DB42`.
+
+## One real FortyGuard heatmap cost is measured
+
+- Requirement: with live mode explicitly enabled, submit one minimal heatmap request, measure its
+  real before/after credit delta, and preserve the 500,000-credit hard reserve.
+- Artifact: `data/processed/fortyguard_credit_measurements.json`; the server-side raw response,
+  request journal, activity link, and ledger remain cached under ignored `data/raw/fortyguard/`.
+- Request: Pacoima official 7.763214 mi² AOI, `tcm`, 100 m, one hour beginning
+  2024-07-15 at 14:00; canonical request hash
+  `b10fe0b3fd039fa01ccce197f0aaa8167c3c51f6dfce1b0678a363a39fa8fdd7`.
+- Result: activity `fd894ae2-8891-4739-8e4e-d5ca7bc9b889` completed with 2,001 validated
+  GeoJSON tiles. Current-cycle usage changed from **0** to **4,220**, an observed cost of
+  **4,220 credits**. **1,995,780 credits remained**, above the 500,000 reserve.
+- Idempotency proof: after strict validation exposed a runtime-only GeoJSON `id` field, the
+  command resumed the same cached activity ID; it did not submit another heatmap request.
+- Test proof: `.venv\Scripts\python.exe -m pytest api/tests/test_fortyguard.py
+  api/tests/test_credits.py api/tests/test_live_measurement.py` → `11 passed`.
+- Artifact SHA-256: `9E3B331310A7CE2F4563225B37F9C8EFDD8C0D311D534437CBDADCB7AF7CB17F`.

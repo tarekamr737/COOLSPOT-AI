@@ -14,7 +14,7 @@
 ## 2 — FortyGuard safely
 - [x] Implement typed async FortyGuard adapter, request-hash cache, resumable status polling, and fixture tests.
 - [x] Implement credit ledger/governor with 500k hard reserve and `FORTYGUARD_LIVE=0` default.
-- [ ] With live mode explicitly enabled, measure one heatmap request's real credit delta; record it.
+- [x] With live mode explicitly enabled, measure one heatmap request's real credit delta; record it.
 - [ ] Cache one real Pacoima `tcm` 100m heatmap and one matching `persistence` result without breaching reserve.
 - [ ] Probe only the optional endpoint access actually needed; disable unsupported Premium features cleanly.
 

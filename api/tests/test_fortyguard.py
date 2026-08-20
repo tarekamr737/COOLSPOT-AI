@@ -126,6 +126,41 @@ def test_request_hash_is_canonical_and_request_validation_enforces_limits() -> N
         )
 
 
+def test_usage_query_uses_runtime_body_contract_and_validates_balance(tmp_path: Path) -> None:
+    transport = FakeTransport(
+        [
+            TransportResponse(
+                status_code=200,
+                payload={
+                    "subscription_id": "not-retained",
+                    "credit_summary": {
+                        "total_available_credits": 2_000_000,
+                        "cycle_credits_used": 12_345,
+                        "cycle_remaining_credits": 1_987_655,
+                    },
+                },
+            )
+        ]
+    )
+    client = FortyGuardClient(
+        api_key="server-secret",
+        cache_root=tmp_path,
+        transport=transport,
+    )
+
+    usage = asyncio.run(client.fetch_credit_usage())
+
+    assert usage.used_credits == 12_345
+    assert transport.calls == [
+        (
+            "POST",
+            "https://api.fortyguard.com/v1/system/fetch-api-key-usage",
+            {"Content-Type": "application/json"},
+            {"api_key": "server-secret"},
+        )
+    ]
+
+
 def test_adapter_reuses_request_and_resumes_polling_after_restart(tmp_path: Path) -> None:
     request = heatmap_request()
     first_transport = FakeTransport([fixture_response("submit_heatmap.json")])

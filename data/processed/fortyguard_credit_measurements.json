@@ -1,0 +1,23 @@
+{
+  "activity_id": "fd894ae2-8891-4739-8e4e-d5ca7bc9b889",
+  "endpoint": "heatmap",
+  "hard_reserve": 500000,
+  "measured_at": "2026-08-20T18:58:02.489896Z",
+  "observed_credit_delta": 4220,
+  "remaining_after": 1995780,
+  "request": {
+    "analytic_type": "tcm",
+    "area_sq_mi": 7.763214,
+    "filter_type": 1,
+    "granularity_m": 100,
+    "pilot": "Pacoima, Los Angeles",
+    "start_date": "2024-07-15",
+    "start_time": "14:00"
+  },
+  "request_hash": "b10fe0b3fd039fa01ccce197f0aaa8167c3c51f6dfce1b0678a363a39fa8fdd7",
+  "status": "Completed",
+  "total_allocation": 2000000,
+  "usage_after": 4220,
+  "usage_before": 0,
+  "version": "1.0"
+}

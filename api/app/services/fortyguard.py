@@ -20,6 +20,7 @@ from api.app.fortyguard_models import (
     ActivityHandle,
     ActivityLifecycle,
     ActivityStatus,
+    CreditUsage,
     EndpointResult,
     EnvironmentalParametersRequest,
     EnvironmentalParametersResult,
@@ -157,6 +158,16 @@ class VendorStatusEnvelope(VendorModel):
     data: VendorStatusData
 
 
+class VendorCreditSummary(VendorModel):
+    total_available_credits: int = Field(gt=0)
+    cycle_credits_used: int = Field(ge=0)
+    cycle_remaining_credits: int = Field(ge=0)
+
+
+class VendorUsageResponse(VendorModel):
+    credit_summary: VendorCreditSummary
+
+
 class CachedActivity(BaseModel):
     """Server-side persistent request/activity state; never contains the API key."""
 
@@ -257,6 +268,23 @@ class FortyGuardClient:
 
         self._validate_date_bounds(request.date_time.start_date, request.date_time.end_date, 12)
         return await self._submit(FortyGuardEndpoint.HEATMAP, request)
+
+    async def fetch_credit_usage(self) -> CreditUsage:
+        """Fetch current-cycle usage using the body field required by the runtime API."""
+
+        response = await self._transport.request_json(
+            "POST",
+            f"{self._base_url}/v1/system/fetch-api-key-usage",
+            headers={"Content-Type": "application/json"},
+            json_body={"api_key": self._api_key},
+        )
+        payload = self._require_successful_object(response)
+        summary = VendorUsageResponse.model_validate(payload).credit_summary
+        return CreditUsage(
+            total_available_credits=summary.total_available_credits,
+            used_credits=summary.cycle_credits_used,
+            remaining_credits=summary.cycle_remaining_credits,
+        )
 
     async def submit_env_params(
         self, request: EnvironmentalParametersRequest

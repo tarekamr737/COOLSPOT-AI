@@ -42,6 +42,20 @@ class ActivityLifecycle(StrEnum):
     FAILED = "Failed"
 
 
+class CreditUsage(StrictModel):
+    """Validated current-cycle credit counters returned by FortyGuard."""
+
+    total_available_credits: int = Field(gt=0)
+    used_credits: int = Field(ge=0)
+    remaining_credits: int = Field(ge=0)
+
+    @model_validator(mode="after")
+    def validate_cycle_balance(self) -> Self:
+        if self.used_credits + self.remaining_credits != self.total_available_credits:
+            raise ValueError("FortyGuard cycle credit counters do not balance")
+        return self
+
+
 class DateTimeRequest(StrictModel):
     """FortyGuard date/time filters with documented conditional fields."""
 
@@ -174,6 +188,7 @@ class HeatmapFeature(StrictModel):
     """One normalized polygon tile from a completed heatmap."""
 
     type: Literal["Feature"]
+    id: str | int | None = None
     properties: dict[str, JsonValue]
     geometry: PolygonGeometry
 
