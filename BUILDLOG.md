@@ -81,3 +81,7 @@
 - Split custom-budget preview from commit after review found that disabling the range input on its
   first change could lock a drag at the first step. The slider now previews continuously and
   optimizes on pointer or keyboard commit, while preset buttons optimize immediately.
+- The Impeccable audit found that one shared error state could discard the entire valid workspace
+  after a layer, site, or budget failure. Split fatal bootstrap failure from recoverable operation
+  errors, kept the last validated state visible, and delayed candidate selection until matching
+  site evidence validates so the UI cannot display a mixed evidence record.

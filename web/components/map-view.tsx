@@ -123,7 +123,7 @@ export function MapView({
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const onSelectRef = useRef(onSelectSite);
-  const initialPropsRef = useRef({
+  const latestPropsRef = useRef({
     pilot,
     layer,
     candidates,
@@ -137,6 +137,10 @@ export function MapView({
   }, [onSelectSite]);
 
   useEffect(() => {
+    latestPropsRef.current = { pilot, layer, candidates, selectedCandidateIds, activeCandidateId };
+  }, [activeCandidateId, candidates, layer, pilot, selectedCandidateIds]);
+
+  useEffect(() => {
     if (!containerRef.current || !("WebGLRenderingContext" in window)) {
       setMapState("unsupported");
       return;
@@ -145,7 +149,7 @@ export function MapView({
     let disposed = false;
     void import("maplibre-gl").then(({ Map, NavigationControl }) => {
       if (disposed || !containerRef.current) return;
-      const initial = initialPropsRef.current;
+      const initial = latestPropsRef.current;
       const map = new Map({
         container: containerRef.current,
         center: [-118.42, 34.27],
@@ -226,6 +230,8 @@ export function MapView({
         });
         setMapState("ready");
       });
+    }).catch(() => {
+      if (!disposed) setMapState("unsupported");
     });
 
     return () => {
@@ -258,7 +264,7 @@ export function MapView({
         aria-label={`Interactive Pacoima ${layer.layer} layer map`}
         className={styles.mapContainer}
         ref={containerRef}
-        role="img"
+        role="region"
       />
       {mapState !== "ready" ? (
         <div className={styles.mapLoading} role="status">

@@ -19,10 +19,21 @@ async function request<T>(path: string, schema: ZodType<T>, init?: RequestInit):
     headers: { "Content-Type": "application/json", ...init?.headers },
   });
   if (!response.ok) {
-    const detail = await response.text();
+    const body = await response.text();
+    let detail = body;
+    try {
+      const parsed = JSON.parse(body) as { detail?: unknown };
+      if (typeof parsed.detail === "string") detail = parsed.detail;
+    } catch {
+      // Preserve a non-JSON upstream message.
+    }
     throw new Error(detail || `COOLSPOT API returned ${response.status}`);
   }
-  return schema.parse(await response.json());
+  const parsed = schema.safeParse(await response.json());
+  if (!parsed.success) {
+    throw new Error("The COOLSPOT API returned data that does not match the expected contract.");
+  }
+  return parsed.data;
 }
 
 export const getPilot = () => request("/pilot", pilotSchema);

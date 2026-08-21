@@ -95,7 +95,7 @@ function EvidencePanel({ candidate, site, methodology, siteLoading }: EvidencePa
 }
 
 function LoadingShell() {
-  return <main className={styles.statePage} aria-busy="true"><BrandMark /><p className={styles.eyebrow}>Cached demo</p><h1>Loading Pacoima evidence</h1><p>Validating heat, exposure, vulnerability, and portfolio data.</p></main>;
+  return <main className={styles.loadingShell} aria-busy="true"><header className={styles.loadingHeader}><BrandMark /><span className={styles.loadingLine} /></header><div className={styles.loadingWorkspace}><div /><div /><div /></div><p className={styles.loadingAnnouncement} role="status">Loading and validating cached Pacoima evidence.</p></main>;
 }
 
 async function fetchWorkspace() {
@@ -132,14 +132,15 @@ export function PlanningShell() {
   const [activeLayer, setActiveLayer] = useState<LayerName>("heat");
   const [activeCandidateId, setActiveCandidateId] = useState("");
   const [budget, setBudget] = useState(500_000);
-  const [error, setError] = useState<string | null>(null);
+  const [fatalError, setFatalError] = useState<string | null>(null);
+  const [operationError, setOperationError] = useState<string | null>(null);
   const [optimizing, setOptimizing] = useState(false);
   const [layerLoading, setLayerLoading] = useState(false);
   const [siteLoading, setSiteLoading] = useState(false);
   const requestSequence = useRef(0);
 
   const applyWorkspace = useCallback((loaded: Awaited<ReturnType<typeof fetchWorkspace>>) => {
-    setError(null);
+    setFatalError(null);
     setBudget(loaded.data.pilot.default_budget_usd);
     setActiveCandidateId(loaded.activeCandidateId);
     setLayers({ heat: loaded.heat });
@@ -151,14 +152,14 @@ export function PlanningShell() {
     void fetchWorkspace().then((loaded) => {
       if (active) applyWorkspace(loaded);
     }).catch((caught: unknown) => {
-      if (active) setError(caught instanceof Error ? caught.message : "Unable to load COOLSPOT data.");
+      if (active) setFatalError(caught instanceof Error ? caught.message : "Unable to load COOLSPOT data.");
     });
     return () => { active = false; };
   }, [applyWorkspace]);
 
   const retry = useCallback(async () => {
     try { applyWorkspace(await fetchWorkspace()); }
-    catch (caught) { setError(caught instanceof Error ? caught.message : "Unable to load COOLSPOT data."); }
+    catch (caught) { setFatalError(caught instanceof Error ? caught.message : "Unable to load COOLSPOT data."); }
   }, [applyWorkspace]);
 
   const recommendations = useMemo(() => {
@@ -169,9 +170,9 @@ export function PlanningShell() {
 
   const selectCandidate = useCallback(async (candidate: Candidate) => {
     if (!data || candidate.id === activeCandidateId) return;
-    setActiveCandidateId(candidate.id); setSiteLoading(true);
-    try { const site = await getSite(candidate.site_id); setData((current) => current ? { ...current, site } : current); }
-    catch (caught) { setError(caught instanceof Error ? caught.message : "Unable to load site evidence."); }
+    setSiteLoading(true); setOperationError(null);
+    try { const site = await getSite(candidate.site_id); setActiveCandidateId(candidate.id); setData((current) => current ? { ...current, site } : current); }
+    catch (caught) { setOperationError(`${caught instanceof Error ? caught.message : "Unable to load site evidence."} The previous site remains selected.`); }
     finally { setSiteLoading(false); }
   }, [activeCandidateId, data]);
 
@@ -182,7 +183,7 @@ export function PlanningShell() {
 
   const changeBudget = useCallback(async (nextBudget: number) => {
     if (!data || nextBudget === data.portfolio.budget_usd || optimizing) return;
-    const sequence = ++requestSequence.current; setBudget(nextBudget); setOptimizing(true);
+    const sequence = ++requestSequence.current; setBudget(nextBudget); setOptimizing(true); setOperationError(null);
     try {
       const portfolio = await optimize(nextBudget);
       if (sequence !== requestSequence.current) return;
@@ -193,26 +194,26 @@ export function PlanningShell() {
       if (!next) throw new Error("The optimized portfolio contains no known candidates.");
       const site = currentIsSelected ? data.site : await getSite(next.site_id);
       setActiveCandidateId(next.id); setData((current) => current ? { ...current, portfolio, site } : current);
-    } catch (caught) { setError(caught instanceof Error ? caught.message : "Unable to optimize this budget."); }
+    } catch (caught) { setBudget(data.portfolio.budget_usd); setOperationError(`${caught instanceof Error ? caught.message : "Unable to optimize this budget."} The previous portfolio remains active.`); }
     finally { if (sequence === requestSequence.current) setOptimizing(false); }
   }, [activeCandidateId, data, optimizing]);
 
   const changeLayer = useCallback(async (nextLayer: LayerName) => {
     if (nextLayer === activeLayer || layerLoading) return;
-    const cached = layers[nextLayer]; setActiveLayer(nextLayer);
-    if (cached) return;
-    setLayerLoading(true);
-    try { const response = await getLayer(nextLayer); setLayers((current) => ({ ...current, [nextLayer]: response })); }
-    catch (caught) { setActiveLayer(activeLayer); setError(caught instanceof Error ? caught.message : "Unable to load this map layer."); }
+    const cached = layers[nextLayer];
+    if (cached) { setActiveLayer(nextLayer); return; }
+    setLayerLoading(true); setOperationError(null);
+    try { const response = await getLayer(nextLayer); setLayers((current) => ({ ...current, [nextLayer]: response })); setActiveLayer(nextLayer); }
+    catch (caught) { setOperationError(`${caught instanceof Error ? caught.message : "Unable to load this map layer."} The previous layer remains visible.`); }
     finally { setLayerLoading(false); }
   }, [activeLayer, layerLoading, layers]);
 
-  if (error) return <main className={styles.statePage} role="alert"><BrandMark /><p className={styles.eyebrow}>Data unavailable</p><h1>COOLSPOT could not load the cached analysis</h1><p>{error}</p><button onClick={() => void retry()} type="button">Retry</button></main>;
+  if (fatalError) return <main className={styles.statePage} role="alert"><BrandMark /><p className={styles.eyebrow}>Data unavailable</p><h1>COOLSPOT could not load the cached analysis</h1><p>{fatalError}</p><button onClick={() => void retry()} type="button">Retry</button></main>;
   if (!data || !layers[activeLayer]) return <LoadingShell />;
   const activeCandidate = data.candidates.candidates.find((candidate) => candidate.id === activeCandidateId) ?? recommendations[0];
   if (!activeCandidate) return <LoadingShell />;
 
-  return <div className={styles.appShell}><a className={styles.skipLink} href="#map-title">Skip to map workspace</a><TopBar pilot={data.pilot} status={data.status} /><main className={styles.workspace}>
+  return <div className={styles.appShell}><a className={styles.skipLink} href="#map-title">Skip to map workspace</a><TopBar pilot={data.pilot} status={data.status} />{operationError ? <div className={styles.operationError} role="alert"><span>{operationError}</span><button aria-label="Dismiss error" onClick={() => setOperationError(null)} type="button">Dismiss</button></div> : null}<main className={styles.workspace}>
     <RecommendationRail activeCandidateId={activeCandidate.id} candidates={recommendations} onSelect={(candidate) => void selectCandidate(candidate)} portfolio={data.portfolio} />
     <MapWorkspace activeCandidateId={activeCandidate.id} activeLayer={activeLayer} budget={budget} data={data} layer={layers[activeLayer]} layerLoading={layerLoading} onBudgetCommit={(value) => void changeBudget(value)} onBudgetPreview={setBudget} onLayerChange={(name) => void changeLayer(name)} onSelectSite={selectSite} optimizing={optimizing} />
     <EvidencePanel candidate={activeCandidate} methodology={data.methodology} site={data.site} siteLoading={siteLoading} />

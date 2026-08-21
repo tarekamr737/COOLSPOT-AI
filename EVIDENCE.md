@@ -282,4 +282,35 @@
   the dynamic allow-listed proxy route. Local HTTP checks returned 200 for `/`, the proxied pilot,
   the 851,002-byte real heat layer, and the proxied `$1M` optimization.
 - Visual-QA limitation: the Browser plugin's required control tool was not exposed in this session,
-  so screenshot claims remain deferred to the next explicit Impeccable review task.
+  so no screenshot or physical-device claim is made for this implementation proof.
+
+## Impeccable technical review findings are resolved
+
+- Requirement: re-run the mandatory Impeccable review and fix accessibility, responsive behavior,
+  loading/error states, and visual hierarchy before continuing.
+- Review proof: the Impeccable `audit` rubric was applied across accessibility, performance,
+  theming, responsiveness, and anti-patterns, followed by its `harden`, `adapt`, and `polish`
+  guidance. The initial code audit scored **15/20 (Good)** with no P0 blockers; the corrected code
+  audit scores **18/20 (Excellent)**. The remaining two points reflect the intentionally single
+  dark theme and unavailable live-browser/device inspection, not a known acceptance failure.
+- Accessibility proof: the interactive MapLibre surface is a named region rather than an image
+  role containing hidden interactive descendants. Layer/budget controls expose pressed, disabled,
+  busy, and live states; keyboard focus remains visible; forced-colors selections have non-color
+  outlines; skip navigation and semantic landmarks remain intact.
+- Responsive proof: all compact layer, preset, slider, error, and map controls meet the 44px target
+  floor. The mobile breakpoint raises previously tiny operational labels to 14px, preserves every
+  core feature in a single-column flow, and long site/methodology/source text wraps without causing
+  horizontal overflow.
+- Loading/error proof: the initial page uses a stable three-column loading shell instead of a
+  layout-shifting blank state. A failed layer request retains the prior layer; a failed site request
+  cannot pair new candidate copy with stale site evidence; a failed budget update restores the
+  prior portfolio budget. Each operation announces a specific, dismissible recovery message while
+  the rest of the valid workspace remains usable. Map/WebGL import failure has an explicit fallback.
+- Automated proof: the new failure-path test forces a persistence HTTP 503 and verifies the full
+  recommendation workspace remains present, Heat remains selected, and the useful upstream message
+  is announced. `npm run check` passes ESLint, Next route type generation, strict TypeScript, and
+  `3 passed` UI tests (`1` gated real-API contract test skipped by default). `npm run build` passes
+  and prerenders `/` on Next.js 16.3.1.
+- Visual-review limitation: the Browser skill was read and its required control tool was searched
+  for, but it was not exposed. No screenshot, exact rendered contrast, or physical-device claim is
+  made; code-level review and automated behavior are the available proof in this environment.
