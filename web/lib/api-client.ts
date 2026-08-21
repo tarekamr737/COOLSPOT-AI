@@ -8,6 +8,7 @@ import {
   methodologySchema,
   pilotSchema,
   portfolioSchema,
+  refreshStatusSchema,
   siteSchema,
   type LayerName,
 } from "./api-schemas";
@@ -54,4 +55,11 @@ export const getExplanation = (siteId: string, candidateId: string, budgetUsd: n
   request(`/sites/${encodeURIComponent(siteId)}/explanation`, explanationSchema, {
     method: "POST",
     body: JSON.stringify({ candidate_id: candidateId, budget_usd: budgetUsd }),
+  });
+export const getRefreshStatus = () => request("/refresh/status", refreshStatusSchema);
+export const startRefresh = (analysisDate: string, token: string) =>
+  request("/refresh", refreshStatusSchema, {
+    method: "POST",
+    body: JSON.stringify({ analysis_date: analysisDate }),
+    headers: { "X-Refresh-Token": token },
   });

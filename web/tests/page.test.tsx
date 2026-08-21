@@ -30,7 +30,11 @@ describe("Home", () => {
     expect(screen.getByRole("heading", { name: "Ranked recommendations" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "Van Nuys / Herrick" })).toBeInTheDocument();
     expect(screen.getByLabelText("Map layer hierarchy")).toBeInTheDocument();
-    expect(screen.getByLabelText("Cached data status")).toHaveTextContent("1,991,560 FortyGuard credits remaining");
+    expect(screen.getByLabelText("Data freshness status")).toHaveTextContent("1,991,560 FortyGuard credits remaining");
+    expect(screen.getByRole("button", { name: "Refresh data" })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Refresh data" }));
+    expect(screen.getByText(/Fetch recent FortyGuard evidence/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Confirm live refresh" })).toBeDisabled();
     expect(screen.getByText(/not a temperature forecast or guaranteed outcome/i)).toBeInTheDocument();
     expect(screen.getByText("Methodology & limitations")).toBeInTheDocument();
     expect(screen.getByRole("region", { name: "Interactive Pacoima heat layer map" })).toBeInTheDocument();
@@ -57,9 +61,9 @@ describe("Home", () => {
     render(<Home />);
     await screen.findByRole("heading", { name: "Pacoima cooling investment map" });
 
-    fireEvent.click(screen.getByRole("button", { name: "Explain" }));
+    fireEvent.click(screen.getByRole("button", { name: "Ask AI" }));
     expect(await screen.findByText(/is selected from structured evidence/i)).toBeInTheDocument();
-    expect(screen.getByText("Deterministic template · structured evidence only")).toBeInTheDocument();
+    expect(screen.getByText(/Deterministic fallback/)).toBeInTheDocument();
     expect(screen.getByText(/does not predict a site temperature reduction/i)).toBeInTheDocument();
 
     const calls = vi.mocked(fetch).mock.calls;

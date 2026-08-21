@@ -186,7 +186,8 @@ export const portfolioSchema = z.object({
 export type Portfolio = z.infer<typeof portfolioSchema>;
 
 export const explanationSchema = z.object({
-  mode: z.literal("template"),
+  mode: z.enum(["template", "openrouter"]),
+  model: z.string().nullable(),
   site_id: z.string().min(1),
   candidate_id: z.string().min(1),
   budget_usd: z.number().int().positive(),
@@ -314,8 +315,10 @@ export const methodologySchema = z.object({
 export type Methodology = z.infer<typeof methodologySchema>;
 
 export const dataStatusSchema = z.object({
-  mode: z.literal("cached_demo"),
+  mode: z.enum(["cached_demo", "live_refreshed"]),
   external_calls_on_read: z.literal(false),
+  refresh_available: z.boolean(),
+  explanation_mode: z.enum(["template", "openrouter"]),
   heat_data_date: z.string(),
   heat_data_generated_at: z.string(),
   public_data_retrieved_at: z.string(),
@@ -332,3 +335,15 @@ export const dataStatusSchema = z.object({
   candidate_source_artifacts: z.array(z.unknown()),
 });
 export type DataStatus = z.infer<typeof dataStatusSchema>;
+
+export const refreshStatusSchema = z.object({
+  state: z.enum(["idle", "running", "completed", "failed", "unavailable"]),
+  message: z.string().min(1),
+  requested_date: z.string().nullable(),
+  started_at: z.string().nullable(),
+  completed_at: z.string().nullable(),
+  estimated_credit_cost: z.number().int().nonnegative().nullable(),
+  credits_remaining: z.number().int().nonnegative().nullable(),
+  hard_reserve: z.number().int().min(500_000),
+});
+export type RefreshStatus = z.infer<typeof refreshStatusSchema>;

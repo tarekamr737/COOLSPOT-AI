@@ -406,3 +406,38 @@
 - Final proof against the same production origin: `scripts/validate_demo.py` passes all four layers,
   152 candidates, both golden budgets, and unchanged `1,991,560` remaining credits; Playwright's
   strengthened golden path returns `1 passed`. Frontend check and standalone build also pass.
+
+## Geographic context, governed refresh, and optional AI explanations are verified
+
+- Map proof: the production MapLibre view now draws the validated FortyGuard tile grid and selected
+  recommendations over a recognizable OpenStreetMap street basemap. The same-origin tile route
+  validates z/x/y, identifies COOLSPOT to the provider, caches successful PNG responses, retains
+  visible OpenStreetMap attribution, and fails without removing the committed analytical layers.
+- Render proof: map readiness requires the `analysis-layer` GeoJSON source to be loaded with at
+  least one queryable feature, independent of basemap availability. A 1920x1080 production capture
+  visibly shows Pacoima streets/freeways/place labels, the AOI, heat cells, portfolio markers, the
+  active-site ring, the exact-value hover instruction, and attribution. The proxied tile smoke test
+  returned HTTP `200`, `image/png`, and 7,173 bytes.
+- Refresh proof: `POST /v1/refresh` requires a constant-time checked administrator token, exact
+  `FORTYGUARD_LIVE=1`, a server-side API key, a non-future date within 365 days, and a conservative
+  two-request credit authorization before submission. One coordinator prevents concurrent jobs;
+  canonical request hashes prevent duplicate submissions; current usage is checked around each
+  job; the 500,000 reserve remains mandatory; staged artifacts preserve the last validated cache
+  if rebuilding fails. The UI collects the token without storing it and polls explicit
+  idle/running/completed/failed/unavailable states.
+- Refresh test proof: an invalid admin token returns HTTP 401 before `fetch_credit_usage` is called.
+  The coordinator preflight test authorizes exactly two known-cost heatmap shapes at an estimated
+  8,440 credits while reporting 1,991,560 remaining and a 500,000 reserve. No live FortyGuard call
+  was made during development verification.
+- AI proof: when `EXPLANATION_MODE=openrouter` and `OPENROUTER_API_KEY` are configured, only the
+  deterministic summary/evidence/limitations payload is sent to
+  `google/gemma-4-26b-a4b-it:free`. Temperature-reduction, guaranteed-outcome, people-protected,
+  lives-saved, or novel-number output is rejected. Only the narrative summary can change; evidence,
+  limitations, ranking, and optimization remain deterministic. Valid output is cached by model and
+  evidence hash; unavailable, malformed, unsafe, or unconfigured output falls back visibly to the
+  template.
+- Final automated proof: `.venv\Scripts\python.exe -m pytest` returns `45 passed`; Ruff and strict
+  Mypy pass; `npm run check` passes lint, strict types, and `4 passed` UI tests (`1` opt-in contract
+  test skipped); `npm run build` passes with the basemap and COOLSPOT API routes; the production
+  `scripts/validate_demo.py` result passes four layers, 152 candidates, both budgets, and unchanged
+  credits; hosted-origin Playwright returns `1 passed`.

@@ -1,6 +1,6 @@
 """Offline decision-support routes."""
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Header, HTTPException
 
 from api.app.schemas import (
     CandidateListResponse,
@@ -21,7 +21,8 @@ from api.app.services.decision_api import (
     pilot_response,
     site_response,
 )
-from api.app.services.explanations import GroundedExplanation, explain_selected_candidate
+from api.app.services.explanations import GroundedExplanation, explain_with_optional_llm
+from api.app.services.live_refresh import RefreshRequest, RefreshStatus, refresh_coordinator
 from api.app.services.optimizer import OptimizationError, PortfolioResult, optimize_portfolio
 
 router = APIRouter(prefix="/v1")
@@ -61,7 +62,7 @@ def get_site(site_id: str) -> SiteResponse:
 
 
 @router.post("/sites/{site_id}/explanation")
-def explain_site(site_id: str, request: ExplanationRequest) -> GroundedExplanation:
+async def explain_site(site_id: str, request: ExplanationRequest) -> GroundedExplanation:
     response = site_response(site_id)
     if response is None:
         raise HTTPException(status_code=404, detail=f"site '{site_id}' was not found")
@@ -76,7 +77,7 @@ def explain_site(site_id: str, request: ExplanationRequest) -> GroundedExplanati
         )
     try:
         portfolio = optimize_portfolio(request.budget_usd)
-        return explain_selected_candidate(
+        return await explain_with_optional_llm(
             candidate=option.candidate,
             tile=option.tile,
             intervention=option.intervention,
@@ -97,3 +98,26 @@ def get_methodology() -> MethodologyResponse:
 @router.get("/data-status")
 def get_data_status() -> DataStatusResponse:
     return data_status_response()
+
+
+@router.get("/refresh/status")
+def get_refresh_status() -> RefreshStatus:
+    return refresh_coordinator.status()
+
+
+@router.post("/refresh")
+async def refresh_data(
+    request: RefreshRequest,
+    x_refresh_token: str = Header(default=""),
+) -> RefreshStatus:
+    try:
+        return await refresh_coordinator.start(
+            token=x_refresh_token,
+            analysis_date=request.analysis_date,
+        )
+    except PermissionError as error:
+        raise HTTPException(status_code=401, detail=str(error)) from error
+    except RuntimeError as error:
+        raise HTTPException(status_code=409, detail=str(error)) from error
+    except ValueError as error:
+        raise HTTPException(status_code=422, detail=str(error)) from error

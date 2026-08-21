@@ -27,6 +27,7 @@ RUN uv sync --active --frozen --no-dev
 COPY api/ ./api/
 COPY config/ ./config/
 COPY data/processed/ ./data/processed/
+COPY data/raw/fortyguard/credit_ledger.json ./data/raw/fortyguard/credit_ledger.json
 COPY --from=web-builder /build/web/.next/standalone/ ./web/
 COPY --from=web-builder /build/web/.next/static/ ./web/.next/static/
 COPY --from=web-builder /build/web/public/ ./web/public/

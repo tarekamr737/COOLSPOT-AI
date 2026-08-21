@@ -106,3 +106,16 @@
   GeoJSON remained blank. Runtime inspection isolated the MapLibre/Next worker regression (style
   never loaded and source features stayed at zero). Pinned the documented last-known-good 5.16.0
   release and changed readiness/tests to wait for MapLibre `idle`, preventing the same false pass.
+- Reversed the earlier boundary-only map decision after user testing showed that technically valid
+  tiles were not geographically interpretable. Added a cached same-origin OpenStreetMap tile proxy,
+  visible attribution, exact-value hover, and active-site symbology while keeping the analysis
+  independently usable when the basemap is unavailable. Readiness now proves queryable GeoJSON
+  rather than waiting on external raster tiles.
+- Expanded the CLI-only refresh boundary at the user's explicit request, but kept it administrative:
+  the UI requires a server-validated token, `FORTYGUARD_LIVE=1`, canonical idempotency, measured-cost
+  preflight, one active job, staged artifact rebuilds, and the 500,000-credit hard reserve. Anonymous
+  visitors cannot spend vendor credits, and a failed refresh leaves the last validated cache active.
+- Enabled the requested Gemma model through OpenRouter only as a grounded wording layer. The model
+  receives one selected site's validated evidence, cannot alter ranking/evidence/limitations, and
+  is rejected for prohibited claims or new numbers. File caching and a visible deterministic
+  fallback keep the judge path reliable when the free model, key, or network is unavailable.

@@ -22,7 +22,8 @@ test("golden planning path re-optimizes from cached data without FortyGuard call
     "data-map-state",
     "ready",
   );
-  await expect(page.getByLabel("Cached data status")).toContainText("CACHED ANALYSIS");
+  await expect(page.getByLabel("Data freshness status")).toContainText("CACHED ANALYSIS");
+  await expect(page.getByRole("button", { name: "Refresh data" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "$500,000 budget" })).toBeVisible();
   await expect(page.getByText("10 sites", { exact: true })).toBeVisible();
 
@@ -53,8 +54,8 @@ test("golden planning path re-optimizes from cached data without FortyGuard call
   await page.getByText("Methodology & limitations", { exact: true }).click();
   await expect(page.getByRole("heading", { name: "Source links" })).toBeVisible();
 
-  await page.getByRole("button", { name: "Explain", exact: true }).click();
-  await expect(page.getByText("Deterministic template · structured evidence only")).toBeVisible();
+  await page.getByRole("button", { name: "Ask AI", exact: true }).click();
+  await expect(page.getByText(/Deterministic fallback/)).toBeVisible();
   await expect(page.getByRole("heading", { name: "Evidence used" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Limits" })).toBeVisible();
 

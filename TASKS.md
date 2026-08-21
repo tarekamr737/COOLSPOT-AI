@@ -30,6 +30,7 @@
 - [x] Build map layers, ranked recommendations, budget control, KPIs, evidence drawer, methodology, and data freshness UI.
 - [x] Re-run Impeccable review; fix accessibility, responsive behavior, loading/error states, and visual hierarchy.
 - [x] Add grounded template explanation; optional cached LLM explanation only if it improves judging.
+- [x] Make the map geographically legible; add authenticated live refresh and grounded OpenRouter explanations.
 
 ## 5 — Proof
 - [x] Add golden Playwright E2E and assert budget changes make zero FortyGuard calls.

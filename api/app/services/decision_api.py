@@ -2,6 +2,7 @@
 
 from functools import lru_cache
 from pathlib import Path
+from typing import Literal
 
 from api.app.schemas import (
     CandidateListResponse,
@@ -27,6 +28,7 @@ from api.app.services.candidates import (
     load_candidates,
 )
 from api.app.services.capabilities import CapabilityManifest, load_capabilities
+from api.app.services.credits import CreditLedger
 from api.app.services.feature_table import (
     TileFeatureTable,
     load_feature_table,
@@ -36,10 +38,27 @@ from api.app.services.heatmap_data import PacoimaHeatmapArtifact, load_heatmap_a
 from api.app.services.interventions import InterventionCatalog, load_intervention_catalog
 from api.app.services.optimizer import load_optimizer_config
 from api.app.services.processed_data import ProcessedPublicData, load_processed_fixture
+from api.app.settings import load_project_env
 
 ROOT = Path(__file__).resolve().parents[3]
 AOI_PATH = ROOT / "data" / "processed" / "pacoima_aoi.geojson"
 PUBLIC_DATA_PATH = ROOT / "data" / "processed" / "pacoima_public_data.json"
+
+
+def clear_decision_caches() -> None:
+    """Reload atomically replaced decision artifacts after an authorized refresh."""
+
+    loaders = (
+        _boundary,
+        _heatmaps,
+        _features,
+        _candidates,
+        _catalog,
+        _public_data,
+        _capabilities,
+    )
+    for loader in loaders:
+        loader.cache_clear()
 
 
 @lru_cache(maxsize=1)
@@ -223,15 +242,41 @@ def data_status_response() -> DataStatusResponse:
     heatmaps = _heatmaps()
     capabilities = _capabilities()
     artifact = _candidates()
+    env = load_project_env()
+    live_enabled = env.get("FORTYGUARD_LIVE", "0") == "1"
+    refresh_token_configured = bool(env.get("COOLSPOT_REFRESH_TOKEN", "").strip())
+    explanation_mode: Literal["template", "openrouter"] = (
+        "openrouter"
+        if env.get("EXPLANATION_MODE") == "openrouter"
+        and bool(env.get("OPENROUTER_API_KEY", "").strip())
+        else "template"
+    )
+    credit_used = capabilities.credits_used
+    ledger_path = ROOT / "data" / "raw" / "fortyguard" / "credit_ledger.json"
+    if ledger_path.exists():
+        terminal_usage = [
+            entry.usage_after
+            for entry in CreditLedger(ledger_path).load().entries
+            if entry.usage_after is not None
+        ]
+        if terminal_usage:
+            credit_used = max(credit_used, max(terminal_usage))
     return DataStatusResponse(
+        mode=(
+            "live_refreshed"
+            if (ROOT / "data" / "runtime" / "fortyguard" / "last_refresh.json").exists()
+            else "cached_demo"
+        ),
+        refresh_available=live_enabled and refresh_token_configured,
+        explanation_mode=explanation_mode,
         heat_data_date=heatmaps.layers[0].date_time.start_date,
         heat_data_generated_at=heatmaps.generated_at,
         public_data_retrieved_at=_public_data().source_retrieved_at,
         capabilities_evaluated_at=capabilities.evaluated_at,
         credits=CreditStatus(
             total=capabilities.total_credits,
-            used=capabilities.credits_used,
-            remaining=capabilities.credits_remaining,
+            used=credit_used,
+            remaining=capabilities.total_credits - credit_used,
             hard_reserve=capabilities.hard_reserve,
         ),
         capabilities=capabilities.capabilities,

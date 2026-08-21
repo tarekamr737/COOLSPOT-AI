@@ -116,6 +116,8 @@ export const methodology = {
 export const status = {
   mode: "cached_demo",
   external_calls_on_read: false,
+  refresh_available: false,
+  explanation_mode: "template",
   heat_data_date: "2024-07-15",
   heat_data_generated_at: "2026-08-21T00:00:00Z",
   public_data_retrieved_at: "2026-08-21",
@@ -151,6 +153,7 @@ export function explanation(index = 0, budget = 500_000) {
   const candidate = candidates[index];
   return {
     mode: "template",
+    model: null,
     site_id: candidate.site_id,
     candidate_id: candidate.id,
     budget_usd: budget,

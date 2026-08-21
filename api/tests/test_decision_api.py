@@ -99,6 +99,31 @@ def test_data_status_and_missing_site_are_explicit() -> None:
     assert "was not found" in missing.json()["detail"]
 
 
+def test_live_refresh_requires_an_administrator_token_before_any_vendor_call() -> None:
+    env = {
+        "FORTYGUARD_LIVE": "1",
+        "FORTYGUARD_API_KEY": "vendor-key",
+        "FORTYGUARD_CREDIT_TOTAL": "2000000",
+        "FORTYGUARD_CREDIT_RESERVE": "500000",
+        "COOLSPOT_REFRESH_TOKEN": "admin-secret",
+    }
+    with (
+        patch("api.app.services.live_refresh.load_project_env", return_value=env),
+        patch(
+            "api.app.services.live_refresh.FortyGuardClient.fetch_credit_usage",
+            new_callable=AsyncMock,
+        ) as fetch_usage,
+    ):
+        response = client.post(
+            "/v1/refresh",
+            headers={"X-Refresh-Token": "wrong-token"},
+            json={"analysis_date": "2026-08-20"},
+        )
+
+    assert response.status_code == 401
+    assert fetch_usage.await_count == 0
+
+
 def test_selected_site_explanation_restates_only_structured_evidence() -> None:
     portfolio = PortfolioResult.model_validate(
         client.post("/v1/optimize", json={"budget_usd": 500_000}).json()

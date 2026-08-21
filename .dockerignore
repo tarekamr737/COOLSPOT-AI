@@ -11,7 +11,10 @@
 **/__pycache__
 **/*.pyc
 api/tests
-data/raw
+data/raw/*
+!data/raw/fortyguard/
+data/raw/fortyguard/*
+!data/raw/fortyguard/credit_ledger.json
 web/.next
 web/e2e
 web/node_modules

@@ -202,8 +202,10 @@ class CreditStatus(BaseModel):
 class DataStatusResponse(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    mode: Literal["cached_demo"] = "cached_demo"
+    mode: Literal["cached_demo", "live_refreshed"] = "cached_demo"
     external_calls_on_read: Literal[False] = False
+    refresh_available: bool = False
+    explanation_mode: Literal["template", "openrouter"] = "template"
     heat_data_date: date
     heat_data_generated_at: datetime
     public_data_retrieved_at: date

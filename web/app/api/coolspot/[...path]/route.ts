@@ -1,4 +1,4 @@
-const allowedGetPath = /^(pilot|candidates|data-status|methodology|layers\/(heat|persistence|exposure|vulnerability)|sites\/[A-Za-z0-9:_-]+)$/;
+const allowedGetPath = /^(pilot|candidates|data-status|methodology|refresh\/status|layers\/(heat|persistence|exposure|vulnerability)|sites\/[A-Za-z0-9:_-]+)$/;
 
 type RouteContext = { params: Promise<{ path: string[] }> };
 
@@ -19,7 +19,7 @@ async function proxy(request: Request, context: RouteContext): Promise<Response>
   const joinedPath = path.join("/");
   const isAllowedPost =
     request.method === "POST" &&
-    (joinedPath === "optimize" || /^sites\/[A-Za-z0-9:_-]+\/explanation$/.test(joinedPath));
+    (joinedPath === "optimize" || joinedPath === "refresh" || /^sites\/[A-Za-z0-9:_-]+\/explanation$/.test(joinedPath));
   const isAllowedGet = request.method === "GET" && allowedGetPath.test(joinedPath);
   if (!isAllowedPost && !isAllowedGet) {
     return Response.json({ detail: "Unsupported COOLSPOT API route" }, { status: 404 });
@@ -30,7 +30,14 @@ async function proxy(request: Request, context: RouteContext): Promise<Response>
     const upstream = await fetch(upstreamUrl, {
       method: request.method,
       body: isAllowedPost ? await request.text() : undefined,
-      headers: isAllowedPost ? { "Content-Type": "application/json" } : undefined,
+      headers: isAllowedPost
+        ? {
+            "Content-Type": "application/json",
+            ...(joinedPath === "refresh"
+              ? { "X-Refresh-Token": request.headers.get("X-Refresh-Token") ?? "" }
+              : {}),
+          }
+        : undefined,
       cache: "no-store",
     });
     return new Response(upstream.body, {

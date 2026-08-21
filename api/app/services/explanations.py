@@ -1,13 +1,20 @@
-"""Deterministic, evidence-only explanations for selected recommendations."""
+"""Grounded explanations for selected recommendations."""
 
-from typing import Literal
+import hashlib
+import json
+import os
+import re
+from pathlib import Path
+from typing import Literal, Protocol
 
+import httpx2
 from pydantic import BaseModel, ConfigDict, Field
 
 from api.app.services.candidates import Candidate, CandidateEvidence
 from api.app.services.feature_table import TileFeature
 from api.app.services.interventions import InterventionDefinition
 from api.app.services.optimizer import PortfolioResult
+from api.app.settings import load_project_env
 
 
 class GroundedExplanation(BaseModel):
@@ -15,7 +22,8 @@ class GroundedExplanation(BaseModel):
 
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
 
-    mode: Literal["template"] = "template"
+    mode: Literal["template", "openrouter"] = "template"
+    model: str | None = None
     site_id: str
     candidate_id: str
     budget_usd: int = Field(gt=0)
@@ -66,3 +74,146 @@ def explain_selected_candidate(
         ),
         evidence=candidate.evidence,
     )
+
+
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+DEFAULT_OPENROUTER_MODEL = "google/gemma-4-26b-a4b-it:free"
+ROOT = Path(__file__).resolve().parents[3]
+EXPLANATION_CACHE = ROOT / "data" / "runtime" / "explanations"
+
+
+class ExplanationTransport(Protocol):
+    async def complete(self, *, api_key: str, model: str, prompt: str) -> str: ...
+
+
+class OpenRouterTransport:
+    async def complete(self, *, api_key: str, model: str, prompt: str) -> str:
+        async with httpx2.AsyncClient(timeout=30) as client:
+            response = await client.post(
+                OPENROUTER_URL,
+                headers={
+                    "Authorization": f"Bearer {api_key}",
+                    "Content-Type": "application/json",
+                    "HTTP-Referer": os.environ.get("COOLSPOT_PUBLIC_URL", "http://localhost"),
+                    "X-OpenRouter-Title": "COOLSPOT AI",
+                },
+                json={
+                    "model": model,
+                    "temperature": 0,
+                    "max_tokens": 180,
+                    "messages": [
+                        {
+                            "role": "system",
+                            "content": (
+                                "Rewrite the supplied planning explanation in plain language. "
+                                "Use only supplied facts and numbers. Do not add predictions, "
+                                "causal claims, people protected, lives saved, or temperature "
+                                "reductions. Return one paragraph only."
+                            ),
+                        },
+                        {"role": "user", "content": prompt},
+                    ],
+                },
+            )
+        response.raise_for_status()
+        payload = response.json()
+        content = payload["choices"][0]["message"]["content"]
+        if not isinstance(content, str) or not content.strip():
+            raise ValueError("OpenRouter returned an empty explanation")
+        return content.strip()
+
+
+def _cache_key(explanation: GroundedExplanation, model: str) -> str:
+    payload = json.dumps(
+        {
+            "model": model,
+            "candidate_id": explanation.candidate_id,
+            "budget_usd": explanation.budget_usd,
+            "summary": explanation.summary,
+            "why_selected": explanation.why_selected,
+            "limitations": explanation.limitations,
+        },
+        sort_keys=True,
+    ).encode()
+    return hashlib.sha256(payload).hexdigest()
+
+
+def _safe_model_summary(content: str, template: GroundedExplanation) -> bool:
+    lowered = content.lower()
+    prohibited = (
+        "lives saved",
+        "people protected",
+        "guaranteed",
+        "will reduce",
+        "will lower",
+    )
+    if any(phrase in lowered for phrase in prohibited):
+        return False
+    supplied_numbers = set(re.findall(r"-?\d+(?:\.\d+)?", template.summary.replace(",", "")))
+    output_numbers = set(re.findall(r"-?\d+(?:\.\d+)?", content.replace(",", "")))
+    return output_numbers <= supplied_numbers
+
+
+async def explain_with_optional_llm(
+    *,
+    candidate: Candidate,
+    tile: TileFeature,
+    intervention: InterventionDefinition,
+    portfolio: PortfolioResult,
+    environ: dict[str, str] | None = None,
+    transport: ExplanationTransport | None = None,
+    cache_root: Path = EXPLANATION_CACHE,
+) -> GroundedExplanation:
+    """Use OpenRouter when configured, preserving a deterministic safe fallback."""
+
+    template = explain_selected_candidate(
+        candidate=candidate,
+        tile=tile,
+        intervention=intervention,
+        portfolio=portfolio,
+    )
+    source = load_project_env(environ)
+    if source.get("EXPLANATION_MODE", "template") != "openrouter":
+        return template
+    api_key = source.get("OPENROUTER_API_KEY", "").strip()
+    if not api_key:
+        return template
+    model = source.get("OPENROUTER_MODEL", DEFAULT_OPENROUTER_MODEL).strip()
+    key = _cache_key(template, model)
+    cache_path = cache_root / f"{key}.json"
+    if cache_path.exists():
+        try:
+            return GroundedExplanation.model_validate_json(
+                cache_path.read_text(encoding="utf-8")
+            )
+        except ValueError:
+            pass
+
+    prompt = (
+        f"Verified summary: {template.summary}\n"
+        f"Evidence: {' | '.join(template.why_selected)}\n"
+        f"Limitations: {' | '.join(template.limitations)}"
+    )
+    try:
+        content = await (transport or OpenRouterTransport()).complete(
+            api_key=api_key,
+            model=model,
+            prompt=prompt,
+        )
+        if not _safe_model_summary(content, template):
+            return template
+        generated = GroundedExplanation.model_validate(
+            {
+                **template.model_dump(mode="python"),
+                "mode": "openrouter",
+                "model": model,
+                "summary": content,
+            }
+        )
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        temporary = cache_path.with_suffix(".json.part")
+        temporary.write_text(generated.model_dump_json(indent=2), encoding="utf-8")
+        os.replace(temporary, cache_path)
+        return generated
+    except (httpx2.HTTPError, KeyError, TypeError, ValueError):
+        return template
