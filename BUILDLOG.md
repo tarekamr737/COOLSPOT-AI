@@ -61,3 +61,7 @@
   secondary term: one primary integer unit dominates every possible tie-break contribution. The
   solver also sorts inputs, uses one worker/fixed seed/fixed search, and rejects any result not
   proven optimal, so caller order and parallel scheduling cannot alter the portfolio.
+- Built every public decision route from schema-validated committed artifacts and cached those
+  read-only loads in-process. Layer responses expose internal typed properties rather than vendor
+  response shapes; optimization imports no live-refresh path, and data status labels the served
+  mode as cached even if an administrator has separately enabled live refresh in the environment.

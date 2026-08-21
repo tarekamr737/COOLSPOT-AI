@@ -195,3 +195,29 @@
 - Test proof: `.venv\Scripts\python.exe -m pytest api/tests/test_optimizer.py` → `3 passed`;
   focused Ruff and strict Mypy checks pass.
 - Optimizer-config SHA-256: `85388C02C2A2DF7C4D2F32EE42D948DD2878ED29A9D3066A151D09768EE844AF`.
+
+## Complete decision API is typed and offline-capable
+
+- Requirement: expose pilot, layer, candidate, optimization, site, methodology, and data-status
+  routes using committed demo data.
+- OpenAPI proof: the application publishes `GET /v1/pilot`, `GET /v1/layers/{layer}`,
+  `GET /v1/candidates`, `POST /v1/optimize`, `GET /v1/sites/{site_id}`,
+  `GET /v1/methodology`, and `GET /v1/data-status`.
+- Layer proof: heat, persistence, exposure, and vulnerability each return a schema-validated
+  GeoJSON FeatureCollection with **2,001** real tile geometries and layer-specific typed
+  properties. Raw temperature/persistence and exposure/ACS context remain distinguishable from
+  normalized modeled scores and missing values.
+- Decision proof: `/v1/candidates` returns all 152 traceable candidates; `/v1/sites/{site_id}`
+  joins a site's candidate to its selected real tile and full intervention evidence/cost/source
+  definition; `/v1/methodology` exposes the versioned scoring, candidate, optimizer, and
+  intervention configurations.
+- Offline/no-credit proof: `/v1/optimize` loads only the committed candidate artifact and returns
+  the deterministic CP-SAT result. The integration test mocks both FortyGuard submission and
+  credit-usage methods and proves neither is called during a `$500,000` optimization.
+- Freshness proof: `/v1/data-status` explicitly reports `mode=cached_demo`,
+  `external_calls_on_read=false`, analysis/public-data dates, capability states, **8,440 credits
+  used**, **1,991,560 remaining**, and the 500,000 hard reserve.
+- Boundary/error proof: the API rejects out-of-range budgets with HTTP 422 and unknown sites with
+  HTTP 404 rather than substituting data.
+- Test proof: `.venv\Scripts\python.exe -m pytest api/tests/test_decision_api.py
+  api/tests/test_app.py` → `4 passed`; focused Ruff and strict Mypy checks pass.

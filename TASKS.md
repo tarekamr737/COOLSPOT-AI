@@ -23,7 +23,7 @@
 - [x] Add versioned intervention catalog with applicability, planning cost, evidence, uncertainty, and source.
 - [x] Generate >=20 evidence-backed compatible candidates from real pilot data.
 - [x] Implement deterministic OR-Tools optimizer; prove cost <= budget and <=1 intervention/site for preset budgets.
-- [ ] Expose pilot/layers/candidates/optimize/site/methodology/data-status API routes.
+- [x] Expose pilot/layers/candidates/optimize/site/methodology/data-status API routes.
 
 ## 4 — Product UI
 - [ ] Invoke/read **Impeccable skill**; implement the golden map information architecture it specifies.
