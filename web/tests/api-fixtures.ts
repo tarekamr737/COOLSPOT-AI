@@ -147,6 +147,30 @@ export function site(index = 0) {
   };
 }
 
+export function explanation(index = 0, budget = 500_000) {
+  const candidate = candidates[index];
+  return {
+    mode: "template",
+    site_id: candidate.site_id,
+    candidate_id: candidate.id,
+    budget_usd: budget,
+    summary: `At the ${compactBudget(budget)} screening budget, ${candidate.site_name} is selected from structured evidence and contributes ${(
+      candidate.benefit_score * candidate.feasibility_score * candidate.confidence
+    ).toFixed(3)} modeled impact score to the deterministic portfolio.`,
+    why_selected: candidate.evidence.map((item) => item.statement),
+    limitations: [
+      "This explanation does not predict a site temperature reduction.",
+      "Mapped data does not establish constructability.",
+      "Planning costs are assumptions, not contractor quotes.",
+    ],
+    evidence: candidate.evidence,
+  };
+}
+
+function compactBudget(value: number) {
+  return `$${Math.round(value / 1_000).toLocaleString()}k`;
+}
+
 export const candidateList = {
   version: "1.0", generated_at: "2026-08-21T00:00:00Z",
   counts: { total: 20, unique_sites: 20, shade_structure: 20, tree_canopy: 0, cool_pavement: 0 },
@@ -161,6 +185,11 @@ export function responseFor(url: string, init?: RequestInit) {
   if (url.endsWith("/methodology")) return methodology;
   if (url.includes("/layers/")) return layer(url.split("/").at(-1));
   if (url.endsWith("/optimize")) return portfolio(JSON.parse(String(init?.body)).budget_usd);
+  if (url.endsWith("/explanation")) {
+    const body = JSON.parse(String(init?.body));
+    const index = Math.max(0, candidates.findIndex((candidate) => candidate.id === body.candidate_id));
+    return explanation(index, body.budget_usd);
+  }
   if (url.includes("/sites/")) {
     const id = decodeURIComponent(url.split("/").at(-1) ?? "site-0");
     const index = Math.max(0, candidates.findIndex((candidate) => candidate.site_id === id));

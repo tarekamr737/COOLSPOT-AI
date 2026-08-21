@@ -29,7 +29,7 @@
 - [x] Invoke/read **Impeccable skill**; implement the golden map information architecture it specifies.
 - [x] Build map layers, ranked recommendations, budget control, KPIs, evidence drawer, methodology, and data freshness UI.
 - [x] Re-run Impeccable review; fix accessibility, responsive behavior, loading/error states, and visual hierarchy.
-- [ ] Add grounded template explanation; optional cached LLM explanation only if it improves judging.
+- [x] Add grounded template explanation; optional cached LLM explanation only if it improves judging.
 
 ## 5 — Proof
 - [ ] Add golden Playwright E2E and assert budget changes make zero FortyGuard calls.

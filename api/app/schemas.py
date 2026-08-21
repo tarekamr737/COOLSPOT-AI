@@ -155,6 +155,13 @@ class OptimizeRequest(BaseModel):
     budget_usd: int = Field(gt=0)
 
 
+class ExplanationRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    candidate_id: str = Field(min_length=1)
+    budget_usd: int = Field(gt=0)
+
+
 class SiteOption(BaseModel):
     model_config = ConfigDict(extra="forbid")
 

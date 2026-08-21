@@ -53,6 +53,20 @@ describe("Home", () => {
     expect(calls.some(([url]) => /fortyguard/i.test(String(url)))).toBe(false);
   });
 
+  it("generates a deterministic explanation from the selected evidence", async () => {
+    render(<Home />);
+    await screen.findByRole("heading", { name: "Pacoima cooling investment map" });
+
+    fireEvent.click(screen.getByRole("button", { name: "Explain" }));
+    expect(await screen.findByText(/is selected from structured evidence/i)).toBeInTheDocument();
+    expect(screen.getByText("Deterministic template · structured evidence only")).toBeInTheDocument();
+    expect(screen.getByText(/does not predict a site temperature reduction/i)).toBeInTheDocument();
+
+    const calls = vi.mocked(fetch).mock.calls;
+    expect(calls.some(([url]) => String(url).endsWith("/explanation"))).toBe(true);
+    expect(calls.some(([url]) => /fortyguard/i.test(String(url)))).toBe(false);
+  });
+
   it("preserves the workspace and previous layer when an update fails", async () => {
     vi.mocked(fetch).mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input);

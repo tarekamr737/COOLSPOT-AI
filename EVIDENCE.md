@@ -314,3 +314,35 @@
 - Visual-review limitation: the Browser skill was read and its required control tool was searched
   for, but it was not exposed. No screenshot, exact rendered contrast, or physical-device claim is
   made; code-level review and automated behavior are the available proof in this environment.
+
+## Selected-site explanations are deterministic and grounded
+
+- Requirement: answer “Why this site?” from structured evidence, with an optional cached LLM path
+  only when it materially improves judging.
+- Grounding proof: `api/app/services/explanations.py` accepts only a validated candidate, its joined
+  tile/intervention, and a deterministic portfolio. It verifies the candidate is selected at the
+  submitted budget, then copies the candidate's five evidence statements and constructs a typed
+  summary from exact site, budget, selected-count, priority, feasibility, confidence, and modeled
+  impact fields. The response always labels `mode=template`.
+- Claim-safety proof: every response includes three explicit limitations: no predicted temperature
+  reduction, people protected, or guaranteed outcome; site-specific intervention uncertainty; and
+  planning costs/ranges as assumptions rather than contractor quotes. A candidate outside the
+  portfolio is rejected with HTTP 409 instead of receiving a plausible-sounding explanation.
+- No-credit proof: the API explanation test mocks FortyGuard submission and usage methods and proves
+  both call counts remain zero. The explanation path recomputes only the local CP-SAT portfolio and
+  reads committed evidence.
+- UI proof: the evidence panel exposes an inline, keyboard-accessible “Why this site?” action with
+  loading, refresh, error, evidence-used, and limitations states. Responses are retained by
+  candidate-plus-budget key, so an explanation cannot be reused for a different scenario. The
+  interaction stays in the evidence flow rather than adding a modal or decorative page.
+- Backend test proof: `.venv\Scripts\python.exe -m pytest api\tests\test_decision_api.py` →
+  `4 passed`; focused Ruff and strict Mypy checks pass.
+- Frontend test proof: `npm run check` passes lint, strict types, and `4 passed` UI tests. With the
+  real local API enabled, the complete frontend contract suite including explanation → `5 passed`.
+  `npm run build` passes and prerenders `/`.
+- Runtime proxy proof: the built Next app POSTed through the allow-listed same-origin route for
+  `shade_structure:metro-stop:10787` at `$500,000` and returned HTTP 200, `mode=template`, five
+  evidence reasons, and three limitations.
+- LLM decision: no LLM mode was added. The deterministic response already covers the judging need;
+  adding a provider would introduce latency, configuration, cache, and hallucination risk without
+  new evidence or decision capability.

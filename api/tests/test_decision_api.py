@@ -14,6 +14,7 @@ from api.app.schemas import (
     PilotResponse,
     SiteResponse,
 )
+from api.app.services.explanations import GroundedExplanation
 from api.app.services.optimizer import PortfolioResult
 
 client = TestClient(app)
@@ -96,3 +97,54 @@ def test_data_status_and_missing_site_are_explicit() -> None:
     missing = client.get("/v1/sites/not-a-real-site")
     assert missing.status_code == 404
     assert "was not found" in missing.json()["detail"]
+
+
+def test_selected_site_explanation_restates_only_structured_evidence() -> None:
+    portfolio = PortfolioResult.model_validate(
+        client.post("/v1/optimize", json={"budget_usd": 500_000}).json()
+    )
+    candidates = CandidateListResponse.model_validate(client.get("/v1/candidates").json())
+    selected = next(
+        candidate
+        for candidate in candidates.candidates
+        if candidate.id in portfolio.selected_candidate_ids
+    )
+
+    with (
+        patch(
+            "api.app.services.fortyguard.FortyGuardClient.submit_heatmap",
+            new_callable=AsyncMock,
+        ) as submit_heatmap,
+        patch(
+            "api.app.services.fortyguard.FortyGuardClient.fetch_credit_usage",
+            new_callable=AsyncMock,
+        ) as fetch_usage,
+    ):
+        response = client.post(
+            f"/v1/sites/{selected.site_id}/explanation",
+            json={"candidate_id": selected.id, "budget_usd": 500_000},
+        )
+
+    assert response.status_code == 200
+    explanation = GroundedExplanation.model_validate(response.json())
+    assert explanation.mode == "template"
+    assert explanation.candidate_id == selected.id
+    assert explanation.why_selected == tuple(
+        evidence.statement for evidence in selected.evidence
+    )
+    assert f"{selected.benefit_score:.3f}" in explanation.summary
+    assert "does not predict a site temperature reduction" in explanation.limitations[0]
+    assert submit_heatmap.await_count == 0
+    assert fetch_usage.await_count == 0
+
+    not_selected = next(
+        candidate
+        for candidate in candidates.candidates
+        if candidate.id not in portfolio.selected_candidate_ids
+    )
+    rejected = client.post(
+        f"/v1/sites/{not_selected.site_id}/explanation",
+        json={"candidate_id": not_selected.id, "budget_usd": 500_000},
+    )
+    assert rejected.status_code == 409
+    assert "is not selected" in rejected.json()["detail"]

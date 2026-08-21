@@ -85,3 +85,7 @@
   after a layer, site, or budget failure. Split fatal bootstrap failure from recoverable operation
   errors, kept the last validated state visible, and delayed candidate selection until matching
   site evidence validates so the UI cannot display a mixed evidence record.
+- Kept “Why this site?” deterministic: the service first proves the candidate belongs to the
+  portfolio at the requested budget, then restates only its typed evidence and limitations. An LLM
+  would not add decision evidence for the golden path, so optional LLM mode remains unimplemented
+  instead of adding latency and hallucination surface for presentation value alone.

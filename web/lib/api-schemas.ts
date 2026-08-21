@@ -185,6 +185,18 @@ export const portfolioSchema = z.object({
 });
 export type Portfolio = z.infer<typeof portfolioSchema>;
 
+export const explanationSchema = z.object({
+  mode: z.literal("template"),
+  site_id: z.string().min(1),
+  candidate_id: z.string().min(1),
+  budget_usd: z.number().int().positive(),
+  summary: z.string().min(80),
+  why_selected: z.array(z.string().min(1)).min(5),
+  limitations: z.array(z.string().min(1)).min(3),
+  evidence: z.array(evidenceSchema).min(5),
+});
+export type Explanation = z.infer<typeof explanationSchema>;
+
 const interventionSchema = z.object({
   id: z.enum(["shade_structure", "tree_canopy", "cool_pavement"]),
   label: z.string(),

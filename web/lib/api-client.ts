@@ -3,6 +3,7 @@ import type { ZodType } from "zod";
 import {
   candidateListSchema,
   dataStatusSchema,
+  explanationSchema,
   layerResponseSchema,
   methodologySchema,
   pilotSchema,
@@ -48,4 +49,9 @@ export const optimize = (budgetUsd: number) =>
   request("/optimize", portfolioSchema, {
     method: "POST",
     body: JSON.stringify({ budget_usd: budgetUsd }),
+  });
+export const getExplanation = (siteId: string, candidateId: string, budgetUsd: number) =>
+  request(`/sites/${encodeURIComponent(siteId)}/explanation`, explanationSchema, {
+    method: "POST",
+    body: JSON.stringify({ candidate_id: candidateId, budget_usd: budgetUsd }),
   });

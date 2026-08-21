@@ -80,6 +80,98 @@
   margin: 0;
 }
 
+.explanationSection {
+  margin: 0 1.25rem 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--outline-variant);
+}
+
+.explanationHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.explanationHeading h3 {
+  margin: 0.2rem 0 0;
+  font-size: 1rem;
+}
+
+.explanationHeading button {
+  min-height: 2.75rem;
+  border: 1px solid var(--secondary-dim);
+  border-radius: 0.25rem;
+  padding: 0.45rem 0.75rem;
+  background: var(--secondary-wash);
+  color: var(--secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.explanationHeading button:hover:not(:disabled) {
+  border-color: var(--secondary);
+  background: var(--selected-surface);
+}
+
+.explanationHeading button:active:not(:disabled) {
+  background: var(--surface-highest);
+}
+
+.explanationHeading button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.explanationPrompt,
+.explanationError,
+.explanationBody {
+  margin: 0.75rem 0 0;
+  color: var(--on-surface-muted);
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+.explanationError {
+  color: var(--heat-low);
+}
+
+.explanationBody {
+  overflow-wrap: anywhere;
+}
+
+.explanationBody > p:first-child {
+  margin: 0;
+  color: var(--on-surface);
+}
+
+.explanationBody h4 {
+  margin: 1rem 0 0.4rem;
+  color: var(--on-surface);
+  font-family: var(--font-data);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.explanationBody ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.explanationBody li + li {
+  margin-top: 0.45rem;
+}
+
+.templateLabel {
+  margin: 1rem 0 0;
+  color: var(--secondary);
+  font-family: var(--font-data);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+}
+
 .brandName {
   font-size: 0.875rem;
   font-weight: 760;
@@ -1090,6 +1182,15 @@
   .operationError {
     top: 5.75rem;
     align-items: flex-start;
+  }
+
+  .explanationHeading button,
+  .explanationPrompt,
+  .explanationError,
+  .explanationBody,
+  .explanationBody h4,
+  .templateLabel {
+    font-size: 0.875rem;
   }
 }
 

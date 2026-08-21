@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { getCandidates, getDataStatus, getLayer, getMethodology, getPilot, getSite, optimize } from "@/lib/api-client";
-import { layerNames, type Candidate, type CandidateList, type DataStatus, type LayerName, type LayerResponse, type Methodology, type Pilot, type Portfolio, type Site } from "@/lib/api-schemas";
+import { getCandidates, getDataStatus, getExplanation, getLayer, getMethodology, getPilot, getSite, optimize } from "@/lib/api-client";
+import { layerNames, type Candidate, type CandidateList, type DataStatus, type Explanation, type LayerName, type LayerResponse, type Methodology, type Pilot, type Portfolio, type Site } from "@/lib/api-schemas";
 import { MapView } from "./map-view";
 import styles from "./planning-shell.module.css";
 
@@ -77,9 +77,9 @@ function MapWorkspace({ budget, data, layer, activeLayer, layerLoading, optimizi
   </section>;
 }
 
-type EvidencePanelProps = { candidate: Candidate; site: Site; methodology: Methodology; siteLoading: boolean };
+type EvidencePanelProps = { candidate: Candidate; site: Site; methodology: Methodology; siteLoading: boolean; explanation?: Explanation; explanationLoading: boolean; explanationError: string | null; onExplain: () => void };
 
-function EvidencePanel({ candidate, site, methodology, siteLoading }: EvidencePanelProps) {
+function EvidencePanel({ candidate, site, methodology, siteLoading, explanation, explanationLoading, explanationError, onExplain }: EvidencePanelProps) {
   const option = site.options.find((item) => item.candidate.id === candidate.id) ?? site.options[0];
   const { tile, intervention } = option;
   const sourceIds = new Set([...intervention.planning_cost.source_ids, ...intervention.benefit_evidence.source_ids]);
@@ -90,6 +90,7 @@ function EvidencePanel({ candidate, site, methodology, siteLoading }: EvidencePa
     <section className={styles.impactSection}><div><p className={styles.eyebrow}>Modeled impact score</p><strong>{impact(candidate).toFixed(3)}</strong></div><p>Relative planning score from cached evidence and screening assumptions. It is not a temperature forecast or guaranteed outcome.</p></section>
     <dl className={styles.evidenceList}><div><dt>Observed heat</dt><dd>{tile.heat.average_temperature_c.toFixed(2)} °C tile average</dd></div><div><dt>Heat persistence</dt><dd>{tile.heat.persistence_hours.toFixed(2)} hours</dd></div><div><dt>Published patronage activity</dt><dd>{tile.exposure.published_patronage_activity?.toFixed(2) ?? "Not available"}</dd></div><div><dt>Vulnerability context</dt><dd>{tile.scores.vulnerability.toFixed(3)} modeled score</dd></div></dl>
     <section className={styles.confidenceSection}><div className={styles.confidenceHeading}><span>Evidence confidence</span><strong>Unverified screening · {candidate.confidence.toFixed(1)}</strong></div><div className={styles.confidenceTrack} aria-label={`Confidence score ${candidate.confidence} out of 1`}><span style={{ width: `${candidate.confidence * 100}%` }} /></div><p>{intervention.uncertainty.summary}</p></section>
+    <section className={styles.explanationSection} aria-labelledby="explanation-title"><div className={styles.explanationHeading}><div><p className={styles.eyebrow}>Grounded explanation</p><h3 id="explanation-title">Why this site?</h3></div><button disabled={explanationLoading || siteLoading} onClick={onExplain} type="button">{explanationLoading ? "Explaining…" : explanation ? "Refresh" : "Explain"}</button></div>{explanationError ? <p className={styles.explanationError} role="alert">{explanationError}</p> : null}{explanation ? <div className={styles.explanationBody}><p>{explanation.summary}</p><h4>Evidence used</h4><ul>{explanation.why_selected.map((reason) => <li key={reason}>{reason}</li>)}</ul><h4>Limits</h4><ul>{explanation.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}</ul><p className={styles.templateLabel}>Deterministic template · structured evidence only</p></div> : <p className={styles.explanationPrompt}>Generate a claim-safe explanation from this selected candidate and budget. No new evidence or vendor request is used.</p>}</section>
     <details className={styles.methodology} id="methodology"><summary>Methodology & limitations</summary><div className={styles.methodologyBody}><p>{methodology.optimization.objective_note}</p><p>{methodology.interventions.cost_basis.disclaimer}</p><ul>{candidate.evidence.map((evidence) => <li key={evidence.kind}><strong>{evidence.kind.replaceAll("_", " ")}</strong><span>{evidence.statement}</span></li>)}</ul><h3>Source links</h3><ul className={styles.sourceList}>{sources.map((source) => <li key={source.id}><a href={source.url} rel="noreferrer" target="_blank">{source.publisher}: {source.title}</a><span>Retrieved {formatDate(source.retrieved_at)}</span></li>)}</ul><h3>Pilot limitations</h3><ul>{methodology.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}</ul></div></details>
   </aside>;
 }
@@ -137,6 +138,9 @@ export function PlanningShell() {
   const [optimizing, setOptimizing] = useState(false);
   const [layerLoading, setLayerLoading] = useState(false);
   const [siteLoading, setSiteLoading] = useState(false);
+  const [explanations, setExplanations] = useState<Record<string, Explanation>>({});
+  const [explanationLoading, setExplanationLoading] = useState(false);
+  const [explanationError, setExplanationError] = useState<string | null>(null);
   const requestSequence = useRef(0);
 
   const applyWorkspace = useCallback((loaded: Awaited<ReturnType<typeof fetchWorkspace>>) => {
@@ -170,7 +174,7 @@ export function PlanningShell() {
 
   const selectCandidate = useCallback(async (candidate: Candidate) => {
     if (!data || candidate.id === activeCandidateId) return;
-    setSiteLoading(true); setOperationError(null);
+    setSiteLoading(true); setOperationError(null); setExplanationError(null);
     try { const site = await getSite(candidate.site_id); setActiveCandidateId(candidate.id); setData((current) => current ? { ...current, site } : current); }
     catch (caught) { setOperationError(`${caught instanceof Error ? caught.message : "Unable to load site evidence."} The previous site remains selected.`); }
     finally { setSiteLoading(false); }
@@ -183,7 +187,7 @@ export function PlanningShell() {
 
   const changeBudget = useCallback(async (nextBudget: number) => {
     if (!data || nextBudget === data.portfolio.budget_usd || optimizing) return;
-    const sequence = ++requestSequence.current; setBudget(nextBudget); setOptimizing(true); setOperationError(null);
+    const sequence = ++requestSequence.current; setBudget(nextBudget); setOptimizing(true); setOperationError(null); setExplanationError(null);
     try {
       const portfolio = await optimize(nextBudget);
       if (sequence !== requestSequence.current) return;
@@ -208,14 +212,29 @@ export function PlanningShell() {
     finally { setLayerLoading(false); }
   }, [activeLayer, layerLoading, layers]);
 
+  const requestExplanation = useCallback(async (candidate: Candidate) => {
+    if (!data || explanationLoading) return;
+    const explanationKey = `${candidate.id}:${data.portfolio.budget_usd}`;
+    setExplanationLoading(true); setExplanationError(null);
+    try {
+      const explanation = await getExplanation(candidate.site_id, candidate.id, data.portfolio.budget_usd);
+      setExplanations((current) => ({ ...current, [explanationKey]: explanation }));
+    } catch (caught) {
+      setExplanationError(caught instanceof Error ? caught.message : "Unable to explain this site.");
+    } finally {
+      setExplanationLoading(false);
+    }
+  }, [data, explanationLoading]);
+
   if (fatalError) return <main className={styles.statePage} role="alert"><BrandMark /><p className={styles.eyebrow}>Data unavailable</p><h1>COOLSPOT could not load the cached analysis</h1><p>{fatalError}</p><button onClick={() => void retry()} type="button">Retry</button></main>;
   if (!data || !layers[activeLayer]) return <LoadingShell />;
   const activeCandidate = data.candidates.candidates.find((candidate) => candidate.id === activeCandidateId) ?? recommendations[0];
   if (!activeCandidate) return <LoadingShell />;
+  const explanationKey = `${activeCandidate.id}:${data.portfolio.budget_usd}`;
 
   return <div className={styles.appShell}><a className={styles.skipLink} href="#map-title">Skip to map workspace</a><TopBar pilot={data.pilot} status={data.status} />{operationError ? <div className={styles.operationError} role="alert"><span>{operationError}</span><button aria-label="Dismiss error" onClick={() => setOperationError(null)} type="button">Dismiss</button></div> : null}<main className={styles.workspace}>
     <RecommendationRail activeCandidateId={activeCandidate.id} candidates={recommendations} onSelect={(candidate) => void selectCandidate(candidate)} portfolio={data.portfolio} />
     <MapWorkspace activeCandidateId={activeCandidate.id} activeLayer={activeLayer} budget={budget} data={data} layer={layers[activeLayer]} layerLoading={layerLoading} onBudgetCommit={(value) => void changeBudget(value)} onBudgetPreview={setBudget} onLayerChange={(name) => void changeLayer(name)} onSelectSite={selectSite} optimizing={optimizing} />
-    <EvidencePanel candidate={activeCandidate} methodology={data.methodology} site={data.site} siteLoading={siteLoading} />
+    <EvidencePanel candidate={activeCandidate} explanation={explanations[explanationKey]} explanationError={explanationError} explanationLoading={explanationLoading} methodology={data.methodology} onExplain={() => void requestExplanation(activeCandidate)} site={data.site} siteLoading={siteLoading} />
   </main></div>;
 }

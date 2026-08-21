@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   candidateListSchema,
   dataStatusSchema,
+  explanationSchema,
   layerNames,
   layerResponseSchema,
   methodologySchema,
@@ -48,5 +49,15 @@ describe.skipIf(!apiUrl)("real FastAPI contracts", () => {
     );
     expect(selected).toBeDefined();
     siteSchema.parse(await json(`/v1/sites/${encodeURIComponent(selected!.site_id)}`));
+    explanationSchema.parse(
+      await json(`/v1/sites/${encodeURIComponent(selected!.site_id)}/explanation`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          candidate_id: selected!.id,
+          budget_usd: pilot.default_budget_usd,
+        }),
+      }),
+    );
   });
 });
