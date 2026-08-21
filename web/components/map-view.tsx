@@ -164,6 +164,9 @@ export function MapView({
       mapRef.current = map;
       map.addControl(new NavigationControl({ showCompass: false }), "top-right");
       map.on("load", () => {
+        map.once("idle", () => {
+          if (!disposed) setMapState("ready");
+        });
         map.addSource("boundary", { type: "geojson", data: initial.pilot.boundary });
         map.addSource("analysis-layer", { type: "geojson", data: layerCollection(initial.layer) });
         map.addSource("portfolio-sites", {
@@ -228,7 +231,6 @@ export function MapView({
         map.on("mouseleave", "portfolio-sites", () => {
           map.getCanvas().style.cursor = "";
         });
-        setMapState("ready");
       });
     }).catch(() => {
       if (!disposed) setMapState("unsupported");
@@ -263,6 +265,7 @@ export function MapView({
       <div
         aria-label={`Interactive Pacoima ${layer.layer} layer map`}
         className={styles.mapContainer}
+        data-map-state={mapState}
         ref={containerRef}
         role="region"
       />

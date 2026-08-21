@@ -387,3 +387,22 @@
 - Validator quality proof: focused Ruff and `mypy --strict scripts\validate_demo.py` both pass. The
   script accepts `--base-url`/`COOLSPOT_API_BASE_URL` and can be invoked directly by file path from
   the repository, including on the current Windows workspace.
+
+## Production map rendering is verified
+
+- Pre-deployment visual review exposed a blank map even though MapLibre controls had mounted. The
+  camera was correctly fitted, but runtime inspection showed `styleLoaded=false`, zero source
+  features, and zero rendered features after 15 seconds.
+- The failure matched MapLibre's documented Next.js GeoJSON worker regression. Pinning
+  `maplibre-gl` to the last known-good `5.16.0` release restores the committed Pacoima boundary,
+  heat tiles, and selected-site markers without adding a basemap or network dependency.
+- Readiness is now tied to MapLibre's `idle` event after source processing, and the golden E2E
+  asserts `data-map-state=ready`. It can no longer pass merely because zoom controls appeared over
+  a blank canvas.
+- Production runtime proof: the standalone build reported `loaded=true`, `styleLoaded=true`,
+  `4,690` queryable source feature instances, and `2,109` rendered analysis feature instances in
+  the current viewport. A captured local production screenshot visibly shows the Pacoima boundary,
+  colored heat grid, and teal portfolio markers.
+- Final proof against the same production origin: `scripts/validate_demo.py` passes all four layers,
+  152 candidates, both golden budgets, and unchanged `1,991,560` remaining credits; Playwright's
+  strengthened golden path returns `1 passed`. Frontend check and standalone build also pass.

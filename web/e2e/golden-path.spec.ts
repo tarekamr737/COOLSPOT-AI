@@ -18,6 +18,10 @@ test("golden planning path re-optimizes from cached data without FortyGuard call
 
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "Pacoima cooling investment map" })).toBeAttached();
+  await expect(page.getByRole("region", { name: "Interactive Pacoima heat layer map" })).toHaveAttribute(
+    "data-map-state",
+    "ready",
+  );
   await expect(page.getByLabel("Cached data status")).toContainText("CACHED ANALYSIS");
   await expect(page.getByRole("heading", { name: "$500,000 budget" })).toBeVisible();
   await expect(page.getByText("10 sites", { exact: true })).toBeVisible();

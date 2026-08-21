@@ -102,3 +102,7 @@
   standalone server and FastAPI process as one Docker Space instead, with only port 7860 exposed,
   same-origin API rewrites, and `FORTYGUARD_LIVE=0`. The exact local production layout passes the
   API validator and hosted-URL Playwright path; remote publication is pending Hugging Face login.
+- A user pre-deployment screenshot revealed that the original E2E accepted map controls while all
+  GeoJSON remained blank. Runtime inspection isolated the MapLibre/Next worker regression (style
+  never loaded and source features stayed at zero). Pinned the documented last-known-good 5.16.0
+  release and changed readiness/tests to wait for MapLibre `idle`, preventing the same false pass.
