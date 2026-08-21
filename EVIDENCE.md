@@ -250,3 +250,36 @@
 - Visual-QA limitation: the in-app browser control surface was unavailable in this session, so no
   screenshot review is claimed. The later mandatory Impeccable review task remains the explicit
   visual/accessibility correction pass.
+
+## Golden planning UI is functional against the cached decision API
+
+- Requirement: build map layers, ranked recommendations, budget control, KPIs, site evidence,
+  methodology, and data-freshness UI for the Pacoima golden path.
+- Map proof: `web/components/map-view.tsx` uses MapLibre GL with the real Pacoima boundary and the
+  API's 2,001 GeoJSON tiles. Heat, persistence, exposure, and vulnerability load on demand and are
+  runtime-validated before rendering. Selected portfolio sites use their committed coordinates;
+  the map has an offline base surface and does not invent streets or geographic detail.
+- Decision proof: the `$250k`, `$500k`, and `$1M` controls POST only the budget to the deterministic
+  `/v1/optimize` route. The real proxy smoke returned the `$1M` optimal portfolio with 20 selected
+  sites, `$1,000,000` total cost, and modeled impact `3.85278254`; the UI reports zero vendor calls.
+- Evidence proof: recommendations are ordered by the candidate's disclosed modeled-impact formula;
+  selecting one loads its typed site/tile/intervention record. The drawer exposes observed heat,
+  persistence, published patronage when present, modeled vulnerability, cost/range, confidence,
+  candidate evidence statements, source links, and the full pilot limitations without unsupported
+  temperature or population claims.
+- Freshness/API-boundary proof: the header reads cached/live mode, heat date, and credits from
+  `/v1/data-status`. Zod schemas validate every response consumed by the browser. A same-origin,
+  allow-listed Next route forwards only the seven decision API shapes and returns a visible 502
+  when FastAPI is unavailable; server configuration remains outside client code.
+- Real-contract proof: with the local FastAPI fixture server, `COOLSPOT_API_TEST_URL=http://127.0.0.1:8000
+  npm test` validated pilot, candidates, status, methodology, all four complete layer responses,
+  optimization, and selected-site detail → `3 passed` across two test files.
+- Interaction proof: frontend tests toggle persistence, change the budget to `$1M`, assert the
+  20-site result, and assert no request URL contains `FortyGuard`. `npm run check` passes lint,
+  Next route type generation, strict TypeScript, and `2 passed` UI tests (`1` gated real-contract
+  test skipped without its explicit local-API environment variable).
+- Build/smoke proof: `npm run build` passes with Next.js 16.3.1, statically prerenders `/`, and emits
+  the dynamic allow-listed proxy route. Local HTTP checks returned 200 for `/`, the proxied pilot,
+  the 851,002-byte real heat layer, and the proxied `$1M` optimization.
+- Visual-QA limitation: the Browser plugin's required control tool was not exposed in this session,
+  so screenshot claims remain deferred to the next explicit Impeccable review task.

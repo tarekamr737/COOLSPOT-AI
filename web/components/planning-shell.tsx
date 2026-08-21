@@ -1,259 +1,220 @@
+"use client";
+
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { getCandidates, getDataStatus, getLayer, getMethodology, getPilot, getSite, optimize } from "@/lib/api-client";
+import { layerNames, type Candidate, type CandidateList, type DataStatus, type LayerName, type LayerResponse, type Methodology, type Pilot, type Portfolio, type Site } from "@/lib/api-schemas";
+import { MapView } from "./map-view";
 import styles from "./planning-shell.module.css";
 
-const recommendations = [
-  {
-    rank: "01",
-    name: "Van Nuys / Herrick",
-    intervention: "Shade structure",
-    cost: "$50k",
-    score: "0.209",
-  },
-  {
-    rank: "02",
-    name: "Pacoima Early Education Center",
-    intervention: "Tree canopy",
-    cost: "$50k",
-    score: "0.209",
-  },
-  {
-    rank: "03",
-    name: "Glenoaks / Pierce",
-    intervention: "Shade structure",
-    cost: "$50k",
-    score: "0.198",
-  },
-] as const;
+type WorkspaceData = { pilot: Pilot; candidates: CandidateList; status: DataStatus; methodology: Methodology; portfolio: Portfolio; site: Site };
+const layerLabels: Record<LayerName, string> = { heat: "Heat", persistence: "Persistence", exposure: "Exposure", vulnerability: "Vulnerability" };
+const currency = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 
-const layers = ["Heat", "Persistence", "Exposure", "Vulnerability"] as const;
+function compactCurrency(value: number) {
+  return value >= 1_000_000 ? `$${value / 1_000_000}M` : `$${Math.round(value / 1_000)}k`;
+}
+
+function formatDate(value: string) {
+  return new Intl.DateTimeFormat("en-US", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
+}
+
+function impact(candidate: Candidate) {
+  return candidate.benefit_score * candidate.feasibility_score * candidate.confidence;
+}
+
+function interventionLabel(value: Candidate["intervention_type"]) {
+  return value.split("_").map((word) => word[0]?.toUpperCase() + word.slice(1)).join(" ");
+}
 
 function BrandMark() {
-  return (
-    <svg aria-hidden="true" className={styles.brandMark} viewBox="0 0 32 32">
-      <path d="M4 16a12 12 0 0 1 19.4-9.45L16 16Z" />
-      <path d="M28 16a12 12 0 0 1-19.4 9.45L16 16Z" />
-      <circle cx="16" cy="16" r="3.5" />
-    </svg>
-  );
+  return <svg aria-hidden="true" className={styles.brandMark} viewBox="0 0 32 32"><path d="M4 16a12 12 0 0 1 19.4-9.45L16 16Z" /><path d="M28 16a12 12 0 0 1-19.4 9.45L16 16Z" /><circle cx="16" cy="16" r="3.5" /></svg>;
 }
 
-function TopBar() {
-  return (
-    <header className={styles.topBar}>
-      <div className={styles.brandLockup}>
-        <BrandMark />
-        <div>
-          <p className={styles.brandName}>COOLSPOT AI</p>
-          <p className={styles.brandDescriptor}>Cooling investment planner</p>
-        </div>
-      </div>
-
-      <div className={styles.pilotIdentity}>
-        <span className={styles.eyebrow}>Pilot area</span>
-        <span className={styles.pilotName}>Pacoima, Los Angeles</span>
-        <span className={styles.areaTag}>7.763 mi²</span>
-      </div>
-
-      <div className={styles.dataStatus} aria-label="Cached data status">
-        <div className={styles.statusLine}>
-          <span aria-hidden="true" className={styles.statusDot} />
-          <span>CACHED ANALYSIS</span>
-          <time dateTime="2024-07-15">15 JUL 2024</time>
-        </div>
-        <p>1,991,560 FortyGuard credits remaining</p>
-      </div>
-    </header>
-  );
+function TopBar({ pilot, status }: Pick<WorkspaceData, "pilot" | "status">) {
+  return <header className={styles.topBar}>
+    <div className={styles.brandLockup}><BrandMark /><div><p className={styles.brandName}>COOLSPOT AI</p><p className={styles.brandDescriptor}>Cooling investment planner</p></div></div>
+    <div className={styles.pilotIdentity}><span className={styles.eyebrow}>Pilot area</span><span className={styles.pilotName}>{pilot.name}</span><span className={styles.areaTag}>{pilot.area_sq_mi.toFixed(3)} mi²</span></div>
+    <div className={styles.dataStatus} aria-label="Cached data status"><div className={styles.statusLine}><span aria-hidden="true" className={styles.statusDot} /><span>CACHED ANALYSIS</span><time dateTime={status.heat_data_date}>{formatDate(status.heat_data_date)}</time></div><p>{status.credits.remaining.toLocaleString()} FortyGuard credits remaining</p></div>
+  </header>;
 }
 
-function RecommendationRail() {
-  return (
-    <aside className={styles.recommendationRail} aria-labelledby="recommendations-title">
-      <div className={styles.railHeading}>
-        <div>
-          <p className={styles.eyebrow}>Optimized portfolio</p>
-          <h2 id="recommendations-title">Ranked recommendations</h2>
-        </div>
-        <span className={styles.countBadge}>10 sites</span>
-      </div>
+type RecommendationRailProps = { candidates: Candidate[]; portfolio: Portfolio; activeCandidateId: string; onSelect: (candidate: Candidate) => void };
 
-      <div className={styles.portfolioSummary} aria-label="Portfolio summary">
-        <div>
-          <span>Budget allocated</span>
-          <strong>$500k</strong>
-        </div>
-        <div>
-          <span>Modeled impact</span>
-          <strong>1.982</strong>
-        </div>
-        <div>
-          <span>Replan credits</span>
-          <strong>0</strong>
-        </div>
-      </div>
-
-      <ol className={styles.recommendationList}>
-        {recommendations.map((item) => (
-          <li className={styles.recommendation} key={`${item.rank}-${item.name}`}>
-            <div className={styles.rank}>{item.rank}</div>
-            <div className={styles.recommendationBody}>
-              <p className={styles.interventionLabel}>{item.intervention}</p>
-              <h3>{item.name}</h3>
-              <div className={styles.recommendationMeta}>
-                <span>{item.cost} planning cost</span>
-                <span>{item.score} impact</span>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ol>
-
-      <div className={styles.railFooter}>
-        <p>7 more selected sites</p>
-        <span>152 compatible candidates screened</span>
-      </div>
-    </aside>
-  );
+function RecommendationRail({ candidates, portfolio, activeCandidateId, onSelect }: RecommendationRailProps) {
+  return <aside className={styles.recommendationRail} aria-labelledby="recommendations-title">
+    <div className={styles.railHeading}><div><p className={styles.eyebrow}>Optimized portfolio</p><h2 id="recommendations-title">Ranked recommendations</h2></div><span className={styles.countBadge}>{portfolio.selected_count} sites</span></div>
+    <div className={styles.portfolioSummary} aria-label="Portfolio summary"><div><span>Budget allocated</span><strong>{compactCurrency(portfolio.total_cost_usd)}</strong></div><div><span>Modeled impact</span><strong>{portfolio.total_modeled_impact_score.toFixed(3)}</strong></div><div><span>Replan credits</span><strong>0</strong></div></div>
+    <ol className={styles.recommendationList}>{candidates.map((candidate, index) => <li className={styles.recommendation} key={candidate.id}>
+      <button aria-current={candidate.id === activeCandidateId ? "true" : undefined} className={styles.recommendationButton} onClick={() => onSelect(candidate)} type="button">
+        <span className={styles.rank}>{String(index + 1).padStart(2, "0")}</span><span className={styles.recommendationBody}><span className={styles.interventionLabel}>{interventionLabel(candidate.intervention_type)}</span><strong>{candidate.site_name}</strong><span className={styles.recommendationMeta}><span>{compactCurrency(candidate.planning_cost_usd)} planning cost</span><span>{impact(candidate).toFixed(3)} impact</span></span></span>
+      </button>
+    </li>)}</ol>
+  </aside>;
 }
 
-function BudgetBar() {
-  return (
-    <section className={styles.budgetBar} aria-labelledby="budget-title">
-      <div>
-        <p className={styles.eyebrow}>Investment scenario</p>
-        <h2 id="budget-title">$500,000 budget</h2>
-      </div>
-      <div className={styles.budgetScale} aria-label="Budget presets">
-        <span>$250k</span>
-        <span className={styles.activeBudget}>$500k</span>
-        <span>$1M</span>
-        <span>Custom</span>
-      </div>
-      <p className={styles.budgetNote}>Re-optimizes from cache</p>
-    </section>
-  );
+type BudgetBarProps = { budget: number; portfolio: Portfolio; methodology: Methodology; optimizing: boolean; onCommit: (budget: number) => void; onPreview: (budget: number) => void };
+
+function BudgetBar({ budget, portfolio, methodology, optimizing, onCommit, onPreview }: BudgetBarProps) {
+  const { optimization } = methodology;
+  return <section className={styles.budgetBar} aria-labelledby="budget-title">
+    <div><p className={styles.eyebrow}>Investment scenario</p><h2 id="budget-title">{currency.format(budget)} budget</h2></div>
+    <div className={styles.budgetControl}><div className={styles.budgetScale} aria-label="Budget presets">{optimization.budget_presets_usd.map((preset) => <button aria-pressed={budget === preset} className={budget === preset ? styles.activeBudget : undefined} disabled={optimizing} key={preset} onClick={() => onCommit(preset)} type="button">{compactCurrency(preset)}</button>)}</div>
+      <label className={styles.sliderLabel}><span className="sr-only">Custom budget</span><input aria-valuetext={currency.format(budget)} disabled={optimizing} max={optimization.custom_budget_max_usd} min={optimization.custom_budget_min_usd} onChange={(event) => onPreview(Number(event.currentTarget.value))} onKeyUp={(event) => onCommit(Number(event.currentTarget.value))} onPointerUp={(event) => onCommit(Number(event.currentTarget.value))} step={50_000} type="range" value={budget} /></label>
+    </div>
+    <p aria-live="polite" className={styles.budgetNote}>{optimizing ? "Re-optimizing…" : `${portfolio.selected_count} sites · zero vendor calls`}</p>
+  </section>;
 }
 
-function MapWorkspace() {
-  return (
-    <section className={styles.mapWorkspace} aria-labelledby="map-title">
-      <BudgetBar />
-      <div className={styles.mapCanvas}>
-        <div className={styles.mapLabel}>
-          <p className={styles.eyebrow}>Analysis boundary</p>
-          <h1 id="map-title">Pacoima</h1>
-          <p>2,001 FortyGuard tiles · EPSG:4326</p>
-        </div>
+type MapWorkspaceProps = { budget: number; data: WorkspaceData; layer: LayerResponse; activeLayer: LayerName; layerLoading: boolean; optimizing: boolean; activeCandidateId: string; onBudgetCommit: (budget: number) => void; onBudgetPreview: (budget: number) => void; onLayerChange: (layer: LayerName) => void; onSelectSite: (siteId: string) => void };
 
-        <div className={styles.heatLegend} aria-label="Heat score legend">
-          <span>HIGHER</span>
-          <div className={styles.legendRamp} aria-hidden="true">
-            <i />
-            <i />
-            <i />
-            <i />
-          </div>
-          <span>LOWER</span>
-        </div>
-
-        <div className={styles.mapAttribution}>Real layers load from the cached Pacoima API</div>
-      </div>
-
-      <nav className={styles.layerDock} aria-label="Map layer hierarchy">
-        <span className={styles.eyebrow}>Layers</span>
-        <ul>
-          {layers.map((layer, index) => (
-            <li className={index === 0 ? styles.activeLayer : undefined} key={layer}>
-              <span className={styles.layerSwatch} aria-hidden="true" />
-              {layer}
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </section>
-  );
+function MapWorkspace({ budget, data, layer, activeLayer, layerLoading, optimizing, activeCandidateId, onBudgetCommit, onBudgetPreview, onLayerChange, onSelectSite }: MapWorkspaceProps) {
+  return <section className={styles.mapWorkspace} aria-labelledby="map-title">
+    <BudgetBar budget={budget} methodology={data.methodology} onCommit={onBudgetCommit} onPreview={onBudgetPreview} optimizing={optimizing} portfolio={data.portfolio} />
+    <div className={styles.mapCanvas}><h1 className="sr-only" id="map-title">Pacoima cooling investment map</h1><MapView activeCandidateId={activeCandidateId} candidates={data.candidates.candidates} layer={layer} onSelectSite={onSelectSite} pilot={data.pilot} selectedCandidateIds={data.portfolio.selected_candidate_ids} />
+      <div className={styles.heatLegend} aria-label={`${layerLabels[activeLayer]} score legend`}><span>HIGHER</span><div className={`${styles.legendRamp} ${styles[`${activeLayer}Ramp`]}`} aria-hidden="true"><i /><i /><i /><i /></div><span>LOWER</span></div>
+    </div>
+    <nav className={styles.layerDock} aria-label="Map layer hierarchy"><span className={styles.eyebrow}>Layers</span><ul>{layerNames.map((name) => <li key={name}><button aria-pressed={activeLayer === name} className={activeLayer === name ? styles.activeLayer : undefined} disabled={layerLoading} onClick={() => onLayerChange(name)} type="button"><span className={styles.layerSwatch} aria-hidden="true" />{layerLabels[name]}</button></li>)}</ul><span aria-live="polite" className={styles.layerState}>{layerLoading ? "Loading layer…" : `${layer.features.length.toLocaleString()} tiles`}</span></nav>
+  </section>;
 }
 
-function EvidencePanel() {
-  return (
-    <aside className={styles.evidencePanel} aria-labelledby="evidence-title">
-      <div className={styles.evidenceHeader}>
-        <div>
-          <p className={styles.eyebrow}>Site evidence · Tile 1355</p>
-          <h2 id="evidence-title">Van Nuys / Herrick</h2>
-        </div>
-        <span className={styles.selectedBadge}>Selected</span>
-      </div>
+type EvidencePanelProps = { candidate: Candidate; site: Site; methodology: Methodology; siteLoading: boolean };
 
-      <div className={styles.interventionCallout}>
-        <p>Recommended intervention</p>
-        <h3>Shade structure</h3>
-        <div>
-          <span>$50,000 planning cost</span>
-          <span>$35k–$75k range</span>
-        </div>
-      </div>
+function EvidencePanel({ candidate, site, methodology, siteLoading }: EvidencePanelProps) {
+  const option = site.options.find((item) => item.candidate.id === candidate.id) ?? site.options[0];
+  const { tile, intervention } = option;
+  const sourceIds = new Set([...intervention.planning_cost.source_ids, ...intervention.benefit_evidence.source_ids]);
+  const sources = methodology.interventions.sources.filter((source) => sourceIds.has(source.id));
+  return <aside aria-busy={siteLoading} className={styles.evidencePanel} aria-labelledby="evidence-title">
+    <div className={styles.evidenceHeader}><div><p className={styles.eyebrow}>Site evidence · Tile {candidate.tile_id}</p><h2 id="evidence-title">{site.site_name}</h2></div><span className={styles.selectedBadge}>{siteLoading ? "Loading" : "Selected"}</span></div>
+    <div className={styles.interventionCallout}><p>Recommended intervention</p><h3>{intervention.label}</h3><div><span>{currency.format(intervention.planning_cost.estimate_usd)} planning cost</span><span>{compactCurrency(intervention.planning_cost.low_usd)}–{compactCurrency(intervention.planning_cost.high_usd)} range</span></div></div>
+    <section className={styles.impactSection}><div><p className={styles.eyebrow}>Modeled impact score</p><strong>{impact(candidate).toFixed(3)}</strong></div><p>Relative planning score from cached evidence and screening assumptions. It is not a temperature forecast or guaranteed outcome.</p></section>
+    <dl className={styles.evidenceList}><div><dt>Observed heat</dt><dd>{tile.heat.average_temperature_c.toFixed(2)} °C tile average</dd></div><div><dt>Heat persistence</dt><dd>{tile.heat.persistence_hours.toFixed(2)} hours</dd></div><div><dt>Published patronage activity</dt><dd>{tile.exposure.published_patronage_activity?.toFixed(2) ?? "Not available"}</dd></div><div><dt>Vulnerability context</dt><dd>{tile.scores.vulnerability.toFixed(3)} modeled score</dd></div></dl>
+    <section className={styles.confidenceSection}><div className={styles.confidenceHeading}><span>Evidence confidence</span><strong>Unverified screening · {candidate.confidence.toFixed(1)}</strong></div><div className={styles.confidenceTrack} aria-label={`Confidence score ${candidate.confidence} out of 1`}><span style={{ width: `${candidate.confidence * 100}%` }} /></div><p>{intervention.uncertainty.summary}</p></section>
+    <details className={styles.methodology} id="methodology"><summary>Methodology & limitations</summary><div className={styles.methodologyBody}><p>{methodology.optimization.objective_note}</p><p>{methodology.interventions.cost_basis.disclaimer}</p><ul>{candidate.evidence.map((evidence) => <li key={evidence.kind}><strong>{evidence.kind.replaceAll("_", " ")}</strong><span>{evidence.statement}</span></li>)}</ul><h3>Source links</h3><ul className={styles.sourceList}>{sources.map((source) => <li key={source.id}><a href={source.url} rel="noreferrer" target="_blank">{source.publisher}: {source.title}</a><span>Retrieved {formatDate(source.retrieved_at)}</span></li>)}</ul><h3>Pilot limitations</h3><ul>{methodology.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}</ul></div></details>
+  </aside>;
+}
 
-      <section className={styles.impactSection}>
-        <div>
-          <p className={styles.eyebrow}>Modeled impact score</p>
-          <strong>0.209</strong>
-        </div>
-        <p>
-          Relative planning score from heat, exposure, vulnerability, feasibility, and evidence
-          confidence. It is not a temperature forecast.
-        </p>
-      </section>
+function LoadingShell() {
+  return <main className={styles.statePage} aria-busy="true"><BrandMark /><p className={styles.eyebrow}>Cached demo</p><h1>Loading Pacoima evidence</h1><p>Validating heat, exposure, vulnerability, and portfolio data.</p></main>;
+}
 
-      <dl className={styles.evidenceList}>
-        <div>
-          <dt>Observed heat</dt>
-          <dd>35.45 °C tile average</dd>
-        </div>
-        <div>
-          <dt>Heat persistence</dt>
-          <dd>7.04 hours above 30 °C</dd>
-        </div>
-        <div>
-          <dt>Published patronage activity</dt>
-          <dd>79.79 boardings + alightings</dd>
-        </div>
-        <div>
-          <dt>Vulnerability context</dt>
-          <dd>0.622 modeled score</dd>
-        </div>
-      </dl>
-
-      <section className={styles.confidenceSection}>
-        <div className={styles.confidenceHeading}>
-          <span>Evidence confidence</span>
-          <strong>Unverified screening</strong>
-        </div>
-        <div className={styles.confidenceTrack} aria-label="Confidence score 0.5 out of 1">
-          <span />
-        </div>
-        <p>Existing shade, right-of-way, utilities, and constructability require field review.</p>
-      </section>
-
-      <footer className={styles.evidenceFooter} id="methodology">
-        <span className={styles.methodologyLabel}>Methodology & limitations</span>
-        <span>5 traceable evidence records</span>
-      </footer>
-    </aside>
-  );
+async function fetchWorkspace() {
+  const pilotPromise = getPilot();
+  const candidatesPromise = getCandidates();
+  const statusPromise = getDataStatus();
+  const methodologyPromise = getMethodology();
+  const heatPromise = getLayer("heat");
+  const pilot = await pilotPromise;
+  const [candidates, status, methodology, heat, portfolio] = await Promise.all([
+    candidatesPromise,
+    statusPromise,
+    methodologyPromise,
+    heatPromise,
+    optimize(pilot.default_budget_usd),
+  ]);
+  const byId = new Map(candidates.candidates.map((candidate) => [candidate.id, candidate]));
+  const first = portfolio.selected_candidate_ids
+    .map((id) => byId.get(id))
+    .filter((candidate): candidate is Candidate => Boolean(candidate))
+    .sort((a, b) => impact(b) - impact(a) || a.id.localeCompare(b.id))[0];
+  if (!first) throw new Error("The optimized portfolio contains no known candidates.");
+  const site = await getSite(first.site_id);
+  return {
+    data: { pilot, candidates, status, methodology, portfolio, site },
+    heat,
+    activeCandidateId: first.id,
+  };
 }
 
 export function PlanningShell() {
-  return (
-    <div className={styles.appShell}>
-      <a className={styles.skipLink} href="#map-title">
-        Skip to map workspace
-      </a>
-      <TopBar />
-      <main className={styles.workspace}>
-        <RecommendationRail />
-        <MapWorkspace />
-        <EvidencePanel />
-      </main>
-    </div>
-  );
+  const [data, setData] = useState<WorkspaceData | null>(null);
+  const [layers, setLayers] = useState<Partial<Record<LayerName, LayerResponse>>>({});
+  const [activeLayer, setActiveLayer] = useState<LayerName>("heat");
+  const [activeCandidateId, setActiveCandidateId] = useState("");
+  const [budget, setBudget] = useState(500_000);
+  const [error, setError] = useState<string | null>(null);
+  const [optimizing, setOptimizing] = useState(false);
+  const [layerLoading, setLayerLoading] = useState(false);
+  const [siteLoading, setSiteLoading] = useState(false);
+  const requestSequence = useRef(0);
+
+  const applyWorkspace = useCallback((loaded: Awaited<ReturnType<typeof fetchWorkspace>>) => {
+    setError(null);
+    setBudget(loaded.data.pilot.default_budget_usd);
+    setActiveCandidateId(loaded.activeCandidateId);
+    setLayers({ heat: loaded.heat });
+    setData(loaded.data);
+  }, []);
+
+  useEffect(() => {
+    let active = true;
+    void fetchWorkspace().then((loaded) => {
+      if (active) applyWorkspace(loaded);
+    }).catch((caught: unknown) => {
+      if (active) setError(caught instanceof Error ? caught.message : "Unable to load COOLSPOT data.");
+    });
+    return () => { active = false; };
+  }, [applyWorkspace]);
+
+  const retry = useCallback(async () => {
+    try { applyWorkspace(await fetchWorkspace()); }
+    catch (caught) { setError(caught instanceof Error ? caught.message : "Unable to load COOLSPOT data."); }
+  }, [applyWorkspace]);
+
+  const recommendations = useMemo(() => {
+    if (!data) return [];
+    const selected = new Set(data.portfolio.selected_candidate_ids);
+    return data.candidates.candidates.filter((candidate) => selected.has(candidate.id)).sort((a, b) => impact(b) - impact(a) || a.id.localeCompare(b.id));
+  }, [data]);
+
+  const selectCandidate = useCallback(async (candidate: Candidate) => {
+    if (!data || candidate.id === activeCandidateId) return;
+    setActiveCandidateId(candidate.id); setSiteLoading(true);
+    try { const site = await getSite(candidate.site_id); setData((current) => current ? { ...current, site } : current); }
+    catch (caught) { setError(caught instanceof Error ? caught.message : "Unable to load site evidence."); }
+    finally { setSiteLoading(false); }
+  }, [activeCandidateId, data]);
+
+  const selectSite = useCallback((siteId: string) => {
+    const candidate = recommendations.find((item) => item.site_id === siteId);
+    if (candidate) void selectCandidate(candidate);
+  }, [recommendations, selectCandidate]);
+
+  const changeBudget = useCallback(async (nextBudget: number) => {
+    if (!data || nextBudget === data.portfolio.budget_usd || optimizing) return;
+    const sequence = ++requestSequence.current; setBudget(nextBudget); setOptimizing(true);
+    try {
+      const portfolio = await optimize(nextBudget);
+      if (sequence !== requestSequence.current) return;
+      const byId = new Map(data.candidates.candidates.map((candidate) => [candidate.id, candidate]));
+      const ranked = portfolio.selected_candidate_ids.map((id) => byId.get(id)).filter((candidate): candidate is Candidate => Boolean(candidate)).sort((a, b) => impact(b) - impact(a) || a.id.localeCompare(b.id));
+      const currentIsSelected = portfolio.selected_candidate_ids.includes(activeCandidateId);
+      const next = currentIsSelected ? byId.get(activeCandidateId) : ranked[0];
+      if (!next) throw new Error("The optimized portfolio contains no known candidates.");
+      const site = currentIsSelected ? data.site : await getSite(next.site_id);
+      setActiveCandidateId(next.id); setData((current) => current ? { ...current, portfolio, site } : current);
+    } catch (caught) { setError(caught instanceof Error ? caught.message : "Unable to optimize this budget."); }
+    finally { if (sequence === requestSequence.current) setOptimizing(false); }
+  }, [activeCandidateId, data, optimizing]);
+
+  const changeLayer = useCallback(async (nextLayer: LayerName) => {
+    if (nextLayer === activeLayer || layerLoading) return;
+    const cached = layers[nextLayer]; setActiveLayer(nextLayer);
+    if (cached) return;
+    setLayerLoading(true);
+    try { const response = await getLayer(nextLayer); setLayers((current) => ({ ...current, [nextLayer]: response })); }
+    catch (caught) { setActiveLayer(activeLayer); setError(caught instanceof Error ? caught.message : "Unable to load this map layer."); }
+    finally { setLayerLoading(false); }
+  }, [activeLayer, layerLoading, layers]);
+
+  if (error) return <main className={styles.statePage} role="alert"><BrandMark /><p className={styles.eyebrow}>Data unavailable</p><h1>COOLSPOT could not load the cached analysis</h1><p>{error}</p><button onClick={() => void retry()} type="button">Retry</button></main>;
+  if (!data || !layers[activeLayer]) return <LoadingShell />;
+  const activeCandidate = data.candidates.candidates.find((candidate) => candidate.id === activeCandidateId) ?? recommendations[0];
+  if (!activeCandidate) return <LoadingShell />;
+
+  return <div className={styles.appShell}><a className={styles.skipLink} href="#map-title">Skip to map workspace</a><TopBar pilot={data.pilot} status={data.status} /><main className={styles.workspace}>
+    <RecommendationRail activeCandidateId={activeCandidate.id} candidates={recommendations} onSelect={(candidate) => void selectCandidate(candidate)} portfolio={data.portfolio} />
+    <MapWorkspace activeCandidateId={activeCandidate.id} activeLayer={activeLayer} budget={budget} data={data} layer={layers[activeLayer]} layerLoading={layerLoading} onBudgetCommit={(value) => void changeBudget(value)} onBudgetPreview={setBudget} onLayerChange={(name) => void changeLayer(name)} onSelectSite={selectSite} optimizing={optimizing} />
+    <EvidencePanel candidate={activeCandidate} methodology={data.methodology} site={data.site} siteLoading={siteLoading} />
+  </main></div>;
 }

@@ -255,15 +255,33 @@
 }
 
 .recommendation {
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.recommendationButton {
+  width: 100%;
   display: grid;
   grid-template-columns: 2.4rem 1fr;
   gap: 0.75rem;
   padding: 1rem 1.25rem 1.125rem;
-  border-bottom: 1px solid var(--outline-variant);
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 180ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.recommendation:first-child {
+.recommendationButton:hover {
+  background: var(--surface-high);
+}
+
+.recommendationButton[aria-current="true"] {
   background: var(--selected-surface);
+}
+
+.recommendationButton:active {
+  background: var(--secondary-wash);
 }
 
 .rank {
@@ -281,7 +299,8 @@
   color: var(--secondary);
 }
 
-.recommendation h3 {
+.recommendationBody > strong {
+  display: block;
   margin-top: 0.3rem;
   font-size: 0.9375rem;
   font-weight: 650;
@@ -357,8 +376,14 @@
   text-align: center;
 }
 
-.budgetScale span {
+.budgetScale button {
   padding: 0.38rem 0.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
 }
 
 .budgetScale .activeBudget {
@@ -366,6 +391,34 @@
   background: var(--secondary);
   color: var(--on-secondary);
   font-weight: 700;
+}
+
+.budgetScale button:hover:not(:disabled) {
+  background: var(--surface-high);
+  color: var(--on-surface);
+}
+
+.budgetScale button:disabled,
+.layerDock button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.budgetControl {
+  min-width: 0;
+}
+
+.sliderLabel {
+  display: block;
+  margin: 0.45rem 0.4rem 0;
+}
+
+.sliderLabel input {
+  width: 100%;
+  height: 0.3rem;
+  display: block;
+  accent-color: var(--secondary);
+  cursor: pointer;
 }
 
 .budgetNote {
@@ -385,6 +438,57 @@
     linear-gradient(var(--map-grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--map-grid) 1px, transparent 1px);
   background-size: 6rem 6rem, 6rem 6rem, 1.5rem 1.5rem, 1.5rem 1.5rem;
+}
+
+.mapVisual,
+.mapContainer {
+  position: absolute;
+  inset: 0;
+}
+
+.mapContainer {
+  background: var(--map-base);
+}
+
+.mapLoading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 7rem 3rem;
+  color: var(--on-surface-muted);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.mapTruth {
+  position: absolute;
+  right: 1rem;
+  bottom: 5.5rem;
+  z-index: 2;
+  max-width: 25rem;
+  margin: 0;
+  padding: 0.3rem 0.45rem;
+  background: var(--surface-lowest);
+  color: var(--on-surface-muted);
+  font-family: var(--font-data);
+  font-size: 0.6rem;
+}
+
+.mapContainer :global(.maplibregl-ctrl-top-right) {
+  top: 5.75rem;
+  right: 0.75rem;
+}
+
+.mapContainer :global(.maplibregl-ctrl-group) {
+  border: 1px solid var(--outline-variant);
+  border-radius: 0.25rem;
+  background: var(--surface-highest);
+  box-shadow: none;
+}
+
+.mapContainer :global(.maplibregl-ctrl-group button) {
+  filter: invert(1) saturate(0.2);
 }
 
 .mapLabel {
@@ -450,6 +554,26 @@
   background: var(--heat-min);
 }
 
+.exposureRamp i:first-child,
+.vulnerabilityRamp i:first-child {
+  background: var(--secondary);
+}
+
+.exposureRamp i:nth-child(2),
+.vulnerabilityRamp i:nth-child(2) {
+  background: oklch(0.68 0.14 185);
+}
+
+.exposureRamp i:nth-child(3),
+.vulnerabilityRamp i:nth-child(3) {
+  background: oklch(0.57 0.11 215);
+}
+
+.exposureRamp i:nth-child(4),
+.vulnerabilityRamp i:nth-child(4) {
+  background: oklch(0.82 0.05 235);
+}
+
 .mapAttribution {
   position: absolute;
   right: 1rem;
@@ -485,6 +609,11 @@
 }
 
 .layerDock li {
+  min-width: 0;
+}
+
+.layerDock button {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -494,12 +623,27 @@
   padding: 0.55rem 0.6rem;
   color: var(--on-surface-muted);
   font-size: 0.75rem;
+  background: transparent;
+  cursor: pointer;
 }
 
 .layerDock .activeLayer {
   border-color: var(--secondary-dim);
   background: var(--secondary-wash);
   color: var(--on-surface);
+}
+
+.layerDock button:hover:not(:disabled) {
+  border-color: var(--outline);
+  color: var(--on-surface);
+}
+
+.layerState {
+  min-width: 4.75rem;
+  color: var(--on-surface-muted);
+  font-family: var(--font-data);
+  font-size: 0.625rem;
+  text-align: right;
 }
 
 .layerSwatch {
@@ -640,22 +784,98 @@
   line-height: 1.55;
 }
 
-.evidenceFooter {
-  justify-content: space-between;
-  gap: 1rem;
+.methodology {
   margin: 0 1.25rem;
   padding: 1rem 0 1.5rem;
   border-top: 1px solid var(--outline-variant);
-  font-size: 0.6875rem;
 }
 
-.methodologyLabel {
+.methodology summary {
+  color: var(--secondary);
+  font-family: var(--font-data);
+  font-size: 0.6875rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.methodologyBody {
+  padding-top: 1rem;
+  color: var(--on-surface-muted);
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+.methodologyBody p {
+  margin: 0 0 0.75rem;
+}
+
+.methodologyBody ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.methodologyBody li + li {
+  margin-top: 0.65rem;
+}
+
+.methodologyBody li strong,
+.methodologyBody li span {
+  display: block;
+}
+
+.methodologyBody li strong {
+  color: var(--on-surface);
+  font-family: var(--font-data);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+}
+
+.methodologyBody h3 {
+  margin: 1.25rem 0 0.5rem;
+  color: var(--on-surface);
+  font-size: 0.8125rem;
+}
+
+.sourceList a {
   color: var(--secondary);
 }
 
-.evidenceFooter span {
+.sourceList span {
   color: var(--on-surface-muted);
-  text-align: right;
+  font-family: var(--font-data);
+  font-size: 0.625rem;
+}
+
+.statePage {
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 0.6rem;
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.statePage h1,
+.statePage p {
+  margin: 0;
+}
+
+.statePage > p:last-of-type {
+  color: var(--on-surface-muted);
+  line-height: 1.6;
+}
+
+.statePage button {
+  margin-top: 0.75rem;
+  border: 1px solid var(--secondary);
+  border-radius: 0.25rem;
+  padding: 0.6rem 0.9rem;
+  background: var(--secondary);
+  color: var(--on-secondary);
+  font-weight: 700;
+  cursor: pointer;
 }
 
 @media (max-width: 78rem) {
@@ -675,7 +895,7 @@
 
   .evidenceHeader,
   .interventionCallout,
-  .evidenceFooter {
+  .methodology {
     grid-column: 1;
   }
 
@@ -752,6 +972,10 @@
   .layerDock ul {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .layerState {
+    display: none;
+  }
 }
 
 @media (max-width: 34rem) {
@@ -808,20 +1032,22 @@
     grid-template-columns: 1fr;
   }
 
-  .evidenceList div,
-  .evidenceFooter {
+  .evidenceList div {
     align-items: flex-start;
     flex-direction: column;
   }
 
-  .evidenceList dd,
-  .evidenceFooter span {
+  .evidenceList dd {
     text-align: left;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .skipLink {
+    transition: none;
+  }
+
+  .recommendationButton {
     transition: none;
   }
 }

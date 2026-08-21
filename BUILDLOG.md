@@ -71,3 +71,13 @@
   repo. In-app browser control was not callable; semantic DOM, responsive CSS, HTTP smoke, and the
   production build passed, while screenshot QA is deferred to the already-required Impeccable
   review task rather than being falsely reported.
+- Kept the MapLibre map independent of an external basemap: committed Pacoima boundary/tile/site
+  geometry is sufficient for the core decision path and remains usable offline. Layers are fetched
+  only when selected and cached in client state; budget changes call only the deterministic
+  optimizer, never a FortyGuard route.
+- Added an allow-listed same-origin Next proxy rather than exposing deployment-specific API routing
+  throughout client code. HTTP smoke caught and corrected an initial duplicated `/v1` path before
+  acceptance; the final proxy passes all real API shapes and fails visibly when FastAPI is absent.
+- Split custom-budget preview from commit after review found that disabling the range input on its
+  first change could lock a drag at the first step. The slider now previews continuously and
+  optimizes on pointer or keyboard commit, while preset buttons optimize immediately.
