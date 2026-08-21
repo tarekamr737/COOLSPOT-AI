@@ -1,0 +1,827 @@
+.appShell {
+  min-height: 100svh;
+  background: var(--surface);
+  color: var(--on-surface);
+}
+
+.skipLink {
+  position: fixed;
+  z-index: 100;
+  top: 0.75rem;
+  left: 0.75rem;
+  translate: 0 -180%;
+  border: 1px solid var(--secondary);
+  border-radius: 0.25rem;
+  background: var(--surface-highest);
+  color: var(--on-surface);
+  padding: 0.625rem 0.875rem;
+  transition: translate 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skipLink:focus {
+  translate: 0;
+}
+
+.topBar {
+  min-height: 4.25rem;
+  display: grid;
+  grid-template-columns: minmax(15rem, 1fr) auto minmax(18rem, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.625rem 1.25rem;
+  border-bottom: 1px solid var(--outline-variant);
+  background: var(--surface-lowest);
+}
+
+.brandLockup,
+.pilotIdentity,
+.statusLine,
+.recommendationMeta,
+.confidenceHeading,
+.evidenceFooter {
+  display: flex;
+  align-items: center;
+}
+
+.brandLockup {
+  gap: 0.75rem;
+}
+
+.brandMark {
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+}
+
+.brandMark path:first-child {
+  fill: var(--heat-mid);
+}
+
+.brandMark path:nth-child(2) {
+  fill: var(--secondary);
+}
+
+.brandMark circle {
+  fill: var(--surface-lowest);
+  stroke: var(--on-surface);
+  stroke-width: 1.5;
+}
+
+.brandName,
+.brandDescriptor,
+.eyebrow,
+.pilotIdentity span,
+.dataStatus p,
+.statusLine,
+.recommendation p,
+.railFooter p,
+.railFooter span,
+.budgetBar p,
+.mapLabel p,
+.heatLegend,
+.mapAttribution,
+.interventionCallout p,
+.impactSection p,
+.confidenceSection p,
+.evidenceFooter {
+  margin: 0;
+}
+
+.brandName {
+  font-size: 0.875rem;
+  font-weight: 760;
+  letter-spacing: 0.08em;
+}
+
+.brandDescriptor {
+  margin-top: 0.125rem;
+  color: var(--on-surface-muted);
+  font-size: 0.75rem;
+}
+
+.pilotIdentity {
+  gap: 0.625rem;
+  min-width: 0;
+}
+
+.pilotName {
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.areaTag,
+.countBadge,
+.selectedBadge {
+  border: 1px solid var(--outline-variant);
+  border-radius: 999px;
+  padding: 0.2rem 0.5rem;
+  color: var(--on-surface-muted);
+  font-family: var(--font-data);
+  font-size: 0.6875rem;
+}
+
+.dataStatus {
+  justify-self: end;
+  text-align: right;
+}
+
+.statusLine {
+  justify-content: flex-end;
+  gap: 0.45rem;
+  color: var(--cached);
+  font-family: var(--font-data);
+  font-size: 0.6875rem;
+  letter-spacing: 0.05em;
+}
+
+.statusLine time {
+  padding-left: 0.45rem;
+  border-left: 1px solid var(--outline-variant);
+  color: var(--on-surface-muted);
+}
+
+.statusDot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: var(--cached);
+}
+
+.dataStatus p {
+  margin-top: 0.2rem;
+  color: var(--on-surface-muted);
+  font-family: var(--font-data);
+  font-size: 0.6875rem;
+}
+
+.workspace {
+  height: calc(100svh - 4.25rem);
+  display: grid;
+  grid-template-columns: 21rem minmax(28rem, 1fr) 23.5rem;
+  overflow: hidden;
+}
+
+.recommendationRail,
+.evidencePanel {
+  min-width: 0;
+  background: var(--surface-low);
+  overflow-y: auto;
+  scrollbar-color: var(--outline-variant) transparent;
+}
+
+.recommendationRail {
+  border-right: 1px solid var(--outline-variant);
+}
+
+.railHeading,
+.evidenceHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.railHeading {
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.eyebrow,
+.interventionLabel,
+.interventionCallout p,
+.confidenceHeading span {
+  color: var(--on-surface-muted);
+  font-family: var(--font-data);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.railHeading h2,
+.evidenceHeader h2,
+.budgetBar h2,
+.mapLabel h1,
+.interventionCallout h3,
+.recommendation h3 {
+  margin: 0;
+}
+
+.railHeading h2,
+.evidenceHeader h2 {
+  margin-top: 0.25rem;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.countBadge {
+  color: var(--secondary);
+  border-color: var(--secondary-dim);
+}
+
+.portfolioSummary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.portfolioSummary div {
+  padding: 0.875rem 0.75rem 1rem;
+}
+
+.portfolioSummary div + div {
+  border-left: 1px solid var(--outline-variant);
+}
+
+.portfolioSummary span {
+  display: block;
+  min-height: 2rem;
+  color: var(--on-surface-muted);
+  font-size: 0.6875rem;
+  line-height: 1.35;
+}
+
+.portfolioSummary strong {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--font-data);
+  font-size: 1rem;
+}
+
+.recommendationList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.recommendation {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem 1.125rem;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.recommendation:first-child {
+  background: var(--selected-surface);
+}
+
+.rank {
+  padding-top: 0.15rem;
+  color: var(--secondary);
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+}
+
+.recommendationBody {
+  min-width: 0;
+}
+
+.interventionLabel {
+  color: var(--secondary);
+}
+
+.recommendation h3 {
+  margin-top: 0.3rem;
+  font-size: 0.9375rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.recommendationMeta {
+  flex-wrap: wrap;
+  gap: 0.375rem 0.75rem;
+  margin-top: 0.65rem;
+  color: var(--on-surface-muted);
+  font-family: var(--font-data);
+  font-size: 0.6875rem;
+}
+
+.railFooter {
+  padding: 1rem 1.25rem 1.5rem;
+}
+
+.railFooter p {
+  font-size: 0.8125rem;
+  font-weight: 650;
+}
+
+.railFooter span {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--on-surface-muted);
+  font-size: 0.75rem;
+}
+
+.mapWorkspace {
+  position: relative;
+  min-width: 0;
+  min-height: 37rem;
+  background: var(--map-base);
+  overflow: hidden;
+}
+
+.budgetBar {
+  position: absolute;
+  z-index: 3;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  min-height: 4.15rem;
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr) minmax(15rem, 1.3fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--outline-variant);
+  border-radius: 0.375rem;
+  background: var(--surface-highest);
+}
+
+.budgetBar h2 {
+  margin-top: 0.2rem;
+  font-family: var(--font-data);
+  font-size: 1rem;
+}
+
+.budgetScale {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  border: 1px solid var(--outline-variant);
+  border-radius: 999px;
+  padding: 0.18rem;
+  color: var(--on-surface-muted);
+  font-family: var(--font-data);
+  font-size: 0.6875rem;
+  text-align: center;
+}
+
+.budgetScale span {
+  padding: 0.38rem 0.4rem;
+}
+
+.budgetScale .activeBudget {
+  border-radius: 999px;
+  background: var(--secondary);
+  color: var(--on-secondary);
+  font-weight: 700;
+}
+
+.budgetNote {
+  color: var(--secondary);
+  font-family: var(--font-data);
+  font-size: 0.6875rem;
+  white-space: nowrap;
+}
+
+.mapCanvas {
+  position: absolute;
+  inset: 0;
+  background-color: var(--map-base);
+  background-image:
+    linear-gradient(var(--map-grid-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--map-grid-strong) 1px, transparent 1px),
+    linear-gradient(var(--map-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--map-grid) 1px, transparent 1px);
+  background-size: 6rem 6rem, 6rem 6rem, 1.5rem 1.5rem, 1.5rem 1.5rem;
+}
+
+.mapLabel {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  translate: -50% -50%;
+  width: min(28rem, calc(100% - 4rem));
+  text-align: center;
+}
+
+.mapLabel h1 {
+  margin-top: 0.25rem;
+  color: var(--map-label);
+  font-size: 4.75rem;
+  font-weight: 760;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+.mapLabel p:last-child {
+  margin-top: 0.75rem;
+  color: var(--on-surface-muted);
+  font-family: var(--font-data);
+  font-size: 0.6875rem;
+}
+
+.heatLegend {
+  position: absolute;
+  left: 1rem;
+  bottom: 5.5rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  color: var(--on-surface-muted);
+  font-family: var(--font-data);
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+}
+
+.legendRamp {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.legendRamp i {
+  display: block;
+  width: 0.65rem;
+  height: 0.85rem;
+  background: var(--heat-high);
+}
+
+.legendRamp i:nth-child(2) {
+  background: var(--heat-mid);
+}
+
+.legendRamp i:nth-child(3) {
+  background: var(--heat-low);
+}
+
+.legendRamp i:nth-child(4) {
+  background: var(--heat-min);
+}
+
+.mapAttribution {
+  position: absolute;
+  right: 1rem;
+  bottom: 5.6rem;
+  color: var(--on-surface-muted);
+  font-size: 0.65rem;
+}
+
+.layerDock {
+  position: absolute;
+  z-index: 3;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--outline-variant);
+  border-radius: 0.375rem;
+  background: var(--surface-highest);
+}
+
+.layerDock ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(6.5rem, 1fr));
+  gap: 0.25rem;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.layerDock li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  padding: 0.55rem 0.6rem;
+  color: var(--on-surface-muted);
+  font-size: 0.75rem;
+}
+
+.layerDock .activeLayer {
+  border-color: var(--secondary-dim);
+  background: var(--secondary-wash);
+  color: var(--on-surface);
+}
+
+.layerSwatch {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 0.1rem;
+  background: var(--outline);
+}
+
+.activeLayer .layerSwatch {
+  background: var(--heat-mid);
+}
+
+.evidencePanel {
+  border-left: 1px solid var(--outline-variant);
+}
+
+.evidenceHeader {
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.selectedBadge {
+  border-color: var(--secondary-dim);
+  color: var(--secondary);
+}
+
+.interventionCallout {
+  margin: 1.25rem;
+  padding: 1rem;
+  border: 1px solid var(--secondary-dim);
+  border-radius: 0.375rem;
+  background: var(--secondary-wash);
+}
+
+.interventionCallout p {
+  color: var(--secondary);
+}
+
+.interventionCallout h3 {
+  margin-top: 0.35rem;
+  font-size: 1.25rem;
+}
+
+.interventionCallout div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  margin-top: 0.85rem;
+  color: var(--on-surface-muted);
+  font-family: var(--font-data);
+  font-size: 0.6875rem;
+}
+
+.impactSection {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 1rem;
+  margin: 0 1.25rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--outline-variant);
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.impactSection strong {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--secondary);
+  font-family: var(--font-data);
+  font-size: 1.75rem;
+}
+
+.impactSection > p {
+  color: var(--on-surface-muted);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.evidenceList {
+  margin: 0;
+  padding: 0.5rem 1.25rem;
+}
+
+.evidenceList div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.evidenceList dt {
+  color: var(--on-surface-muted);
+  font-size: 0.75rem;
+}
+
+.evidenceList dd {
+  margin: 0;
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+.confidenceSection {
+  margin: 0.5rem 1.25rem 1.25rem;
+  padding-top: 0.75rem;
+}
+
+.confidenceHeading {
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.confidenceHeading strong {
+  color: var(--cached);
+  font-size: 0.75rem;
+}
+
+.confidenceTrack {
+  height: 0.35rem;
+  margin-top: 0.65rem;
+  border-radius: 999px;
+  background: var(--surface-highest);
+  overflow: hidden;
+}
+
+.confidenceTrack span {
+  display: block;
+  width: 50%;
+  height: 100%;
+  background: var(--cached);
+}
+
+.confidenceSection p {
+  margin-top: 0.65rem;
+  color: var(--on-surface-muted);
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+.evidenceFooter {
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 1.25rem;
+  padding: 1rem 0 1.5rem;
+  border-top: 1px solid var(--outline-variant);
+  font-size: 0.6875rem;
+}
+
+.methodologyLabel {
+  color: var(--secondary);
+}
+
+.evidenceFooter span {
+  color: var(--on-surface-muted);
+  text-align: right;
+}
+
+@media (max-width: 78rem) {
+  .workspace {
+    height: auto;
+    grid-template-columns: 19rem minmax(27rem, 1fr);
+    overflow: visible;
+  }
+
+  .evidencePanel {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.8fr) minmax(24rem, 1.2fr);
+    border-top: 1px solid var(--outline-variant);
+    border-left: 0;
+  }
+
+  .evidenceHeader,
+  .interventionCallout,
+  .evidenceFooter {
+    grid-column: 1;
+  }
+
+  .impactSection,
+  .evidenceList,
+  .confidenceSection {
+    grid-column: 2;
+  }
+
+  .impactSection {
+    grid-row: 1;
+    margin-top: 0.6rem;
+  }
+
+  .evidenceList {
+    grid-row: 2 / span 2;
+  }
+}
+
+@media (max-width: 52rem) {
+  .topBar {
+    grid-template-columns: 1fr auto;
+    gap: 0.75rem;
+  }
+
+  .pilotIdentity {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .dataStatus {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .workspace {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mapWorkspace {
+    order: 1;
+    min-height: 35rem;
+  }
+
+  .recommendationRail {
+    order: 2;
+    border-top: 1px solid var(--outline-variant);
+    border-right: 0;
+  }
+
+  .evidencePanel {
+    order: 3;
+    display: block;
+  }
+
+  .budgetBar {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .budgetNote {
+    display: none;
+  }
+
+  .mapLabel {
+    top: 53%;
+  }
+
+  .layerDock {
+    align-items: flex-start;
+  }
+
+  .layerDock ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 34rem) {
+  .topBar {
+    padding: 0.75rem 1rem;
+  }
+
+  .brandDescriptor,
+  .areaTag,
+  .dataStatus p {
+    display: none;
+  }
+
+  .statusLine time {
+    display: none;
+  }
+
+  .pilotIdentity {
+    overflow: hidden;
+  }
+
+  .pilotName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mapWorkspace {
+    min-height: 38rem;
+  }
+
+  .budgetScale {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .budgetScale span:last-child {
+    display: none;
+  }
+
+  .mapLabel h1 {
+    font-size: 3.5rem;
+  }
+
+  .mapAttribution {
+    right: 0.75rem;
+    left: 3.25rem;
+    text-align: right;
+  }
+
+  .portfolioSummary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .impactSection {
+    grid-template-columns: 1fr;
+  }
+
+  .evidenceList div,
+  .evidenceFooter {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .evidenceList dd,
+  .evidenceFooter span {
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skipLink {
+    transition: none;
+  }
+}

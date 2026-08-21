@@ -65,3 +65,9 @@
   read-only loads in-process. Layer responses expose internal typed properties rather than vendor
   response shapes; optimization imports no live-refresh path, and data status labels the served
   mode as cached even if an administrator has separately enabled live refresh in the environment.
+- Impeccable inferred the `product` register from the municipal planner workflow and drove a
+  restrained, map-dominant civic-tech shell using the existing `DESIGN.md`. The documented
+  project-local context loader was absent, so the installed global loader was used against the
+  repo. In-app browser control was not callable; semantic DOM, responsive CSS, HTTP smoke, and the
+  production build passed, while screenshot QA is deferred to the already-required Impeccable
+  review task rather than being falsely reported.

@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --surface-lowest: oklch(0.13 0.035 250);
+  --surface: oklch(0.18 0.04 250);
+  --surface-low: oklch(0.21 0.038 250);
+  --surface-high: oklch(0.25 0.035 250);
+  --surface-highest: oklch(0.29 0.035 250);
+  --selected-surface: oklch(0.25 0.045 222);
+  --on-surface: oklch(0.91 0.025 252);
+  --on-surface-muted: oklch(0.74 0.02 252);
+  --outline: oklch(0.62 0.015 252);
+  --outline-variant: oklch(0.36 0.025 252);
+  --secondary: oklch(0.8 0.14 177);
+  --secondary-dim: oklch(0.58 0.1 177);
+  --secondary-wash: oklch(0.46 0.08 177 / 0.17);
+  --on-secondary: oklch(0.2 0.045 177);
+  --cached: oklch(0.78 0.14 82);
+  --heat-high: oklch(0.58 0.23 28);
+  --heat-mid: oklch(0.7 0.19 48);
+  --heat-low: oklch(0.82 0.15 78);
+  --heat-min: oklch(0.74 0.09 142);
+  --map-base: oklch(0.16 0.025 248);
+  --map-grid: oklch(0.33 0.025 248 / 0.24);
+  --map-grid-strong: oklch(0.41 0.03 248 / 0.28);
+  --map-label: oklch(0.88 0.02 252 / 0.18);
+  --background: var(--surface);
+  --foreground: var(--on-surface);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-ui);
+  --font-mono: var(--font-data);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--surface);
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+}
+
+h1,
+h2,
+h3,
+button,
+input {
+  font-family: var(--font-ui), "Segoe UI", sans-serif;
+}
+
+a,
+button,
+input {
+  outline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--secondary);
+}
+
+::selection {
+  background: var(--secondary);
+  color: var(--on-secondary);
 }

@@ -221,3 +221,32 @@
   HTTP 404 rather than substituting data.
 - Test proof: `.venv\Scripts\python.exe -m pytest api/tests/test_decision_api.py
   api/tests/test_app.py` → `4 passed`; focused Ruff and strict Mypy checks pass.
+
+## Impeccable golden-map information architecture is implemented
+
+- Requirement: invoke/read the mandatory Impeccable skill before UI work and implement its
+  golden-map hierarchy using the repository's product/design context.
+- Preflight proof: the installed Impeccable `SKILL.md` was read in full; its context loader returned
+  non-placeholder `PRODUCT.md` and `DESIGN.md`; the product-register reference was loaded; and the
+  required preflight was declared with context/product/command gates passing, shape not required,
+  and bitmap imagery skipped because the real geospatial data is the product visual.
+- Implementation: `web/components/planning-shell.tsx` and its scoped CSS replace the generated
+  Next.js page with a persistent civic/data header, ranked portfolio rail, dominant Pacoima map
+  rendering surface, budget command bar, layer dock, KPI summary, and evidence inspector. The
+  hierarchy follows the desktop fixed-fluid map model and collapses structurally for tablet/mobile.
+- Design-system proof: colors use restrained OKLCH heat/cooling semantics; Public Sans, Inter, and
+  JetBrains Mono are self-hosted by Next; tonal layers and 1px outlines replace decorative cards or
+  shadows; visible copy avoids unsupported outcome claims and distinguishes cached, observed, and
+  modeled values.
+- Data-truth proof: visible planning figures come from the frozen real artifacts and `$500k`
+  optimizer result. The placeholder rendering surface does not draw invented geography or place a
+  marker at an invented coordinate; the next task will connect it to the real typed map layers.
+- Accessibility proof: semantic header/main/asides/sections, labeled navigation/status/legend,
+  visible focus treatment, a keyboard skip link, high-contrast states, and reduced-motion handling
+  are present. Breakpoints at 78rem, 52rem, and 34rem prevent desktop panels from breaking the
+  mobile flow.
+- Test proof: `npm test`, `npm run lint`, `npm run typecheck`, and `npm run build` all pass; Next.js
+  successfully prerenders `/` as static content.
+- Visual-QA limitation: the in-app browser control surface was unavailable in this session, so no
+  screenshot review is claimed. The later mandatory Impeccable review task remains the explicit
+  visual/accessibility correction pass.

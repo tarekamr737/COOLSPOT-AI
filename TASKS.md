@@ -26,7 +26,7 @@
 - [x] Expose pilot/layers/candidates/optimize/site/methodology/data-status API routes.
 
 ## 4 — Product UI
-- [ ] Invoke/read **Impeccable skill**; implement the golden map information architecture it specifies.
+- [x] Invoke/read **Impeccable skill**; implement the golden map information architecture it specifies.
 - [ ] Build map layers, ranked recommendations, budget control, KPIs, evidence drawer, methodology, and data freshness UI.
 - [ ] Re-run Impeccable review; fix accessibility, responsive behavior, loading/error states, and visual hierarchy.
 - [ ] Add grounded template explanation; optional cached LLM explanation only if it improves judging.
