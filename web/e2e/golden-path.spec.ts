@@ -1,8 +1,9 @@
 import { expect, test } from "@playwright/test";
 
 type DataStatus = {
+  mode: "cached_demo" | "live_refreshed";
   external_calls_on_read: false;
-  credits: { used: number; remaining: number };
+  credits: { total: number; used: number; remaining: number; hard_reserve: number };
 };
 
 test("golden planning path re-optimizes from cached data without FortyGuard calls", async ({ page }) => {
@@ -22,7 +23,7 @@ test("golden planning path re-optimizes from cached data without FortyGuard call
     "data-map-state",
     "ready",
   );
-  await expect(page.getByLabel("Data freshness status")).toContainText("CACHED ANALYSIS");
+  await expect(page.getByLabel("Data freshness status")).toContainText(/CACHED ANALYSIS|LIVE REFRESHED/);
   await expect(page.getByRole("button", { name: "Refresh data" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "$500,000 budget" })).toBeVisible();
   await expect(page.getByText("10 sites", { exact: true })).toBeVisible();
@@ -31,7 +32,9 @@ test("golden planning path re-optimizes from cached data without FortyGuard call
   expect(beforeResponse.ok()).toBe(true);
   const before = (await beforeResponse.json()) as DataStatus;
   expect(before.external_calls_on_read).toBe(false);
-  expect(before.credits).toMatchObject({ used: 8_440, remaining: 1_991_560 });
+  expect(before.credits.used).toBeGreaterThanOrEqual(8_440);
+  expect(before.credits.remaining).toBe(before.credits.total - before.credits.used);
+  expect(before.credits.remaining).toBeGreaterThanOrEqual(before.credits.hard_reserve);
 
   const persistence = page.getByRole("button", { name: "Persistence" });
   await persistence.click();

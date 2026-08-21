@@ -176,27 +176,9 @@ export function MapView({
         attributionControl: { compact: false },
         style: {
           version: 8,
-          sources: {
-            "street-basemap": {
-              type: "raster",
-              tiles: [`${window.location.origin}/api/basemap/{z}/{x}/{y}`],
-              tileSize: 256,
-              attribution:
-                '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors</a>',
-            },
-          },
+          sources: {},
           layers: [
             { id: "background", type: "background", paint: { "background-color": "#071a2b" } },
-            {
-              id: "street-basemap",
-              type: "raster",
-              source: "street-basemap",
-              paint: {
-                "raster-opacity": 0.72,
-                "raster-saturation": -0.35,
-                "raster-contrast": 0.08,
-              },
-            },
           ],
         },
       });
@@ -234,6 +216,26 @@ export function MapView({
             "fill-opacity": 0.58,
           },
         });
+        map.addSource("street-basemap", {
+          type: "raster",
+          tiles: [`${window.location.origin}/api/basemap/{z}/{x}/{y}`],
+          tileSize: 256,
+          attribution:
+            '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors</a>',
+        });
+        map.addLayer(
+          {
+            id: "street-basemap",
+            type: "raster",
+            source: "street-basemap",
+            paint: {
+              "raster-opacity": 0.72,
+              "raster-saturation": -0.35,
+              "raster-contrast": 0.08,
+            },
+          },
+          "analysis-fill",
+        );
         map.addLayer({
           id: "analysis-outline",
           type: "line",

@@ -3,6 +3,8 @@
 import asyncio
 from pathlib import Path
 
+import httpx2
+
 from api.app.services.decision_api import candidates_response, site_response
 from api.app.services.explanations import explain_with_optional_llm
 from api.app.services.optimizer import optimize_portfolio
@@ -12,13 +14,22 @@ class StubTransport:
     def __init__(self, content: str) -> None:
         self.content = content
         self.calls = 0
+        self.prompts: list[str] = []
 
     async def complete(self, *, api_key: str, model: str, prompt: str) -> str:
         assert api_key == "test-key"
         assert model == "google/gemma-4-26b-a4b-it:free"
         assert "Verified summary:" in prompt
         self.calls += 1
+        self.prompts.append(prompt)
         return self.content
+
+
+class RateLimitedTransport:
+    async def complete(self, *, api_key: str, model: str, prompt: str) -> str:
+        request = httpx2.Request("POST", "https://openrouter.ai/api/v1/chat/completions")
+        response = httpx2.Response(429, request=request)
+        raise httpx2.HTTPStatusError("rate limited", request=request, response=response)
 
 
 def selected_context() -> tuple[object, object, object, object]:
@@ -56,11 +67,16 @@ def test_openrouter_rewrites_only_the_summary_and_is_cached(tmp_path: Path) -> N
 
     first = asyncio.run(explain_with_optional_llm(**kwargs))  # type: ignore[arg-type]
     second = asyncio.run(explain_with_optional_llm(**kwargs))  # type: ignore[arg-type]
+    regenerated = asyncio.run(
+        explain_with_optional_llm(**kwargs, regenerate=True)  # type: ignore[arg-type]
+    )
 
     assert first.mode == "openrouter"
     assert first.why_selected == second.why_selected
     assert first.limitations == second.limitations
-    assert transport.calls == 1
+    assert regenerated.mode == "openrouter"
+    assert transport.calls == 2
+    assert "Previous wording to avoid:" in transport.prompts[1]
 
 
 def test_unsafe_model_claim_falls_back_to_template(tmp_path: Path) -> None:
@@ -81,3 +97,27 @@ def test_unsafe_model_claim_falls_back_to_template(tmp_path: Path) -> None:
     )
 
     assert result.mode == "template"
+    assert result.fallback_reason is not None
+    assert "grounding checks" in result.fallback_reason
+
+
+def test_openrouter_rate_limit_is_visible_with_a_safe_fallback(tmp_path: Path) -> None:
+    candidate, tile, intervention, portfolio = selected_context()
+    result = asyncio.run(
+        explain_with_optional_llm(
+            candidate=candidate,  # type: ignore[arg-type]
+            tile=tile,  # type: ignore[arg-type]
+            intervention=intervention,  # type: ignore[arg-type]
+            portfolio=portfolio,  # type: ignore[arg-type]
+            environ={
+                "EXPLANATION_MODE": "openrouter",
+                "OPENROUTER_API_KEY": "test-key",
+            },
+            transport=RateLimitedTransport(),
+            cache_root=tmp_path,
+        )
+    )
+
+    assert result.mode == "template"
+    assert result.fallback_reason is not None
+    assert "temporarily rate limited" in result.fallback_reason

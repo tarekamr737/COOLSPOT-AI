@@ -87,6 +87,7 @@ async def explain_site(site_id: str, request: ExplanationRequest) -> GroundedExp
             tile=option.tile,
             intervention=option.intervention,
             portfolio=portfolio,
+            regenerate=request.regenerate,
         )
     except ValueError as error:
         status_code = 409 if "is not selected" in str(error) else 422

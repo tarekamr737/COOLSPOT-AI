@@ -64,9 +64,9 @@
       "reason": "The report endpoint is not an MVP dependency and was not probed or assumed available."
     }
   ],
-  "credits_remaining": 1991560,
-  "credits_used": 8440,
-  "evaluated_at": "2026-08-20",
+  "credits_remaining": 1983120,
+  "credits_used": 16880,
+  "evaluated_at": "2026-08-21",
   "hard_reserve": 500000,
   "optional_live_probes_made": 0,
   "total_credits": 2000000,

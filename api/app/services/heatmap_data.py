@@ -1,5 +1,6 @@
 """Typed access to the frozen real Pacoima FortyGuard heatmap artifact."""
 
+import json
 from datetime import datetime
 from pathlib import Path
 from typing import Literal, Self
@@ -83,3 +84,11 @@ class PacoimaHeatmapArtifact(BaseModel):
 
 def load_heatmap_artifact(path: Path = DEFAULT_HEATMAP_PATH) -> PacoimaHeatmapArtifact:
     return PacoimaHeatmapArtifact.model_validate_json(path.read_text(encoding="utf-8"))
+
+
+def canonical_heatmap_bytes(artifact: PacoimaHeatmapArtifact) -> bytes:
+    """Serialize refreshed evidence in the repository's deterministic JSON format."""
+
+    return (
+        json.dumps(artifact.model_dump(mode="json"), indent=2, sort_keys=True) + "\n"
+    ).encode()

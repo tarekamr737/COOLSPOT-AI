@@ -1,5 +1,6 @@
 """Validated FortyGuard feature availability for the offline-first MVP."""
 
+import json
 from datetime import date
 from enum import StrEnum
 from pathlib import Path
@@ -100,3 +101,9 @@ class FeatureDisabledError(RuntimeError):
 
 def load_capabilities(path: Path = DEFAULT_CAPABILITIES_PATH) -> CapabilityManifest:
     return CapabilityManifest.model_validate_json(path.read_text(encoding="utf-8"))
+
+
+def canonical_capability_bytes(manifest: CapabilityManifest) -> bytes:
+    return (
+        json.dumps(manifest.model_dump(mode="json"), indent=2, sort_keys=True) + "\n"
+    ).encode()

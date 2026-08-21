@@ -42,6 +42,7 @@ function RefreshControl({ available, onCompleted }: { available: boolean; onComp
   const [analysisDate, setAnalysisDate] = useState(latestCompleteDate);
   const [status, setStatus] = useState<RefreshStatus | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [reloading, setReloading] = useState(false);
   const completionHandled = useRef(false);
 
   useEffect(() => {
@@ -56,7 +57,15 @@ function RefreshControl({ available, onCompleted }: { available: boolean; onComp
     if (status?.state !== "completed" || completionHandled.current) return;
     completionHandled.current = true;
     setToken("");
-    void onCompleted();
+    setReloading(true);
+    void onCompleted().then(() => {
+      setStatus((current) => current?.state === "completed" ? {
+        ...current,
+        message: "Fresh evidence is active. The map, scores, recommendations, and portfolio were recalculated.",
+      } : current);
+    }).catch((caught: unknown) => {
+      setError(`${caught instanceof Error ? caught.message : "Unable to reload the workspace."} The refresh completed, but the app could not load its new outputs.`);
+    }).finally(() => setReloading(false));
   }, [onCompleted, status?.state]);
 
   const submit = async () => {
@@ -78,7 +87,7 @@ function RefreshControl({ available, onCompleted }: { available: boolean; onComp
       {!available ? <p className={styles.refreshWarning}>Server refresh is not enabled yet. Configure live mode and an administrator token.</p> : null}
       {status ? <p aria-live="polite" className={styles.refreshMessage}>{status.message}{status.estimated_credit_cost ? ` Estimated cost: ${status.estimated_credit_cost.toLocaleString()} credits.` : ""}</p> : null}
       {error ? <p className={styles.refreshError} role="alert">{error}</p> : null}
-      <div className={styles.refreshActions}><button onClick={() => setExpanded(false)} type="button">Cancel</button><button disabled={!available || !token || status?.state === "running"} type="submit">{status?.state === "running" ? "Refreshing…" : "Confirm live refresh"}</button></div>
+      <div className={styles.refreshActions}><button onClick={() => setExpanded(false)} type="button">Cancel</button><button disabled={!available || !token || status?.state === "running" || reloading} type="submit">{status?.state === "running" ? "Refreshing…" : reloading ? "Updating app…" : "Confirm live refresh"}</button></div>
     </form> : null}
   </div>;
 }
@@ -145,7 +154,13 @@ function EvidencePanel({ candidate, site, methodology, explanationMode, siteLoad
     <dl className={styles.evidenceList}><div><dt>Observed heat</dt><dd>{tile.heat.average_temperature_c.toFixed(2)} °C tile average</dd></div><div><dt>Heat persistence</dt><dd>{tile.heat.persistence_hours.toFixed(2)} hours</dd></div><div><dt>Published patronage activity</dt><dd>{tile.exposure.published_patronage_activity?.toFixed(2) ?? "Not available"}</dd></div><div><dt>Vulnerability context</dt><dd>{tile.scores.vulnerability.toFixed(3)} modeled score</dd></div></dl>
     <details className={styles.scoreBreakdown}><summary>How the priority score is calculated</summary><dl>{Object.entries(tile.scores).map(([name, value]) => <div key={name}><dt>{name.replaceAll("_", " ")}</dt><dd>{value.toFixed(3)}{methodology.scoring.priority_weights[name] !== undefined ? ` · ${(methodology.scoring.priority_weights[name] * 100).toFixed(0)}% weight` : ""}</dd></div>)}</dl><p>Observed and published inputs are normalized to 0–1, then combined with the published weights. The intervention impact also applies feasibility and confidence screening.</p></details>
     <section className={styles.confidenceSection}><div className={styles.confidenceHeading}><span>Evidence confidence</span><strong>Unverified screening · {candidate.confidence.toFixed(1)}</strong></div><div className={styles.confidenceTrack} aria-label={`Confidence score ${candidate.confidence} out of 1`}><span style={{ width: `${candidate.confidence * 100}%` }} /></div><p>{intervention.uncertainty.summary}</p></section>
-    <section className={styles.explanationSection} aria-labelledby="explanation-title"><div className={styles.explanationHeading}><div><p className={styles.eyebrow}>AI evidence assistant</p><h3 id="explanation-title">Why this site?</h3></div><button disabled={explanationLoading || siteLoading} onClick={onExplain} type="button">{explanationLoading ? "Explaining…" : explanation ? "Regenerate" : "Ask AI"}</button></div><p className={styles.aiBoundary}>The AI explains the selected result. It never ranks sites or adds evidence.</p>{explanationError ? <p className={styles.explanationError} role="alert">{explanationError}</p> : null}{explanation ? <div className={styles.explanationBody}><p>{explanation.summary}</p><h4>Evidence used</h4><ul>{explanation.why_selected.map((reason) => <li key={reason}>{reason}</li>)}</ul><h4>Limits</h4><ul>{explanation.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}</ul><p className={styles.templateLabel}>{explanation.mode === "openrouter" ? `Gemma via OpenRouter · grounded evidence only` : "Deterministic fallback · configure OpenRouter to enable AI wording"}</p></div> : <p className={styles.explanationPrompt}>{explanationMode === "openrouter" ? "Gemma will explain only the verified facts shown for this site." : "The grounded fallback is ready; configure OpenRouter to enable Gemma wording."}</p>}</section>
+    <section className={styles.explanationSection} aria-labelledby="explanation-title">
+      <div className={styles.explanationHeading}><div><p className={styles.eyebrow}>AI evidence assistant</p><h3 id="explanation-title">Why this site?</h3></div><button disabled={explanationLoading || siteLoading} onClick={onExplain} type="button">{explanationLoading ? "Explaining…" : explanation && explanationMode === "openrouter" ? "Run AI again" : explanation ? "Refresh explanation" : "Ask AI"}</button></div>
+      <p className={styles.aiBoundary}>The AI explains the selected result. It never ranks sites or adds evidence.</p>
+      {explanationError ? <p className={styles.explanationError} role="alert">{explanationError}</p> : null}
+      {explanation?.fallback_reason ? <p className={styles.explanationError} role="status">{explanation.fallback_reason}</p> : null}
+      {explanation ? <div className={styles.explanationBody}><p>{explanation.summary}</p><h4>Evidence used</h4><ul>{explanation.why_selected.map((reason) => <li key={reason}>{reason}</li>)}</ul><h4>Limits</h4><ul>{explanation.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}</ul><p className={styles.templateLabel}>{explanation.mode === "openrouter" ? `Gemma via OpenRouter · grounded evidence only` : explanationMode === "openrouter" ? "Deterministic fallback · OpenRouter is configured" : "Deterministic fallback · configure OpenRouter to enable AI wording"}</p></div> : <p className={styles.explanationPrompt}>{explanationMode === "openrouter" ? "Gemma will explain only the verified facts shown for this site." : "The grounded fallback is ready; configure OpenRouter to enable Gemma wording."}</p>}
+    </section>
     <details className={styles.methodology} id="methodology"><summary>Methodology & limitations</summary><div className={styles.methodologyBody}><p>{methodology.optimization.objective_note}</p><p>{methodology.interventions.cost_basis.disclaimer}</p><ul>{candidate.evidence.map((evidence) => <li key={evidence.kind}><strong>{evidence.kind.replaceAll("_", " ")}</strong><span>{evidence.statement}</span></li>)}</ul><h3>Source links</h3><ul className={styles.sourceList}>{sources.map((source) => <li key={source.id}><a href={source.url} rel="noreferrer" target="_blank">{source.publisher}: {source.title}</a><span>Retrieved {formatDate(source.retrieved_at)}</span></li>)}</ul><h3>Pilot limitations</h3><ul>{methodology.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}</ul></div></details>
   </aside>;
 }
@@ -154,7 +169,7 @@ function LoadingShell() {
   return <main className={styles.loadingShell} aria-busy="true"><header className={styles.loadingHeader}><BrandMark /><span className={styles.loadingLine} /></header><div className={styles.loadingWorkspace}><div /><div /><div /></div><p className={styles.loadingAnnouncement} role="status">Loading and validating cached Pacoima evidence.</p></main>;
 }
 
-async function fetchWorkspace() {
+async function fetchWorkspace(budgetUsd?: number) {
   const pilotPromise = getPilot();
   const candidatesPromise = getCandidates();
   const statusPromise = getDataStatus();
@@ -166,7 +181,7 @@ async function fetchWorkspace() {
     statusPromise,
     methodologyPromise,
     heatPromise,
-    optimize(pilot.default_budget_usd),
+    optimize(budgetUsd ?? pilot.default_budget_usd),
   ]);
   const byId = new Map(candidates.candidates.map((candidate) => [candidate.id, candidate]));
   const first = portfolio.selected_candidate_ids
@@ -200,9 +215,12 @@ export function PlanningShell() {
 
   const applyWorkspace = useCallback((loaded: Awaited<ReturnType<typeof fetchWorkspace>>) => {
     setFatalError(null);
-    setBudget(loaded.data.pilot.default_budget_usd);
+    setBudget(loaded.data.portfolio.budget_usd);
     setActiveCandidateId(loaded.activeCandidateId);
     setLayers({ heat: loaded.heat });
+    setExplanations({});
+    setExplanationError(null);
+    setOperationError(null);
     setData(loaded.data);
   }, []);
 
@@ -217,9 +235,9 @@ export function PlanningShell() {
   }, [applyWorkspace]);
 
   const retry = useCallback(async () => {
-    try { applyWorkspace(await fetchWorkspace()); }
-    catch (caught) { setFatalError(caught instanceof Error ? caught.message : "Unable to load COOLSPOT data."); }
-  }, [applyWorkspace]);
+    const loaded = await fetchWorkspace(data?.portfolio.budget_usd ?? budget);
+    applyWorkspace(loaded);
+  }, [applyWorkspace, budget, data?.portfolio.budget_usd]);
 
   const recommendations = useMemo(() => {
     if (!data) return [];
@@ -267,12 +285,12 @@ export function PlanningShell() {
     finally { setLayerLoading(false); }
   }, [activeLayer, layerLoading, layers]);
 
-  const requestExplanation = useCallback(async (candidate: Candidate) => {
+  const requestExplanation = useCallback(async (candidate: Candidate, regenerate: boolean) => {
     if (!data || explanationLoading) return;
     const explanationKey = `${candidate.id}:${data.portfolio.budget_usd}`;
     setExplanationLoading(true); setExplanationError(null);
     try {
-      const explanation = await getExplanation(candidate.site_id, candidate.id, data.portfolio.budget_usd);
+      const explanation = await getExplanation(candidate.site_id, candidate.id, data.portfolio.budget_usd, regenerate);
       setExplanations((current) => ({ ...current, [explanationKey]: explanation }));
     } catch (caught) {
       setExplanationError(caught instanceof Error ? caught.message : "Unable to explain this site.");
@@ -290,6 +308,6 @@ export function PlanningShell() {
   return <div className={styles.appShell}><a className={styles.skipLink} href="#map-title">Skip to map workspace</a><TopBar onRefreshComplete={retry} pilot={data.pilot} status={data.status} />{operationError ? <div className={styles.operationError} role="alert"><span>{operationError}</span><button aria-label="Dismiss error" onClick={() => setOperationError(null)} type="button">Dismiss</button></div> : null}<main className={styles.workspace}>
     <RecommendationRail activeCandidateId={activeCandidate.id} candidates={recommendations} onSelect={(candidate) => void selectCandidate(candidate)} portfolio={data.portfolio} />
     <MapWorkspace activeCandidateId={activeCandidate.id} activeLayer={activeLayer} budget={budget} data={data} layer={layers[activeLayer]} layerLoading={layerLoading} onBudgetCommit={(value) => void changeBudget(value)} onBudgetPreview={setBudget} onLayerChange={(name) => void changeLayer(name)} onSelectSite={selectSite} optimizing={optimizing} />
-    <EvidencePanel candidate={activeCandidate} explanation={explanations[explanationKey]} explanationError={explanationError} explanationLoading={explanationLoading} explanationMode={data.status.explanation_mode} methodology={data.methodology} onExplain={() => void requestExplanation(activeCandidate)} site={data.site} siteLoading={siteLoading} />
+    <EvidencePanel candidate={activeCandidate} explanation={explanations[explanationKey]} explanationError={explanationError} explanationLoading={explanationLoading} explanationMode={data.status.explanation_mode} methodology={data.methodology} onExplain={() => void requestExplanation(activeCandidate, Boolean(explanations[explanationKey]))} site={data.site} siteLoading={siteLoading} />
   </main></div>;
 }

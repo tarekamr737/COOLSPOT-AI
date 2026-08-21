@@ -88,10 +88,10 @@ def test_data_status_and_missing_site_are_explicit() -> None:
     response = client.get("/v1/data-status")
     assert response.status_code == 200
     status = DataStatusResponse.model_validate(response.json())
-    assert status.mode == "cached_demo"
+    assert status.mode in {"cached_demo", "live_refreshed"}
     assert status.external_calls_on_read is False
-    assert status.credits.used == 8_440
-    assert status.credits.remaining == 1_991_560
+    assert status.credits.used >= 8_440
+    assert status.credits.remaining == status.credits.total - status.credits.used
     assert status.credits.remaining >= status.credits.hard_reserve
     assert status.candidate_count == 152
 
@@ -165,6 +165,10 @@ def test_selected_site_explanation_restates_only_structured_evidence() -> None:
             "api.app.services.fortyguard.FortyGuardClient.fetch_credit_usage",
             new_callable=AsyncMock,
         ) as fetch_usage,
+        patch(
+            "api.app.services.explanations.load_project_env",
+            return_value={"EXPLANATION_MODE": "template"},
+        ),
     ):
         response = client.post(
             f"/v1/sites/{selected.site_id}/explanation",

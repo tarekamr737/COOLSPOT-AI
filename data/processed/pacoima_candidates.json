@@ -1,7 +1,7 @@
 {
   "candidates": [
     {
-      "benefit_score": 0.38779335225725714,
+      "benefit_score": 0.36336750066407747,
       "confidence": 0.5,
       "equity_score": 0.34337349398322664,
       "evidence": [
@@ -10,7 +10,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1998 reports 34.84 \u00b0C average temperature and 6.0595 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1998 reports 35.32 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -66,7 +66,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.21744783744600527,
+      "benefit_score": 0.1943670794081171,
       "confidence": 0.5,
       "equity_score": 0.327022584165853,
       "evidence": [
@@ -75,7 +75,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1561 reports 34.82 \u00b0C average temperature and 6.1065 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1561 reports 35.34 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -140,7 +140,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1899 reports 34.74 \u00b0C average temperature and 5.959 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1899 reports 35.25 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -196,7 +196,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.30694723074298275,
+      "benefit_score": 0.27257101483682716,
       "confidence": 0.5,
       "equity_score": 0.3464329248088204,
       "evidence": [
@@ -205,7 +205,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1961 reports 34.85 \u00b0C average temperature and 6.1575 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1961 reports 35.37 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -261,7 +261,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.3814649773436221,
+      "benefit_score": 0.35864773172050074,
       "confidence": 0.5,
       "equity_score": 0.39822410018232635,
       "evidence": [
@@ -270,7 +270,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1599 reports 34.82 \u00b0C average temperature and 6.0859 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1599 reports 35.32 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -335,7 +335,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1831 reports 34.66 \u00b0C average temperature and 5.8406 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1831 reports 35.17 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -400,7 +400,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1986 reports 34.71 \u00b0C average temperature and 5.9427 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1986 reports 35.23 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -456,7 +456,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6888397950763799,
+      "benefit_score": 0.47301087117142554,
       "confidence": 0.5,
       "equity_score": 0.4482164613878176,
       "evidence": [
@@ -465,7 +465,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1241 reports 35.48 \u00b0C average temperature and 7.1038 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1241 reports 35.98 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -521,7 +521,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6849303034668855,
+      "benefit_score": 0.49959893239516223,
       "confidence": 0.5,
       "equity_score": 0.4654942664434215,
       "evidence": [
@@ -530,7 +530,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1698 reports 35.37 \u00b0C average temperature and 6.9442 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1698 reports 35.88 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -586,7 +586,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5500244443744069,
+      "benefit_score": 0.38226757305076714,
       "confidence": 0.5,
       "equity_score": 0.3854250653042001,
       "evidence": [
@@ -595,7 +595,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 568 reports 35.33 \u00b0C average temperature and 7.0404 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 568 reports 35.99 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -651,7 +651,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6078008222575946,
+      "benefit_score": 0.45048619110645144,
       "confidence": 0.5,
       "equity_score": 0.36599153187525146,
       "evidence": [
@@ -660,7 +660,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 936 reports 35.28 \u00b0C average temperature and 6.9412 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 936 reports 35.91 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -716,7 +716,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7935263140641807,
+      "benefit_score": 0.5593061104337843,
       "confidence": 0.5,
       "equity_score": 0.49856190215018736,
       "evidence": [
@@ -725,7 +725,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1361 reports 35.55 \u00b0C average temperature and 7.1965 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1361 reports 36.04 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -781,7 +781,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7863368331192236,
+      "benefit_score": 0.5608762243146902,
       "confidence": 0.5,
       "equity_score": 0.6122743575257028,
       "evidence": [
@@ -790,7 +790,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1536 reports 35.51 \u00b0C average temperature and 7.1434 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1536 reports 36.01 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -846,7 +846,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7678125243439455,
+      "benefit_score": 0.5361769468474663,
       "confidence": 0.5,
       "equity_score": 0.44806666818424834,
       "evidence": [
@@ -855,7 +855,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1863 reports 35.53 \u00b0C average temperature and 7.1826 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1863 reports 36.03 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -911,7 +911,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6532772713820968,
+      "benefit_score": 0.4983866776138202,
       "confidence": 0.5,
       "equity_score": 0.5007355985893761,
       "evidence": [
@@ -920,7 +920,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 719 reports 35.44 \u00b0C average temperature and 6.9994 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 719 reports 36.15 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -976,7 +976,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6767662290911907,
+      "benefit_score": 0.5121076401780293,
       "confidence": 0.5,
       "equity_score": 0.5706758241480501,
       "evidence": [
@@ -985,7 +985,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 147 reports 35.30 \u00b0C average temperature and 6.9903 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 147 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1041,7 +1041,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.71305026416301,
+      "benefit_score": 0.5226064150553991,
       "confidence": 0.5,
       "equity_score": 0.7079202804028022,
       "evidence": [
@@ -1050,7 +1050,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 27 reports 35.35 \u00b0C average temperature and 7.0889 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 27 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1106,7 +1106,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6824562578786645,
+      "benefit_score": 0.5173419853163719,
       "confidence": 0.5,
       "equity_score": 0.641812967546361,
       "evidence": [
@@ -1115,7 +1115,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 83 reports 35.30 \u00b0C average temperature and 6.9986 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 83 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1171,7 +1171,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6331054386815496,
+      "benefit_score": 0.4796301079881184,
       "confidence": 0.5,
       "equity_score": 0.5816426489139134,
       "evidence": [
@@ -1180,7 +1180,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 372 reports 35.28 \u00b0C average temperature and 6.9998 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 372 reports 35.96 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1236,7 +1236,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.677688823798587,
+      "benefit_score": 0.51283658930553,
       "confidence": 0.5,
       "equity_score": 0.5886672914027181,
       "evidence": [
@@ -1245,7 +1245,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 260 reports 35.30 \u00b0C average temperature and 7.0004 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 260 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1301,7 +1301,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6647778217961111,
+      "benefit_score": 0.5174750510251536,
       "confidence": 0.5,
       "equity_score": 0.5315003898887625,
       "evidence": [
@@ -1310,7 +1310,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 535 reports 35.29 \u00b0C average temperature and 6.9998 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1366,7 +1366,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5912746735211948,
+      "benefit_score": 0.4264312352238479,
       "confidence": 0.5,
       "equity_score": 0.45455914554798227,
       "evidence": [
@@ -1375,7 +1375,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 562 reports 35.31 \u00b0C average temperature and 7.0108 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 562 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1431,7 +1431,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5634202346371356,
+      "benefit_score": 0.3963938684546601,
       "confidence": 0.5,
       "equity_score": 0.45381520113906104,
       "evidence": [
@@ -1440,7 +1440,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 393 reports 35.30 \u00b0C average temperature and 7.0038 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 393 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1496,7 +1496,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5972425620277076,
+      "benefit_score": 0.42302068524966413,
       "confidence": 0.5,
       "equity_score": 0.34132911340296107,
       "evidence": [
@@ -1505,7 +1505,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 753 reports 35.35 \u00b0C average temperature and 7.0831 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 753 reports 36.02 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1561,7 +1561,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6078008222575946,
+      "benefit_score": 0.45048619110645144,
       "confidence": 0.5,
       "equity_score": 0.36599153187525146,
       "evidence": [
@@ -1570,7 +1570,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 936 reports 35.28 \u00b0C average temperature and 6.9412 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 936 reports 35.91 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1626,7 +1626,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6670518800410198,
+      "benefit_score": 0.511569124042423,
       "confidence": 0.5,
       "equity_score": 0.5500210509606093,
       "evidence": [
@@ -1635,7 +1635,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 128 reports 35.29 \u00b0C average temperature and 6.9765 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 128 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1691,7 +1691,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6824562578786645,
+      "benefit_score": 0.5173419853163719,
       "confidence": 0.5,
       "equity_score": 0.641812967546361,
       "evidence": [
@@ -1700,7 +1700,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 83 reports 35.30 \u00b0C average temperature and 6.9986 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 83 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1756,7 +1756,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6282697795693969,
+      "benefit_score": 0.46223332106379117,
       "confidence": 0.5,
       "equity_score": 0.3790484894522699,
       "evidence": [
@@ -1765,7 +1765,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 275 reports 35.30 \u00b0C average temperature and 7.0069 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 275 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1821,7 +1821,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5858343511298468,
+      "benefit_score": 0.4265882756837714,
       "confidence": 0.5,
       "equity_score": 0.5105311971619658,
       "evidence": [
@@ -1830,7 +1830,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 209 reports 35.29 \u00b0C average temperature and 6.9917 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 209 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1886,7 +1886,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6250918577975956,
+      "benefit_score": 0.41442755820732574,
       "confidence": 0.5,
       "equity_score": 0.424964360600345,
       "evidence": [
@@ -1895,7 +1895,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1788 reports 35.45 \u00b0C average temperature and 7.0696 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1788 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -1951,7 +1951,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6387091576112515,
+      "benefit_score": 0.453905287564705,
       "confidence": 0.5,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -1960,7 +1960,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1681 reports 35.47 \u00b0C average temperature and 6.9963 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1681 reports 36.04 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2016,7 +2016,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6207685020933176,
+      "benefit_score": 0.4611836542072894,
       "confidence": 0.5,
       "equity_score": 0.37525988149839434,
       "evidence": [
@@ -2025,7 +2025,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 118 reports 35.29 \u00b0C average temperature and 6.9826 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 118 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2081,7 +2081,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7235173113438113,
+      "benefit_score": 0.5362968943266431,
       "confidence": 0.5,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -2090,7 +2090,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1566 reports 35.48 \u00b0C average temperature and 7.0109 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1566 reports 36.05 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2146,7 +2146,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6151099137197183,
+      "benefit_score": 0.41693540931318124,
       "confidence": 0.5,
       "equity_score": 0.5162370947376137,
       "evidence": [
@@ -2155,7 +2155,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1224 reports 35.39 \u00b0C average temperature and 6.991 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1224 reports 35.88 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2211,7 +2211,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6252044063993284,
+      "benefit_score": 0.46083175929094083,
       "confidence": 0.5,
       "equity_score": 0.454114239818374,
       "evidence": [
@@ -2220,7 +2220,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 437 reports 35.30 \u00b0C average temperature and 7.0037 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 437 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2276,7 +2276,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7561763749257708,
+      "benefit_score": 0.5401827349212147,
       "confidence": 0.5,
       "equity_score": 0.4775416298983908,
       "evidence": [
@@ -2285,7 +2285,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1584 reports 35.48 \u00b0C average temperature and 7.1002 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1584 reports 35.98 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2341,7 +2341,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5515343568960999,
+      "benefit_score": 0.39276349946434347,
       "confidence": 0.5,
       "equity_score": 0.3720570261757711,
       "evidence": [
@@ -2350,7 +2350,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 187 reports 35.29 \u00b0C average temperature and 6.9832 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 187 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2406,7 +2406,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6305174275285164,
+      "benefit_score": 0.4636294717094222,
       "confidence": 0.5,
       "equity_score": 0.37550384050860014,
       "evidence": [
@@ -2415,7 +2415,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 308 reports 35.31 \u00b0C average temperature and 7.0096 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 308 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2471,7 +2471,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6753619582621996,
+      "benefit_score": 0.4798277298303652,
       "confidence": 0.5,
       "equity_score": 0.49817697187820004,
       "evidence": [
@@ -2480,7 +2480,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1403 reports 35.42 \u00b0C average temperature and 7.0048 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1403 reports 35.93 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2536,7 +2536,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6885786574322684,
+      "benefit_score": 0.5166772930377487,
       "confidence": 0.5,
       "equity_score": 0.5706524695512722,
       "evidence": [
@@ -2545,7 +2545,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 858 reports 35.31 \u00b0C average temperature and 7.0004 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 858 reports 35.92 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2601,7 +2601,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6707006309243156,
+      "benefit_score": 0.5115323085722921,
       "confidence": 0.5,
       "equity_score": 0.5416152217685679,
       "evidence": [
@@ -2610,7 +2610,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 611 reports 35.29 \u00b0C average temperature and 6.9983 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 611 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2666,7 +2666,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.672448721511279,
+      "benefit_score": 0.4800806226910573,
       "confidence": 0.5,
       "equity_score": 0.5025601915629047,
       "evidence": [
@@ -2675,7 +2675,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1041 reports 35.36 \u00b0C average temperature and 6.9871 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1041 reports 35.87 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2731,7 +2731,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6887480459296501,
+      "benefit_score": 0.5186690346506653,
       "confidence": 0.5,
       "equity_score": 0.5003365521411484,
       "evidence": [
@@ -2740,7 +2740,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1669 reports 35.32 \u00b0C average temperature and 6.8642 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1669 reports 35.83 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2796,7 +2796,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7192287485898291,
+      "benefit_score": 0.5261997318893378,
       "confidence": 0.5,
       "equity_score": 0.64911822996668,
       "evidence": [
@@ -2805,7 +2805,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1231 reports 35.38 \u00b0C average temperature and 6.9731 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1231 reports 35.88 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2861,7 +2861,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.42133531258887297,
+      "benefit_score": 0.38365073615144946,
       "confidence": 0.5,
       "equity_score": 0.4270736391293318,
       "evidence": [
@@ -2870,7 +2870,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1771 reports 34.87 \u00b0C average temperature and 6.1672 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1771 reports 35.38 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2935,7 +2935,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1831 reports 34.66 \u00b0C average temperature and 5.8406 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1831 reports 35.17 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -2991,7 +2991,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7863368331192236,
+      "benefit_score": 0.5608762243146902,
       "confidence": 0.5,
       "equity_score": 0.6122743575257028,
       "evidence": [
@@ -3000,7 +3000,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1536 reports 35.51 \u00b0C average temperature and 7.1434 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1536 reports 36.01 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3056,7 +3056,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7803844141513697,
+      "benefit_score": 0.5976484413534375,
       "confidence": 0.5,
       "equity_score": 0.5032739506389345,
       "evidence": [
@@ -3065,7 +3065,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 725 reports 35.39 \u00b0C average temperature and 6.9994 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 725 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3121,7 +3121,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7433290208860589,
+      "benefit_score": 0.5334553491329583,
       "confidence": 0.5,
       "equity_score": 0.6823529157519922,
       "evidence": [
@@ -3130,7 +3130,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1415 reports 35.46 \u00b0C average temperature and 7.0478 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1415 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3186,7 +3186,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6600310307786024,
+      "benefit_score": 0.46886669960251687,
       "confidence": 0.5,
       "equity_score": 0.502579943286006,
       "evidence": [
@@ -3195,7 +3195,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 788 reports 35.40 \u00b0C average temperature and 6.9998 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 788 reports 35.93 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3251,7 +3251,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6647778217961111,
+      "benefit_score": 0.5174750510251536,
       "confidence": 0.5,
       "equity_score": 0.5315003898887625,
       "evidence": [
@@ -3260,7 +3260,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 535 reports 35.29 \u00b0C average temperature and 6.9998 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3316,7 +3316,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7322357333447693,
+      "benefit_score": 0.5291457612811121,
       "confidence": 0.5,
       "equity_score": 0.6726606627579034,
       "evidence": [
@@ -3325,7 +3325,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1354 reports 35.43 \u00b0C average temperature and 7.0106 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1354 reports 35.91 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3381,7 +3381,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6402564109362066,
+      "benefit_score": 0.44900781658785643,
       "confidence": 0.5,
       "equity_score": 0.6941063196091488,
       "evidence": [
@@ -3390,7 +3390,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1167 reports 35.37 \u00b0C average temperature and 6.9704 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1167 reports 35.87 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3446,7 +3446,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6885651587987764,
+      "benefit_score": 0.49368187678174585,
       "confidence": 0.5,
       "equity_score": 0.5136286847927249,
       "evidence": [
@@ -3455,7 +3455,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 852 reports 35.38 \u00b0C average temperature and 7.0002 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 852 reports 35.89 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3511,7 +3511,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5410913656986058,
+      "benefit_score": 0.3849612934949291,
       "confidence": 0.5,
       "equity_score": 0.45347988883337065,
       "evidence": [
@@ -3520,7 +3520,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 360 reports 35.30 \u00b0C average temperature and 6.9719 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 360 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3576,7 +3576,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7086706303556547,
+      "benefit_score": 0.5153194737980549,
       "confidence": 0.5,
       "equity_score": 0.473263137624746,
       "evidence": [
@@ -3585,7 +3585,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1461 reports 35.44 \u00b0C average temperature and 7.0098 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1461 reports 35.97 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3641,7 +3641,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6860438072901442,
+      "benefit_score": 0.5334575467989234,
       "confidence": 0.5,
       "equity_score": 0.5886653956128067,
       "evidence": [
@@ -3650,7 +3650,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 536 reports 35.29 \u00b0C average temperature and 6.9998 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 536 reports 35.99 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3706,7 +3706,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.71305026416301,
+      "benefit_score": 0.5226064150553991,
       "confidence": 0.5,
       "equity_score": 0.7079202804028022,
       "evidence": [
@@ -3715,7 +3715,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 27 reports 35.35 \u00b0C average temperature and 7.0889 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 27 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3780,7 +3780,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1643 reports 34.72 \u00b0C average temperature and 5.9249 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1643 reports 35.22 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3836,7 +3836,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.44801966361121787,
+      "benefit_score": 0.40521271864001845,
       "confidence": 0.5,
       "equity_score": 0.4053138587473129,
       "evidence": [
@@ -3845,7 +3845,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1713 reports 34.88 \u00b0C average temperature and 6.1982 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1713 reports 35.40 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3901,7 +3901,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6647778217961111,
+      "benefit_score": 0.5174750510251536,
       "confidence": 0.5,
       "equity_score": 0.5315003898887625,
       "evidence": [
@@ -3910,7 +3910,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 535 reports 35.29 \u00b0C average temperature and 6.9998 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -3966,7 +3966,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.671784288791149,
+      "benefit_score": 0.46360098828488433,
       "confidence": 0.5,
       "equity_score": 0.403632414625803,
       "evidence": [
@@ -3975,7 +3975,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1242 reports 35.45 \u00b0C average temperature and 7.0606 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1242 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4031,7 +4031,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6849303034668855,
+      "benefit_score": 0.49959893239516223,
       "confidence": 0.5,
       "equity_score": 0.4654942664434215,
       "evidence": [
@@ -4040,7 +4040,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1698 reports 35.37 \u00b0C average temperature and 6.9442 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1698 reports 35.88 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4096,7 +4096,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6056330477813222,
+      "benefit_score": 0.44304017450363814,
       "confidence": 0.5,
       "equity_score": 0.45327558007300744,
       "evidence": [
@@ -4105,7 +4105,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 509 reports 35.31 \u00b0C average temperature and 7.0062 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 509 reports 35.97 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4161,7 +4161,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6078008222575946,
+      "benefit_score": 0.45048619110645144,
       "confidence": 0.5,
       "equity_score": 0.36599153187525146,
       "evidence": [
@@ -4170,7 +4170,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 936 reports 35.28 \u00b0C average temperature and 6.9412 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 936 reports 35.91 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4226,7 +4226,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7935263140641807,
+      "benefit_score": 0.5593061104337843,
       "confidence": 0.5,
       "equity_score": 0.49856190215018736,
       "evidence": [
@@ -4235,7 +4235,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1361 reports 35.55 \u00b0C average temperature and 7.1965 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1361 reports 36.04 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4291,7 +4291,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.545713342840474,
+      "benefit_score": 0.38805464222387404,
       "confidence": 0.5,
       "equity_score": 0.42731588779327045,
       "evidence": [
@@ -4300,7 +4300,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 997 reports 35.28 \u00b0C average temperature and 6.9117 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 997 reports 35.88 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4356,7 +4356,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7561763749257708,
+      "benefit_score": 0.5401827349212147,
       "confidence": 0.5,
       "equity_score": 0.4775416298983908,
       "evidence": [
@@ -4365,7 +4365,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1584 reports 35.48 \u00b0C average temperature and 7.1002 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1584 reports 35.98 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4421,7 +4421,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.745976674624006,
+      "benefit_score": 0.5138698462576031,
       "confidence": 0.5,
       "equity_score": 0.3719367726761063,
       "evidence": [
@@ -4430,7 +4430,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1884 reports 35.54 \u00b0C average temperature and 7.1934 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1884 reports 36.04 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4486,7 +4486,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4052732779806408,
+      "benefit_score": 0.37034369076954493,
       "confidence": 0.5,
       "equity_score": 0.40880759334444194,
       "evidence": [
@@ -4495,7 +4495,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1948 reports 34.86 \u00b0C average temperature and 6.1535 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1948 reports 35.37 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4551,7 +4551,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6118459614626929,
+      "benefit_score": 0.4740758320425487,
       "confidence": 0.5,
       "equity_score": 0.6439456631355747,
       "evidence": [
@@ -4560,7 +4560,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 6 reports 35.25 \u00b0C average temperature and 6.9093 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 6 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4616,7 +4616,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6532772713820968,
+      "benefit_score": 0.4983866776138202,
       "confidence": 0.5,
       "equity_score": 0.5007355985893761,
       "evidence": [
@@ -4625,7 +4625,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 719 reports 35.44 \u00b0C average temperature and 6.9994 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 719 reports 36.15 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4681,7 +4681,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6893661570671469,
+      "benefit_score": 0.5236242325076318,
       "confidence": 0.5,
       "equity_score": 0.7137094409509334,
       "evidence": [
@@ -4690,7 +4690,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 146 reports 35.31 \u00b0C average temperature and 6.9928 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 146 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4746,7 +4746,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6954013630266528,
+      "benefit_score": 0.52497346802876,
       "confidence": 0.5,
       "equity_score": 0.7339705671273522,
       "evidence": [
@@ -4755,7 +4755,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 65 reports 35.31 \u00b0C average temperature and 7.0171 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 65 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4811,7 +4811,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7583321787817339,
+      "benefit_score": 0.5874843274460777,
       "confidence": 0.5,
       "equity_score": 0.49960594355402,
       "evidence": [
@@ -4820,7 +4820,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 902 reports 35.63 \u00b0C average temperature and 6.9999 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 902 reports 36.35 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4876,7 +4876,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6331054386815496,
+      "benefit_score": 0.4796301079881184,
       "confidence": 0.5,
       "equity_score": 0.5816426489139134,
       "evidence": [
@@ -4885,7 +4885,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 372 reports 35.28 \u00b0C average temperature and 6.9998 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 372 reports 35.96 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -4941,7 +4941,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6858696000325404,
+      "benefit_score": 0.520123939908045,
       "confidence": 0.5,
       "equity_score": 0.6394641842187657,
       "evidence": [
@@ -4950,7 +4950,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 228 reports 35.31 \u00b0C average temperature and 6.9999 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 228 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5006,7 +5006,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6647778217961111,
+      "benefit_score": 0.5174750510251536,
       "confidence": 0.5,
       "equity_score": 0.5315003898887625,
       "evidence": [
@@ -5015,7 +5015,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 535 reports 35.29 \u00b0C average temperature and 6.9998 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5071,7 +5071,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6647778217961111,
+      "benefit_score": 0.5174750510251536,
       "confidence": 0.5,
       "equity_score": 0.5315003898887625,
       "evidence": [
@@ -5080,7 +5080,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 535 reports 35.29 \u00b0C average temperature and 6.9998 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5145,7 +5145,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1494 reports 34.70 \u00b0C average temperature and 5.8956 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1494 reports 35.20 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5201,7 +5201,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7611955629237895,
+      "benefit_score": 0.5903808955934429,
       "confidence": 0.5,
       "equity_score": 0.5220369404578297,
       "evidence": [
@@ -5210,7 +5210,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 964 reports 35.64 \u00b0C average temperature and 6.9997 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 964 reports 36.36 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5266,7 +5266,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6040253262776368,
+      "benefit_score": 0.43867131797941733,
       "confidence": 0.5,
       "equity_score": 0.45539882134320914,
       "evidence": [
@@ -5275,7 +5275,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 623 reports 35.31 \u00b0C average temperature and 7.0217 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 623 reports 35.96 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5331,7 +5331,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6002697344757827,
+      "benefit_score": 0.43432549519736113,
       "confidence": 0.5,
       "equity_score": 0.4552935102331997,
       "evidence": [
@@ -5340,7 +5340,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 443 reports 35.30 \u00b0C average temperature and 7.0016 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 443 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5396,7 +5396,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5972425620277076,
+      "benefit_score": 0.42302068524966413,
       "confidence": 0.5,
       "equity_score": 0.34132911340296107,
       "evidence": [
@@ -5405,7 +5405,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 753 reports 35.35 \u00b0C average temperature and 7.0831 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 753 reports 36.02 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5461,7 +5461,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6078008222575946,
+      "benefit_score": 0.45048619110645144,
       "confidence": 0.5,
       "equity_score": 0.36599153187525146,
       "evidence": [
@@ -5470,7 +5470,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 936 reports 35.28 \u00b0C average temperature and 6.9412 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 936 reports 35.91 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5526,7 +5526,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6670518800410198,
+      "benefit_score": 0.511569124042423,
       "confidence": 0.5,
       "equity_score": 0.5500210509606093,
       "evidence": [
@@ -5535,7 +5535,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 128 reports 35.29 \u00b0C average temperature and 6.9765 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 128 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5591,7 +5591,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6742489472905925,
+      "benefit_score": 0.51021760481146,
       "confidence": 0.5,
       "equity_score": 0.5502691647034639,
       "evidence": [
@@ -5600,7 +5600,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 84 reports 35.30 \u00b0C average temperature and 6.9981 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 84 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5656,7 +5656,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6269479623580524,
+      "benefit_score": 0.46135721855208006,
       "confidence": 0.5,
       "equity_score": 0.3720570261757711,
       "evidence": [
@@ -5665,7 +5665,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 274 reports 35.30 \u00b0C average temperature and 7.0069 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 274 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5721,7 +5721,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5528989661893762,
+      "benefit_score": 0.39353820238972276,
       "confidence": 0.5,
       "equity_score": 0.3791287932949129,
       "evidence": [
@@ -5730,7 +5730,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 210 reports 35.29 \u00b0C average temperature and 6.9915 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 210 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5786,7 +5786,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7295277848153842,
+      "benefit_score": 0.525202611525555,
       "confidence": 0.5,
       "equity_score": 0.4566373499591014,
       "evidence": [
@@ -5795,7 +5795,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1789 reports 35.43 \u00b0C average temperature and 7.0366 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1789 reports 35.93 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5851,7 +5851,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6387091576112515,
+      "benefit_score": 0.453905287564705,
       "confidence": 0.5,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -5860,7 +5860,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1681 reports 35.47 \u00b0C average temperature and 6.9963 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1681 reports 36.04 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5916,7 +5916,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7235173113438113,
+      "benefit_score": 0.5362968943266431,
       "confidence": 0.5,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -5925,7 +5925,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1566 reports 35.48 \u00b0C average temperature and 7.0109 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1566 reports 36.05 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -5981,7 +5981,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5658131171374383,
+      "benefit_score": 0.36825561490554354,
       "confidence": 0.5,
       "equity_score": 0.46357648393265855,
       "evidence": [
@@ -5990,7 +5990,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1225 reports 35.38 \u00b0C average temperature and 6.9835 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1225 reports 35.87 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6046,7 +6046,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6252044063993284,
+      "benefit_score": 0.46083175929094083,
       "confidence": 0.5,
       "equity_score": 0.454114239818374,
       "evidence": [
@@ -6055,7 +6055,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 437 reports 35.30 \u00b0C average temperature and 7.0037 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 437 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6111,7 +6111,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5610381230741887,
+      "benefit_score": 0.40150143689063117,
       "confidence": 0.5,
       "equity_score": 0.4044137805119002,
       "evidence": [
@@ -6120,7 +6120,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 188 reports 35.29 \u00b0C average temperature and 6.9846 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 188 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6176,7 +6176,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.662265826416504,
+      "benefit_score": 0.49501802982171356,
       "confidence": 0.5,
       "equity_score": 0.4371935394947212,
       "evidence": [
@@ -6185,7 +6185,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 309 reports 35.31 \u00b0C average temperature and 7.0095 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 309 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6241,7 +6241,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6885786574322684,
+      "benefit_score": 0.5166772930377487,
       "confidence": 0.5,
       "equity_score": 0.5706524695512722,
       "evidence": [
@@ -6250,7 +6250,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 858 reports 35.31 \u00b0C average temperature and 7.0004 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 858 reports 35.92 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6306,7 +6306,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6707006309243156,
+      "benefit_score": 0.5115323085722921,
       "confidence": 0.5,
       "equity_score": 0.5416152217685679,
       "evidence": [
@@ -6315,7 +6315,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 611 reports 35.29 \u00b0C average temperature and 6.9983 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 611 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6371,7 +6371,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.672448721511279,
+      "benefit_score": 0.4800806226910573,
       "confidence": 0.5,
       "equity_score": 0.5025601915629047,
       "evidence": [
@@ -6380,7 +6380,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1041 reports 35.36 \u00b0C average temperature and 6.9871 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1041 reports 35.87 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6436,7 +6436,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6887480459296501,
+      "benefit_score": 0.5186690346506653,
       "confidence": 0.5,
       "equity_score": 0.5003365521411484,
       "evidence": [
@@ -6445,7 +6445,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1669 reports 35.32 \u00b0C average temperature and 6.8642 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1669 reports 35.83 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6501,7 +6501,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7192287485898291,
+      "benefit_score": 0.5261997318893378,
       "confidence": 0.5,
       "equity_score": 0.64911822996668,
       "evidence": [
@@ -6510,7 +6510,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1231 reports 35.38 \u00b0C average temperature and 6.9731 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1231 reports 35.88 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6566,7 +6566,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5309420667661341,
+      "benefit_score": 0.4602787849322922,
       "confidence": 0.5,
       "equity_score": 0.5541133655444974,
       "evidence": [
@@ -6575,7 +6575,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1740 reports 34.98 \u00b0C average temperature and 6.3416 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1740 reports 35.49 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6631,7 +6631,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7863368331192236,
+      "benefit_score": 0.5608762243146902,
       "confidence": 0.5,
       "equity_score": 0.6122743575257028,
       "evidence": [
@@ -6640,7 +6640,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1536 reports 35.51 \u00b0C average temperature and 7.1434 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1536 reports 36.01 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6696,7 +6696,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.8362704408508559,
+      "benefit_score": 0.6273399214347446,
       "confidence": 0.5,
       "equity_score": 0.6218115468948806,
       "evidence": [
@@ -6705,7 +6705,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1355 reports 35.45 \u00b0C average temperature and 7.0432 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1355 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6761,7 +6761,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6704346544717242,
+      "benefit_score": 0.4789921758493209,
       "confidence": 0.5,
       "equity_score": 0.5032654198525124,
       "evidence": [
@@ -6770,7 +6770,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 789 reports 35.38 \u00b0C average temperature and 7.0002 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 789 reports 35.91 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6826,7 +6826,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6975014970369744,
+      "benefit_score": 0.5222983452163477,
       "confidence": 0.5,
       "equity_score": 0.5729193503202538,
       "evidence": [
@@ -6835,7 +6835,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 662 reports 35.36 \u00b0C average temperature and 6.9995 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 662 reports 35.96 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6891,7 +6891,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.7389883617296362,
+      "benefit_score": 0.5379777025719256,
       "confidence": 0.5,
       "equity_score": 0.6194623520893654,
       "evidence": [
@@ -6900,7 +6900,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1294 reports 35.42 \u00b0C average temperature and 7.007 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1294 reports 35.91 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -6956,7 +6956,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6616426026685555,
+      "benefit_score": 0.4728176016257975,
       "confidence": 0.5,
       "equity_score": 0.6307871308145726,
       "evidence": [
@@ -6965,7 +6965,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1105 reports 35.36 \u00b0C average temperature and 6.9773 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1105 reports 35.87 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -7021,7 +7021,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.672448721511279,
+      "benefit_score": 0.4800806226910573,
       "confidence": 0.5,
       "equity_score": 0.5025601915629047,
       "evidence": [
@@ -7030,7 +7030,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1041 reports 35.36 \u00b0C average temperature and 6.9871 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1041 reports 35.87 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -7086,7 +7086,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.68491857819818,
+      "benefit_score": 0.4944306828854251,
       "confidence": 0.5,
       "equity_score": 0.5494647134399261,
       "evidence": [
@@ -7095,7 +7095,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 979 reports 35.36 \u00b0C average temperature and 6.9926 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 979 reports 35.88 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -7151,7 +7151,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6885651587987764,
+      "benefit_score": 0.49368187678174585,
       "confidence": 0.5,
       "equity_score": 0.5136286847927249,
       "evidence": [
@@ -7160,7 +7160,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 852 reports 35.38 \u00b0C average temperature and 7.0002 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 852 reports 35.89 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -7216,7 +7216,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6104816639639669,
+      "benefit_score": 0.421149739211568,
       "confidence": 0.5,
       "equity_score": 0.5057096362379152,
       "evidence": [
@@ -7225,7 +7225,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1664 reports 35.39 \u00b0C average temperature and 6.9662 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1664 reports 35.90 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -7340,7 +7340,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.31693905135177985,
+      "benefit_score": 0.28521401813100844,
       "confidence": 0.5,
       "equity_score": 0.4339166147448525,
       "evidence": [
@@ -7349,7 +7349,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1826 reports 34.85 \u00b0C average temperature and 6.1309 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1826 reports 35.35 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -7497,7 +7497,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1494 reports 34.70 \u00b0C average temperature and 5.8956 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1494 reports 35.20 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -7672,7 +7672,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.2644663763469723,
+      "benefit_score": 0.26180781212169824,
       "confidence": 0.5,
       "equity_score": 0.38875070131203854,
       "evidence": [
@@ -7681,7 +7681,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1552 reports 34.75 \u00b0C average temperature and 5.9751 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1552 reports 35.25 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -7760,7 +7760,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.7611955629237895,
+      "benefit_score": 0.5903808955934429,
       "confidence": 0.5,
       "equity_score": 0.5220369404578297,
       "evidence": [
@@ -7769,7 +7769,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 964 reports 35.64 \u00b0C average temperature and 6.9997 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 964 reports 36.36 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -7892,7 +7892,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.7611955629237895,
+      "benefit_score": 0.5903808955934429,
       "confidence": 0.5,
       "equity_score": 0.5220369404578297,
       "evidence": [
@@ -7901,7 +7901,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 964 reports 35.64 \u00b0C average temperature and 6.9997 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 964 reports 36.36 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -8008,7 +8008,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.300269636845914,
+      "benefit_score": 0.26777507347280755,
       "confidence": 0.5,
       "equity_score": 0.40880759334444194,
       "evidence": [
@@ -8017,7 +8017,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1876 reports 34.85 \u00b0C average temperature and 6.1311 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1876 reports 35.35 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -8148,7 +8148,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.27455850244242513,
+      "benefit_score": 0.2150198515449683,
       "confidence": 0.5,
       "equity_score": 0.3333333333333333,
       "evidence": [
@@ -8157,7 +8157,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1320 reports 34.95 \u00b0C average temperature and 6.3687 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1320 reports 35.53 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -8384,7 +8384,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.6707989221476981,
+      "benefit_score": 0.45262913887826495,
       "confidence": 0.5,
       "equity_score": 0.6190574880096632,
       "evidence": [
@@ -8393,7 +8393,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1297 reports 35.49 \u00b0C average temperature and 7.1023 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1297 reports 35.98 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -8620,7 +8620,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.2231889128031844,
+      "benefit_score": 0.1807578111513902,
       "confidence": 0.5,
       "equity_score": 0.3333333333333333,
       "evidence": [
@@ -8629,7 +8629,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1250 reports 34.88 \u00b0C average temperature and 6.1674 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1250 reports 35.37 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -8780,16 +8780,16 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.58353078472925,
+      "benefit_score": 0.4212756774442269,
       "confidence": 0.5,
-      "equity_score": 0.45539882134320914,
+      "equity_score": 0.4553988213432092,
       "evidence": [
         {
           "kind": "observed_heat",
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 560 reports 35.30 \u00b0C average temperature and 7.0021 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 621 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -8876,11 +8876,11 @@
         "la_city_parks"
       ],
       "site_type": "park",
-      "tile_id": "560",
+      "tile_id": "621",
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.589686289891875,
+      "benefit_score": 0.4228520199754511,
       "confidence": 0.5,
       "equity_score": 0.5886672914027181,
       "evidence": [
@@ -8889,7 +8889,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 263 reports 35.31 \u00b0C average temperature and 7.0017 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 263 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -8944,7 +8944,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.3507423719307806,
+      "benefit_score": 0.288406870469183,
       "confidence": 0.5,
       "equity_score": 0.40880759334444194,
       "evidence": [
@@ -8953,7 +8953,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1896 reports 34.95 \u00b0C average temperature and 6.2866 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1896 reports 35.45 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9008,7 +9008,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5481928605737937,
+      "benefit_score": 0.3824815928451163,
       "confidence": 0.5,
       "equity_score": 0.39822410018232635,
       "evidence": [
@@ -9017,7 +9017,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1306 reports 35.30 \u00b0C average temperature and 6.811 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1306 reports 35.78 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9072,7 +9072,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.3507423719307806,
+      "benefit_score": 0.288406870469183,
       "confidence": 0.5,
       "equity_score": 0.40880759334444194,
       "evidence": [
@@ -9081,7 +9081,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1896 reports 34.95 \u00b0C average temperature and 6.2866 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1896 reports 35.45 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9136,7 +9136,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6258310736991594,
+      "benefit_score": 0.4180435556840938,
       "confidence": 0.5,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -9145,7 +9145,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1755 reports 35.44 \u00b0C average temperature and 7.0521 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1755 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9200,7 +9200,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.590729581477529,
+      "benefit_score": 0.424569189064288,
       "confidence": 0.5,
       "equity_score": 0.7345851245474677,
       "evidence": [
@@ -9209,7 +9209,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 170 reports 35.31 \u00b0C average temperature and 6.998 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 170 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9264,7 +9264,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.522448714556384,
+      "benefit_score": 0.40416716428010546,
       "confidence": 0.5,
       "equity_score": 0.5639133725196306,
       "evidence": [
@@ -9273,7 +9273,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1706 reports 35.14 \u00b0C average temperature and 6.5921 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1706 reports 35.65 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9328,7 +9328,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6223712583772553,
+      "benefit_score": 0.4165935297907748,
       "confidence": 0.5,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -9337,7 +9337,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1754 reports 35.43 \u00b0C average temperature and 7.0412 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1754 reports 35.93 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9392,7 +9392,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6177667406956954,
+      "benefit_score": 0.4203128620821618,
       "confidence": 0.5,
       "equity_score": 0.698633619131942,
       "evidence": [
@@ -9401,7 +9401,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1531 reports 35.40 \u00b0C average temperature and 6.9886 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1531 reports 35.90 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9456,7 +9456,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6230487826119339,
+      "benefit_score": 0.41775355050542917,
       "confidence": 0.5,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -9465,7 +9465,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1782 reports 35.44 \u00b0C average temperature and 7.0406 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1782 reports 35.93 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9520,7 +9520,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.590729581477529,
+      "benefit_score": 0.424569189064288,
       "confidence": 0.5,
       "equity_score": 0.7345851245474677,
       "evidence": [
@@ -9529,7 +9529,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 170 reports 35.31 \u00b0C average temperature and 6.998 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 170 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9584,7 +9584,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6083397112338366,
+      "benefit_score": 0.4194149529168106,
       "confidence": 0.5,
       "equity_score": 0.5354389814118775,
       "evidence": [
@@ -9593,7 +9593,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1219 reports 35.48 \u00b0C average temperature and 7.0109 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1219 reports 36.04 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9648,7 +9648,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.64034809080576,
+      "benefit_score": 0.4220672997327391,
       "confidence": 0.5,
       "equity_score": 0.39822410018232635,
       "evidence": [
@@ -9657,7 +9657,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1303 reports 35.48 \u00b0C average temperature and 7.098 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1303 reports 35.97 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9712,7 +9712,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.584719177509906,
+      "benefit_score": 0.4180748070804646,
       "confidence": 0.5,
       "equity_score": 0.5698715532166316,
       "evidence": [
@@ -9721,7 +9721,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 264 reports 35.31 \u00b0C average temperature and 7.0022 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 264 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9776,7 +9776,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6148801392720488,
+      "benefit_score": 0.4277215298199701,
       "confidence": 0.5,
       "equity_score": 0.5354389814118775,
       "evidence": [
@@ -9785,7 +9785,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1156 reports 35.50 \u00b0C average temperature and 7.0089 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1156 reports 36.08 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9840,7 +9840,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6367201455647721,
+      "benefit_score": 0.4238850885686093,
       "confidence": 0.5,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -9849,7 +9849,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1811 reports 35.46 \u00b0C average temperature and 7.0807 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1811 reports 35.96 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9904,7 +9904,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5988944332464973,
+      "benefit_score": 0.40990688497717714,
       "confidence": 0.5,
       "equity_score": 0.550269164703464,
       "evidence": [
@@ -9913,7 +9913,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 40 reports 35.34 \u00b0C average temperature and 7.0859 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 40 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -9968,7 +9968,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6439672524869765,
+      "benefit_score": 0.4425825309031216,
       "confidence": 0.5,
       "equity_score": 0.6190574880096633,
       "evidence": [
@@ -9977,7 +9977,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1234 reports 35.43 \u00b0C average temperature and 7.0284 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1234 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -10032,7 +10032,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6148801392720488,
+      "benefit_score": 0.4277215298199701,
       "confidence": 0.5,
       "equity_score": 0.5354389814118775,
       "evidence": [
@@ -10041,7 +10041,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1156 reports 35.50 \u00b0C average temperature and 7.0089 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1156 reports 36.08 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -10096,7 +10096,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5863807858321431,
+      "benefit_score": 0.42183530716089546,
       "confidence": 0.5,
       "equity_score": 0.702555646649375,
       "evidence": [
@@ -10105,7 +10105,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 119 reports 35.30 \u00b0C average temperature and 6.9989 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 119 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -10160,7 +10160,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6109431216016946,
+      "benefit_score": 0.40837491236867923,
       "confidence": 0.5,
       "equity_score": 0.39822410018232635,
       "evidence": [
@@ -10169,7 +10169,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1425 reports 35.42 \u00b0C average temperature and 7.0042 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1425 reports 35.91 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -10224,7 +10224,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5205334678741264,
+      "benefit_score": 0.4258534977126567,
       "confidence": 0.5,
       "equity_score": 0.7345851245474677,
       "evidence": [
@@ -10233,7 +10233,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1 reports 35.18 \u00b0C average temperature and 6.7649 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1 reports 35.95 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -10288,7 +10288,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.590729581477529,
+      "benefit_score": 0.424569189064288,
       "confidence": 0.5,
       "equity_score": 0.7345851245474677,
       "evidence": [
@@ -10297,7 +10297,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 170 reports 35.31 \u00b0C average temperature and 6.998 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 170 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -10352,7 +10352,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.589686289891875,
+      "benefit_score": 0.4228520199754511,
       "confidence": 0.5,
       "equity_score": 0.5886672914027181,
       "evidence": [
@@ -10361,7 +10361,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 263 reports 35.31 \u00b0C average temperature and 7.0017 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 263 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -10416,7 +10416,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.8362704408508559,
+      "benefit_score": 0.6273399214347446,
       "confidence": 0.5,
       "equity_score": 0.6218115468948806,
       "evidence": [
@@ -10425,7 +10425,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1355 reports 35.45 \u00b0C average temperature and 7.0432 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1355 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -10480,7 +10480,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.39654099270779075,
+      "benefit_score": 0.3543303381822195,
       "confidence": 0.5,
       "equity_score": 0.5758205153543917,
       "evidence": [
@@ -10489,7 +10489,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1743 reports 34.88 \u00b0C average temperature and 6.193 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1743 reports 35.39 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -10544,7 +10544,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.27395737181030855,
+      "benefit_score": 0.25704488186224306,
       "confidence": 0.5,
       "equity_score": 0.40880759334444194,
       "evidence": [
@@ -10553,7 +10553,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1898 reports 34.80 \u00b0C average temperature and 6.0495 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1898 reports 35.30 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -10608,7 +10608,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5481928605737937,
+      "benefit_score": 0.3824815928451163,
       "confidence": 0.5,
       "equity_score": 0.39822410018232635,
       "evidence": [
@@ -10617,7 +10617,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1306 reports 35.30 \u00b0C average temperature and 6.811 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1306 reports 35.78 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -10672,7 +10672,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.589686289891875,
+      "benefit_score": 0.4228520199754511,
       "confidence": 0.5,
       "equity_score": 0.5886672914027181,
       "evidence": [
@@ -10681,7 +10681,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 263 reports 35.31 \u00b0C average temperature and 7.0017 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 263 reports 35.94 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -10736,7 +10736,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6537616733463004,
+      "benefit_score": 0.42687309983631144,
       "confidence": 0.5,
       "equity_score": 0.39822410018232635,
       "evidence": [
@@ -10745,7 +10745,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1363 reports 35.51 \u00b0C average temperature and 7.1364 persistence hours for the frozen analysis period."
+          "statement": "FortyGuard tile 1363 reports 36.00 \u00b0C average temperature and 10 persistence hours for the frozen analysis period."
         },
         {
           "kind": "exposure",
@@ -10808,7 +10808,7 @@
     "unique_sites": 152
   },
   "crs": "EPSG:4326",
-  "generated_at": "2026-08-20T19:03:32.630788Z",
+  "generated_at": "2026-08-21T17:35:17.350255Z",
   "limitations": [
     "Candidates are screening options, not construction recommendations or procurement estimates; catalog preconstruction checks remain unresolved.",
     "No cool-pavement candidate is generated because the cached pilot inputs contain no verified public paved-surface or corridor geometry.",
@@ -10826,7 +10826,7 @@
     {
       "id": "pacoima_tile_feature_table",
       "path": "data/processed/pacoima_tile_features.json",
-      "sha256": "5dc46ce16b5fbd4d7a939ee4a3bd26a5fd2b333c2e2e96ad30048c168415f4a9"
+      "sha256": "7a6d15e78d6d8179a3c1dddb539171a90eddcd7a339cbd074f4a4ca95bf6ce64"
     },
     {
       "id": "pacoima_public_data",

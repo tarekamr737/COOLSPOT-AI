@@ -24,6 +24,7 @@ class GroundedExplanation(BaseModel):
 
     mode: Literal["template", "openrouter"] = "template"
     model: str | None = None
+    fallback_reason: str | None = None
     site_id: str
     candidate_id: str
     budget_usd: int = Field(gt=0)
@@ -163,6 +164,7 @@ async def explain_with_optional_llm(
     environ: dict[str, str] | None = None,
     transport: ExplanationTransport | None = None,
     cache_root: Path = EXPLANATION_CACHE,
+    regenerate: bool = False,
 ) -> GroundedExplanation:
     """Use OpenRouter when configured, preserving a deterministic safe fallback."""
 
@@ -181,11 +183,15 @@ async def explain_with_optional_llm(
     model = source.get("OPENROUTER_MODEL", DEFAULT_OPENROUTER_MODEL).strip()
     key = _cache_key(template, model)
     cache_path = cache_root / f"{key}.json"
+    previous_summary: str | None = None
     if cache_path.exists():
         try:
-            return GroundedExplanation.model_validate_json(
+            cached = GroundedExplanation.model_validate_json(
                 cache_path.read_text(encoding="utf-8")
             )
+            if not regenerate:
+                return cached
+            previous_summary = cached.summary
         except ValueError:
             pass
 
@@ -193,6 +199,11 @@ async def explain_with_optional_llm(
         f"Verified summary: {template.summary}\n"
         f"Evidence: {' | '.join(template.why_selected)}\n"
         f"Limitations: {' | '.join(template.limitations)}"
+        + (
+            f"\nPrevious wording to avoid: {previous_summary}"
+            if previous_summary is not None
+            else ""
+        )
     )
     try:
         content = await (transport or OpenRouterTransport()).complete(
@@ -201,7 +212,14 @@ async def explain_with_optional_llm(
             prompt=prompt,
         )
         if not _safe_model_summary(content, template):
-            return template
+            return template.model_copy(
+                update={
+                    "fallback_reason": (
+                        "OpenRouter returned wording that did not pass COOLSPOT's grounding "
+                        "checks. The deterministic explanation is shown instead."
+                    )
+                }
+            )
         generated = GroundedExplanation.model_validate(
             {
                 **template.model_dump(mode="python"),
@@ -215,5 +233,29 @@ async def explain_with_optional_llm(
         temporary.write_text(generated.model_dump_json(indent=2), encoding="utf-8")
         os.replace(temporary, cache_path)
         return generated
-    except (httpx2.HTTPError, KeyError, TypeError, ValueError):
-        return template
+    except httpx2.HTTPStatusError as error:
+        reason = (
+            "OpenRouter is temporarily rate limited. The deterministic explanation is shown; "
+            "use Run AI again later."
+            if error.response.status_code == 429
+            else "OpenRouter rejected the request. The deterministic explanation is shown."
+        )
+        return template.model_copy(update={"fallback_reason": reason})
+    except httpx2.HTTPError:
+        return template.model_copy(
+            update={
+                "fallback_reason": (
+                    "OpenRouter could not be reached. The deterministic explanation is shown; "
+                    "use Run AI again when the provider is available."
+                )
+            }
+        )
+    except (KeyError, TypeError, ValueError):
+        return template.model_copy(
+            update={
+                "fallback_reason": (
+                    "OpenRouter returned an invalid response. The deterministic explanation "
+                    "is shown instead."
+                )
+            }
+        )

@@ -455,3 +455,27 @@
 - Automated proof: `.venv\Scripts\python.exe -m pytest` returns `48 passed`; the failure-path tests
   prove zero `submit_heatmap` calls, failed status retention, safe transport messaging, and the HTTP
   `503` response contract. Ruff and strict Mypy pass.
+
+## A completed refresh updates the full decision workspace
+
+- Real refresh proof: the authorized 20 August 2026 refresh completed both TCM and persistence
+  activities. Usage moved from `8,440` to `16,880` credits, exactly the conservative two-job
+  estimate, leaving `1,983,120`, well above the `500,000` hard reserve.
+- Artifact proof: the active heatmap, tile-feature, and candidate artifacts now carry the refreshed
+  date and changed observed heat, persistence, normalized scores, candidate benefits, and ranking
+  inputs. All three are deterministically serialized and their SHA-256 provenance chain validates.
+- Application proof: after the coordinator reports completion, the client refetches pilot metadata,
+  data status, methodology, candidates, the heat layer, the selected site, and reruns CP-SAT at the
+  user's current budget. Old layer and explanation caches are cleared. The UI confirms that the map,
+  scores, recommendations, and portfolio were recalculated.
+- AI proof: `EXPLANATION_MODE=openrouter` is active and “Run AI again” bypasses the file cache while
+  asking Gemma for alternative wording. A real provider probe returned HTTP `429` from the free
+  model; the UI now identifies that temporary rate limit and shows the deterministic grounded
+  fallback instead of implying that the button did nothing.
+- Reliability proof: analytical GeoJSON readiness no longer depends on the optional street basemap
+  succeeding. The isolated browser test passed while basemap requests returned visible HTTP `502`
+  errors, proving the core map and golden path remain operational without tile-provider access.
+- Final automated proof: backend Pytest returns `49 passed`; Ruff and strict Mypy pass; frontend
+  lint, strict TypeScript, and `6` Vitest tests pass (`1` opt-in contract test skipped); the production
+  Next build passes; `scripts/validate_demo.py` passes 4 layers, 152 candidates, both golden budgets,
+  and unchanged `1,983,120` credits; production-origin Playwright returns `1 passed`.

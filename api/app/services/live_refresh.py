@@ -26,6 +26,11 @@ from api.app.services.candidates import (
     build_candidates,
     canonical_candidate_bytes,
 )
+from api.app.services.capabilities import (
+    DEFAULT_CAPABILITIES_PATH,
+    canonical_capability_bytes,
+    load_capabilities,
+)
 from api.app.services.credits import (
     CreditGovernor,
     CreditLedger,
@@ -47,6 +52,7 @@ from api.app.services.heatmap_data import (
     DEFAULT_HEATMAP_PATH,
     CachedHeatmapLayer,
     PacoimaHeatmapArtifact,
+    canonical_heatmap_bytes,
 )
 from api.app.settings import load_project_env
 
@@ -290,7 +296,7 @@ class RefreshCoordinator:
             )
             staged_heatmap = RUNTIME_ROOT / "staged_heatmaps.json"
             staged_features = RUNTIME_ROOT / "staged_features.json"
-            _write_bytes(staged_heatmap, artifact.model_dump_json(indent=2).encode())
+            _write_bytes(staged_heatmap, canonical_heatmap_bytes(artifact))
             feature_payload = canonical_feature_table_bytes(
                 build_feature_table(heatmap_path=staged_heatmap)
             )
@@ -307,14 +313,25 @@ class RefreshCoordinator:
                 "completed_at": completed_at.isoformat(),
             }
             _write_bytes(REFRESH_MARKER_PATH, json.dumps(marker, indent=2).encode())
+            final_usage = await client.fetch_credit_usage()
+            capability_snapshot = load_capabilities().model_copy(
+                update={
+                    "evaluated_at": completed_at.date(),
+                    "credits_used": final_usage.used_credits,
+                    "credits_remaining": final_usage.remaining_credits,
+                }
+            )
+            _write_bytes(
+                DEFAULT_CAPABILITIES_PATH,
+                canonical_capability_bytes(capability_snapshot),
+            )
             clear_decision_caches()
-            remaining = (await client.fetch_credit_usage()).remaining_credits
             self._status = self._status.model_copy(
                 update={
                     "state": "completed",
                     "message": "Fresh FortyGuard heat evidence is active.",
                     "completed_at": completed_at,
-                    "credits_remaining": remaining,
+                    "credits_remaining": final_usage.remaining_credits,
                 }
             )
         except Exception as error:

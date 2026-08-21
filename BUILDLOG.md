@@ -123,3 +123,17 @@
   the preflight fail-closed and added a specific HTTP 503 path stating that no paid jobs ran and the
   validated cache remains active; restarted the local API with vendor network access rather than
   weakening credit checks or automatically retrying a paid submission.
+- The first successful UI refresh did rebuild decision artifacts, but the client did not make that
+  dependency refresh visible and retained explanation state keyed only by candidate and budget.
+  Reload the full typed workspace at the current budget, clear dependent caches, and confirm the
+  recalculation explicitly so stale evidence cannot appear beside refreshed scores.
+- “Regenerate” was returning the same template because OpenRouter mode was disabled, then because
+  the configured free Gemma endpoint returned HTTP 429. Enabled the requested mode, made repeat runs
+  bypass cached wording, and surfaced rate-limit/grounding/provider fallbacks without weakening the
+  deterministic evidence boundary or retrying automatically.
+- Isolated Playwright exposed that an unavailable raster basemap could prevent MapLibre's initial
+  load event and leave local analytical data marked loading. Initialize the map from local GeoJSON
+  first and attach the street tiles afterward, so provider failure cannot block the decision tool.
+- Persist the post-refresh credit counters into the committed capability snapshot as well as the
+  runtime ledger. This keeps an offline/deployed cached build truthful after runtime files are
+  intentionally excluded, and prevents it from reverting to the pre-refresh credit display.

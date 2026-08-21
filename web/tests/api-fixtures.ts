@@ -154,6 +154,7 @@ export function explanation(index = 0, budget = 500_000) {
   return {
     mode: "template",
     model: null,
+    fallback_reason: null,
     site_id: candidate.site_id,
     candidate_id: candidate.id,
     budget_usd: budget,

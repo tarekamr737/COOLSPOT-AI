@@ -160,6 +160,7 @@ class ExplanationRequest(BaseModel):
 
     candidate_id: str = Field(min_length=1)
     budget_usd: int = Field(gt=0)
+    regenerate: bool = False
 
 
 class SiteOption(BaseModel):

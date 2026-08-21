@@ -32,8 +32,8 @@ def test_unneeded_optional_features_are_unprobed_and_fail_visibly() -> None:
     }
 
     assert manifest.optional_live_probes_made == 0
-    assert manifest.credits_used == 8_440
-    assert manifest.credits_remaining == 1_991_560
+    assert manifest.credits_used == 16_880
+    assert manifest.credits_remaining == 1_983_120
     for feature in optional:
         capability = manifest.get(feature)
         assert capability.enabled is False

@@ -188,6 +188,7 @@ export type Portfolio = z.infer<typeof portfolioSchema>;
 export const explanationSchema = z.object({
   mode: z.enum(["template", "openrouter"]),
   model: z.string().nullable(),
+  fallback_reason: z.string().nullable(),
   site_id: z.string().min(1),
   candidate_id: z.string().min(1),
   budget_usd: z.number().int().positive(),
