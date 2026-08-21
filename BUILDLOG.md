@@ -89,3 +89,7 @@
   portfolio at the requested budget, then restates only its typed evidence and limitations. An LLM
   would not add decision evidence for the golden path, so optional LLM mode remains unimplemented
   instead of adding latency and hallucination surface for presentation value alone.
+- Proved zero vendor use in the golden browser path with two independent signals: no observed
+  request URL names FortyGuard, and the API's committed credit counters are identical before and
+  after both budget scenarios. The E2E explicitly forces `FORTYGUARD_LIVE=0`; Vitest excludes the
+  Playwright directory so browser and unit runners retain separate discovery contracts.

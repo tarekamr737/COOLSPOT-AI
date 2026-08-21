@@ -346,3 +346,21 @@
 - LLM decision: no LLM mode was added. The deterministic response already covers the judging need;
   adding a provider would introduce latency, configuration, cache, and hallucination risk without
   new evidence or decision capability.
+
+## Golden Playwright path makes zero FortyGuard calls
+
+- Requirement: exercise the judge's real browser path and prove budget changes use only committed
+  data rather than spending FortyGuard credits.
+- Browser proof: `web/e2e/golden-path.spec.ts` starts the fixture-backed FastAPI service with
+  `FORTYGUARD_LIVE=0` and the real Next app, then loads Pacoima, verifies the cached-analysis state
+  and `$500,000`/10-site portfolio, switches to the 2,001-tile persistence layer, re-optimizes to
+  `$1,000,000`/20 sites, selects another recommendation, opens source methodology, and generates
+  its deterministic evidence-and-limitations explanation.
+- Zero-call proof: the test records every browser request and asserts none contains `FortyGuard`.
+  It also proves both optimize POST bodies (`500000` and `1000000`) traversed the local proxy and
+  compares `/data-status` before and after: `external_calls_on_read=false`, credits used remain
+  `8,440`, and credits remaining remain `1,991,560`.
+- Automated proof: with browser binaries stored under the D: workspace,
+  `PLAYWRIGHT_BROWSERS_PATH=D:\COOLSPOT AI\.playwright-browsers npm run test:e2e` → `1 passed`
+  in Chromium. `npm run check` passes ESLint, Next route generation, strict TypeScript, and `4`
+  unit tests (`1` opt-in real-contract test skipped); `npm run build` passes and prerenders `/`.
