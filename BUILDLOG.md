@@ -93,3 +93,7 @@
   request URL names FortyGuard, and the API's committed credit counters are identical before and
   after both budget scenarios. The E2E explicitly forces `FORTYGUARD_LIVE=0`; Vitest excludes the
   Playwright directory so browser and unit runners retain separate discovery contracts.
+- Added the architecture-specified demo validator when the proof task found it absent. It exercises
+  the deployed HTTP boundary instead of importing service functions, validates responses through
+  the production Pydantic models, repeats each golden optimization to detect nondeterminism, and
+  compares credit status around the entire path so deployment validation remains fail-closed.

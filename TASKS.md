@@ -33,7 +33,7 @@
 
 ## 5 — Proof
 - [x] Add golden Playwright E2E and assert budget changes make zero FortyGuard calls.
-- [ ] Run backend unit/integration suite, frontend checks, and `scripts/validate_demo.py`.
+- [x] Run backend unit/integration suite, frontend checks, and `scripts/validate_demo.py`.
 - [ ] Deploy web + API in demo mode; run golden E2E against deployed URLs.
 - [ ] Perform one final controlled live refresh only if useful and reserve remains >=500k; otherwise keep validated cache.
 - [ ] Freeze demo data, verify sources/limitations/credit status, and record a 2–3 minute judge demo path.

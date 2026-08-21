@@ -364,3 +364,26 @@
   `PLAYWRIGHT_BROWSERS_PATH=D:\COOLSPOT AI\.playwright-browsers npm run test:e2e` → `1 passed`
   in Chromium. `npm run check` passes ESLint, Next route generation, strict TypeScript, and `4`
   unit tests (`1` opt-in real-contract test skipped); `npm run build` passes and prerenders `/`.
+
+## Full local verification and demo API validation pass
+
+- Requirement: run the complete backend unit/integration suite, frontend checks, and the external
+  demo validator before deployment work.
+- Backend proof: `.venv\Scripts\python.exe -m pytest` collected the configured API suite and
+  returned `41 passed` across boundary, public-data processing, heat fixtures, candidates, scoring,
+  capabilities, credit governance, FortyGuard fixture integration, optimizer, decision API, and
+  explanation behavior. `.venv\Scripts\python.exe -m ruff check .` and strict configured Mypy both
+  pass.
+- Frontend proof: `npm run check` passes ESLint with zero warnings, Next route generation, strict
+  TypeScript, and `4 passed` Vitest checks (`1` explicitly gated real-API contract test skipped).
+- Validator proof: the previously specified but missing `scripts/validate_demo.py` now validates
+  deployed HTTP responses with the same Pydantic boundary models as the API. Against a real local
+  Uvicorn process it returned: `PASS: Pacoima, Los Angeles; 4 layers; 152 candidates; budgets
+  $500,000/$1,000,000; credits unchanged at 1,991,560 remaining`.
+- Acceptance coverage: the validator checks health, AOI/pilot contract, all non-empty layer
+  contracts, candidate counts, methodology, deterministic repeated optimization, cost at or under
+  budget, at most one intervention per site, selected-site lookup, grounded explanation identity,
+  hard credit reserve, cached read mode, and identical before/after credit counters.
+- Validator quality proof: focused Ruff and `mypy --strict scripts\validate_demo.py` both pass. The
+  script accepts `--base-url`/`COOLSPOT_API_BASE_URL` and can be invoked directly by file path from
+  the repository, including on the current Windows workspace.
