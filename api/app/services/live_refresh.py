@@ -38,7 +38,11 @@ from api.app.services.feature_table import (
     build_feature_table,
     canonical_feature_table_bytes,
 )
-from api.app.services.fortyguard import FortyGuardClient, canonical_request_hash
+from api.app.services.fortyguard import (
+    FortyGuardClient,
+    FortyGuardError,
+    canonical_request_hash,
+)
 from api.app.services.heatmap_data import (
     DEFAULT_HEATMAP_PATH,
     CachedHeatmapLayer,
@@ -71,6 +75,10 @@ class RefreshStatus(BaseModel):
     estimated_credit_cost: int | None = Field(default=None, ge=0)
     credits_remaining: int | None = Field(default=None, ge=0)
     hard_reserve: int = Field(default=500_000, ge=500_000)
+
+
+class RefreshPreflightError(RuntimeError):
+    """The safe checks failed before any paid refresh job was submitted."""
 
 
 def _write_bytes(path: Path, payload: bytes) -> None:
@@ -147,7 +155,16 @@ class RefreshCoordinator:
                 cache_root=CACHE_ROOT,
             )
             ledger = CreditLedger(LEDGER_PATH)
-            usage = await client.fetch_credit_usage()
+            try:
+                usage = await client.fetch_credit_usage()
+            except FortyGuardError as error:
+                message = (
+                    "FortyGuard is unreachable during the credit preflight. No paid jobs "
+                    "were submitted; cached evidence remains active. Check the server "
+                    "network connection and retry."
+                )
+                self._status = RefreshStatus(state="failed", message=message)
+                raise RefreshPreflightError(message) from error
             hashes = tuple(
                 canonical_request_hash(FortyGuardEndpoint.HEATMAP, request)
                 for request in requests

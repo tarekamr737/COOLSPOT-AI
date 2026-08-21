@@ -15,6 +15,7 @@ from api.app.schemas import (
     SiteResponse,
 )
 from api.app.services.explanations import GroundedExplanation
+from api.app.services.live_refresh import RefreshPreflightError
 from api.app.services.optimizer import PortfolioResult
 
 client = TestClient(app)
@@ -122,6 +123,26 @@ def test_live_refresh_requires_an_administrator_token_before_any_vendor_call() -
 
     assert response.status_code == 401
     assert fetch_usage.await_count == 0
+
+
+def test_live_refresh_returns_a_useful_preflight_connectivity_error() -> None:
+    message = (
+        "FortyGuard is unreachable during the credit preflight. No paid jobs were "
+        "submitted; cached evidence remains active."
+    )
+    with patch(
+        "api.app.routers.decision.refresh_coordinator.start",
+        new_callable=AsyncMock,
+        side_effect=RefreshPreflightError(message),
+    ):
+        response = client.post(
+            "/v1/refresh",
+            headers={"X-Refresh-Token": "admin-secret"},
+            json={"analysis_date": "2026-08-20"},
+        )
+
+    assert response.status_code == 503
+    assert response.json()["detail"] == message
 
 
 def test_selected_site_explanation_restates_only_structured_evidence() -> None:

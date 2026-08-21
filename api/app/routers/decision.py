@@ -22,7 +22,12 @@ from api.app.services.decision_api import (
     site_response,
 )
 from api.app.services.explanations import GroundedExplanation, explain_with_optional_llm
-from api.app.services.live_refresh import RefreshRequest, RefreshStatus, refresh_coordinator
+from api.app.services.live_refresh import (
+    RefreshPreflightError,
+    RefreshRequest,
+    RefreshStatus,
+    refresh_coordinator,
+)
 from api.app.services.optimizer import OptimizationError, PortfolioResult, optimize_portfolio
 
 router = APIRouter(prefix="/v1")
@@ -117,6 +122,8 @@ async def refresh_data(
         )
     except PermissionError as error:
         raise HTTPException(status_code=401, detail=str(error)) from error
+    except RefreshPreflightError as error:
+        raise HTTPException(status_code=503, detail=str(error)) from error
     except RuntimeError as error:
         raise HTTPException(status_code=409, detail=str(error)) from error
     except ValueError as error:

@@ -119,3 +119,7 @@
   receives one selected site's validated evidence, cannot alter ranking/evidence/limitations, and
   is rejected for prohibited claims or new numbers. File caching and a visible deterministic
   fallback keep the judge path reliable when the free model, key, or network is unavailable.
+- A user-triggered refresh exposed an uncaught network exception during the credit preflight. Kept
+  the preflight fail-closed and added a specific HTTP 503 path stating that no paid jobs ran and the
+  validated cache remains active; restarted the local API with vendor network access rather than
+  weakening credit checks or automatically retrying a paid submission.

@@ -4,8 +4,15 @@ import asyncio
 from datetime import UTC, datetime, timedelta
 from unittest.mock import AsyncMock, patch
 
+import pytest
+
 from api.app.fortyguard_models import CreditUsage
-from api.app.services.live_refresh import RefreshCoordinator, RefreshStatus
+from api.app.services.fortyguard import FortyGuardError
+from api.app.services.live_refresh import (
+    RefreshCoordinator,
+    RefreshPreflightError,
+    RefreshStatus,
+)
 
 
 def test_refresh_preflights_both_layers_against_the_credit_reserve() -> None:
@@ -52,3 +59,39 @@ def test_refresh_preflights_both_layers_against_the_credit_reserve() -> None:
     assert result.estimated_credit_cost == 8_440
     assert result.credits_remaining == 1_991_560
     assert result.hard_reserve == 500_000
+
+
+def test_refresh_reports_an_unreachable_credit_preflight_without_starting_jobs() -> None:
+    coordinator = RefreshCoordinator()
+    env = {
+        "FORTYGUARD_LIVE": "1",
+        "FORTYGUARD_API_KEY": "vendor-key",
+        "FORTYGUARD_CREDIT_TOTAL": "2000000",
+        "FORTYGUARD_CREDIT_RESERVE": "500000",
+        "COOLSPOT_REFRESH_TOKEN": "admin-secret",
+    }
+
+    async def scenario() -> None:
+        with (
+            patch("api.app.services.live_refresh.load_project_env", return_value=env),
+            patch(
+                "api.app.services.live_refresh.FortyGuardClient.fetch_credit_usage",
+                new_callable=AsyncMock,
+                side_effect=FortyGuardError("network unavailable"),
+            ),
+            patch(
+                "api.app.services.live_refresh.FortyGuardClient.submit_heatmap",
+                new_callable=AsyncMock,
+            ) as submit_heatmap,
+        ):
+            with pytest.raises(RefreshPreflightError, match="No paid jobs were submitted"):
+                await coordinator.start(
+                    token="admin-secret",
+                    analysis_date=datetime.now(UTC).date() - timedelta(days=1),
+                )
+            assert submit_heatmap.await_count == 0
+            status = coordinator.status()
+            assert status.state == "failed"
+            assert "cached evidence remains active" in status.message
+
+    asyncio.run(scenario())

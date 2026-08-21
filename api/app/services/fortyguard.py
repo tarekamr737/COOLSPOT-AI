@@ -104,8 +104,13 @@ class HttpxJsonTransport:
         headers: Mapping[str, str],
         json_body: dict[str, JsonValue] | None,
     ) -> TransportResponse:
-        async with httpx2.AsyncClient(timeout=self._timeout_seconds) as client:
-            response = await client.request(method, url, headers=headers, json=json_body)
+        try:
+            async with httpx2.AsyncClient(timeout=self._timeout_seconds) as client:
+                response = await client.request(method, url, headers=headers, json=json_body)
+        except httpx2.RequestError as error:
+            raise FortyGuardError(
+                "FortyGuard could not be reached. Check the server network connection and retry."
+            ) from error
         try:
             payload = response.json()
         except ValueError as error:

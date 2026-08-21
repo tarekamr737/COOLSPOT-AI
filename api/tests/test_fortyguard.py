@@ -5,7 +5,9 @@ import json
 from collections.abc import Mapping
 from datetime import UTC, date, datetime, time
 from pathlib import Path
+from unittest.mock import AsyncMock, patch
 
+import httpx2
 import pytest
 from pydantic import JsonValue, ValidationError
 
@@ -26,6 +28,8 @@ from api.app.fortyguard_models import (
 from api.app.services.boundary import PolygonGeometry
 from api.app.services.fortyguard import (
     FortyGuardClient,
+    FortyGuardError,
+    HttpxJsonTransport,
     TransportResponse,
     canonical_request_hash,
 )
@@ -55,6 +59,27 @@ class FakeTransport:
         if not self.responses:
             raise AssertionError("unexpected FortyGuard transport call")
         return self.responses.pop(0)
+
+
+def test_http_transport_wraps_network_failures_without_leaking_internals() -> None:
+    async def scenario() -> None:
+        with (
+            patch(
+                "api.app.services.fortyguard.httpx2.AsyncClient.request",
+                new_callable=AsyncMock,
+                side_effect=httpx2.ConnectError("socket detail"),
+            ),
+            pytest.raises(FortyGuardError, match="could not be reached") as captured,
+        ):
+            await HttpxJsonTransport().request_json(
+                "GET",
+                "https://api.fortyguard.com/v1/system/fetch-api-key-usage",
+                headers={"X-API-KEY": "secret"},
+                json_body=None,
+            )
+        assert "socket detail" not in str(captured.value)
+
+    asyncio.run(scenario())
 
 
 def fixture_response(name: str) -> TransportResponse:

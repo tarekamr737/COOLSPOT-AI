@@ -441,3 +441,17 @@
   test skipped); `npm run build` passes with the basemap and COOLSPOT API routes; the production
   `scripts/validate_demo.py` result passes four layers, 152 candidates, both budgets, and unchanged
   credits; hosted-origin Playwright returns `1 passed`.
+
+## Live-refresh connectivity failures are safe and actionable
+
+- A real user refresh attempt failed during the read-only credit-usage preflight because the local
+  API process could not reach FortyGuard. Logs prove the exception occurred before either paid TCM
+  or persistence submission; current usage remained `8,440` and remaining credits `1,991,560`.
+- Network transport failures are now converted to a stable vendor-boundary error. The refresh API
+  returns HTTP `503` with an explicit statement that no paid jobs were submitted and that cached
+  evidence remains active, instead of leaking an internal HTTP 500.
+- The API was restarted with vendor network access. An authenticated read-only usage check then
+  returned `8,440` used and `1,991,560` remaining; it did not submit a heatmap activity.
+- Automated proof: `.venv\Scripts\python.exe -m pytest` returns `48 passed`; the failure-path tests
+  prove zero `submit_heatmap` calls, failed status retention, safe transport messaging, and the HTTP
+  `503` response contract. Ruff and strict Mypy pass.
