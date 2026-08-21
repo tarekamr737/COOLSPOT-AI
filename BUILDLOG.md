@@ -97,3 +97,8 @@
   the deployed HTTP boundary instead of importing service functions, validates responses through
   the production Pydantic models, repeats each golden optimization to detect nondeterminism, and
   compares credit status around the entire path so deployment validation remains fail-closed.
+- Rejected Sites deployment for the existing app because its required Vite/Cloudflare Worker shape
+  cannot run the Python API without replacing validated architecture. Packaged the unchanged Next
+  standalone server and FastAPI process as one Docker Space instead, with only port 7860 exposed,
+  same-origin API rewrites, and `FORTYGUARD_LIVE=0`. The exact local production layout passes the
+  API validator and hosted-URL Playwright path; remote publication is pending Hugging Face login.

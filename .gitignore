@@ -1,6 +1,7 @@
 .venv/
 .npm-cache/
 .playwright-browsers/
+.hf-cache/
 .uv-cache/
 .pytest_cache/
 .mypy_cache/
