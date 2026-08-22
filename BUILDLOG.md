@@ -137,3 +137,10 @@
 - Persist the post-refresh credit counters into the committed capability snapshot as well as the
   runtime ledger. This keeps an offline/deployed cached build truthful after runtime files are
   intentionally excluded, and prevents it from reverting to the pre-refresh credit display.
+- Replaced the drifting Gemma configuration with the user-selected `stealth/ox-alpha` only after
+  verifying the exact ID and zero pricing in OpenRouter's live catalog. Ox Alpha defaults to maximum
+  mandatory reasoning, which exhausted the former 180-token allowance before producing usable
+  wording; request its supported low effort with a larger completion allowance. Keep attribution
+  response-driven and cache keys model-specific. Tighten the grounding gate around semantic claims:
+  accept negative disclosures and verified numbers from all supplied structured evidence, while
+  continuing to reject positive outcome claims and invented numbers.

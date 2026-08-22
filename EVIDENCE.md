@@ -479,3 +479,24 @@
   lint, strict TypeScript, and `6` Vitest tests pass (`1` opt-in contract test skipped); the production
   Next build passes; `scripts/validate_demo.py` passes 4 layers, 152 candidates, both golden budgets,
   and unchanged `1,983,120` credits; production-origin Playwright returns `1 passed`.
+
+## Ox Alpha is the active grounded explanation model
+
+- OpenRouter's live public model catalog returned the exact ID `stealth/ox-alpha`, display name
+  `Ox Alpha`, and zero prompt/completion pricing on 22 August 2026. Its metadata reports mandatory
+  reasoning with `low` support, so COOLSPOT requests low reasoning and reserves enough completion
+  tokens for the user-facing paragraph.
+- Configuration proof: the server default, local runtime environment, committed environment
+  example, tests, and UI all use `stealth/ox-alpha`. The UI renders the model ID returned by the
+  explanation API rather than a hardcoded provider/model label. Changing the model also changes the
+  existing model-aware cache key, so prior Gemma wording cannot be served as Ox Alpha output.
+- Real provider proof: `POST /v1/sites/metro-stop%3A10794/explanation` returned HTTP `200`, mode
+  `openrouter`, model `stealth/ox-alpha`, no fallback reason, five unchanged evidence records, and
+  three unchanged limitations. The model did not participate in ranking or optimization.
+- Grounding proof: numeric validation now admits numbers from every structured field actually sent
+  to the model (summary, evidence, and limitations), rejects any number absent from those fields,
+  and distinguishes prohibited positive impact claims from explicit negative limitations such as
+  “does not predict people protected.”
+- Automated proof: backend Pytest returns `50 passed`; Ruff passes; strict Mypy passes across `40`
+  source files; frontend lint, strict TypeScript, and `6` Vitest tests pass (`1` opt-in contract test
+  skipped); the production Next build compiles successfully.

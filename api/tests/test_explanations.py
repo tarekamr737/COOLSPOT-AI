@@ -18,7 +18,7 @@ class StubTransport:
 
     async def complete(self, *, api_key: str, model: str, prompt: str) -> str:
         assert api_key == "test-key"
-        assert model == "google/gemma-4-26b-a4b-it:free"
+        assert model == "stealth/ox-alpha"
         assert "Verified summary:" in prompt
         self.calls += 1
         self.prompts.append(prompt)
@@ -49,7 +49,8 @@ def test_openrouter_rewrites_only_the_summary_and_is_cached(tmp_path: Path) -> N
     candidate, tile, intervention, portfolio = selected_context()
     transport = StubTransport(
         "This location ranks well because the supplied heat, activity, vulnerability, "
-        "feasibility, and confidence evidence supports its place in the selected portfolio."
+        "feasibility, and confidence evidence supports its place in the selected portfolio; "
+        "the outcome is not guaranteed."
     )
     kwargs = {
         "candidate": candidate,
@@ -59,7 +60,7 @@ def test_openrouter_rewrites_only_the_summary_and_is_cached(tmp_path: Path) -> N
         "environ": {
             "EXPLANATION_MODE": "openrouter",
             "OPENROUTER_API_KEY": "test-key",
-            "OPENROUTER_MODEL": "google/gemma-4-26b-a4b-it:free",
+            "OPENROUTER_MODEL": "stealth/ox-alpha",
         },
         "transport": transport,
         "cache_root": tmp_path,
@@ -92,6 +93,28 @@ def test_unsafe_model_claim_falls_back_to_template(tmp_path: Path) -> None:
                 "OPENROUTER_API_KEY": "test-key",
             },
             transport=StubTransport("This will reduce temperatures and save lives."),
+            cache_root=tmp_path,
+        )
+    )
+
+    assert result.mode == "template"
+    assert result.fallback_reason is not None
+    assert "grounding checks" in result.fallback_reason
+
+
+def test_model_cannot_add_a_number_absent_from_supplied_evidence(tmp_path: Path) -> None:
+    candidate, tile, intervention, portfolio = selected_context()
+    result = asyncio.run(
+        explain_with_optional_llm(
+            candidate=candidate,  # type: ignore[arg-type]
+            tile=tile,  # type: ignore[arg-type]
+            intervention=intervention,  # type: ignore[arg-type]
+            portfolio=portfolio,  # type: ignore[arg-type]
+            environ={
+                "EXPLANATION_MODE": "openrouter",
+                "OPENROUTER_API_KEY": "test-key",
+            },
+            transport=StubTransport("The verified evidence gives this site a score of 999."),
             cache_root=tmp_path,
         )
     )

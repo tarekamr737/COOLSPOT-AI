@@ -78,7 +78,7 @@ def explain_selected_candidate(
 
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-DEFAULT_OPENROUTER_MODEL = "google/gemma-4-26b-a4b-it:free"
+DEFAULT_OPENROUTER_MODEL = "stealth/ox-alpha"
 ROOT = Path(__file__).resolve().parents[3]
 EXPLANATION_CACHE = ROOT / "data" / "runtime" / "explanations"
 
@@ -101,7 +101,8 @@ class OpenRouterTransport:
                 json={
                     "model": model,
                     "temperature": 0,
-                    "max_tokens": 180,
+                    "max_tokens": 1400,
+                    "reasoning": {"effort": "low", "exclude": True},
                     "messages": [
                         {
                             "role": "system",
@@ -142,15 +143,21 @@ def _cache_key(explanation: GroundedExplanation, model: str) -> str:
 def _safe_model_summary(content: str, template: GroundedExplanation) -> bool:
     lowered = content.lower()
     prohibited = (
-        "lives saved",
-        "people protected",
-        "guaranteed",
+        "will save",
+        "saves lives",
+        "will protect",
+        "people will be protected",
+        "is guaranteed",
+        "guaranteed to",
         "will reduce",
         "will lower",
     )
     if any(phrase in lowered for phrase in prohibited):
         return False
-    supplied_numbers = set(re.findall(r"-?\d+(?:\.\d+)?", template.summary.replace(",", "")))
+    supplied_text = " ".join(
+        (template.summary, *template.why_selected, *template.limitations)
+    )
+    supplied_numbers = set(re.findall(r"-?\d+(?:\.\d+)?", supplied_text.replace(",", "")))
     output_numbers = set(re.findall(r"-?\d+(?:\.\d+)?", content.replace(",", "")))
     return output_numbers <= supplied_numbers
 
