@@ -155,3 +155,12 @@
   recommendation while preserving the allowance/quote distinction. Likewise, sources and a model
   confidence score can support informed trust but cannot truthfully make analytical output 100%
   certain, so the UI strengthens provenance and limitations instead of making that promise.
+- Expanded street segmentation only to the 20-site deterministic `$1M` portfolio requested by the
+  user. Reused the existing exact-site cache, preflighted 19 new coordinate requests at the measured
+  `8,600`-credit unit cost, checked the reserve before every submission, and persisted each activity,
+  credit delta, and result atomically. Sites outside the portfolio remain offline-unavailable.
+- The first batch launch used a script filepath and failed before network access because `api` was
+  not importable from that invocation. Relaunched it as a module; no request was lost or duplicated.
+- The first production rebuild encountered Windows `EBUSY` because the running Next process held
+  `.next/standalone`. Stopped only the identified port-3000 process, rebuilt successfully, restarted
+  the production app, and reran the golden browser flow.

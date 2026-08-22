@@ -517,15 +517,19 @@
   `metro-stop:10794`. The cached real frame is dated `2024-10-01` and includes original imagery, a
   segmented image, and eight coverage classes. Usage moved from `16,880` to `25,480`, an observed
   `8,600`-credit delta, leaving `1,974,520`, safely above the `500,000` reserve.
-- Selecting any recommendation now opens a floating street-context surface. Only the exact cached
-  site displays the image; every other site shows a verified-unavailable state and makes no paid
-  call. The UI retains the frame date, vendor source, and field-verification limitation.
+- Selecting any recommendation now opens a floating street-context surface. All 20 sites in the
+  deterministic `$1M` portfolio have exact-coordinate cached imagery: the original result was
+  reused and 19 new jobs completed at the observed `8,600` credits each. Usage moved from `25,480`
+  to `188,880`, leaving `1,811,120`, safely above the `500,000` reserve. Sites outside that portfolio
+  show a verified-unavailable state and make no paid call. The request lifecycle is recorded in the
+  credit ledger and the UI retains each frame date, vendor source, and field-verification limitation.
 - AI output is constrained to a short, three-sentence target. Core links for FortyGuard heatmaps, LA
   Metro patronage, Census ACS, and intervention-specific price/benefit evidence appear directly with
   the explanation; detailed evidence records and limitations remain expandable. The interface does
   not claim 100% certainty and clearly separates observed, modeled, and unverified inputs.
-- Automated proof: backend Pytest returns `51 passed`; Ruff passes; strict Mypy passes across `41`
+- Automated proof: backend Pytest returns `51 passed`; Ruff passes; strict Mypy passes across `51`
   source files; frontend lint, strict TypeScript, and `7` Vitest tests pass (`1` opt-in contract test
   skipped); production Next build passes; `scripts/validate_demo.py` passes four layers, 152
-  candidates, both golden budgets, and unchanged `1,974,520` credits; production Playwright passes
-  the tutorial, map readiness, budget, site-context, source, and AI flow in `9.9s`.
+  candidates, both golden budgets, and unchanged `1,811,120` credits; production Playwright passes
+  the tutorial, map readiness, budget, site-context, source, and AI flow in `3.9s` after the
+  20-site cache expansion.

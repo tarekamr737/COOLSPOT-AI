@@ -113,7 +113,7 @@ def test_street_view_is_exact_site_cached_evidence() -> None:
     assert available.segmented_image_url.startswith("data:image/png;base64,")
     assert available.segments["road"] > 0
 
-    unavailable_response = client.get("/v1/sites/metro-stop%3A10795/street-view")
+    unavailable_response = client.get("/v1/sites/metro-stop%3A10554/street-view")
     assert unavailable_response.status_code == 200
     unavailable = StreetViewContextResponse.model_validate(unavailable_response.json())
     assert unavailable.available is False

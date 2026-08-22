@@ -47,12 +47,12 @@
     },
     {
       "access": "confirmed",
-      "cached_artifact": "data/processed/pacoima_streetview.json",
+      "cached_artifact": "data/processed/pacoima_streetview_sites",
       "dependency": "A top-site-only shade question that cannot be answered from cached public evidence.",
       "enabled": true,
       "feature": "street_view_segmentation",
       "probe_attempted": true,
-      "reason": "One top-ranked Pacoima transit site completed successfully and is cached; other sites remain unavailable without a separately governed request."
+      "reason": "All 20 sites in the deterministic $1M portfolio completed successfully and are cached; sites outside that portfolio remain unavailable without a separately governed request."
     },
     {
       "access": "unconfirmed",
@@ -64,8 +64,8 @@
       "reason": "The report endpoint is not an MVP dependency and was not probed or assumed available."
     }
   ],
-  "credits_remaining": 1974520,
-  "credits_used": 25480,
+  "credits_remaining": 1811120,
+  "credits_used": 188880,
   "evaluated_at": "2026-08-22",
   "hard_reserve": 500000,
   "optional_live_probes_made": 1,

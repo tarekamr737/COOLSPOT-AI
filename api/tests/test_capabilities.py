@@ -33,10 +33,10 @@ def test_optional_features_are_explicitly_gated() -> None:
     }
 
     assert manifest.optional_live_probes_made == 1
-    assert manifest.credits_used == 25_480
-    assert manifest.credits_remaining == 1_974_520
+    assert manifest.credits_used == 188_880
+    assert manifest.credits_remaining == 1_811_120
     street_view = manifest.require_enabled(FortyGuardFeature.STREET_VIEW_SEGMENTATION)
-    assert street_view.cached_artifact == "data/processed/pacoima_streetview.json"
+    assert street_view.cached_artifact == "data/processed/pacoima_streetview_sites"
     for feature in set(FortyGuardFeature) - enabled:
         capability = manifest.get(feature)
         assert capability.enabled is False

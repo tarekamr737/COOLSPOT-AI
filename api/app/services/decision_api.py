@@ -46,6 +46,7 @@ ROOT = Path(__file__).resolve().parents[3]
 AOI_PATH = ROOT / "data" / "processed" / "pacoima_aoi.geojson"
 PUBLIC_DATA_PATH = ROOT / "data" / "processed" / "pacoima_public_data.json"
 STREET_VIEW_PATH = ROOT / "data" / "processed" / "pacoima_streetview.json"
+STREET_VIEW_SITE_DIR = ROOT / "data" / "processed" / "pacoima_streetview_sites"
 
 
 def clear_decision_caches() -> None:
@@ -224,14 +225,15 @@ def site_response(site_id: str) -> SiteResponse | None:
 
 
 def street_view_response(site_id: str) -> StreetViewContextResponse:
-    if not STREET_VIEW_PATH.exists():
-        return StreetViewContextResponse(
-            site_id=site_id,
-            available=False,
-            limitation="No verified street segmentation is cached for this site.",
-        )
-    payload = json.loads(STREET_VIEW_PATH.read_text(encoding="utf-8"))
-    if payload.get("status") != "Completed" or payload.get("site_id") != site_id:
+    site_path = STREET_VIEW_SITE_DIR / f"{site_id.replace(':', '__')}.json"
+    payload = None
+    for path in (site_path, STREET_VIEW_PATH):
+        if path.exists():
+            candidate_payload = json.loads(path.read_text(encoding="utf-8"))
+            if candidate_payload.get("site_id") == site_id:
+                payload = candidate_payload
+                break
+    if payload is None:
         return StreetViewContextResponse(
             site_id=site_id,
             available=False,
@@ -239,6 +241,12 @@ def street_view_response(site_id: str) -> StreetViewContextResponse:
                 "Street segmentation is shown only for the exact site analyzed by FortyGuard; "
                 "selecting another site never triggers a paid request."
             ),
+        )
+    if payload.get("status") != "Completed" or payload.get("result") is None:
+        return StreetViewContextResponse(
+            site_id=site_id,
+            available=False,
+            limitation="The cached FortyGuard street-view job did not produce verified imagery.",
         )
     front = payload["result"]["front"]
     return StreetViewContextResponse(
