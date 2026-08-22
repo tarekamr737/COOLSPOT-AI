@@ -153,23 +153,11 @@
 }
 
 .brandMark {
-  width: 2rem;
-  height: 2rem;
+  width: 2.75rem;
+  height: 2.75rem;
   flex: 0 0 auto;
-}
-
-.brandMark path:first-child {
-  fill: var(--heat-mid);
-}
-
-.brandMark path:nth-child(2) {
-  fill: var(--secondary);
-}
-
-.brandMark circle {
-  fill: var(--surface-lowest);
-  stroke: var(--on-surface);
-  stroke-width: 1.5;
+  border-radius: 0.375rem;
+  object-fit: cover;
 }
 
 .brandName,

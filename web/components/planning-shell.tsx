@@ -39,7 +39,7 @@ function interventionLabel(value: Candidate["intervention_type"]) {
 }
 
 function BrandMark() {
-  return <svg aria-hidden="true" className={styles.brandMark} viewBox="0 0 32 32"><path d="M4 16a12 12 0 0 1 19.4-9.45L16 16Z" /><path d="M28 16a12 12 0 0 1-19.4 9.45L16 16Z" /><circle cx="16" cy="16" r="3.5" /></svg>;
+  return <Image alt="" aria-hidden="true" className={styles.brandMark} height={48} priority src="/coolspot-logo.png" width={48} />;
 }
 
 function latestCompleteDate() {
