@@ -500,3 +500,32 @@
 - Automated proof: backend Pytest returns `50 passed`; Ruff passes; strict Mypy passes across `40`
   source files; frontend lint, strict TypeScript, and `6` Vitest tests pass (`1` opt-in contract test
   skipped); the production Next build compiles successfully.
+
+## Trust, onboarding, local price context, and site imagery
+
+- A four-step first-run story now explains the public outcome, evidence chain, budget decision, and
+  site audit for residents, investors, and government users. It is skippable, stored locally after
+  dismissal, and replayable from “How it works.”
+- Local price proof is explicit rather than overstated. Shade uses LADOT's approximately `$50,000`
+  traditional-shelter installation reference. Tree packages disclose the City's published 2016
+  `$425` planting plus `$650/tree/year` establishment-watering baseline (`$2,375` over three years)
+  and explain why COOLSPOT's broader allowance is higher. Cool pavement discloses Los Angeles's
+  `$191,000` FY 2016-17 appropriation for fifteen one-block installations and that Pacoima's later
+  site-level prices were not published. Every displayed amount remains a planning allowance, not an
+  exact selected-site bid.
+- FortyGuard street-view activity `eb918f6d-b360-4fa1-aa34-55e960dedf5f` completed for exact site
+  `metro-stop:10794`. The cached real frame is dated `2024-10-01` and includes original imagery, a
+  segmented image, and eight coverage classes. Usage moved from `16,880` to `25,480`, an observed
+  `8,600`-credit delta, leaving `1,974,520`, safely above the `500,000` reserve.
+- Selecting any recommendation now opens a floating street-context surface. Only the exact cached
+  site displays the image; every other site shows a verified-unavailable state and makes no paid
+  call. The UI retains the frame date, vendor source, and field-verification limitation.
+- AI output is constrained to a short, three-sentence target. Core links for FortyGuard heatmaps, LA
+  Metro patronage, Census ACS, and intervention-specific price/benefit evidence appear directly with
+  the explanation; detailed evidence records and limitations remain expandable. The interface does
+  not claim 100% certainty and clearly separates observed, modeled, and unverified inputs.
+- Automated proof: backend Pytest returns `51 passed`; Ruff passes; strict Mypy passes across `41`
+  source files; frontend lint, strict TypeScript, and `7` Vitest tests pass (`1` opt-in contract test
+  skipped); production Next build passes; `scripts/validate_demo.py` passes four layers, 152
+  candidates, both golden budgets, and unchanged `1,974,520` credits; production Playwright passes
+  the tutorial, map readiness, budget, site-context, source, and AI flow in `9.9s`.

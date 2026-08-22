@@ -276,6 +276,19 @@ export const siteSchema = z.object({
 });
 export type Site = z.infer<typeof siteSchema>;
 
+export const streetViewContextSchema = z.object({
+  site_id: z.string().min(1),
+  available: z.boolean(),
+  image_date: z.string().nullable(),
+  original_image_url: z.string().nullable(),
+  segmented_image_url: z.string().nullable(),
+  segments: z.record(z.string(), z.number().min(0).max(100)),
+  source_label: z.string().min(1),
+  source_url: z.url(),
+  limitation: z.string().min(1),
+});
+export type StreetViewContext = z.infer<typeof streetViewContextSchema>;
+
 export const methodologySchema = z.object({
   version: z.literal("1.0"),
   scoring: z.object({

@@ -1,4 +1,4 @@
-const allowedGetPath = /^(pilot|candidates|data-status|methodology|refresh\/status|layers\/(heat|persistence|exposure|vulnerability)|sites\/[A-Za-z0-9:_-]+)$/;
+const allowedGetPath = /^(pilot|candidates|data-status|methodology|refresh\/status|layers\/(heat|persistence|exposure|vulnerability)|sites\/[A-Za-z0-9:_-]+(?:\/street-view)?)$/;
 
 type RouteContext = { params: Promise<{ path: string[] }> };
 

@@ -144,3 +144,14 @@
   response-driven and cache keys model-specific. Tighten the grounding gate around semantic claims:
   accept negative disclosures and verified numbers from all supplied structured evidence, while
   continuing to reject positive outcome claims and invented numbers.
+- Added one exact-site FortyGuard street segmentation only after the ranked-site dependency became
+  real. The initial usage-preflight shell request used `{}` instead of the runtime-required
+  `{"api_key": ...}` body; PowerShell continued and submitted the street request despite that 422.
+  Treated this as a meaningful execution error: captured the returned activity ID, never resubmitted,
+  polled it to completion, measured the `8,600`-credit delta, and cached the result. Future reads are
+  offline and all unmatched sites fail visibly without vendor work.
+- “Exact selected-site prices” cannot be known before field design and procurement. Show the closest
+  authoritative Los Angeles published price anchors, dates, units, and calculation basis beside the
+  recommendation while preserving the allowance/quote distinction. Likewise, sources and a model
+  confidence score can support informed trust but cannot truthfully make analytical output 100%
+  certain, so the UI strengthens provenance and limitations instead of making that promise.

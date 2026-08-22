@@ -1,14 +1,20 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { getCandidates, getDataStatus, getExplanation, getLayer, getMethodology, getPilot, getRefreshStatus, getSite, optimize, startRefresh } from "@/lib/api-client";
-import { layerNames, type Candidate, type CandidateList, type DataStatus, type Explanation, type LayerName, type LayerResponse, type Methodology, type Pilot, type Portfolio, type RefreshStatus, type Site } from "@/lib/api-schemas";
+import Image from "next/image";
+import { getCandidates, getDataStatus, getExplanation, getLayer, getMethodology, getPilot, getRefreshStatus, getSite, getStreetView, optimize, startRefresh } from "@/lib/api-client";
+import { layerNames, type Candidate, type CandidateList, type DataStatus, type Explanation, type LayerName, type LayerResponse, type Methodology, type Pilot, type Portfolio, type RefreshStatus, type Site, type StreetViewContext } from "@/lib/api-schemas";
 import { MapView } from "./map-view";
 import styles from "./planning-shell.module.css";
 
 type WorkspaceData = { pilot: Pilot; candidates: CandidateList; status: DataStatus; methodology: Methodology; portfolio: Portfolio; site: Site };
 const layerLabels: Record<LayerName, string> = { heat: "Heat", persistence: "Persistence", exposure: "Exposure", vulnerability: "Vulnerability" };
 const currency = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+const coreEvidenceSources = [
+  { label: "FortyGuard: Heatmap Generation", url: "https://docs-api.fortyguard.com/docs/create-heatmap" },
+  { label: "LA Metro: Bus Stop Hub", url: "https://busstophub.metro.net/resources/maps/" },
+  { label: "U.S. Census: 2024 ACS 5-year data", url: "https://www.census.gov/programs-surveys/acs/data/summary-file.2024.html" },
+] as const;
 
 function compactCurrency(value: number) {
   return value >= 1_000_000 ? `$${value / 1_000_000}M` : `$${Math.round(value / 1_000)}k`;
@@ -92,13 +98,26 @@ function RefreshControl({ available, onCompleted }: { available: boolean; onComp
   </div>;
 }
 
-function TopBar({ pilot, status, onRefreshComplete }: Pick<WorkspaceData, "pilot" | "status"> & { onRefreshComplete: () => Promise<void> }) {
+function TopBar({ pilot, status, onRefreshComplete, onTour }: Pick<WorkspaceData, "pilot" | "status"> & { onRefreshComplete: () => Promise<void>; onTour: () => void }) {
   const live = status.mode === "live_refreshed";
   return <header className={styles.topBar}>
     <div className={styles.brandLockup}><BrandMark /><div><p className={styles.brandName}>COOLSPOT AI</p><p className={styles.brandDescriptor}>Cooling investment planner</p></div></div>
     <div className={styles.pilotIdentity}><span className={styles.eyebrow}>Pilot area</span><span className={styles.pilotName}>{pilot.name}</span><span className={styles.areaTag}>{pilot.area_sq_mi.toFixed(3)} mi²</span></div>
-    <div className={styles.dataActions}><div className={styles.dataStatus} aria-label="Data freshness status"><div className={`${styles.statusLine} ${live ? styles.liveStatus : ""}`}><span aria-hidden="true" className={styles.statusDot} /><span>{live ? "LIVE REFRESHED" : "CACHED ANALYSIS"}</span><time dateTime={status.heat_data_date}>{formatDate(status.heat_data_date)}</time></div><p>{status.credits.remaining.toLocaleString()} FortyGuard credits remaining</p></div><RefreshControl available={status.refresh_available} onCompleted={onRefreshComplete} /></div>
+    <div className={styles.dataActions}><button className={styles.tourTrigger} onClick={onTour} type="button">How it works</button><div className={styles.dataStatus} aria-label="Data freshness status"><div className={`${styles.statusLine} ${live ? styles.liveStatus : ""}`}><span aria-hidden="true" className={styles.statusDot} /><span>{live ? "LIVE REFRESHED" : "CACHED ANALYSIS"}</span><time dateTime={status.heat_data_date}>{formatDate(status.heat_data_date)}</time></div><p>{status.credits.remaining.toLocaleString()} FortyGuard credits remaining</p></div><RefreshControl available={status.refresh_available} onCompleted={onRefreshComplete} /></div>
   </header>;
+}
+
+const tourSteps = [
+  { label: "The public need", title: "Turn dangerous heat into a fundable decision", body: "Residents gain safer public places, investors see a transparent project pipeline, and government teams can defend where limited cooling dollars go first." },
+  { label: "The evidence", title: "See where heat and human need overlap", body: "The map combines cached FortyGuard heat and persistence with published transit activity, public destinations, and Census vulnerability context. Every layer keeps its date and limitations." },
+  { label: "The investment", title: "Test a budget before spending it", body: "Change the budget and the deterministic optimizer rebuilds a feasible portfolio instantly. It makes zero new vendor calls and never asks AI to rank sites." },
+  { label: "The audit", title: "Inspect the place, price, sources, and uncertainty", body: "Select a recommendation to review its local planning allowance, real street segmentation where cached, grounded AI explanation, source links, and required field checks." },
+] as const;
+
+function ProductTour({ onClose }: { onClose: () => void }) {
+  const [step, setStep] = useState(0);
+  const current = tourSteps[step];
+  return <div className={styles.tourBackdrop}><section aria-describedby="tour-body" aria-labelledby="tour-title" aria-modal="true" className={styles.tourPanel} role="dialog"><div className={styles.tourProgress}><span>{current.label}</span><span>{step + 1} / {tourSteps.length}</span></div><h2 id="tour-title">{current.title}</h2><p id="tour-body">{current.body}</p>{step === 0 ? <div className={styles.audienceLine}><span>For residents</span><span>For investors</span><span>For government</span></div> : null}<div className={styles.tourActions}><button onClick={onClose} type="button">Skip tour</button><div>{step > 0 ? <button onClick={() => setStep((value) => value - 1)} type="button">Back</button> : null}<button onClick={() => { if (step === tourSteps.length - 1) onClose(); else setStep((value) => value + 1); }} type="button">{step === tourSteps.length - 1 ? "Explore the plan" : "Next"}</button></div></div></section></div>;
 }
 
 type RecommendationRailProps = { candidates: Candidate[]; portfolio: Portfolio; activeCandidateId: string; onSelect: (candidate: Candidate) => void };
@@ -109,7 +128,7 @@ function RecommendationRail({ candidates, portfolio, activeCandidateId, onSelect
     <div className={styles.portfolioSummary} aria-label="Portfolio summary"><div><span>Budget allocated</span><strong>{compactCurrency(portfolio.total_cost_usd)}</strong></div><div><span>Modeled impact</span><strong>{portfolio.total_modeled_impact_score.toFixed(3)}</strong></div><div><span>Replan credits</span><strong>0</strong></div></div>
     <ol className={styles.recommendationList}>{candidates.map((candidate, index) => <li className={styles.recommendation} key={candidate.id}>
       <button aria-current={candidate.id === activeCandidateId ? "true" : undefined} className={styles.recommendationButton} onClick={() => onSelect(candidate)} type="button">
-        <span className={styles.rank}>{String(index + 1).padStart(2, "0")}</span><span className={styles.recommendationBody}><span className={styles.interventionLabel}>{interventionLabel(candidate.intervention_type)}</span><strong>{candidate.site_name}</strong><span className={styles.recommendationMeta}><span>{compactCurrency(candidate.planning_cost_usd)} planning cost</span><span>{impact(candidate).toFixed(3)} impact</span></span></span>
+        <span className={styles.rank}>{String(index + 1).padStart(2, "0")}</span><span className={styles.recommendationBody}><span className={styles.interventionLabel}>{interventionLabel(candidate.intervention_type)}</span><strong>{candidate.site_name}</strong><span className={styles.recommendationMeta}><span>{compactCurrency(candidate.planning_cost_usd)} LA allowance</span><span>{impact(candidate).toFixed(3)} impact</span></span></span>
       </button>
     </li>)}</ol>
   </aside>;
@@ -128,12 +147,18 @@ function BudgetBar({ budget, portfolio, methodology, optimizing, onCommit, onPre
   </section>;
 }
 
-type MapWorkspaceProps = { budget: number; data: WorkspaceData; layer: LayerResponse; activeLayer: LayerName; layerLoading: boolean; optimizing: boolean; activeCandidateId: string; onBudgetCommit: (budget: number) => void; onBudgetPreview: (budget: number) => void; onLayerChange: (layer: LayerName) => void; onSelectSite: (siteId: string) => void };
+function StreetContextWindow({ context, loading, siteName, onClose }: { context: StreetViewContext | null; loading: boolean; siteName: string; onClose: () => void }) {
+  const [segmented, setSegmented] = useState(true);
+  const imageUrl = segmented ? context?.segmented_image_url : context?.original_image_url;
+  return <section aria-busy={loading} aria-label={`Street context for ${siteName}`} className={styles.streetWindow}><header><div><p className={styles.eyebrow}>Verified street context</p><h2>{siteName}</h2></div><button aria-label="Close street context" onClick={onClose} type="button">Close</button></header>{loading ? <div className={styles.streetLoading}>Loading cached site evidence…</div> : context?.available && imageUrl ? <><div className={styles.streetImage}><Image alt={segmented ? `FortyGuard segmented street view for ${siteName}` : `Street view for ${siteName}`} fill sizes="(max-width: 832px) 100vw, 50vw" src={imageUrl} unoptimized /></div><div className={styles.streetControls}><button aria-pressed={!segmented} onClick={() => setSegmented(false)} type="button">Street image</button><button aria-pressed={segmented} onClick={() => setSegmented(true)} type="button">Segmentation</button><span>Image {context.image_date ? formatDate(context.image_date) : "date unavailable"}</span></div><ul className={styles.segmentList}>{Object.entries(context.segments).filter(([, value]) => value >= 0.5).sort((a, b) => b[1] - a[1]).map(([name, value]) => <li key={name}><span>{name}</span><strong>{value.toFixed(1)}%</strong></li>)}</ul><p className={styles.streetLimit}>{context.limitation} <a href={context.source_url} rel="noreferrer" target="_blank">{context.source_label}</a></p></> : <div className={styles.streetUnavailable}><strong>No verified segmentation for this site</strong><p>{context?.limitation ?? "Cached street context is unavailable."}</p></div>}</section>;
+}
 
-function MapWorkspace({ budget, data, layer, activeLayer, layerLoading, optimizing, activeCandidateId, onBudgetCommit, onBudgetPreview, onLayerChange, onSelectSite }: MapWorkspaceProps) {
+type MapWorkspaceProps = { budget: number; data: WorkspaceData; layer: LayerResponse; activeLayer: LayerName; layerLoading: boolean; optimizing: boolean; activeCandidateId: string; streetContext: StreetViewContext | null; streetLoading: boolean; streetVisible: boolean; onCloseStreet: () => void; onBudgetCommit: (budget: number) => void; onBudgetPreview: (budget: number) => void; onLayerChange: (layer: LayerName) => void; onSelectSite: (siteId: string) => void };
+
+function MapWorkspace({ budget, data, layer, activeLayer, layerLoading, optimizing, activeCandidateId, streetContext, streetLoading, streetVisible, onCloseStreet, onBudgetCommit, onBudgetPreview, onLayerChange, onSelectSite }: MapWorkspaceProps) {
   return <section className={styles.mapWorkspace} aria-labelledby="map-title">
     <BudgetBar budget={budget} methodology={data.methodology} onCommit={onBudgetCommit} onPreview={onBudgetPreview} optimizing={optimizing} portfolio={data.portfolio} />
-    <div className={styles.mapCanvas}><h1 className="sr-only" id="map-title">Pacoima cooling investment map</h1><MapView activeCandidateId={activeCandidateId} candidates={data.candidates.candidates} layer={layer} onSelectSite={onSelectSite} pilot={data.pilot} selectedCandidateIds={data.portfolio.selected_candidate_ids} />
+    <div className={styles.mapCanvas}><h1 className="sr-only" id="map-title">Pacoima cooling investment map</h1><MapView activeCandidateId={activeCandidateId} candidates={data.candidates.candidates} layer={layer} onSelectSite={onSelectSite} pilot={data.pilot} selectedCandidateIds={data.portfolio.selected_candidate_ids} />{streetVisible ? <StreetContextWindow context={streetContext} loading={streetLoading} onClose={onCloseStreet} siteName={data.site.site_name} /> : null}
       <div className={styles.heatLegend} aria-label={`${layerLabels[activeLayer]} score legend`}><span>HIGHER</span><div className={`${styles.legendRamp} ${styles[`${activeLayer}Ramp`]}`} aria-hidden="true"><i /><i /><i /><i /></div><span>LOWER</span></div>
     </div>
     <nav className={styles.layerDock} aria-label="Map layer hierarchy"><span className={styles.eyebrow}>Layers</span><ul>{layerNames.map((name) => <li key={name}><button aria-pressed={activeLayer === name} className={activeLayer === name ? styles.activeLayer : undefined} disabled={layerLoading} onClick={() => onLayerChange(name)} type="button"><span className={styles.layerSwatch} aria-hidden="true" />{layerLabels[name]}</button></li>)}</ul><span aria-live="polite" className={styles.layerState}>{layerLoading ? "Loading layer…" : `${layer.features.length.toLocaleString()} tiles`}</span></nav>
@@ -149,7 +174,7 @@ function EvidencePanel({ candidate, site, methodology, explanationMode, siteLoad
   const sources = methodology.interventions.sources.filter((source) => sourceIds.has(source.id));
   return <aside aria-busy={siteLoading} className={styles.evidencePanel} aria-labelledby="evidence-title">
     <div className={styles.evidenceHeader}><div><p className={styles.eyebrow}>Site evidence · Tile {candidate.tile_id}</p><h2 id="evidence-title">{site.site_name}</h2></div><span className={styles.selectedBadge}>{siteLoading ? "Loading" : "Selected"}</span></div>
-    <div className={styles.interventionCallout}><p>Recommended intervention</p><h3>{intervention.label}</h3><div><span>{currency.format(intervention.planning_cost.estimate_usd)} planning cost</span><span>{compactCurrency(intervention.planning_cost.low_usd)}–{compactCurrency(intervention.planning_cost.high_usd)} range</span></div></div>
+    <div className={styles.interventionCallout}><p>Pacoima / Los Angeles price reference</p><h3>{intervention.label}</h3><div><span>{currency.format(intervention.planning_cost.estimate_usd)} planning allowance</span><span>{compactCurrency(intervention.planning_cost.low_usd)}–{compactCurrency(intervention.planning_cost.high_usd)} range</span></div><p className={styles.priceBasis}>{intervention.planning_cost.unit}. {intervention.planning_cost.basis}</p>{sources.filter((source) => intervention.planning_cost.source_ids.includes(source.id)).map((source) => <a href={source.url} key={source.id} rel="noreferrer" target="_blank">Price basis: {source.publisher}</a>)}</div>
     <section className={styles.impactSection}><div><p className={styles.eyebrow}>Modeled impact score</p><strong>{impact(candidate).toFixed(3)}</strong></div><p>Relative planning score from cached evidence and screening assumptions. It is not a temperature forecast or guaranteed outcome.</p></section>
     <dl className={styles.evidenceList}><div><dt>Observed heat</dt><dd>{tile.heat.average_temperature_c.toFixed(2)} °C tile average</dd></div><div><dt>Heat persistence</dt><dd>{tile.heat.persistence_hours.toFixed(2)} hours</dd></div><div><dt>Published patronage activity</dt><dd>{tile.exposure.published_patronage_activity?.toFixed(2) ?? "Not available"}</dd></div><div><dt>Vulnerability context</dt><dd>{tile.scores.vulnerability.toFixed(3)} modeled score</dd></div></dl>
     <details className={styles.scoreBreakdown}><summary>How the priority score is calculated</summary><dl>{Object.entries(tile.scores).map(([name, value]) => <div key={name}><dt>{name.replaceAll("_", " ")}</dt><dd>{value.toFixed(3)}{methodology.scoring.priority_weights[name] !== undefined ? ` · ${(methodology.scoring.priority_weights[name] * 100).toFixed(0)}% weight` : ""}</dd></div>)}</dl><p>Observed and published inputs are normalized to 0–1, then combined with the published weights. The intervention impact also applies feasibility and confidence screening.</p></details>
@@ -159,7 +184,7 @@ function EvidencePanel({ candidate, site, methodology, explanationMode, siteLoad
       <p className={styles.aiBoundary}>The AI explains the selected result. It never ranks sites or adds evidence.</p>
       {explanationError ? <p className={styles.explanationError} role="alert">{explanationError}</p> : null}
       {explanation?.fallback_reason ? <p className={styles.explanationError} role="status">{explanation.fallback_reason}</p> : null}
-      {explanation ? <div className={styles.explanationBody}><p>{explanation.summary}</p><h4>Evidence used</h4><ul>{explanation.why_selected.map((reason) => <li key={reason}>{reason}</li>)}</ul><h4>Limits</h4><ul>{explanation.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}</ul><p className={styles.templateLabel}>{explanation.mode === "openrouter" ? `${explanation.model ?? "OpenRouter model"} · grounded evidence only` : explanationMode === "openrouter" ? "Deterministic fallback · OpenRouter is configured" : "Deterministic fallback · configure OpenRouter to enable AI wording"}</p></div> : <p className={styles.explanationPrompt}>{explanationMode === "openrouter" ? "Ox Alpha will explain only the verified facts shown for this site." : "The grounded fallback is ready; configure OpenRouter to enable AI wording."}</p>}
+      {explanation ? <div className={styles.explanationBody}><p>{explanation.summary}</p><h4>Sources used</h4><ul className={styles.explanationSources}>{coreEvidenceSources.map((source) => <li key={source.url}><a href={source.url} rel="noreferrer" target="_blank">{source.label}</a></li>)}{sources.map((source) => <li key={source.id}><a href={source.url} rel="noreferrer" target="_blank">{source.publisher}: {source.title}</a></li>)}</ul><details><summary>Evidence and limitations</summary><h4>Evidence used</h4><ul>{explanation.why_selected.map((reason, index) => <li key={reason}>{reason}<small>Source record: {explanation.evidence[index]?.source_artifact_ids.join(", ")}</small></li>)}</ul><h4>Limits</h4><ul>{explanation.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}</ul></details><p className={styles.templateLabel}>{explanation.mode === "openrouter" ? `${explanation.model ?? "OpenRouter model"} · grounded evidence only` : explanationMode === "openrouter" ? "Deterministic fallback · OpenRouter is configured" : "Deterministic fallback · configure OpenRouter to enable AI wording"}</p></div> : <p className={styles.explanationPrompt}>{explanationMode === "openrouter" ? "Ox Alpha will explain only the verified facts shown for this site." : "The grounded fallback is ready; configure OpenRouter to enable AI wording."}</p>}
     </section>
     <details className={styles.methodology} id="methodology"><summary>Methodology & limitations</summary><div className={styles.methodologyBody}><p>{methodology.optimization.objective_note}</p><p>{methodology.interventions.cost_basis.disclaimer}</p><ul>{candidate.evidence.map((evidence) => <li key={evidence.kind}><strong>{evidence.kind.replaceAll("_", " ")}</strong><span>{evidence.statement}</span></li>)}</ul><h3>Source links</h3><ul className={styles.sourceList}>{sources.map((source) => <li key={source.id}><a href={source.url} rel="noreferrer" target="_blank">{source.publisher}: {source.title}</a><span>Retrieved {formatDate(source.retrieved_at)}</span></li>)}</ul><h3>Pilot limitations</h3><ul>{methodology.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}</ul></div></details>
   </aside>;
@@ -211,7 +236,23 @@ export function PlanningShell() {
   const [explanations, setExplanations] = useState<Record<string, Explanation>>({});
   const [explanationLoading, setExplanationLoading] = useState(false);
   const [explanationError, setExplanationError] = useState<string | null>(null);
+  const [streetContext, setStreetContext] = useState<StreetViewContext | null>(null);
+  const [streetLoading, setStreetLoading] = useState(false);
+  const [streetVisible, setStreetVisible] = useState(false);
+  const [tourVisible, setTourVisible] = useState(false);
   const requestSequence = useRef(0);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setTourVisible(window.localStorage.getItem("coolspot-tour-v1") !== "complete");
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  const closeTour = useCallback(() => {
+    window.localStorage.setItem("coolspot-tour-v1", "complete");
+    setTourVisible(false);
+  }, []);
 
   const applyWorkspace = useCallback((loaded: Awaited<ReturnType<typeof fetchWorkspace>>) => {
     setFatalError(null);
@@ -246,11 +287,18 @@ export function PlanningShell() {
   }, [data]);
 
   const selectCandidate = useCallback(async (candidate: Candidate) => {
-    if (!data || candidate.id === activeCandidateId) return;
-    setSiteLoading(true); setOperationError(null); setExplanationError(null);
-    try { const site = await getSite(candidate.site_id); setActiveCandidateId(candidate.id); setData((current) => current ? { ...current, site } : current); }
+    if (!data) return;
+    setStreetVisible(true); setStreetLoading(true); setOperationError(null); setExplanationError(null);
+    if (candidate.id !== activeCandidateId) setSiteLoading(true);
+    try {
+      const [site, context] = await Promise.all([
+        candidate.id === activeCandidateId ? Promise.resolve(data.site) : getSite(candidate.site_id),
+        getStreetView(candidate.site_id),
+      ]);
+      setStreetContext(context); setActiveCandidateId(candidate.id); setData((current) => current ? { ...current, site } : current);
+    }
     catch (caught) { setOperationError(`${caught instanceof Error ? caught.message : "Unable to load site evidence."} The previous site remains selected.`); }
-    finally { setSiteLoading(false); }
+    finally { setSiteLoading(false); setStreetLoading(false); }
   }, [activeCandidateId, data]);
 
   const selectSite = useCallback((siteId: string) => {
@@ -305,9 +353,9 @@ export function PlanningShell() {
   if (!activeCandidate) return <LoadingShell />;
   const explanationKey = `${activeCandidate.id}:${data.portfolio.budget_usd}`;
 
-  return <div className={styles.appShell}><a className={styles.skipLink} href="#map-title">Skip to map workspace</a><TopBar onRefreshComplete={retry} pilot={data.pilot} status={data.status} />{operationError ? <div className={styles.operationError} role="alert"><span>{operationError}</span><button aria-label="Dismiss error" onClick={() => setOperationError(null)} type="button">Dismiss</button></div> : null}<main className={styles.workspace}>
+  return <div className={styles.appShell}><a className={styles.skipLink} href="#map-title">Skip to map workspace</a>{tourVisible ? <ProductTour onClose={closeTour} /> : null}<TopBar onRefreshComplete={retry} onTour={() => setTourVisible(true)} pilot={data.pilot} status={data.status} />{operationError ? <div className={styles.operationError} role="alert"><span>{operationError}</span><button aria-label="Dismiss error" onClick={() => setOperationError(null)} type="button">Dismiss</button></div> : null}<main className={styles.workspace}>
     <RecommendationRail activeCandidateId={activeCandidate.id} candidates={recommendations} onSelect={(candidate) => void selectCandidate(candidate)} portfolio={data.portfolio} />
-    <MapWorkspace activeCandidateId={activeCandidate.id} activeLayer={activeLayer} budget={budget} data={data} layer={layers[activeLayer]} layerLoading={layerLoading} onBudgetCommit={(value) => void changeBudget(value)} onBudgetPreview={setBudget} onLayerChange={(name) => void changeLayer(name)} onSelectSite={selectSite} optimizing={optimizing} />
+    <MapWorkspace activeCandidateId={activeCandidate.id} activeLayer={activeLayer} budget={budget} data={data} layer={layers[activeLayer]} layerLoading={layerLoading} onBudgetCommit={(value) => void changeBudget(value)} onBudgetPreview={setBudget} onCloseStreet={() => setStreetVisible(false)} onLayerChange={(name) => void changeLayer(name)} onSelectSite={selectSite} optimizing={optimizing} streetContext={streetContext} streetLoading={streetLoading} streetVisible={streetVisible} />
     <EvidencePanel candidate={activeCandidate} explanation={explanations[explanationKey]} explanationError={explanationError} explanationLoading={explanationLoading} explanationMode={data.status.explanation_mode} methodology={data.methodology} onExplain={() => void requestExplanation(activeCandidate, Boolean(explanations[explanationKey]))} site={data.site} siteLoading={siteLoading} />
   </main></div>;
 }

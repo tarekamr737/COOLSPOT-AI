@@ -1,5 +1,6 @@
 """Assemble typed offline API responses from committed decision artifacts."""
 
+import json
 from functools import lru_cache
 from pathlib import Path
 from typing import Literal
@@ -19,6 +20,7 @@ from api.app.schemas import (
     PilotResponse,
     SiteOption,
     SiteResponse,
+    StreetViewContextResponse,
     VulnerabilityLayerProperties,
 )
 from api.app.services.boundary import BoundaryCollection, load_boundary
@@ -43,6 +45,7 @@ from api.app.settings import load_project_env
 ROOT = Path(__file__).resolve().parents[3]
 AOI_PATH = ROOT / "data" / "processed" / "pacoima_aoi.geojson"
 PUBLIC_DATA_PATH = ROOT / "data" / "processed" / "pacoima_public_data.json"
+STREET_VIEW_PATH = ROOT / "data" / "processed" / "pacoima_streetview.json"
 
 
 def clear_decision_caches() -> None:
@@ -220,6 +223,36 @@ def site_response(site_id: str) -> SiteResponse | None:
     )
 
 
+def street_view_response(site_id: str) -> StreetViewContextResponse:
+    if not STREET_VIEW_PATH.exists():
+        return StreetViewContextResponse(
+            site_id=site_id,
+            available=False,
+            limitation="No verified street segmentation is cached for this site.",
+        )
+    payload = json.loads(STREET_VIEW_PATH.read_text(encoding="utf-8"))
+    if payload.get("status") != "Completed" or payload.get("site_id") != site_id:
+        return StreetViewContextResponse(
+            site_id=site_id,
+            available=False,
+            limitation=(
+                "Street segmentation is shown only for the exact site analyzed by FortyGuard; "
+                "selecting another site never triggers a paid request."
+            ),
+        )
+    front = payload["result"]["front"]
+    return StreetViewContextResponse(
+        site_id=site_id,
+        available=True,
+        image_date=front["image_date"],
+        original_image_url=f"data:image/jpeg;base64,{front['original_image']}",
+        segmented_image_url=f"data:image/png;base64,{front['segmented_image']}",
+        segments=front["segments"],
+        limitation=(
+            "One dated street-view frame supports visual screening only; verify current shade, "
+            "right-of-way, utilities, safety, and constructability in the field."
+        ),
+    )
 def methodology_response() -> MethodologyResponse:
     artifact = _candidates()
     optimizer = load_optimizer_config()

@@ -28,7 +28,7 @@ class GroundedExplanation(BaseModel):
     site_id: str
     candidate_id: str
     budget_usd: int = Field(gt=0)
-    summary: str = Field(min_length=80)
+    summary: str = Field(min_length=80, max_length=700)
     why_selected: tuple[str, ...] = Field(min_length=5)
     limitations: tuple[str, ...] = Field(min_length=3)
     evidence: tuple[CandidateEvidence, ...] = Field(min_length=5)
@@ -79,6 +79,7 @@ def explain_selected_candidate(
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 DEFAULT_OPENROUTER_MODEL = "stealth/ox-alpha"
+PROMPT_VERSION = "2"
 ROOT = Path(__file__).resolve().parents[3]
 EXPLANATION_CACHE = ROOT / "data" / "runtime" / "explanations"
 
@@ -107,10 +108,13 @@ class OpenRouterTransport:
                         {
                             "role": "system",
                             "content": (
-                                "Rewrite the supplied planning explanation in plain language. "
+                                "Rewrite the supplied planning explanation in 45 to 70 words and "
+                                "no more than three sentences. "
                                 "Use only supplied facts and numbers. Do not add predictions, "
                                 "causal claims, people protected, lives saved, or temperature "
-                                "reductions. Return one paragraph only."
+                                "reductions. Lead with why the site was selected, then state the "
+                                "price basis and the most important limitation. Return one "
+                                "paragraph only."
                             ),
                         },
                         {"role": "user", "content": prompt},
@@ -129,6 +133,7 @@ def _cache_key(explanation: GroundedExplanation, model: str) -> str:
     payload = json.dumps(
         {
             "model": model,
+            "prompt_version": PROMPT_VERSION,
             "candidate_id": explanation.candidate_id,
             "budget_usd": explanation.budget_usd,
             "summary": explanation.summary,

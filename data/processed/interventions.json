@@ -61,6 +61,18 @@
       ]
     },
     {
+      "id": "streetsla_tree_cost_baseline_2016",
+      "title": "State of the Street Trees Report and Funding Estimates",
+      "publisher": "City of Los Angeles Department of Public Works",
+      "url": "https://cityclerk.lacity.org/onlinedocs/2015/15-0467-S5_misc_04-07-2016.pdf",
+      "published_at": "2016-04-07",
+      "retrieved_at": "2026-08-22",
+      "supports": [
+        "The City published a $425 planting baseline for a 24-inch-box tree",
+        "The City published $650 per tree per year for three establishment-watering years, totaling $2,375 per planted and watered tree"
+      ]
+    },
+    {
       "id": "taha_pacoima_cool_pavement_2024",
       "title": "Micrometeorological Effects and Thermal-Environmental Benefits of Cool Pavements: Pacoima Field Study",
       "publisher": "Environmental Research Communications",
@@ -161,9 +173,10 @@
         "low_usd": 30000,
         "high_usd": 80000,
         "unit": "one approximately ten-tree public-site package",
-        "basis": "A rounded internal allowance of $5,000 per tree covers screening, planting, establishment care, replacement risk, and contingency; quantities and prices require site design and bids.",
+        "basis": "The City published a $2,375 planting-and-three-year-watering baseline per 24-inch-box tree in 2016. COOLSPOT rounds to $5,000 per tree for a ten-tree package to include screening, five-year establishment care, replacement risk, and contingency; current site design and bids are still required.",
         "source_ids": [
-          "streetsla_tree_guidelines"
+          "streetsla_tree_guidelines",
+          "streetsla_tree_cost_baseline_2016"
         ]
       },
       "benefit_evidence": {
@@ -214,7 +227,7 @@
         "low_usd": 75000,
         "high_usd": 200000,
         "unit": "one approximately 20,000-square-foot public treatment area",
-        "basis": "A rounded internal screening allowance covers surface preparation, coating, mobilization, traffic control, design, and contingency; it is not derived from a current product quote.",
+        "basis": "Los Angeles appropriated $191,000 for fifteen one-block cool-pavement installations in FY 2016-17 and later installed 10–12-block Pacoima projects without publishing site-level prices. This conservative package allowance covers preparation, coating, mobilization, traffic control, design, and contingency; it is not a current product quote.",
         "source_ids": [
           "streetsla_cool_pavements_2020"
         ]

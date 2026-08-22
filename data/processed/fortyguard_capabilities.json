@@ -46,13 +46,13 @@
       "reason": "Premium access is unconfirmed and segmentation is not required for the core MVP."
     },
     {
-      "access": "unconfirmed",
-      "cached_artifact": null,
+      "access": "confirmed",
+      "cached_artifact": "data/processed/pacoima_streetview.json",
       "dependency": "A top-site-only shade question that cannot be answered from cached public evidence.",
-      "enabled": false,
+      "enabled": true,
       "feature": "street_view_segmentation",
-      "probe_attempted": false,
-      "reason": "Premium access is unconfirmed and segmentation is not required for the core MVP."
+      "probe_attempted": true,
+      "reason": "One top-ranked Pacoima transit site completed successfully and is cached; other sites remain unavailable without a separately governed request."
     },
     {
       "access": "unconfirmed",
@@ -64,11 +64,11 @@
       "reason": "The report endpoint is not an MVP dependency and was not probed or assumed available."
     }
   ],
-  "credits_remaining": 1983120,
-  "credits_used": 16880,
-  "evaluated_at": "2026-08-21",
+  "credits_remaining": 1974520,
+  "credits_used": 25480,
+  "evaluated_at": "2026-08-22",
   "hard_reserve": 500000,
-  "optional_live_probes_made": 0,
+  "optional_live_probes_made": 1,
   "total_credits": 2000000,
   "version": "1.0"
 }

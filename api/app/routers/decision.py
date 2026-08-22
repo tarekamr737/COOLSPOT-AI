@@ -12,6 +12,7 @@ from api.app.schemas import (
     OptimizeRequest,
     PilotResponse,
     SiteResponse,
+    StreetViewContextResponse,
 )
 from api.app.services.decision_api import (
     candidates_response,
@@ -20,6 +21,7 @@ from api.app.services.decision_api import (
     methodology_response,
     pilot_response,
     site_response,
+    street_view_response,
 )
 from api.app.services.explanations import GroundedExplanation, explain_with_optional_llm
 from api.app.services.live_refresh import (
@@ -64,6 +66,13 @@ def get_site(site_id: str) -> SiteResponse:
     if response is None:
         raise HTTPException(status_code=404, detail=f"site '{site_id}' was not found")
     return response
+
+
+@router.get("/sites/{site_id}/street-view")
+def get_street_view(site_id: str) -> StreetViewContextResponse:
+    if site_response(site_id) is None:
+        raise HTTPException(status_code=404, detail=f"site '{site_id}' was not found")
+    return street_view_response(site_id)
 
 
 @router.post("/sites/{site_id}/explanation")

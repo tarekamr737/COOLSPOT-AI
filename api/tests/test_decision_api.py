@@ -13,6 +13,7 @@ from api.app.schemas import (
     MethodologyResponse,
     PilotResponse,
     SiteResponse,
+    StreetViewContextResponse,
 )
 from api.app.services.explanations import GroundedExplanation
 from api.app.services.live_refresh import RefreshPreflightError
@@ -98,6 +99,25 @@ def test_data_status_and_missing_site_are_explicit() -> None:
     missing = client.get("/v1/sites/not-a-real-site")
     assert missing.status_code == 404
     assert "was not found" in missing.json()["detail"]
+
+
+def test_street_view_is_exact_site_cached_evidence() -> None:
+    available_response = client.get("/v1/sites/metro-stop%3A10794/street-view")
+    assert available_response.status_code == 200
+    available = StreetViewContextResponse.model_validate(available_response.json())
+    assert available.available is True
+    assert available.image_date is not None
+    assert available.original_image_url is not None
+    assert available.original_image_url.startswith("data:image/jpeg;base64,")
+    assert available.segmented_image_url is not None
+    assert available.segmented_image_url.startswith("data:image/png;base64,")
+    assert available.segments["road"] > 0
+
+    unavailable_response = client.get("/v1/sites/metro-stop%3A10795/street-view")
+    assert unavailable_response.status_code == 200
+    unavailable = StreetViewContextResponse.model_validate(unavailable_response.json())
+    assert unavailable.available is False
+    assert unavailable.segmented_image_url is None
 
 
 def test_live_refresh_requires_an_administrator_token_before_any_vendor_call() -> None:

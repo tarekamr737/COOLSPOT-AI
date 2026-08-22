@@ -24,17 +24,20 @@ def test_required_heatmaps_are_enabled_from_cache() -> None:
         )
 
 
-def test_unneeded_optional_features_are_unprobed_and_fail_visibly() -> None:
+def test_optional_features_are_explicitly_gated() -> None:
     manifest = load_capabilities()
-    optional = set(FortyGuardFeature) - {
+    enabled = {
         FortyGuardFeature.HEATMAP_TCM,
         FortyGuardFeature.HEATMAP_PERSISTENCE,
+        FortyGuardFeature.STREET_VIEW_SEGMENTATION,
     }
 
-    assert manifest.optional_live_probes_made == 0
-    assert manifest.credits_used == 16_880
-    assert manifest.credits_remaining == 1_983_120
-    for feature in optional:
+    assert manifest.optional_live_probes_made == 1
+    assert manifest.credits_used == 25_480
+    assert manifest.credits_remaining == 1_974_520
+    street_view = manifest.require_enabled(FortyGuardFeature.STREET_VIEW_SEGMENTATION)
+    assert street_view.cached_artifact == "data/processed/pacoima_streetview.json"
+    for feature in set(FortyGuardFeature) - enabled:
         capability = manifest.get(feature)
         assert capability.enabled is False
         assert capability.access == AccessState.UNCONFIRMED

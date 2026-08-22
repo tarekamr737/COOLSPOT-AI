@@ -171,6 +171,20 @@ export function explanation(index = 0, budget = 500_000) {
   };
 }
 
+export function streetView(siteId: string) {
+  return {
+    site_id: siteId,
+    available: false,
+    image_date: null,
+    original_image_url: null,
+    segmented_image_url: null,
+    segments: {},
+    source_label: "FortyGuard Street View Segmentation",
+    source_url: "https://docs-api.fortyguard.com/docs/street-view-segmentation",
+    limitation: "No verified street segmentation is cached for this site.",
+  };
+}
+
 function compactBudget(value: number) {
   return `$${Math.round(value / 1_000).toLocaleString()}k`;
 }
@@ -193,6 +207,10 @@ export function responseFor(url: string, init?: RequestInit) {
     const body = JSON.parse(String(init?.body));
     const index = Math.max(0, candidates.findIndex((candidate) => candidate.id === body.candidate_id));
     return explanation(index, body.budget_usd);
+  }
+  if (url.endsWith("/street-view")) {
+    const id = decodeURIComponent(url.split("/").at(-2) ?? "site-0");
+    return streetView(id);
   }
   if (url.includes("/sites/")) {
     const id = decodeURIComponent(url.split("/").at(-1) ?? "site-0");

@@ -7,6 +7,7 @@ type DataStatus = {
 };
 
 test("golden planning path re-optimizes from cached data without FortyGuard calls", async ({ page }) => {
+  test.setTimeout(90_000);
   const requestUrls: string[] = [];
   const optimizeBodies: string[] = [];
 
@@ -18,6 +19,9 @@ test("golden planning path re-optimizes from cached data without FortyGuard call
   });
 
   await page.goto("/");
+  const skipTour = page.getByRole("button", { name: "Skip tour" });
+  await expect(skipTour).toBeVisible();
+  await skipTour.click();
   await expect(page.getByRole("heading", { name: "Pacoima cooling investment map" })).toBeAttached();
   await expect(page.getByRole("region", { name: "Interactive Pacoima heat layer map" })).toHaveAttribute(
     "data-map-state",
@@ -52,13 +56,17 @@ test("golden planning path re-optimizes from cached data without FortyGuard call
   const secondSiteName = (await secondRecommendation.locator("strong").textContent())?.trim();
   expect(secondSiteName).toBeTruthy();
   await secondRecommendation.click();
+  await expect(page.getByRole("region", { name: `Street context for ${secondSiteName!}` })).toBeVisible();
+  await page.getByRole("button", { name: "Close street context" }).click();
   await expect(page.getByRole("heading", { level: 2, name: secondSiteName! })).toBeVisible();
 
   await page.getByText("Methodology & limitations", { exact: true }).click();
   await expect(page.getByRole("heading", { name: "Source links" })).toBeVisible();
 
   await page.getByRole("button", { name: "Ask AI", exact: true }).click();
-  await expect(page.getByText(/Deterministic fallback/)).toBeVisible();
+  await expect(page.getByText(/grounded evidence only|Deterministic fallback/)).toBeVisible({ timeout: 45_000 });
+  await expect(page.getByRole("heading", { name: "Sources used" })).toBeVisible();
+  await page.getByText("Evidence and limitations", { exact: true }).click();
   await expect(page.getByRole("heading", { name: "Evidence used" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Limits" })).toBeVisible();
 

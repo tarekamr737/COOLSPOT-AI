@@ -19,7 +19,19 @@ describe("Home", () => {
 
   afterEach(() => {
     cleanup();
+    window.localStorage.clear();
     vi.unstubAllGlobals();
+  });
+
+  it("tells the product story and remains skippable", async () => {
+    render(<Home />);
+
+    expect(await screen.findByRole("heading", { name: "Turn dangerous heat into a fundable decision" })).toBeInTheDocument();
+    expect(screen.getByText("For residents")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    expect(screen.getByRole("heading", { name: "See where heat and human need overlap" })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Skip tour" }));
+    expect(window.localStorage.getItem("coolspot-tour-v1")).toBe("complete");
   });
 
   it("loads the golden map controls and traceable evidence", async () => {

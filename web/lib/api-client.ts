@@ -10,6 +10,7 @@ import {
   portfolioSchema,
   refreshStatusSchema,
   siteSchema,
+  streetViewContextSchema,
   type LayerName,
 } from "./api-schemas";
 
@@ -46,6 +47,8 @@ export const getLayer = (layer: LayerName) =>
   request(`/layers/${encodeURIComponent(layer)}`, layerResponseSchema);
 export const getSite = (siteId: string) =>
   request(`/sites/${encodeURIComponent(siteId)}`, siteSchema);
+export const getStreetView = (siteId: string) =>
+  request(`/sites/${encodeURIComponent(siteId)}/street-view`, streetViewContextSchema);
 export const optimize = (budgetUsd: number) =>
   request("/optimize", portfolioSchema, {
     method: "POST",

@@ -180,6 +180,20 @@ class SiteResponse(BaseModel):
     options: tuple[SiteOption, ...] = Field(min_length=1)
 
 
+class StreetViewContextResponse(BaseModel):
+    model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
+
+    site_id: str
+    available: bool
+    image_date: date | None = None
+    original_image_url: str | None = None
+    segmented_image_url: str | None = None
+    segments: dict[str, float] = Field(default_factory=dict)
+    source_label: str = "FortyGuard Street View Segmentation"
+    source_url: str = "https://docs-api.fortyguard.com/docs/street-view-segmentation"
+    limitation: str
+
+
 class MethodologyResponse(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
