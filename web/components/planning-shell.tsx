@@ -9,6 +9,12 @@ import styles from "./planning-shell.module.css";
 
 type WorkspaceData = { pilot: Pilot; candidates: CandidateList; status: DataStatus; methodology: Methodology; portfolio: Portfolio; site: Site };
 const layerLabels: Record<LayerName, string> = { heat: "Heat", persistence: "Persistence", exposure: "Exposure", vulnerability: "Vulnerability" };
+const legendEndpoints: Record<LayerName, readonly [string, string]> = {
+  heat: ["Higher", "Lower"],
+  persistence: ["Higher", "Lower"],
+  exposure: ["Higher", "Lower"],
+  vulnerability: ["Higher vulnerability", "Lower vulnerability"],
+};
 const currency = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 const coreEvidenceSources = [
   { label: "FortyGuard: Heatmap Generation", url: "https://docs-api.fortyguard.com/docs/create-heatmap" },
@@ -156,10 +162,11 @@ function StreetContextWindow({ context, loading, siteName, onClose }: { context:
 type MapWorkspaceProps = { budget: number; data: WorkspaceData; layer: LayerResponse; activeLayer: LayerName; layerLoading: boolean; optimizing: boolean; activeCandidateId: string; streetContext: StreetViewContext | null; streetLoading: boolean; streetVisible: boolean; onCloseStreet: () => void; onBudgetCommit: (budget: number) => void; onBudgetPreview: (budget: number) => void; onLayerChange: (layer: LayerName) => void; onSelectSite: (siteId: string) => void };
 
 function MapWorkspace({ budget, data, layer, activeLayer, layerLoading, optimizing, activeCandidateId, streetContext, streetLoading, streetVisible, onCloseStreet, onBudgetCommit, onBudgetPreview, onLayerChange, onSelectSite }: MapWorkspaceProps) {
+  const [legendHigh, legendLow] = legendEndpoints[activeLayer];
   return <section className={styles.mapWorkspace} aria-labelledby="map-title">
     <BudgetBar budget={budget} methodology={data.methodology} onCommit={onBudgetCommit} onPreview={onBudgetPreview} optimizing={optimizing} portfolio={data.portfolio} />
     <div className={styles.mapCanvas}><h1 className="sr-only" id="map-title">Pacoima cooling investment map</h1><MapView activeCandidateId={activeCandidateId} candidates={data.candidates.candidates} layer={layer} onSelectSite={onSelectSite} pilot={data.pilot} selectedCandidateIds={data.portfolio.selected_candidate_ids} />{streetVisible ? <StreetContextWindow context={streetContext} loading={streetLoading} onClose={onCloseStreet} siteName={data.site.site_name} /> : null}
-      <div className={styles.heatLegend} aria-label={`${layerLabels[activeLayer]} score legend`}><span>HIGHER</span><div className={`${styles.legendRamp} ${styles[`${activeLayer}Ramp`]}`} aria-hidden="true"><i /><i /><i /><i /></div><span>LOWER</span></div>
+      <div className={styles.heatLegend} aria-label={`${layerLabels[activeLayer]} normalized score legend, ${legendHigh} at the top and ${legendLow} at the bottom`}><span>{legendHigh}</span><div className={`${styles.legendRamp} ${styles[`${activeLayer}Ramp`]}`} aria-hidden="true"><i /><i /><i /><i /></div><span>{legendLow}</span></div>
     </div>
     <nav className={styles.layerDock} aria-label="Map layer hierarchy"><span className={styles.eyebrow}>Layers</span><ul>{layerNames.map((name) => <li key={name}><button aria-pressed={activeLayer === name} className={activeLayer === name ? styles.activeLayer : undefined} disabled={layerLoading} onClick={() => onLayerChange(name)} type="button"><span className={styles.layerSwatch} aria-hidden="true" />{layerLabels[name]}</button></li>)}</ul><span aria-live="polite" className={styles.layerState}>{layerLoading ? "Loading layer…" : `${layer.features.length.toLocaleString()} tiles`}</span></nav>
   </section>;

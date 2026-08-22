@@ -59,6 +59,11 @@ describe("Home", () => {
     fireEvent.click(screen.getByRole("button", { name: "Persistence" }));
     await waitFor(() => expect(screen.getByRole("button", { name: "Persistence" })).toHaveAttribute("aria-pressed", "true"));
 
+    fireEvent.click(screen.getByRole("button", { name: "Vulnerability" }));
+    await waitFor(() => expect(screen.getByRole("button", { name: "Vulnerability" })).toHaveAttribute("aria-pressed", "true"));
+    expect(screen.getByText("Higher vulnerability")).toBeInTheDocument();
+    expect(screen.getByText("Lower vulnerability")).toBeInTheDocument();
+
     fireEvent.click(screen.getByRole("button", { name: "$1M" }));
     await screen.findByRole("heading", { name: "$1,000,000 budget" });
     await waitFor(() => expect(screen.getByText("20 sites · zero vendor calls")).toBeInTheDocument());

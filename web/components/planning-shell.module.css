@@ -954,6 +954,8 @@
   font-family: var(--font-data);
   font-size: 0.6rem;
   letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .legendRamp {
@@ -981,24 +983,36 @@
   background: var(--heat-min);
 }
 
-.exposureRamp i:first-child,
-.vulnerabilityRamp i:first-child {
+.exposureRamp i:first-child {
   background: var(--secondary);
 }
 
-.exposureRamp i:nth-child(2),
-.vulnerabilityRamp i:nth-child(2) {
+.exposureRamp i:nth-child(2) {
   background: oklch(0.68 0.14 185);
 }
 
-.exposureRamp i:nth-child(3),
-.vulnerabilityRamp i:nth-child(3) {
+.exposureRamp i:nth-child(3) {
   background: oklch(0.57 0.11 215);
 }
 
-.exposureRamp i:nth-child(4),
-.vulnerabilityRamp i:nth-child(4) {
+.exposureRamp i:nth-child(4) {
   background: oklch(0.82 0.05 235);
+}
+
+.vulnerabilityRamp i:first-child {
+  background: oklch(0.42 0.17 8);
+}
+
+.vulnerabilityRamp i:nth-child(2) {
+  background: oklch(0.57 0.2 13);
+}
+
+.vulnerabilityRamp i:nth-child(3) {
+  background: oklch(0.7 0.17 15);
+}
+
+.vulnerabilityRamp i:nth-child(4) {
+  background: oklch(0.91 0.055 13);
 }
 
 .layerDock {
