@@ -164,3 +164,10 @@
 - The first production rebuild encountered Windows `EBUSY` because the running Next process held
   `.next/standalone`. Stopped only the identified port-3000 process, rebuilt successfully, restarted
   the production app, and reran the golden browser flow.
+- Kept the guided tour faithful and lightweight by reconstructing four recognizable product states
+  with semantic HTML and CSS instead of shipping screenshots or generated imagery. This avoids new
+  asset requests while teaching the evidence-to-budget-to-audit workflow from the actual interface.
+- The first tour E2E invocation used the nonexistent `e2e` npm alias. The correct `test:e2e` command
+  then reached Playwright but could not launch because its pinned Chromium executable is absent from
+  the machine. No browser was downloaded to the full C drive; focused DOM tests and the production
+  build remain the verification for this UI-only slice.

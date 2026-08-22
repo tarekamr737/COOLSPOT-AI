@@ -120,10 +120,40 @@ const tourSteps = [
   { label: "The audit", title: "Inspect the place, price, sources, and uncertainty", body: "Select a recommendation to review its local planning allowance, real street segmentation where cached, grounded AI explanation, source links, and required field checks." },
 ] as const;
 
+function TourVisual({ step }: { step: number }) {
+  if (step === 0) {
+    return <div aria-label="Cooling investment journey from public need to accountable action" className={`${styles.tourVisual} ${styles.tourJourney}`} role="img">
+      <div><span>01</span><strong>Locate public need</strong><small>Heat + people + vulnerability</small></div>
+      <i aria-hidden="true" />
+      <div><span>02</span><strong>Fund the best mix</strong><small>One budget, feasible projects</small></div>
+      <i aria-hidden="true" />
+      <div><span>03</span><strong>Defend the decision</strong><small>Place + price + sources</small></div>
+    </div>;
+  }
+  if (step === 1) {
+    return <div aria-label="Miniature map showing heat tiles, public sites, and four evidence layers" className={`${styles.tourVisual} ${styles.tourMap}`} role="img">
+      <div className={styles.tourMapShape}><span className={styles.tourHotspot} /><span className={styles.tourHotspot} /><span className={styles.tourHotspot} /><b /><b /><b /><b /></div>
+      <div className={styles.tourLayerStrip}><strong>LAYERS</strong><span className={styles.active}>Heat</span><span>Persistence</span><span>Exposure</span><span>Vulnerability</span></div>
+      <p><span /> Selected investment site</p>
+    </div>;
+  }
+  if (step === 2) {
+    return <div aria-label="Miniature budget optimizer showing a one million dollar portfolio of twenty sites" className={`${styles.tourVisual} ${styles.tourPortfolio}`} role="img">
+      <div className={styles.tourBudget}><small>INVESTMENT SCENARIO</small><strong>$1,000,000</strong><div><span /><span /><span className={styles.active} /></div></div>
+      <div className={styles.tourPortfolioRows}><span><b>01</b><i>SHADE STRUCTURE</i><strong>Van Nuys / Herrick</strong></span><span><b>02</b><i>TREE CANOPY</i><strong>Pacoima Education Center</strong></span><span><b>03</b><i>SHADE STRUCTURE</i><strong>Glenoaks / Pierce</strong></span></div>
+      <p><strong>20 sites</strong><span>zero vendor calls</span></p>
+    </div>;
+  }
+  return <div aria-label="Miniature selected-site review showing street context, price, confidence, and sources" className={`${styles.tourVisual} ${styles.tourAudit}`} role="img">
+    <div className={styles.tourStreet}><small>VERIFIED STREET CONTEXT</small><span><i /><i /><i /><i /></span><strong>Street image + segmentation</strong></div>
+    <div className={styles.tourEvidence}><small>RECOMMENDED INTERVENTION</small><strong>Shade structure</strong><span>$50,000 LA allowance</span><hr /><b>Evidence confidence · 0.5</b><div><i /></div><p>AI explains these verified facts. Sources remain attached.</p></div>
+  </div>;
+}
+
 function ProductTour({ onClose }: { onClose: () => void }) {
   const [step, setStep] = useState(0);
   const current = tourSteps[step];
-  return <div className={styles.tourBackdrop}><section aria-describedby="tour-body" aria-labelledby="tour-title" aria-modal="true" className={styles.tourPanel} role="dialog"><div className={styles.tourProgress}><span>{current.label}</span><span>{step + 1} / {tourSteps.length}</span></div><h2 id="tour-title">{current.title}</h2><p id="tour-body">{current.body}</p>{step === 0 ? <div className={styles.audienceLine}><span>For residents</span><span>For investors</span><span>For government</span></div> : null}<div className={styles.tourActions}><button onClick={onClose} type="button">Skip tour</button><div>{step > 0 ? <button onClick={() => setStep((value) => value - 1)} type="button">Back</button> : null}<button onClick={() => { if (step === tourSteps.length - 1) onClose(); else setStep((value) => value + 1); }} type="button">{step === tourSteps.length - 1 ? "Explore the plan" : "Next"}</button></div></div></section></div>;
+  return <div className={styles.tourBackdrop}><section aria-describedby="tour-body" aria-labelledby="tour-title" aria-modal="true" className={styles.tourPanel} role="dialog"><div className={styles.tourProgress}><span>{current.label}</span><span>{step + 1} / {tourSteps.length}</span></div><div className={styles.tourContent}><div><h2 id="tour-title">{current.title}</h2><p id="tour-body">{current.body}</p>{step === 0 ? <div className={styles.audienceLine}><span>For residents</span><span>For investors</span><span>For government</span></div> : null}</div><TourVisual step={step} /></div><div className={styles.tourActions}><button onClick={onClose} type="button">Skip tour</button><div>{step > 0 ? <button onClick={() => setStep((value) => value - 1)} type="button">Back</button> : null}<button onClick={() => { if (step === tourSteps.length - 1) onClose(); else setStep((value) => value + 1); }} type="button">{step === tourSteps.length - 1 ? "Explore the plan" : "Next"}</button></div></div></section></div>;
 }
 
 type RecommendationRailProps = { candidates: Candidate[]; portfolio: Portfolio; activeCandidateId: string; onSelect: (candidate: Candidate) => void };

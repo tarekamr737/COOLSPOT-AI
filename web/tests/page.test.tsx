@@ -28,9 +28,15 @@ describe("Home", () => {
 
     expect(await screen.findByRole("heading", { name: "Turn dangerous heat into a fundable decision" })).toBeInTheDocument();
     expect(screen.getByText("For residents")).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: /cooling investment journey/i })).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Next" }));
     expect(screen.getByRole("heading", { name: "See where heat and human need overlap" })).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: "Skip tour" }));
+    expect(screen.getByRole("img", { name: /miniature map showing heat tiles/i })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    expect(screen.getByRole("img", { name: /one million dollar portfolio of twenty sites/i })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    expect(screen.getByRole("img", { name: /street context, price, confidence, and sources/i })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Explore the plan" }));
     expect(window.localStorage.getItem("coolspot-tour-v1")).toBe("complete");
   });
 
