@@ -131,7 +131,7 @@ Peak heat observed around: 15:00
   - apparent temperature or heat index,
   - relative humidity,
   - solar irradiance.
-- [ ] Run only for a small deterministic top-N finalist set, initially `N <= 10`.
+- [x] Run only for a small deterministic top-N finalist set, initially `N <= 10`.
 - [ ] Cache every completed response.
 - [ ] Persist normalized environmental evidence.
 - [ ] Add `thermal_stress_context` to candidate/site evidence.

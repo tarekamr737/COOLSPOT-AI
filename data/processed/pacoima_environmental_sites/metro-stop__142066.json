@@ -1,0 +1,108 @@
+{
+  "activity_id": "3b5e9334-14c0-4f2f-bfca-a05d7df860a7",
+  "candidate_id": "shade_structure:metro-stop:142066",
+  "credits_remaining": 1773680,
+  "finalist_rank": 10,
+  "observed_credit_delta": 2900,
+  "pilot": "Pacoima, Los Angeles",
+  "portfolio_budget_usd": 1000000,
+  "request": {
+    "date_time": {
+      "end_date": null,
+      "end_time": null,
+      "filter_type": 1,
+      "start_date": "2026-08-20",
+      "start_time": "14:00"
+    },
+    "latitude": 34.274151,
+    "longitude": -118.411279,
+    "temperature": 35.9843
+  },
+  "request_hash": "d23b31e980d4e6d32bfdc788bc24bdc95109ce3555828571b1f127a0f28bda09",
+  "result": {
+    "locations": [
+      {
+        "elevation": 326.0,
+        "lat": 34.274151,
+        "lon": -118.411279,
+        "parameters": {
+          "air_quality:idx": [
+            68.3
+          ],
+          "air_quality_no2:idx": [
+            2.5
+          ],
+          "air_quality_o3:idx": [
+            42.0
+          ],
+          "air_quality_pm10:idx": [
+            23.6
+          ],
+          "air_quality_pm2p5:idx": [
+            68.3
+          ],
+          "air_quality_so2:idx": [
+            2.2
+          ],
+          "apparent_temperature_celsius": [
+            35.3
+          ],
+          "aqi_us_co": [
+            1.6
+          ],
+          "cloud_cover_octas": [
+            91.0
+          ],
+          "co2_ppm": [
+            454.0
+          ],
+          "heat_index_celsius": [
+            34.8
+          ],
+          "methane_ppb": [
+            2086.9
+          ],
+          "precipitation_mm": [
+            0.0
+          ],
+          "relative_humidity_percent": [
+            24.3
+          ],
+          "wet_bulb_temperature_celsius": [
+            20.4
+          ]
+        },
+        "solar_irradiance": {
+          "clear_sky": {
+            "dhi": 135.19,
+            "dni": 792.26,
+            "ghi": 779.44
+          },
+          "description": "The above values provide insights into the solar energy available at the specific location at 2026-08-20 14:00. GHI represents the total solar energy, DNI focuses on direct sunlight, and DHI accounts for scattered and diffuse radiation."
+        },
+        "temperature": 35.9843
+      }
+    ],
+    "metadata": {
+      "time_range": {
+        "count": 1,
+        "end": "2026-08-20T14:00:00-08:00",
+        "interval": "1h",
+        "start": "2026-08-20T14:00:00-08:00"
+      },
+      "timestamps": [
+        "2026-08-20T14:00:00-08:00"
+      ],
+      "timezone": "GMT-8",
+      "timezone_offset_hours": -8.0
+    }
+  },
+  "retrieved_at": "2026-08-24T19:34:29.558460Z",
+  "site_id": "metro-stop:142066",
+  "site_name": "Van Nuys / Glenoaks Layover",
+  "source_url": "https://api.fortyguard.com/v1/env_params",
+  "tile_id": "1584",
+  "usage_after": 226320,
+  "usage_before": 223420,
+  "version": "1.0"
+}

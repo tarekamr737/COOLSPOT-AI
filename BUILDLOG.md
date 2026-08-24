@@ -269,3 +269,7 @@
   humidity, and clear-sky GHI. These cover comfort, moisture, and solar context without promoting
   unrelated air-quality/gas fields or inventing a composite health score. GHI is labeled as a
   vendor value because FortyGuard's endpoint schema names the field but does not state its unit.
+- Environmental enrichment uses the top 10 modeled-impact members of the deterministic `$1M`
+  portfolio, with candidate ID as the stable tie-breaker. It reuses the completed rank-1 probe and
+  submits only nine remaining canonical requests; per-request pre-submit journals prevent uncertain
+  duplicates. All nine completed at the observed `2,900`-credit unit cost.

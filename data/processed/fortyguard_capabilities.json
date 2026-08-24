@@ -29,12 +29,12 @@
     },
     {
       "access": "confirmed",
-      "cached_artifact": "data/processed/fortyguard_env_params_probe.json",
+      "cached_artifact": "data/processed/pacoima_environmental_sites",
       "dependency": "A ranked top-site set and a demonstrated need for point-level enrichment.",
       "enabled": true,
       "feature": "environmental_parameters",
       "probe_attempted": true,
-      "reason": "One minimal request for the deterministic top finalist completed successfully and its exact point-level result is cached."
+      "reason": "The deterministic top 10 finalists completed successfully and every exact point-level response is cached."
     },
     {
       "access": "unconfirmed",
@@ -64,8 +64,8 @@
       "reason": "The report endpoint is not an MVP dependency and was not probed or assumed available."
     }
   ],
-  "credits_remaining": 1799780,
-  "credits_used": 200220,
+  "credits_remaining": 1773680,
+  "credits_used": 226320,
   "evaluated_at": "2026-08-24",
   "hard_reserve": 500000,
   "optional_live_probes_made": 2,

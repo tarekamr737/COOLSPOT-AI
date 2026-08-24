@@ -34,11 +34,11 @@ def test_optional_features_are_explicitly_gated() -> None:
     }
 
     assert manifest.optional_live_probes_made == 2
-    assert manifest.credits_used == 200_220
-    assert manifest.credits_remaining == 1_799_780
+    assert manifest.credits_used == 226_320
+    assert manifest.credits_remaining == 1_773_680
     env_params = manifest.require_enabled(FortyGuardFeature.ENVIRONMENTAL_PARAMETERS)
     assert env_params.cached_artifact == (
-        "data/processed/fortyguard_env_params_probe.json"
+        "data/processed/pacoima_environmental_sites"
     )
     street_view = manifest.require_enabled(FortyGuardFeature.STREET_VIEW_SEGMENTATION)
     assert street_view.cached_artifact == "data/processed/pacoima_streetview_sites"

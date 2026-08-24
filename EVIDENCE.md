@@ -654,8 +654,8 @@
   artifact SHA-256, measured cost, source link, and claim limitation. The selected-site drawer shows
   the concise label `Peak heat observed around` with a zero-padded `HH:00 UTC` value and date; its
   expandable provenance repeats that this is not evidence of peak pedestrian volume.
-- Automated proof: full backend Pytest returns `89 passed`; Ruff passes; strict Mypy passes across
-  `67` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
+- Automated proof: full backend Pytest returns `95 passed`; Ruff passes; strict Mypy passes across
+  `71` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
   contract test skipped), and the production Next.js build completes successfully.
 
 ## FortyGuard environmental parameters are runtime-confirmed
@@ -684,6 +684,14 @@
 - Claim-safety proof: each promoted field has a planning use and explicit limitation. Apparent
   temperature and humidity are not converted into medical or individual-exposure claims; GHI keeps
   the neutral `vendor value` unit because the endpoint result schema does not publish a unit.
+- Top-N execution proof: the deterministic `$1M` portfolio is ordered by modeled impact with
+  candidate ID as the tie-breaker and sliced at the hard `N=10` cap. The set contains 10 unique site
+  IDs; rank 1 reused the probe, and exactly nine new canonical requests were submitted.
+- Batch credit proof: all nine new activities completed at `2,900` credits each, matching the
+  `26,100` preflight projection exactly. Usage advanced from `200,220` to `226,320`, leaving
+  `1,773,680`; all ten one-location/one-timestamp responses validate from the processed cache.
+- Replay proof: once all ten artifacts exist and match their deterministic candidate/request hashes,
+  the batch returns them before loading environment settings or constructing a FortyGuard client.
 - Cache proof: `data/processed/fortyguard_env_params_probe.json` validates the exact one-location,
   one-timestamp response, request, result, source, limitations, and balanced credit counters without
   containing the API key. Re-running the workflow returns this report before initializing a client.
