@@ -21,10 +21,13 @@ from api.app.services.boundary import PolygonGeometry
 from api.app.services.heatmap_data import (
     DEFAULT_EXCEEDANCE_PATH,
     DEFAULT_HEATMAP_PATH,
+    DEFAULT_TIME_OF_MEASURE_PATH,
     PacoimaExceedanceArtifact,
     PacoimaHeatmapArtifact,
+    PacoimaTimeOfMeasureArtifact,
     load_exceedance_artifact,
     load_heatmap_artifact,
+    load_time_of_measure_artifact,
 )
 from api.app.services.processed_data import (
     ProcessedPublicData,
@@ -194,6 +197,7 @@ class HeatEvidence(BaseModel):
     average_temperature_c: float
     persistence_hours: float = Field(ge=0)
     exceedance_hours: float = Field(ge=0)
+    peak_heat_hour_utc: int = Field(ge=0, le=23)
     temperature_score: float = Field(ge=0, le=1)
     persistence_score: float = Field(ge=0, le=1)
     exceedance_score: float = Field(ge=0, le=1)
@@ -306,6 +310,7 @@ class TileFeatureTable(BaseModel):
     generated_at: datetime
     heatmap_artifact_sha256: str = Field(pattern=SHA256_PATTERN)
     exceedance_artifact_sha256: str = Field(pattern=SHA256_PATTERN)
+    time_of_measure_artifact_sha256: str = Field(pattern=SHA256_PATTERN)
     public_data_artifact_sha256: str = Field(pattern=SHA256_PATTERN)
     scoring_config_sha256: str = Field(pattern=SHA256_PATTERN)
     counts: FeatureTableCounts
@@ -350,6 +355,7 @@ class RawTile:
     temperature_c: float
     persistence_hours: float
     exceedance_hours: float
+    peak_heat_hour_utc: int
     transit_stop_ids: tuple[str, ...]
     proximity_joined_transit_stop_ids: tuple[str, ...]
     route_ids: tuple[str, ...]
@@ -531,6 +537,7 @@ def _assign_point(
 def _build_raw_tiles(
     heatmaps: PacoimaHeatmapArtifact,
     exceedance: PacoimaExceedanceArtifact,
+    time_of_measure: PacoimaTimeOfMeasureArtifact,
     public: ProcessedPublicData,
     config: ScoringConfig,
 ) -> tuple[tuple[RawTile, ...], int, int]:
@@ -538,6 +545,7 @@ def _build_raw_tiles(
     tcm_features = layers["tcm"].result.map_data.features
     persistence_features = layers["persistence"].result.map_data.features
     exceedance_features = exceedance.layer.result.map_data.features
+    time_features = time_of_measure.layer.result.map_data.features
     tile_shapes = tuple(shape(feature.geometry.model_dump()) for feature in tcm_features)
     projector = Transformer.from_crs("EPSG:4326", "EPSG:32611", always_xy=True).transform
     projected_tiles = tuple(transform(projector, tile) for tile in tile_shapes)
@@ -596,24 +604,34 @@ def _build_raw_tiles(
     )
     projected_tracts = tuple(transform(projector, tract) for tract in tract_shapes)
     raw_tiles: list[RawTile] = []
-    for index, (tcm, persistence, exceedance_feature) in enumerate(
-        zip(tcm_features, persistence_features, exceedance_features, strict=True)
+    for index, (tcm, persistence, exceedance_feature, time_feature) in enumerate(
+        zip(
+            tcm_features,
+            persistence_features,
+            exceedance_features,
+            time_features,
+            strict=True,
+        )
     ):
         if (
             tcm.id is None
             or persistence.id != tcm.id
             or exceedance_feature.id != tcm.id
             or exceedance_feature.geometry != tcm.geometry
+            or time_feature.id != tcm.id
+            or time_feature.geometry != tcm.geometry
         ):
             raise ValueError("heatmap tile IDs are missing or misaligned")
         tile_id = str(tcm.id)
         tcm_property_id = str(tcm.properties.get("tile_id"))
         persistence_property_id = str(persistence.properties.get("tile_id"))
         exceedance_property_id = str(exceedance_feature.properties.get("tile_id"))
+        time_property_id = str(time_feature.properties.get("tile_id"))
         if (
             tile_id != tcm_property_id
             or tile_id != persistence_property_id
             or tile_id != exceedance_property_id
+            or tile_id != time_property_id
         ):
             raise ValueError("heatmap feature and property tile IDs do not match")
 
@@ -656,6 +674,9 @@ def _build_raw_tiles(
                 ),
                 exceedance_hours=_number(
                     exceedance_feature.properties.get("value"), "exceedance value"
+                ),
+                peak_heat_hour_utc=int(
+                    _number(time_feature.properties.get("value"), "time-of-measure value")
                 ),
                 transit_stop_ids=tuple(stop.id for stop in stops),
                 proximity_joined_transit_stop_ids=tuple(
@@ -742,15 +763,17 @@ def build_feature_table(
     *,
     heatmap_path: Path = DEFAULT_HEATMAP_PATH,
     exceedance_path: Path = DEFAULT_EXCEEDANCE_PATH,
+    time_of_measure_path: Path = DEFAULT_TIME_OF_MEASURE_PATH,
     public_data_path: Path = DEFAULT_PUBLIC_DATA_PATH,
     config_path: Path = DEFAULT_CONFIG_PATH,
 ) -> TileFeatureTable:
     heatmaps = load_heatmap_artifact(heatmap_path)
     exceedance = load_exceedance_artifact(exceedance_path)
+    time_of_measure = load_time_of_measure_artifact(time_of_measure_path)
     public = load_processed_fixture(public_data_path)
     config = load_scoring_config(config_path)
     raw_tiles, unjoined_stops, unjoined_pois = _build_raw_tiles(
-        heatmaps, exceedance, public, config
+        heatmaps, exceedance, time_of_measure, public, config
     )
     normalized = _normalize_raw(raw_tiles, config)
 
@@ -850,6 +873,7 @@ def build_feature_table(
                     average_temperature_c=raw.temperature_c,
                     persistence_hours=raw.persistence_hours,
                     exceedance_hours=raw.exceedance_hours,
+                    peak_heat_hour_utc=raw.peak_heat_hour_utc,
                     temperature_score=temperature_score,
                     persistence_score=persistence_score,
                     exceedance_score=exceedance_score,
@@ -913,6 +937,7 @@ def build_feature_table(
         generated_at=heatmaps.generated_at,
         heatmap_artifact_sha256=_sha256(heatmap_path),
         exceedance_artifact_sha256=_sha256(exceedance_path),
+        time_of_measure_artifact_sha256=_sha256(time_of_measure_path),
         public_data_artifact_sha256=_sha256(public_data_path),
         scoring_config_sha256=_sha256(config_path),
         counts=FeatureTableCounts(
@@ -941,6 +966,8 @@ def build_feature_table(
             "Exceedance hours are normalized from the frozen 2024-07-15 layer; the active TCM "
             "and persistence layers are dated 2026-08-20. The weighted heat score therefore uses "
             "exceedance as historical context, not as a contemporaneous observation.",
+            "Peak heat hour is cached UTC context from 2024-07-15; it is not evidence of peak "
+            "pedestrian activity and is not used in scoring.",
             "Scores are relative modeled priorities normalized within this frozen Pacoima dataset; "
             "they are not measured cooling effects or predictions of people protected.",
         ),

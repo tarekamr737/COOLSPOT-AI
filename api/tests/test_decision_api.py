@@ -52,6 +52,7 @@ def test_pilot_layers_candidates_site_and_methodology_routes() -> None:
     assert site.options[0].tile.tile_id == first.tile_id
     assert site.options[0].tile.heat.exceedance_hours >= 0
     assert 0 <= site.options[0].tile.heat.exceedance_score <= 1
+    assert site.options[0].tile.heat.peak_heat_hour_utc in {3, 17}
     assert site.options[0].intervention.id == first.intervention_type
     assert site.street_view_evidence is None
 

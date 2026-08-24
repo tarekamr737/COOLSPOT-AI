@@ -640,6 +640,10 @@
   typed `1,947,712`-byte artifact containing all 2,001 spatially aligned tiles, the exact activity,
   request hash, UTC timezone, analysis date, observed cost, and source metadata. All tile values are
   complete integer hours in `[0,23]`; the real result contains only hours 03:00 and 17:00.
+- Tile/site proof: every normalized tile now stores `peak_heat_hour_utc`, and every site API option
+  inherits that exact tile context. The feature table records the time-of-measure artifact SHA-256;
+  tests assert all 2,001 values remain exactly `{3, 17}` and downstream candidate provenance is
+  rebuilt byte-for-byte without changing the score formula.
 - Automated proof: full backend Pytest returns `86 passed`; Ruff passes; strict Mypy passes across
   `65` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
   contract test skipped), and the production Next.js build completes successfully.

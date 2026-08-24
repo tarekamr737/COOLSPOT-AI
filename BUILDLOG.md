@@ -242,3 +242,6 @@
 - The real time-of-measure layer contains only integer UTC values `3` and `17` across 2,001 tiles.
   The committed artifact preserves these vendor values exactly, validates their domain and spatial
   alignment, and does not interpolate or infer a smoother peak-time pattern.
+- Peak-hour context is stored as a raw integer UTC field on each tile and exposed through existing
+  site options. It has no normalized score or weight, and the feature-table limitation explicitly
+  separates peak temperature time from pedestrian activity.
