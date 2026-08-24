@@ -1,0 +1,62 @@
+{
+  "cool_pavement": {
+    "feasibility_inputs": [
+      "verified_public_paved_geometry",
+      "evidence_confidence"
+    ],
+    "limitations": [
+      "No cool-pavement candidate is operational without authoritative public paved-surface geometry.",
+      "Surface condition, traction, glare, drainage, radiant exposure, and product compatibility require field and engineering review."
+    ],
+    "required_inputs": [
+      "verified_public_paved_geometry"
+    ],
+    "suitability_inputs": [
+      "heat_severity",
+      "verified_public_paved_geometry"
+    ]
+  },
+  "shade_structure": {
+    "feasibility_inputs": [
+      "site_type_compatibility",
+      "evidence_confidence"
+    ],
+    "limitations": [
+      "Street View vegetation and sky context do not prove that a stop is unshaded or measure useful shade throughout the day.",
+      "Right-of-way, utilities, safety, visibility, and constructability require field verification."
+    ],
+    "required_inputs": [
+      "site_type_compatibility",
+      "heat_severity"
+    ],
+    "suitability_inputs": [
+      "heat_severity",
+      "heat_persistence",
+      "published_transit_exposure",
+      "street_tree_context",
+      "street_sky_context"
+    ]
+  },
+  "tree_canopy": {
+    "feasibility_inputs": [
+      "site_type_compatibility",
+      "evidence_confidence"
+    ],
+    "limitations": [
+      "Mapped public-site compatibility does not establish planting space, ownership approval, soil condition, irrigation, or utility clearance.",
+      "Vegetation and environmental context may influence screening only when verified evidence is available."
+    ],
+    "required_inputs": [
+      "site_type_compatibility",
+      "heat_severity",
+      "public_site_compatibility"
+    ],
+    "suitability_inputs": [
+      "heat_severity",
+      "public_site_compatibility",
+      "vegetation_opportunity",
+      "environmental_context"
+    ]
+  },
+  "version": "1.0"
+}

@@ -196,3 +196,7 @@
   evidence and retains the neutral `0.5` fallback for the other 132. Feasibility deliberately stays
   neutral in this slice because camera segmentation does not verify right-of-way, utilities, safety,
   or constructability; the later intervention-specific rule task owns that distinction.
+- Intervention evidence configuration separates suitability signals from feasibility gates. Shade
+  permits heat, persistence, published transit exposure, and exact-site tree/sky context; trees add
+  public-site compatibility and optional vegetation/environment context; cool pavement cannot
+  become operational without verified public paved geometry.
