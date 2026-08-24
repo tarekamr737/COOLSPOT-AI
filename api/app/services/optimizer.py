@@ -11,6 +11,7 @@ from ortools.sat.python import cp_model
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from api.app.services.candidates import Candidate, load_candidates
+from api.app.services.intervention_value import InterventionValueFactors
 from api.app.services.interventions import InterventionType
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -100,7 +101,12 @@ def load_optimizer_config(path: Path = DEFAULT_OPTIMIZER_CONFIG_PATH) -> Optimiz
 
 
 def _modeled_impact(candidate: Candidate) -> float:
-    return candidate.benefit_score * candidate.feasibility_score * candidate.confidence
+    return InterventionValueFactors(
+        priority_score=candidate.benefit_score,
+        suitability_score=1.0,
+        feasibility_score=candidate.feasibility_score,
+        confidence_score=candidate.confidence,
+    ).modeled_benefit()
 
 
 def _primary_coefficient(candidate: Candidate, scale: int) -> int:

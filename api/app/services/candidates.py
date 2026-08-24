@@ -22,6 +22,7 @@ from api.app.services.feature_table import (
     load_feature_table,
     published_patronage_activity,
 )
+from api.app.services.intervention_value import UnitInterval
 from api.app.services.interventions import (
     DEFAULT_INTERVENTION_CATALOG_PATH,
     InterventionDefinition,
@@ -123,10 +124,10 @@ class Candidate(BaseModel):
     tile_selection: TileSelection
     intervention_type: InterventionType
     planning_cost_usd: int = Field(gt=0)
-    benefit_score: float = Field(ge=0, le=1)
-    equity_score: float = Field(ge=0, le=1)
-    feasibility_score: float = Field(ge=0, le=1)
-    confidence: float = Field(ge=0, le=1)
+    benefit_score: UnitInterval
+    equity_score: UnitInterval
+    feasibility_score: UnitInterval
+    confidence: UnitInterval
     thermal_stress_context: FinalistEnvironmentalEvidence | None = None
     evidence: tuple[CandidateEvidence, ...] = Field(min_length=5)
     geometry: FixtureGeometry

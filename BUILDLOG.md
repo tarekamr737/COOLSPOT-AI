@@ -286,3 +286,6 @@
   strings while environmental evidence carries a full timestamp. The component now passes the
   preserved date portion to that formatter and shows the vendor timezone separately; no timestamp
   or timezone value is rewritten.
+- Introduced the typed four-factor intervention-value boundary before changing any ranking. The
+  current optimizer passes a neutral `1.0` suitability only to preserve the existing portfolio for
+  this bounds-only slice; later Section 6 tasks will replace it with evidenced intervention fit.

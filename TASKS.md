@@ -176,7 +176,7 @@ priority_score
 × confidence
 ```
 
-- [ ] Keep all derived factors in `[0,1]`.
+- [x] Keep all derived factors in `[0,1]`.
 - [ ] Keep CP-SAT deterministic.
 - [ ] Do not use an LLM in ranking or optimization.
 - [ ] Preserve:

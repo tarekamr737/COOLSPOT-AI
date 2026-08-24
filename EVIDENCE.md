@@ -732,3 +732,12 @@
 - Cache proof: `data/processed/fortyguard_env_params_probe.json` validates the exact one-location,
   one-timestamp response, request, result, source, limitations, and balanced credit counters without
   containing the API key. Re-running the workflow returns this report before initializing a client.
+
+## Intervention-value factors are bounded
+
+- Contract proof: `InterventionValueFactors` validates priority, intervention suitability,
+  feasibility, and confidence as finite values in `[0,1]`; the candidate schema reuses the same
+  unit-interval type for every existing derived decision score.
+- Calculation proof: the modeled-benefit product is deterministic and remains in `[0,1]`.
+  Parameterized tests reject negative, above-one, infinite, and NaN values for every factor and
+  cover both exact product boundaries.
