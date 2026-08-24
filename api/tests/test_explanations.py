@@ -100,6 +100,8 @@ def test_peak_heat_hour_is_explanation_context_only() -> None:
     assert f"{tile.heat.peak_heat_hour_utc:02d}:00 UTC" in heat_statement
     assert "explanation-only" in heat_statement
     assert "not used in scoring" in heat_statement
+    assert "not used in scoring or pedestrian-activity inference" in heat_statement
+    assert "peak pedestrian" not in heat_statement.lower()
 
 
 def test_unsafe_model_claim_falls_back_to_template(tmp_path: Path) -> None:

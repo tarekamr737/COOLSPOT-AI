@@ -111,7 +111,7 @@ heat_score =
 - [x] Cache one real Pacoima result if supported by the hackathon key.
 - [x] Store peak-hour context per tile/site.
 - [x] Use it for explanation/context only unless strong evidence justifies scoring.
-- [ ] Never imply that peak temperature time equals peak pedestrian volume.
+- [x] Never imply that peak temperature time equals peak pedestrian volume.
 - [ ] Surface a concise label such as:
 
 ```text
