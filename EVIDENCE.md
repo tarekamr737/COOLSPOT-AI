@@ -644,6 +644,10 @@
   inherits that exact tile context. The feature table records the time-of-measure artifact SHA-256;
   tests assert all 2,001 values remain exactly `{3, 17}` and downstream candidate provenance is
   rebuilt byte-for-byte without changing the score formula.
-- Automated proof: full backend Pytest returns `86 passed`; Ruff passes; strict Mypy passes across
+- Explanation-only proof: the observed-heat evidence supplied to deterministic and optional LLM
+  explanations includes the exact zero-padded UTC peak hour and labels it historical context. A
+  regression asserts the statement says it is explanation-only and not used in scoring; optimizer
+  tests continue to pass with no peak-hour coefficient or normalized feature.
+- Automated proof: full backend Pytest returns `87 passed`; Ruff passes; strict Mypy passes across
   `65` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
   contract test skipped), and the production Next.js build completes successfully.

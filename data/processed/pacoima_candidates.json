@@ -10,7 +10,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1998 reports 35.32 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.0595 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1998 reports 35.32 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.0595 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -82,7 +82,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1561 reports 35.34 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1065 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1561 reports 35.34 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1065 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -154,7 +154,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1899 reports 35.25 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.959 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1899 reports 35.25 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.959 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -226,7 +226,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1961 reports 35.37 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1575 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1961 reports 35.37 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1575 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -298,7 +298,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1599 reports 35.32 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.0859 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1599 reports 35.32 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.0859 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -370,7 +370,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1831 reports 35.17 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.8406 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1831 reports 35.17 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.8406 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -442,7 +442,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1986 reports 35.23 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.9427 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1986 reports 35.23 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.9427 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -514,7 +514,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1241 reports 35.98 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1038 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1241 reports 35.98 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1038 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -586,7 +586,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1698 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9442 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1698 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9442 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -658,7 +658,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 568 reports 35.99 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0404 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 568 reports 35.99 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0404 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -730,7 +730,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 936 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9412 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 936 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9412 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -802,7 +802,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1361 reports 36.04 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1965 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1361 reports 36.04 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1965 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -874,7 +874,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1536 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1434 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1536 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1434 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -946,7 +946,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1863 reports 36.03 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1826 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1863 reports 36.03 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1826 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -1018,7 +1018,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 719 reports 36.15 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9994 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 719 reports 36.15 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9994 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -1090,7 +1090,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 147 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9903 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 147 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9903 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -1162,7 +1162,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 27 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0889 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 27 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0889 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -1234,7 +1234,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 83 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9986 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 83 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9986 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -1306,7 +1306,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 372 reports 35.96 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 372 reports 35.96 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -1378,7 +1378,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 260 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0004 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 260 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0004 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -1450,7 +1450,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -1522,7 +1522,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 562 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0108 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 562 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0108 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -1594,7 +1594,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 393 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0038 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 393 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0038 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -1666,7 +1666,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 753 reports 36.02 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0831 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 753 reports 36.02 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0831 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -1738,7 +1738,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 936 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9412 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 936 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9412 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -1810,7 +1810,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 128 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9765 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 128 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9765 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -1882,7 +1882,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 83 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9986 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 83 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9986 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -1954,7 +1954,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 275 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0069 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 275 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0069 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -2026,7 +2026,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 209 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9917 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 209 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9917 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -2098,7 +2098,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1788 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0696 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1788 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0696 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -2170,7 +2170,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1681 reports 36.04 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9963 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1681 reports 36.04 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9963 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -2242,7 +2242,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 118 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9826 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 118 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9826 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -2314,7 +2314,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1566 reports 36.05 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0109 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1566 reports 36.05 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0109 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -2386,7 +2386,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1224 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.991 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1224 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.991 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -2458,7 +2458,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 437 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0037 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 437 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0037 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -2530,7 +2530,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1584 reports 35.98 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1002 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1584 reports 35.98 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1002 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -2602,7 +2602,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 187 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9832 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 187 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9832 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -2674,7 +2674,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 308 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0096 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 308 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0096 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -2746,7 +2746,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1403 reports 35.93 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0048 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1403 reports 35.93 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0048 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -2818,7 +2818,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 858 reports 35.92 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0004 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 858 reports 35.92 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0004 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -2890,7 +2890,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 611 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9983 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 611 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9983 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -2962,7 +2962,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1041 reports 35.87 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9871 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1041 reports 35.87 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9871 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -3034,7 +3034,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1669 reports 35.83 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.8642 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1669 reports 35.83 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.8642 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -3106,7 +3106,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1231 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9731 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1231 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9731 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -3178,7 +3178,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1771 reports 35.38 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1672 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1771 reports 35.38 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1672 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -3250,7 +3250,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1831 reports 35.17 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.8406 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1831 reports 35.17 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.8406 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -3322,7 +3322,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1536 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1434 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1536 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1434 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -3394,7 +3394,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 725 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9994 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 725 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9994 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -3466,7 +3466,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1415 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0478 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1415 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0478 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -3538,7 +3538,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 788 reports 35.93 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 788 reports 35.93 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -3610,7 +3610,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -3682,7 +3682,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1354 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0106 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1354 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0106 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -3754,7 +3754,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1167 reports 35.87 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9704 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1167 reports 35.87 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9704 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -3826,7 +3826,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 852 reports 35.89 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0002 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 852 reports 35.89 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0002 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -3898,7 +3898,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 360 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9719 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 360 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9719 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -3970,7 +3970,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1461 reports 35.97 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0098 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1461 reports 35.97 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0098 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -4042,7 +4042,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 536 reports 35.99 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 536 reports 35.99 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -4114,7 +4114,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 27 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0889 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 27 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0889 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -4186,7 +4186,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1643 reports 35.22 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.9249 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1643 reports 35.22 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.9249 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -4258,7 +4258,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1713 reports 35.40 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1982 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1713 reports 35.40 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1982 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -4330,7 +4330,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -4402,7 +4402,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1242 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0606 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1242 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0606 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -4474,7 +4474,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1698 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9442 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1698 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9442 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -4546,7 +4546,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 509 reports 35.97 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0062 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 509 reports 35.97 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0062 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -4618,7 +4618,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 936 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9412 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 936 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9412 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -4690,7 +4690,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1361 reports 36.04 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1965 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1361 reports 36.04 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1965 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -4762,7 +4762,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 997 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9117 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 997 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9117 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -4834,7 +4834,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1584 reports 35.98 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1002 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1584 reports 35.98 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1002 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -4906,7 +4906,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1884 reports 36.04 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1934 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1884 reports 36.04 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1934 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -4978,7 +4978,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1948 reports 35.37 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1535 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1948 reports 35.37 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1535 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -5050,7 +5050,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 6 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9093 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 6 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9093 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -5122,7 +5122,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 719 reports 36.15 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9994 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 719 reports 36.15 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9994 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -5194,7 +5194,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 146 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9928 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 146 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9928 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -5266,7 +5266,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 65 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0171 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 65 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0171 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -5338,7 +5338,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 902 reports 36.35 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9999 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 902 reports 36.35 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9999 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -5410,7 +5410,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 372 reports 35.96 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 372 reports 35.96 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -5482,7 +5482,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 228 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9999 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 228 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9999 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -5554,7 +5554,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -5626,7 +5626,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 535 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -5698,7 +5698,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1494 reports 35.20 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.8956 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1494 reports 35.20 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.8956 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -5770,7 +5770,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 964 reports 36.36 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9997 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 964 reports 36.36 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9997 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -5842,7 +5842,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 623 reports 35.96 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0217 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 623 reports 35.96 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0217 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -5914,7 +5914,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 443 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0016 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 443 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0016 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -5986,7 +5986,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 753 reports 36.02 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0831 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 753 reports 36.02 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0831 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -6058,7 +6058,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 936 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9412 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 936 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9412 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -6130,7 +6130,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 128 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9765 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 128 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9765 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -6202,7 +6202,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 84 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9981 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 84 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9981 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -6274,7 +6274,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 274 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0069 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 274 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0069 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -6346,7 +6346,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 210 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9915 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 210 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9915 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -6418,7 +6418,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1789 reports 35.93 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0366 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1789 reports 35.93 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0366 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -6490,7 +6490,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1681 reports 36.04 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9963 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1681 reports 36.04 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9963 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -6562,7 +6562,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1566 reports 36.05 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0109 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1566 reports 36.05 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0109 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -6634,7 +6634,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1225 reports 35.87 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9835 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1225 reports 35.87 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9835 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -6706,7 +6706,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 437 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0037 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 437 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0037 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -6778,7 +6778,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 188 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9846 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 188 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9846 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -6850,7 +6850,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 309 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0095 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 309 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0095 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -6922,7 +6922,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 858 reports 35.92 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0004 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 858 reports 35.92 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0004 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -6994,7 +6994,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 611 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9983 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 611 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9983 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -7066,7 +7066,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1041 reports 35.87 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9871 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1041 reports 35.87 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9871 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -7138,7 +7138,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1669 reports 35.83 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.8642 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1669 reports 35.83 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.8642 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -7210,7 +7210,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1231 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9731 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1231 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9731 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -7282,7 +7282,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1740 reports 35.49 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.3416 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1740 reports 35.49 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.3416 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -7354,7 +7354,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1536 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1434 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1536 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1434 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -7426,7 +7426,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1355 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0432 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1355 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0432 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -7498,7 +7498,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 789 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0002 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 789 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0002 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -7570,7 +7570,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 662 reports 35.96 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9995 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 662 reports 35.96 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9995 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -7642,7 +7642,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1294 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.007 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1294 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.007 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -7714,7 +7714,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1105 reports 35.87 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9773 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1105 reports 35.87 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9773 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -7786,7 +7786,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1041 reports 35.87 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9871 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1041 reports 35.87 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9871 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -7858,7 +7858,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 979 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9926 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 979 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9926 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -7930,7 +7930,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 852 reports 35.89 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0002 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 852 reports 35.89 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0002 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -8002,7 +8002,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1664 reports 35.90 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9662 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1664 reports 35.90 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9662 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -8133,7 +8133,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1826 reports 35.35 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1309 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1826 reports 35.35 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1309 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -8288,7 +8288,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1494 reports 35.20 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.8956 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1494 reports 35.20 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.8956 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -8479,7 +8479,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1552 reports 35.25 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.9751 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1552 reports 35.25 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 5.9751 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -8574,7 +8574,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 964 reports 36.36 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9997 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 964 reports 36.36 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9997 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -8713,7 +8713,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 964 reports 36.36 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9997 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 964 reports 36.36 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9997 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -8836,7 +8836,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1876 reports 35.35 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1311 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1876 reports 35.35 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1311 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -8983,7 +8983,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1320 reports 35.53 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.3687 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1320 reports 35.53 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.3687 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -9226,7 +9226,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1297 reports 35.98 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1023 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1297 reports 35.98 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1023 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -9469,7 +9469,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1250 reports 35.37 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1674 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1250 reports 35.37 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.1674 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -9636,7 +9636,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 621 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.005 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 621 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.005 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -9743,7 +9743,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 263 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0017 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 263 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0017 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -9814,7 +9814,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1896 reports 35.45 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.2866 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1896 reports 35.45 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.2866 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -9885,7 +9885,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1306 reports 35.78 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.811 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1306 reports 35.78 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.811 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -9956,7 +9956,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1896 reports 35.45 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.2866 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1896 reports 35.45 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.2866 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -10027,7 +10027,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1755 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0521 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1755 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0521 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -10098,7 +10098,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 170 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.998 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 170 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.998 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -10169,7 +10169,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1706 reports 35.65 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.5921 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1706 reports 35.65 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.5921 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -10240,7 +10240,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1754 reports 35.93 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0412 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1754 reports 35.93 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0412 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -10311,7 +10311,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1531 reports 35.90 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9886 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1531 reports 35.90 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9886 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -10382,7 +10382,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1782 reports 35.93 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0406 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1782 reports 35.93 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0406 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -10453,7 +10453,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 170 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.998 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 170 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.998 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -10524,7 +10524,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1219 reports 36.04 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0109 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1219 reports 36.04 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0109 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -10595,7 +10595,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1303 reports 35.97 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.098 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1303 reports 35.97 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.098 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -10666,7 +10666,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 264 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0022 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 264 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0022 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -10737,7 +10737,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1156 reports 36.08 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0089 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1156 reports 36.08 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0089 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -10808,7 +10808,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1811 reports 35.96 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0807 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1811 reports 35.96 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0807 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -10879,7 +10879,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 40 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0859 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 40 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0859 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -10950,7 +10950,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1234 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0284 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1234 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0284 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -11021,7 +11021,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1156 reports 36.08 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0089 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1156 reports 36.08 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0089 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -11092,7 +11092,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 119 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9989 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 119 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9989 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -11163,7 +11163,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1425 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0042 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1425 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0042 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -11234,7 +11234,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.7649 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.7649 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -11305,7 +11305,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 170 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.998 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 170 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.998 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -11376,7 +11376,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 263 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0017 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 263 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0017 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -11447,7 +11447,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1355 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0432 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1355 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0432 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -11518,7 +11518,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1743 reports 35.39 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.193 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1743 reports 35.39 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.193 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -11589,7 +11589,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1898 reports 35.30 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.0495 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1898 reports 35.30 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.0495 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -11660,7 +11660,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1306 reports 35.78 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.811 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1306 reports 35.78 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.811 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -11731,7 +11731,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 263 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0017 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 263 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0017 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",
@@ -11802,7 +11802,7 @@
           "source_artifact_ids": [
             "pacoima_tile_feature_table"
           ],
-          "statement": "FortyGuard tile 1363 reports 36.00 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1364 historical exceedance hours; its threshold and source dates are disclosed in methodology."
+          "statement": "FortyGuard tile 1363 reports 36.00 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1364 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
         },
         {
           "kind": "exposure",

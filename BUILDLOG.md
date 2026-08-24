@@ -245,3 +245,6 @@
 - Peak-hour context is stored as a raw integer UTC field on each tile and exposed through existing
   site options. It has no normalized score or weight, and the feature-table limitation explicitly
   separates peak temperature time from pedestrian activity.
+- Peak timing is appended to the existing observed-heat evidence record so both template and
+  optional LLM explanations receive the same grounded fact. It is deliberately absent from
+  normalization, priority weights, candidate benefit math, and optimizer coefficients.

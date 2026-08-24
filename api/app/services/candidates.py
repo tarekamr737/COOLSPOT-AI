@@ -242,7 +242,10 @@ def _common_evidence(
                 f"FortyGuard tile {tile.tile_id} reports {tile.heat.average_temperature_c:.2f} "
                 f"°C average temperature and {tile.heat.persistence_hours:g} persistence hours "
                 f"for the active analysis, plus {tile.heat.exceedance_hours:g} historical "
-                "exceedance hours; its threshold and source dates are disclosed in methodology."
+                "exceedance hours; its threshold and source dates are disclosed in methodology. "
+                f"Peak temperature occurred around {tile.heat.peak_heat_hour_utc:02d}:00 UTC in "
+                "the historical heatmap; this timing is explanation-only and is not used in "
+                "scoring or pedestrian-activity inference."
             ),
             source_artifact_ids=(CandidateSourceArtifact.FEATURE_TABLE,),
         ),

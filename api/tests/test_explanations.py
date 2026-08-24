@@ -6,7 +6,11 @@ from pathlib import Path
 import httpx2
 
 from api.app.services.decision_api import candidates_response, site_response
-from api.app.services.explanations import explain_with_optional_llm
+from api.app.services.explanations import (
+    explain_selected_candidate,
+    explain_with_optional_llm,
+)
+from api.app.services.feature_table import TileFeature
 from api.app.services.optimizer import optimize_portfolio
 
 
@@ -78,6 +82,24 @@ def test_openrouter_rewrites_only_the_summary_and_is_cached(tmp_path: Path) -> N
     assert regenerated.mode == "openrouter"
     assert transport.calls == 2
     assert "Previous wording to avoid:" in transport.prompts[1]
+
+
+def test_peak_heat_hour_is_explanation_context_only() -> None:
+    candidate, tile, intervention, portfolio = selected_context()
+    assert isinstance(tile, TileFeature)
+    result = explain_selected_candidate(
+        candidate=candidate,  # type: ignore[arg-type]
+        tile=tile,
+        intervention=intervention,  # type: ignore[arg-type]
+        portfolio=portfolio,  # type: ignore[arg-type]
+    )
+    heat_statement = next(
+        statement for statement in result.why_selected if "Peak temperature" in statement
+    )
+
+    assert f"{tile.heat.peak_heat_hour_utc:02d}:00 UTC" in heat_statement
+    assert "explanation-only" in heat_statement
+    assert "not used in scoring" in heat_statement
 
 
 def test_unsafe_model_claim_falls_back_to_template(tmp_path: Path) -> None:
