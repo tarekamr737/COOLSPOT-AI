@@ -600,5 +600,9 @@
 - Reserve proof: a workflow-level regression uses the observed `4,220`-credit heatmap cost with
   `504,219` credits remaining. The governor projects `499,999`, raises before submission, writes no
   request journal, and leaves the exceedance request absent from the ledger.
+- Normalization proof: all 2,001 tiles carry real `exceedance_hours` and a deterministic
+  winsorized `exceedance_score` in `[0,1]`; normalization metadata reports 2,001 valid values and
+  zero missing values. The feature table records the exact exceedance-artifact SHA-256 and the
+  2024-07-15 source-date limitation, while the current heat and priority scores remain unchanged.
 - Automated proof: full backend Pytest returns `80 passed`; Ruff passes; strict Mypy passes across
   `60` source files.

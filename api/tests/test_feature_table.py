@@ -14,7 +14,7 @@ from api.app.services.feature_table import (
     normalize_values,
     weighted_available,
 )
-from api.app.services.heatmap_data import DEFAULT_HEATMAP_PATH
+from api.app.services.heatmap_data import DEFAULT_EXCEEDANCE_PATH, DEFAULT_HEATMAP_PATH
 from api.app.services.processed_data import load_processed_fixture
 
 
@@ -82,6 +82,9 @@ def test_real_feature_table_is_canonical_complete_and_traceable() -> None:
     assert table.heatmap_artifact_sha256 == hashlib.sha256(
         Path(DEFAULT_HEATMAP_PATH).read_bytes()
     ).hexdigest()
+    assert table.exceedance_artifact_sha256 == hashlib.sha256(
+        Path(DEFAULT_EXCEEDANCE_PATH).read_bytes()
+    ).hexdigest()
     assert table.public_data_artifact_sha256 == hashlib.sha256(
         Path(DEFAULT_PUBLIC_DATA_PATH).read_bytes()
     ).hexdigest()
@@ -93,6 +96,15 @@ def test_real_feature_table_is_canonical_complete_and_traceable() -> None:
         for tile in table.tiles
         for component in tile.scores.model_dump().values()
     )
+    assert all(
+        0 <= tile.heat.exceedance_score <= 1 and tile.heat.exceedance_hours >= 0
+        for tile in table.tiles
+    )
+    exceedance = next(
+        item for item in table.normalization if item.feature == NormalizedFeature.EXCEEDANCE
+    )
+    assert exceedance.valid_count == 2_001
+    assert exceedance.missing_count == 0
     no_vehicle = next(
         item for item in table.normalization if item.feature == NormalizedFeature.NO_VEHICLE_RATE
     )

@@ -86,7 +86,7 @@ Use only after verified paved/public surface geometry exists.
 - [x] Measure one real request's credit delta using the existing governor workflow.
 - [x] Abort further work if projected reserve would fall below `500,000`.
 - [x] Cache one real Pacoima exceedance dataset for the frozen analysis period.
-- [ ] Normalize exceedance into the heat feature model.
+- [x] Normalize exceedance into the heat feature model.
 - [ ] Update default heat severity:
 
 ```text
