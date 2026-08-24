@@ -39,9 +39,12 @@ A database is intentionally deferred. Add PostGIS only if file-backed data becom
 │   │   │   ├── credits.py
 │   │   │   ├── public_data.py
 │   │   │   ├── scoring.py
+│   │   │   ├── scenarios.py
 │   │   │   ├── candidates.py
 │   │   │   ├── optimizer.py
-│   │   │   └── explanations.py
+│   │   │   ├── explanations.py
+│   │   │   ├── environmental_evidence.py
+│   │   │   └── satellite_evidence.py
 │   │   └── data_access.py
 │   └── tests/
 ├── data/
@@ -62,8 +65,11 @@ FORTYGUARD_API_KEY=
 FORTYGUARD_LIVE=0
 FORTYGUARD_CREDIT_TOTAL=2000000
 FORTYGUARD_CREDIT_RESERVE=500000
+COOLSPOT_REFRESH_TOKEN=
 NEXT_PUBLIC_API_BASE_URL=
 EXPLANATION_MODE=template
+OPENROUTER_API_KEY=
+OPENROUTER_MODEL=stealth/ox-alpha
 ```
 
 Never prefix the FortyGuard key with `NEXT_PUBLIC_`.
@@ -78,9 +84,11 @@ Never prefix the FortyGuard key with `NEXT_PUBLIC_`.
 ### Live refresh
 `FORTYGUARD_LIVE=1`
 - server-side only,
-- requires explicit refresh command,
+- requires the administrator refresh token,
 - credit governor checks reserve,
-- writes raw response + request metadata before preprocessing.
+- writes raw response + request metadata before preprocessing,
+- rebuilds processed layers/candidates after TCM and persistence complete,
+- causes the web client to reload layers, scores, recommendations, and portfolio.
 
 ## FortyGuard adapter
 Expose a narrow interface:
@@ -130,7 +138,7 @@ Algorithm:
 Treat the user's 2,000,000 allocation as the authoritative project budget, but probe endpoint capability separately because public plan access and credit count are different concerns.
 
 ## Pilot boundary
-Acquire an authoritative Pacoima boundary if practical; otherwise document a simplified MVP analysis polygon.
+Use the committed official Pacoima neighborhood boundary, validated at `7.763 mi²`.
 - CRS for storage/API: WGS84 (`EPSG:4326`).
 - Project to an appropriate local CRS before area calculations.
 - Validate closed Polygon / FeatureCollection format expected by FortyGuard.
@@ -152,14 +160,17 @@ Second:
 
 Only add `exceedance` if it materially changes ranking or demo explanation.
 
-Do not spend credits exploring many dates. Use one defensible hot period for the MVP and make refresh a post-MVP feature.
+Do not spend credits exploring many dates. Use one defensible hot period for the MVP; any explicit
+refresh remains token-protected, governed, and cached.
 
 ## Capability probe
 Do not spend multiple calls testing Premium features.
 - Read usage/account metadata if available.
 - Attempt at most one small call per optional endpoint only when needed.
 - A 403/plan error disables that feature cleanly.
-- Satellite/street-view enrich only a small top-N site set.
+- Street View enriches the deterministic top 20 selected sites, environmental parameters the top
+  10 finalists, and satellite one top pavement finalist. These are committed bounded artifacts,
+  not request-on-click behavior.
 
 ## Public-data pipeline
 One-time ingestion -> cached processed outputs.
@@ -173,6 +184,10 @@ One-time ingestion -> cached processed outputs.
    - authoritative city/LAUSD datasets when easy; otherwise OSM snapshot.
 4. Optional canopy/land-cover:
    - only if source/licensing is clear.
+5. StreetsLA pavement condition:
+   - clip exact Bureau of Street Services segment geometry to the AOI,
+   - preserve published surface, width, PCI, category, source date, and asset identifier,
+   - do not interpret undocumented surface/class codes.
 
 Normalize to WGS84 and clip to pilot AOI.
 
@@ -210,13 +225,17 @@ priority =
 + 0.10 * opportunity
 ```
 
+`config/scenarios.json` versions four exact weight sets: Balanced, Heat-first, Equity-first, and
+Exposure-first. The optimizer recalculates priority from committed normalized components; it does
+not mutate or reacquire vendor evidence.
+
 ## Candidate generation
 Generate candidates only where a supported intervention is compatible.
 
 Examples:
 - transit stop + high heat + low shade evidence -> shade structure
 - school/park/corridor + low canopy opportunity -> trees
-- public paved area/corridor + surface opportunity -> cool pavement
+- exact StreetsLA pavement segment passing the versioned geometry rule -> cool pavement
 
 Each candidate:
 ```text
@@ -242,7 +261,7 @@ Maximize integer-scaled:
 ```text
 candidate_value =
 priority_score
-* intervention_modifier
+* suitability_score
 * feasibility_score
 * confidence
 ```
@@ -261,7 +280,13 @@ Return:
 - unused budget,
 - total modeled impact score,
 - category counts,
-- equity summary.
+- equity summary,
+- active scoring preset and exact weights,
+- selected-candidate scenario scores,
+- per-site selection frequency across all four presets.
+
+The selection-frequency field is scenario robustness only. It is not statistical confidence,
+probability, sensitivity to all plausible assumptions, or an outcome guarantee.
 
 No LLM in this path.
 
@@ -274,30 +299,40 @@ GET  /v1/layers/{layer}
 GET  /v1/candidates
 POST /v1/optimize
 GET  /v1/sites/{site_id}
+GET  /v1/sites/{site_id}/street-view
+POST /v1/sites/{site_id}/explanation
 GET  /v1/methodology
 GET  /v1/data-status
+GET  /v1/refresh/status
+POST /v1/refresh
 ```
 
-`POST /v1/optimize` accepts only scenario inputs; it must never call FortyGuard.
+`POST /v1/optimize` accepts validated `budget_usd` and `scoring_preset` only; it must never call
+FortyGuard. Responses include the active preset/weights and four-preset robustness records.
 
-Admin/live refresh should be a CLI script for MVP, not a public endpoint.
+`POST /v1/refresh` is an explicitly invoked, administrator-token-protected server operation. It
+submits only governed heatmap work, rejects unsafe credit projections, polls stored activities, and
+must never expose the FortyGuard key or refresh token to the client bundle.
 
 ## Explanations
 Default deterministic template generated from site evidence.
 
-Optional `EXPLANATION_MODE=llm`:
+Optional `EXPLANATION_MODE=openrouter` with default configured model `stealth/ox-alpha`:
 - input is one compact JSON object for selected site,
 - include only cited evidence already in system,
 - output schema: `summary`, `why_selected`, `limitations`,
 - temperature/cost/effect numbers must be copied from input, never generated,
-- cache by site + scenario hash.
+- cache by site + budget + scoring preset + model hash,
+- fall back visibly to the deterministic explanation on rate limit, invalid output, or network error.
 
 ## Frontend data flow
-- Fetch pilot metadata and layers once.
+- Fetch pilot metadata, status, methodology, candidates, active heat layer, and initial portfolio.
 - Map layers are client-rendered GeoJSON.
-- Budget change -> call `/v1/optimize` only.
+- Budget or scoring-preset change -> call `/v1/optimize` only and announce `0 FortyGuard credits`.
 - Selecting site -> fetch/display site evidence.
-- Never fetch raw FortyGuard Base64 imagery until a user opens an enriched site.
+- Selecting/opening street context -> fetch only normalized cached evidence and its served images;
+  never submit a vendor job from selection.
+- Completed live refresh -> refetch every workspace dependency and preserve the active budget/preset.
 
 ## Impeccable UI implementation
 Before UI code:
@@ -332,6 +367,7 @@ If skill is unavailable, mark UI tasks blocked rather than inventing a substitut
 - missing-data behavior.
 - candidate compatibility.
 - optimizer budget/site constraints.
+- all four scenario vectors, determinism, feasibility, and robustness semantics.
 - credit reserve/caching logic.
 
 ### Integration
@@ -341,7 +377,7 @@ If skill is unavailable, mark UI tasks blocked rather than inventing a substitut
 
 ### E2E
 Golden path:
-`load Pacoima -> toggle layer -> set $500k -> inspect result -> set $1M -> inspect site -> methodology`.
+`load Pacoima -> toggle layer -> set $500k -> inspect result -> set $1M -> switch scenario -> inspect site/street evidence -> explanation -> methodology`.
 
 Assert no FortyGuard request occurs during E2E.
 

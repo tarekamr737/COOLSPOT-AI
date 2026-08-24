@@ -319,7 +319,7 @@ Selected in 4/4 planning scenarios
 ## 10 — Evidence + methodology audit
 
 - [x] Update `PRODUCT.md`.
-- [ ] Update `ARCHITECTURE.md`.
+- [x] Update `ARCHITECTURE.md`.
 - [ ] Update `README.md`.
 - [ ] Update `EVIDENCE.md`.
 - [ ] Update `BUILDLOG.md`.

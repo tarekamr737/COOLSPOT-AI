@@ -921,6 +921,11 @@
   bounded optional evidence, AI explanation-only role, exact StreetsLA pavement eligibility, and
   complete-refresh behavior. A direct config/artifact check confirms three presets at
   `$250k/$500k/$1M`, four scoring scenarios, 172 total candidates, and 20 pavement candidates.
+- Architecture audit proof: `ARCHITECTURE.md` now documents the typed budget/preset optimizer
+  boundary, active scenario scores and robustness output, protected live-refresh endpoint and full
+  workspace reload, exact StreetsLA pavement dependency, bounded `20/10/1` street/environmental/
+  satellite enrichments, cached image serving, and OpenRouter explanation fallback using the
+  configured `stealth/ox-alpha` model. All 21 decision API, optimizer, and explanation tests pass.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.
