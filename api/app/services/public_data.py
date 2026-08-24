@@ -38,6 +38,40 @@ class SourceArtifact(BaseModel):
         return value
 
 
+class GeometryProvenance(BaseModel):
+    """Traceability for a derived, committed geometry snapshot."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    processed_artifact_path: str
+    acquisition_script: str
+    query_aoi: str = Field(min_length=1)
+    pagination_key: str = Field(min_length=1)
+    record_count: int = Field(gt=0)
+    source_geometry_type: str = Field(min_length=1)
+    source_crs: str = Field(min_length=1)
+    output_crs: str = Field(min_length=1)
+
+    @field_validator("processed_artifact_path")
+    @classmethod
+    def require_processed_path(cls, value: str) -> str:
+        path = Path(value)
+        if path.is_absolute() or ".." in path.parts or path.parts[:2] != (
+            "data",
+            "processed",
+        ):
+            raise ValueError("geometry artifact must be a relative path under data/processed")
+        return value
+
+    @field_validator("acquisition_script")
+    @classmethod
+    def require_script_path(cls, value: str) -> str:
+        path = Path(value)
+        if path.is_absolute() or ".." in path.parts or path.parts[:1] != ("scripts",):
+            raise ValueError("acquisition script must be a relative path under scripts")
+        return value
+
+
 class SourceRecord(BaseModel):
     """Traceability and usage metadata for one authoritative dataset."""
 
@@ -52,6 +86,7 @@ class SourceRecord(BaseModel):
     fields: dict[str, str]
     limitations: tuple[str, ...]
     artifacts: tuple[SourceArtifact, ...]
+    geometry_provenance: GeometryProvenance | None = None
 
 
 class SourcesDocument(BaseModel):

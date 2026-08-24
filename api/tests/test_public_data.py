@@ -20,6 +20,7 @@ def test_source_registry_covers_required_inputs() -> None:
 
     assert {
         "pacoima_boundary",
+        "la_city_street_centerlines",
         "lausd_school_sites",
         "la_city_parks",
         "lapl_branches",
@@ -29,6 +30,15 @@ def test_source_registry_covers_required_inputs() -> None:
     } <= source_ids
     assert all(source.license_notes for source in registry.sources)
     assert all(source.limitations for source in registry.sources)
+
+    roadway = next(
+        source for source in registry.sources if source.id == "la_city_street_centerlines"
+    )
+    assert roadway.retrieved_at.isoformat() == "2026-08-25"
+    assert roadway.license_url is not None
+    assert roadway.geometry_provenance is not None
+    assert roadway.geometry_provenance.record_count == 1913
+    assert roadway.geometry_provenance.pagination_key == "AutoID"
 
 
 def test_read_or_fetch_reuses_successful_cache(tmp_path: Path) -> None:

@@ -782,3 +782,9 @@
 - Reproducibility proof: the acquisition sorts by the service-declared object ID, validates each
   page through strict typed schemas, writes atomically, and its committed artifact matches the
   canonical serializer byte-for-byte. Both focused tests, Ruff, and Mypy pass.
+- Provenance proof: `data/sources.json` now names the City of Los Angeles Bureau of Engineering /
+  GIS Mapping Division via GeoHub, the exact MapServer layer, retrieval date `2026-08-25`, City
+  usage terms, retained source-field meanings, source/output CRS, AOI query rule, `AutoID`
+  pagination, acquisition script, committed artifact, and 1,913-record count. It explicitly warns
+  that centerlines do not prove width, ownership, paved material/condition, or constructability.
+  The typed registry tests require this provenance and pass with the geometry tests (`6 passed`).

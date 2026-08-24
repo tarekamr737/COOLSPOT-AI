@@ -194,7 +194,7 @@ priority_score
 ## 7 — Activate cool-pavement candidates
 
 - [x] Acquire authoritative public roadway/corridor/paved-surface geometry for Pacoima.
-- [ ] Record source, retrieval date, license notes, and geometry provenance.
+- [x] Record source, retrieval date, license notes, and geometry provenance.
 - [ ] Generate only candidates on verified public paved geometry.
 - [ ] Keep existing safety requirements for:
   - surface condition,

@@ -21,6 +21,44 @@
       "artifacts": []
     },
     {
+      "id": "la_city_street_centerlines",
+      "title": "Streets (Centerline)",
+      "publisher": "City of Los Angeles Bureau of Engineering / GIS Mapping Division via Los Angeles GeoHub",
+      "dataset_url": "https://maps.lacity.org/lahub/rest/services/Street_Information/MapServer/36",
+      "retrieved_at": "2026-08-25",
+      "data_vintage": "Live service snapshot retrieved 2026-08-25; per-feature LST_MODF_DT retained where published",
+      "license_notes": "City of Los Angeles public data is provided as-is for informational use; the City does not warrant completeness, accuracy, or fitness for a particular purpose.",
+      "license_url": "https://data.lacity.org/terms-of-use",
+      "fields": {
+        "AutoID": "Service-declared object identifier used for stable pagination and deduplication",
+        "ASSETID": "Published street-centerline asset identifier",
+        "STNAME": "Published street name",
+        "STSFX": "Published street suffix",
+        "STATUS": "Published one-character status code; the layer provides no coded-value definition",
+        "ST_SUBTYPE": "Published street subtype code; the layer provides no coded-value definition",
+        "LST_MODF_DT": "Published per-feature last-modified timestamp when available",
+        "BSS_ST_CLASS": "Published Bureau of Street Services class code; the layer provides no coded-value definition",
+        "Street_Designation": "Published planning street designation",
+        "Street_Designation_WO_Mod": "Published street designation without modifier"
+      },
+      "limitations": [
+        "Centerlines represent street alignment, not road width, parcel ownership, right-of-way clearance, pavement material, pavement condition, or construction feasibility.",
+        "The snapshot contains features intersecting the Pacoima AOI bounding envelope; downstream processing must clip or spatially filter against the exact committed Pacoima boundary.",
+        "Undefined status, subtype, and BSS class codes are retained without assigning invented meanings."
+      ],
+      "artifacts": [],
+      "geometry_provenance": {
+        "processed_artifact_path": "data/processed/pacoima_street_centerlines.geojson",
+        "acquisition_script": "scripts/acquire_roadway_geometry.py",
+        "query_aoi": "Bounding envelope derived from data/processed/pacoima_aoi.geojson",
+        "pagination_key": "AutoID",
+        "record_count": 1913,
+        "source_geometry_type": "esriGeometryPolyline",
+        "source_crs": "EPSG:2229 (service sourceSpatialReference latestWkid)",
+        "output_crs": "EPSG:4326"
+      }
+    },
+    {
       "id": "lausd_school_sites",
       "title": "LAUSD School Site Locations",
       "publisher": "Los Angeles Unified School District via Los Angeles GeoHub",
