@@ -284,7 +284,7 @@ Selected in 4/4 planning scenarios
 
 - [x] Re-run Impeccable against the new golden path before coding UI changes.
 - [x] Add scenario preset control without cluttering the main workspace.
-- [ ] Upgrade recommendation/site drawer with:
+- [x] Upgrade recommendation/site drawer with:
   - FortyGuard heat,
   - persistence,
   - exceedance,

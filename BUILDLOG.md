@@ -335,3 +335,6 @@
 - Propagated the selected scenario into explanation validation and caching. Without that, a site
   selected only under heat/equity/exposure-first could be rejected against the balanced portfolio or
   receive balanced score wording after the UI changed priorities.
+- Added selected-candidate scenario scores to the optimizer response instead of recomputing them in
+  React. This keeps ranking and display tied to the deterministic backend coefficients and avoids
+  showing canonical balanced candidate impacts under another planning preset.

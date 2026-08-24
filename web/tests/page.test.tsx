@@ -61,6 +61,13 @@ describe("Home", () => {
     expect(screen.getByText("43.5%")).toBeInTheDocument();
     expect(screen.getByText("Street context confidence").nextElementSibling).toHaveTextContent("0.792");
     expect(screen.getByText("Shade opportunity screen").nextElementSibling).toHaveTextContent("0.565");
+    expect(screen.getByLabelText("Decision screening factors")).toHaveTextContent("Scenario priority");
+    expect(screen.getByLabelText("Decision screening factors")).toHaveTextContent("Intervention evidence");
+    expect(screen.getByLabelText("Decision screening factors")).toHaveTextContent("Feasibility");
+    expect(screen.getByLabelText("Decision screening factors")).toHaveTextContent("Scenario robustness");
+    fireEvent.click(screen.getByRole("button", { name: "View street images" }));
+    expect(await screen.findByRole("button", { name: "Street image" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Segmentation" })).toHaveAttribute("aria-pressed", "true");
     expect(screen.getByText(/does not prove all-day shade/i)).toBeInTheDocument();
     expect(screen.getAllByText("Historical exceedance")).toHaveLength(2);
     expect(screen.getByText(/6.89 hours above 30 °C/)).toBeInTheDocument();

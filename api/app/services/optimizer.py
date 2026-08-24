@@ -91,6 +91,14 @@ class SiteRobustness(BaseModel):
         return self
 
 
+class SelectedCandidateScore(BaseModel):
+    model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
+
+    candidate_id: str = Field(min_length=1)
+    scenario_priority_score: float = Field(ge=0, le=1)
+    modeled_impact_score: float = Field(ge=0, le=1)
+
+
 class PortfolioResult(BaseModel):
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
 
@@ -102,6 +110,7 @@ class PortfolioResult(BaseModel):
     unused_budget_usd: int = Field(ge=0)
     selected_count: int = Field(ge=0)
     selected_candidate_ids: tuple[str, ...]
+    selected_candidate_scores: tuple[SelectedCandidateScore, ...]
     total_modeled_impact_score: float = Field(ge=0)
     integer_objective_value: int = Field(ge=0)
     objective_scale: int = Field(gt=0)
@@ -118,6 +127,9 @@ class PortfolioResult(BaseModel):
             raise ValueError("selected count does not match candidate IDs")
         if self.selected_candidate_ids != tuple(sorted(set(self.selected_candidate_ids))):
             raise ValueError("selected candidate IDs must be unique and sorted")
+        score_ids = tuple(score.candidate_id for score in self.selected_candidate_scores)
+        if score_ids != self.selected_candidate_ids:
+            raise ValueError("selected candidate scores must match selected candidate IDs")
         category_total = sum(self.category_counts.model_dump().values())
         if category_total != self.selected_count:
             raise ValueError("category counts do not match selected count")
@@ -183,12 +195,15 @@ def optimize_portfolio(
     )
     if missing_tiles:
         raise ValueError(f"candidate tile scores are missing for: {', '.join(missing_tiles)}")
-    modeled_impacts = tuple(
-        _modeled_impact(
-            candidate,
-            scenario_priority(scores_by_tile[candidate.tile_id], scenario.weights),
-        )
+    scenario_priorities = tuple(
+        scenario_priority(scores_by_tile[candidate.tile_id], scenario.weights)
         for candidate in active_candidates
+    )
+    modeled_impacts = tuple(
+        _modeled_impact(candidate, priority)
+        for candidate, priority in zip(
+            active_candidates, scenario_priorities, strict=True
+        )
     )
 
     model = cp_model.CpModel()
@@ -263,6 +278,14 @@ def optimize_portfolio(
         unused_budget_usd=budget_usd - total_cost,
         selected_count=len(selected),
         selected_candidate_ids=selected_ids,
+        selected_candidate_scores=tuple(
+            SelectedCandidateScore(
+                candidate_id=active_candidates[index].id,
+                scenario_priority_score=scenario_priorities[index],
+                modeled_impact_score=modeled_impacts[index],
+            )
+            for index in selected_indexes
+        ),
         total_modeled_impact_score=round(math.fsum(impacts), 8),
         integer_objective_value=sum(primary_coefficients[index] for index in selected_indexes),
         objective_scale=active_config.objective_scale,

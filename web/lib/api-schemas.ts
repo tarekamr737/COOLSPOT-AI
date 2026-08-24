@@ -272,6 +272,11 @@ export const portfolioSchema = z.object({
   unused_budget_usd: z.number().int().nonnegative(),
   selected_count: z.number().int().nonnegative(),
   selected_candidate_ids: z.array(z.string()),
+  selected_candidate_scores: z.array(z.object({
+    candidate_id: z.string().min(1),
+    scenario_priority_score: z.number().min(0).max(1),
+    modeled_impact_score: z.number().min(0).max(1),
+  })),
   total_modeled_impact_score: z.number().nonnegative(),
   integer_objective_value: z.number().int().nonnegative(),
   objective_scale: z.number().int().positive(),

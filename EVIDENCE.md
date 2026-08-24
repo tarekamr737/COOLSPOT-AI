@@ -879,6 +879,14 @@
   deterministic summaries recompute the displayed priority and modeled impact from that scenario's
   weights. Thirteen focused backend tests, frontend strict types, zero-warning lint, and all eight
   active UI tests pass.
+- Drawer-completeness proof: the selected-site drawer now presents dated FortyGuard heat,
+  persistence, exceedance and peak timing; optional point environmental context; a direct control
+  into cached original/segmented Street View; scenario priority, intervention evidence,
+  feasibility, confidence and robustness; local cost basis/range; sources and limitations.
+- Scenario-score proof: portfolio responses carry the selected candidates' exact scenario priority
+  and modeled impact scores. Both the ranked rail and drawer use those returned values, preventing
+  balanced-score remnants after a preset change. Fifteen focused backend tests and all eight active
+  UI tests pass with both language toolchains clean.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.

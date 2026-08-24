@@ -144,6 +144,11 @@ export function portfolio(budget = 500_000, scoringPreset = "balanced") {
     unused_budget_usd: budget - count * 50_000,
     selected_count: count,
     selected_candidate_ids: candidates.slice(0, count).map((candidate) => candidate.id),
+    selected_candidate_scores: candidates.slice(0, count).map((candidate) => ({
+      candidate_id: candidate.id,
+      scenario_priority_score: candidate.benefit_score,
+      modeled_impact_score: candidate.value_explanation.modeled_benefit_score,
+    })),
     total_modeled_impact_score: count * 0.2,
     integer_objective_value: count * 200_000,
     objective_scale: 1_000_000,
@@ -270,16 +275,17 @@ export function explanation(index = 0, budget = 500_000, scoringPreset = "balanc
 }
 
 export function streetView(siteId: string) {
+  const available = siteId === "site-0";
   return {
     site_id: siteId,
-    available: false,
-    image_date: null,
-    original_image_url: null,
-    segmented_image_url: null,
-    segments: {},
+    available,
+    image_date: available ? "2024-04-21" : null,
+    original_image_url: available ? "/api/coolspot/street/original" : null,
+    segmented_image_url: available ? "/api/coolspot/street/segmented" : null,
+    segments: available ? { sky: 43.5, road: 24.2, tree: 10.1 } : {},
     source_label: "FortyGuard Street View Segmentation",
     source_url: "https://docs-api.fortyguard.com/docs/street-view-segmentation",
-    limitation: "No verified street segmentation is cached for this site.",
+    limitation: available ? "One dated view is context only." : "No verified street segmentation is cached for this site.",
   };
 }
 

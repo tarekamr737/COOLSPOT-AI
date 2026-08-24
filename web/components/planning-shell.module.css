@@ -1307,6 +1307,35 @@
   line-height: 1.6;
 }
 
+.decisionFactors {
+  margin: 0 1.25rem 1rem;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.decisionFactors div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.decisionFactors div + div {
+  border-top: 1px solid var(--outline-variant);
+}
+
+.decisionFactors dt {
+  color: var(--on-surface-muted);
+  font-size: 0.6875rem;
+}
+
+.decisionFactors dd {
+  margin: 0;
+  color: var(--on-surface);
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+}
+
 .evidenceList {
   margin: 0;
   padding: 0.5rem 1.25rem;
@@ -1363,6 +1392,24 @@
   font-family: var(--font-data);
   font-size: 0.625rem;
   text-align: right;
+}
+
+.streetEvidenceHeading > button {
+  min-height: 2rem;
+  border: 1px solid var(--outline-variant);
+  border-radius: 0.25rem;
+  padding: 0.35rem 0.55rem;
+  background: var(--surface-high);
+  color: var(--on-surface);
+  font: inherit;
+  font-size: 0.6875rem;
+  cursor: pointer;
+}
+
+.streetEvidenceHeading > button:hover,
+.streetEvidenceHeading > button:focus-visible {
+  border-color: var(--secondary);
+  outline: none;
 }
 
 .streetEvidenceProvenance,
