@@ -900,6 +900,11 @@
   around the sole fluid `minmax(28rem, 1fr)` map column. At narrower breakpoints the map remains the
   first workspace surface before recommendation and evidence content. The eight-test golden UI
   regression confirms the interactive map region remains present and primary.
+- Zero-credit replan proof: the budget overlay's live status now announces the exact result as
+  `N sites · 0 FortyGuard credits`, while the persistent portfolio summary independently displays
+  `FortyGuard credits: 0`. The budget regression still verifies that re-optimization makes no
+  request to any FortyGuard URL; strict typecheck, zero-warning lint, and all eight active frontend
+  tests pass.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.

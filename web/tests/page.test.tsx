@@ -108,7 +108,7 @@ describe("Home", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "$1M" }));
     await screen.findByRole("heading", { name: "$1,000,000 budget" });
-    await waitFor(() => expect(screen.getByText("20 sites · zero vendor calls")).toBeInTheDocument());
+    await waitFor(() => expect(screen.getByText("20 sites · 0 FortyGuard credits")).toBeInTheDocument());
 
     const calls = vi.mocked(fetch).mock.calls;
     expect(calls.some(([url]) => String(url).endsWith("/layers/persistence"))).toBe(true);

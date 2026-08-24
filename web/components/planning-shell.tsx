@@ -172,7 +172,7 @@ function RecommendationRail({ candidates, portfolio, activeCandidateId, onSelect
   );
   return <aside className={styles.recommendationRail} aria-labelledby="recommendations-title">
     <div className={styles.railHeading}><div><p className={styles.eyebrow}>Optimized portfolio</p><h2 id="recommendations-title">Ranked recommendations</h2></div><span className={styles.countBadge}>{portfolio.selected_count} sites</span></div>
-    <div className={styles.portfolioSummary} aria-label="Portfolio summary"><div><span>Budget allocated</span><strong>{compactCurrency(portfolio.total_cost_usd)}</strong></div><div><span>Modeled impact</span><strong>{portfolio.total_modeled_impact_score.toFixed(3)}</strong></div><div><span>Replan credits</span><strong>0</strong></div></div>
+    <div className={styles.portfolioSummary} aria-label="Portfolio summary"><div><span>Budget allocated</span><strong>{compactCurrency(portfolio.total_cost_usd)}</strong></div><div><span>Modeled impact</span><strong>{portfolio.total_modeled_impact_score.toFixed(3)}</strong></div><div><span>FortyGuard credits</span><strong>0</strong></div></div>
     <p className={styles.robustnessNote}>Scenario stability only, not statistical confidence.</p>
     <ol className={styles.recommendationList}>{candidates.map((candidate, index) => <li className={styles.recommendation} key={candidate.id}>
       <button aria-current={candidate.id === activeCandidateId ? "true" : undefined} className={styles.recommendationButton} onClick={() => onSelect(candidate)} type="button">
@@ -193,7 +193,7 @@ function BudgetBar({ budget, portfolio, methodology, optimizing, onCommit, onPre
       <label className={styles.sliderLabel}><span className="sr-only">Custom budget</span><input aria-valuetext={currency.format(budget)} disabled={optimizing} max={optimization.custom_budget_max_usd} min={optimization.custom_budget_min_usd} onChange={(event) => onPreview(Number(event.currentTarget.value))} onKeyUp={(event) => onCommit(Number(event.currentTarget.value))} onPointerUp={(event) => onCommit(Number(event.currentTarget.value))} step={50_000} type="range" value={budget} /></label>
     </div>
     <label className={styles.scenarioControl}><span>Planning priority</span><select aria-label="Planning priority" disabled={optimizing} onChange={(event) => onScenarioChange(event.currentTarget.value as ScoringPreset)} value={portfolio.scoring_preset}>{scoringPresets.map((preset) => <option key={preset} value={preset}>{scenarioLabels[preset]}</option>)}</select><small>H {Math.round(weights.heat * 100)} · E {Math.round(weights.exposure * 100)} · V {Math.round(weights.vulnerability * 100)} · O {Math.round(weights.cooling_opportunity * 100)}</small></label>
-    <p aria-live="polite" className={styles.budgetNote}>{optimizing ? "Re-optimizing…" : `${portfolio.selected_count} sites · zero vendor calls`}</p>
+    <p aria-live="polite" className={styles.budgetNote}>{optimizing ? "Re-optimizing…" : `${portfolio.selected_count} sites · 0 FortyGuard credits`}</p>
   </section>;
 }
 

@@ -308,7 +308,7 @@ Selected in 4/4 planning scenarios
   - `Planning assumption`
   - `Field verification required`
 - [x] Keep map-first hierarchy.
-- [ ] Keep budget recalculation visibly at `0 FortyGuard credits`.
+- [x] Keep budget recalculation visibly at `0 FortyGuard credits`.
 - [ ] Re-run Impeccable after implementation.
 - [ ] Fix accessibility, responsiveness, hierarchy, empty/error states, and keyboard navigation.
 
