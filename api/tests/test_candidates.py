@@ -28,6 +28,7 @@ from api.app.services.roadway_geometry import (
     DEFAULT_PAVEMENT_PATH,
     load_pavement_conditions,
 )
+from api.app.services.satellite_evidence import DEFAULT_SATELLITE_EVIDENCE_PATH
 from api.app.services.streetview_evidence import (
     DEFAULT_STREETVIEW_EVIDENCE_PATH,
     load_street_view_evidence_artifact,
@@ -85,7 +86,9 @@ def test_real_candidates_are_complete_compatible_and_traceable() -> None:
             in item.statement
             for item in candidate.evidence
         )
-        assert len(candidate.evidence) == 6
+        assert len(candidate.evidence) == (
+            7 if candidate.satellite_surface_context is not None else 6
+        )
 
     assert len({candidate.confidence for candidate in artifact.candidates}) > 2
     assert all(candidate.feasibility_score == 0.5 for candidate in artifact.candidates)
@@ -98,6 +101,17 @@ def test_real_candidates_are_complete_compatible_and_traceable() -> None:
         candidate.thermal_stress_context is None
         or candidate.thermal_stress_context.site_id == candidate.site_id
         for candidate in artifact.candidates
+    )
+    satellite_candidates = tuple(
+        candidate for candidate in artifact.candidates if candidate.satellite_surface_context
+    )
+    assert len(satellite_candidates) == 1
+    assert satellite_candidates[0].id == "cool_pavement:pavement:21486"
+    assert satellite_candidates[0].satellite_surface_context is not None
+    assert (
+        satellite_candidates[0]
+        .satellite_surface_context.surface_class_coverage.combined_surface_class_percent
+        == 67.8
     )
     assert all(
         candidate.thermal_stress_context is None
@@ -179,6 +193,7 @@ def test_candidate_artifact_is_canonical_and_hashes_all_inputs() -> None:
         CandidateSourceArtifact.STREET_VIEW_EVIDENCE: DEFAULT_STREETVIEW_EVIDENCE_PATH,
         CandidateSourceArtifact.ENVIRONMENTAL_EVIDENCE: DEFAULT_ENVIRONMENTAL_EVIDENCE_PATH,
         CandidateSourceArtifact.PAVEMENT_CONDITION: DEFAULT_PAVEMENT_PATH,
+        CandidateSourceArtifact.SATELLITE_EVIDENCE: DEFAULT_SATELLITE_EVIDENCE_PATH,
     }
 
     assert DEFAULT_CANDIDATES_PATH.read_bytes() == canonical_candidate_bytes(artifact)

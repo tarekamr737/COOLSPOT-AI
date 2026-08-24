@@ -6,12 +6,9 @@ import asyncio
 from datetime import UTC, datetime
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
 from shapely.geometry import Point, shape
 
 from api.app.fortyguard_models import (
-    ACTIVITY_ID_PATTERN,
-    SHA256_PATTERN,
     ActivityLifecycle,
     FortyGuardEndpoint,
     SatelliteCoordinates,
@@ -23,6 +20,10 @@ from api.app.services.credits import CreditGovernor, CreditLedger, CreditSetting
 from api.app.services.fortyguard import FortyGuardClient, canonical_request_hash
 from api.app.services.heatmap_data import load_heatmap_artifact
 from api.app.services.interventions import InterventionType
+from api.app.services.satellite_evidence import (
+    DEFAULT_SATELLITE_PROBE_PATH,
+    SatelliteProbeReport,
+)
 from scripts.measure_fortyguard_heatmap import (
     CACHE_ROOT,
     LEDGER_PATH,
@@ -36,46 +37,7 @@ from scripts.measure_fortyguard_heatmap import (
 )
 
 JOURNAL_PATH = RAW_ROOT / "satellite_probe_journal.json"
-REPORT_PATH = ROOT / "data" / "processed" / "fortyguard_satellite_probe.json"
-
-
-class SatelliteProbeReport(BaseModel):
-    """Secret-free result and credit provenance for the sole satellite probe."""
-
-    model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
-
-    version: Literal["1.0"] = "1.0"
-    measured_at: datetime
-    endpoint: Literal["satellite"] = "satellite"
-    request_hash: str = Field(pattern=SHA256_PATTERN)
-    activity_id: str = Field(pattern=ACTIVITY_ID_PATTERN)
-    candidate_id: str
-    site_id: str
-    site_name: str
-    tile_id: str
-    request: SatelliteRequest
-    status: Literal["Completed", "Failed"]
-    result: SatelliteResult | None = None
-    usage_before: int = Field(ge=0)
-    usage_after: int = Field(ge=0)
-    observed_credit_delta: int = Field(ge=0)
-    total_allocation: int = Field(default=2_000_000, ge=500_001, le=2_000_000)
-    hard_reserve: int = Field(default=500_000, ge=500_000)
-    remaining_after: int = Field(ge=500_000)
-    source_url: Literal["https://api.fortyguard.com/v1/satellite"] = (
-        "https://api.fortyguard.com/v1/satellite"
-    )
-    limitations: tuple[str, ...] = Field(min_length=1)
-
-    @model_validator(mode="after")
-    def validate_outcome(self) -> SatelliteProbeReport:
-        if (self.status == "Completed") != (self.result is not None):
-            raise ValueError("only a completed satellite probe may include a result")
-        if self.observed_credit_delta != self.usage_after - self.usage_before:
-            raise ValueError("observed delta does not match usage counters")
-        if self.remaining_after != self.total_allocation - self.usage_after:
-            raise ValueError("remaining credits do not match allocation minus usage")
-        return self
+REPORT_PATH = DEFAULT_SATELLITE_PROBE_PATH
 
 
 def select_probe_candidate() -> Candidate:

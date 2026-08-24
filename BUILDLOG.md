@@ -313,3 +313,6 @@
   `original_image` keys. After the first strict parse failed, polling the same cached activity also
   exposed a second-pass normalization path using `original_images`. The adapter now accepts equal
   aliases, rejects conflicting values, and is idempotent; no second satellite job was submitted.
+- Satellite segmentation is joined as exact-finalist evidence only, not converted into a new
+  ranking scalar. This preserves the deterministic objective while exposing the one observed
+  overhead surface result; later scenario work can only use it after a separate versioned rule.

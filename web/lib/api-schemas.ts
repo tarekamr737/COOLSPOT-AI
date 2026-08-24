@@ -68,6 +68,7 @@ const evidenceSchema = z.object({
     "planning_assumption",
     "street_context",
     "pavement",
+    "satellite_surface",
   ]),
   statement: z.string().min(1),
   source_artifact_ids: z.array(z.string()).min(1),
@@ -102,11 +103,40 @@ const thermalStressContextSchema = z.object({
   }),
 });
 
+const satelliteSurfaceContextSchema = z.object({
+  candidate_id: z.string().min(1),
+  site_id: z.string().min(1),
+  tile_id: z.string().min(1),
+  latitude: z.number().min(-90).max(90),
+  longitude: z.number().min(-180).max(180),
+  image_year: z.number().int().min(2019),
+  image_width_px: z.number().int().positive(),
+  image_height_px: z.number().int().positive(),
+  segments: z.record(z.string(), z.number().min(0).max(100)),
+  surface_class_coverage: z.object({
+    road_route_percent: z.number().min(0).max(100),
+    sidewalk_pavement_percent: z.number().min(0).max(100),
+    combined_surface_class_percent: z.number().min(0).max(100),
+  }),
+  request_hash: z.string().regex(/^[0-9a-f]{64}$/),
+  activity_id: z.string().min(1),
+  observed_credit_delta: z.number().int().nonnegative(),
+  source_url: z.literal("https://docs-api.fortyguard.com/docs/satellite-view-segmentation"),
+  assessment: z.literal("source_complete"),
+  limitation: z.string().min(1),
+});
+
 export const candidateSchema = z.object({
   id: z.string().min(1),
   site_id: z.string().min(1),
   site_name: z.string().min(1),
-  site_type: z.enum(["transit_stop", "school", "park", "civic", "paved_surface"]),
+  site_type: z.enum([
+    "transit_stop",
+    "school",
+    "park",
+    "public_corridor",
+    "public_paved_surface",
+  ]),
   site_source_ids: z.array(z.string()).min(1),
   tile_id: z.string().min(1),
   intersecting_tile_count: z.number().int().positive(),
@@ -131,6 +161,7 @@ export const candidateSchema = z.object({
     limitation: z.string().min(1),
   }),
   thermal_stress_context: thermalStressContextSchema.nullable(),
+  satellite_surface_context: satelliteSurfaceContextSchema.nullable(),
   evidence: z.array(evidenceSchema).min(5),
   geometry: geometrySchema,
 });

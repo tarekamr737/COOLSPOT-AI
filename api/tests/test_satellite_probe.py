@@ -1,9 +1,11 @@
 """Offline tests for the single governed pavement satellite probe."""
 
 from api.app.services.interventions import InterventionType
-from scripts.probe_fortyguard_satellite import (
-    REPORT_PATH,
+from api.app.services.satellite_evidence import (
+    DEFAULT_SATELLITE_PROBE_PATH,
     SatelliteProbeReport,
+)
+from scripts.probe_fortyguard_satellite import (
     build_satellite_probe_request,
     select_probe_candidate,
 )
@@ -23,7 +25,9 @@ def test_probe_targets_top_verified_pavement_candidate_deterministically() -> No
 
 
 def test_committed_probe_is_complete_credit_safe_and_surface_specific() -> None:
-    report = SatelliteProbeReport.model_validate_json(REPORT_PATH.read_text(encoding="utf-8"))
+    report = SatelliteProbeReport.model_validate_json(
+        DEFAULT_SATELLITE_PROBE_PATH.read_text(encoding="utf-8")
+    )
 
     assert report.status == "Completed"
     assert report.result is not None

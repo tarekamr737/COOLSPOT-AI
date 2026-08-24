@@ -67,6 +67,7 @@
       "intersecting_tile_count": 3,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:14056",
       "site_name": "VAUGHN ST: GLENOAKS BL / DE GARMO AV",
       "site_source_ids": [
@@ -163,6 +164,7 @@
       "intersecting_tile_count": 3,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:14976",
       "site_name": "MONTAGUE ST: LAUREL CANYON BL / REMICK AV",
       "site_source_ids": [
@@ -259,6 +261,7 @@
       "intersecting_tile_count": 3,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:177076",
       "site_name": "LAUREL CANYON BL: TERRA BELLA ST / GLAMIS ST",
       "site_source_ids": [
@@ -351,6 +354,7 @@
       "intersecting_tile_count": 5,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:1815",
       "site_name": "O'MELVENY AV: VAN NUYS BL / CARL ST",
       "site_source_ids": [
@@ -423,6 +427,13 @@
             "pacoima_pavement_condition"
           ],
           "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        },
+        {
+          "kind": "satellite_surface",
+          "source_artifact_ids": [
+            "pacoima_satellite_evidence"
+          ],
+          "statement": "The exact finalist's 2026 FortyGuard satellite segmentation reports 59.41% road, route and 8.39% sidewalk, pavement class coverage (67.80% combined). Dated overhead class coverage is surface-screening context for this exact finalist only. It does not establish ownership, current pavement condition, treatment area, traction, glare, drainage, pedestrian radiant exposure, product compatibility, permits, or construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -443,6 +454,36 @@
       "intersecting_tile_count": 8,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": {
+        "activity_id": "54e55cc7-c2be-46bf-866f-4c663c1b2dad",
+        "assessment": "source_complete",
+        "candidate_id": "cool_pavement:pavement:21486",
+        "image_height_px": 395,
+        "image_width_px": 395,
+        "image_year": 2026,
+        "latitude": 34.27129442261886,
+        "limitation": "Dated overhead class coverage is surface-screening context for this exact finalist only. It does not establish ownership, current pavement condition, treatment area, traction, glare, drainage, pedestrian radiant exposure, product compatibility, permits, or construction feasibility.",
+        "longitude": -118.41498370709242,
+        "observed_credit_delta": 14400,
+        "request_hash": "839afb7ccdcf43302459c9a6cadbc9372b3d8fb0242f75061df8278f636ea6a7",
+        "segments": {
+          "building": 22.85,
+          "earth, ground": 0.61,
+          "grass": 1.83,
+          "others": 1.56,
+          "road, route": 59.41,
+          "sidewalk, pavement": 8.39,
+          "tree": 5.35
+        },
+        "site_id": "pavement:21486",
+        "source_url": "https://docs-api.fortyguard.com/docs/satellite-view-segmentation",
+        "surface_class_coverage": {
+          "combined_surface_class_percent": 67.8,
+          "road_route_percent": 59.41,
+          "sidewalk_pavement_percent": 8.39
+        },
+        "tile_id": "1355"
+      },
       "site_id": "pavement:21486",
       "site_name": "HERRICK AV: VAN NUYS BL / PIERCE ST",
       "site_source_ids": [
@@ -535,6 +576,7 @@
       "intersecting_tile_count": 2,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:26259",
       "site_name": "LAUREL CANYON BL: GOLETA ST / KAGEL CANYON ST",
       "site_source_ids": [
@@ -627,6 +669,7 @@
       "intersecting_tile_count": 4,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:28792",
       "site_name": "OSBORNE ST: LAUREL CANYON BL / REMICK AV",
       "site_source_ids": [
@@ -719,6 +762,7 @@
       "intersecting_tile_count": 4,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:28951",
       "site_name": "PAXTON ST: FELLOWS AV / GLENOAKS BL",
       "site_source_ids": [
@@ -811,6 +855,7 @@
       "intersecting_tile_count": 7,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:33888",
       "site_name": "GLENOAKS BL: VAN NUYS BL / PIERCE ST",
       "site_source_ids": [
@@ -903,6 +948,7 @@
       "intersecting_tile_count": 2,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:33889",
       "site_name": "VAN NUYS BL: DE FOE AV / HERRICK AV",
       "site_source_ids": [
@@ -995,6 +1041,7 @@
       "intersecting_tile_count": 3,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:38761",
       "site_name": "GLENOAKS BL: CORCORAN ST / DEL SUR ST",
       "site_source_ids": [
@@ -1091,6 +1138,7 @@
       "intersecting_tile_count": 6,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:51034",
       "site_name": "PIERCE ST: BORDEN AV / GLENOAKS BL",
       "site_source_ids": [
@@ -1183,6 +1231,7 @@
       "intersecting_tile_count": 3,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:58374",
       "site_name": "DESMOND ST: SAN FERNANDO RD / ILEX AV",
       "site_source_ids": [
@@ -1279,6 +1328,7 @@
       "intersecting_tile_count": 8,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:58378",
       "site_name": "NORRIS AV: VAN NUYS BL / PIERCE ST",
       "site_source_ids": [
@@ -1371,6 +1421,7 @@
       "intersecting_tile_count": 4,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:60837",
       "site_name": "RINCON AV: VAN NUYS BL / CARL ST",
       "site_source_ids": [
@@ -1463,6 +1514,7 @@
       "intersecting_tile_count": 3,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:60882",
       "site_name": "VAN NUYS BL: LEHIGH AV / BRADLEY AV",
       "site_source_ids": [
@@ -1563,6 +1615,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:6669",
       "site_name": "LAUREL CANYON BL: CHAMBERLAIN ST / PAXTON ST",
       "site_source_ids": [
@@ -1655,6 +1708,7 @@
       "intersecting_tile_count": 3,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:68158",
       "site_name": "DAVENTRY ST: LAUREL CANYON BL / REMICK AV",
       "site_source_ids": [
@@ -1751,6 +1805,7 @@
       "intersecting_tile_count": 3,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:9080",
       "site_name": "NORRIS AV: PINNEY ST / VAN NUYS BL",
       "site_source_ids": [
@@ -1843,6 +1898,7 @@
       "intersecting_tile_count": 2,
       "intervention_type": "cool_pavement",
       "planning_cost_usd": 120000,
+      "satellite_surface_context": null,
       "site_id": "pavement:9108",
       "site_name": "VAN NUYS BL: ONEIDA AV / HADDON AV",
       "site_source_ids": [
@@ -1930,6 +1986,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:10554",
       "site_name": "Foothill / Arroyo",
       "site_source_ids": [
@@ -2018,6 +2075,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:10560",
       "site_name": "Foothill / Clybourn",
       "site_source_ids": [
@@ -2106,6 +2164,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:10570",
       "site_name": "Foothill / Filmore",
       "site_source_ids": [
@@ -2194,6 +2253,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:10594",
       "site_name": "Foothill / Paxton",
       "site_source_ids": [
@@ -2282,6 +2342,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:10607",
       "site_name": "Foothill / Terra Bella",
       "site_source_ids": [
@@ -2370,6 +2431,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:10612",
       "site_name": "Foothill / Van Nuys",
       "site_source_ids": [
@@ -2458,6 +2520,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:10613",
       "site_name": "Foothill / Vaughn",
       "site_source_ids": [
@@ -2546,6 +2609,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:10757",
       "site_name": "Glenoaks / Gain",
       "site_source_ids": [
@@ -2634,6 +2698,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:10769",
       "site_name": "Glenoaks / Filmore",
       "site_source_ids": [
@@ -2722,6 +2787,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:10775",
       "site_name": "Glenoaks / Montague",
       "site_source_ids": [
@@ -2810,6 +2876,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:10782",
       "site_name": "Glenoaks / Osborne",
       "site_source_ids": [
@@ -2898,6 +2965,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:10787",
       "site_name": "Glenoaks / Pierce",
       "site_source_ids": [
@@ -3015,6 +3083,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:10794",
       "site_name": "Glenoaks / Van Nuys",
       "site_source_ids": [
@@ -3105,6 +3174,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:10795",
       "site_name": "Glenoaks / Vaughn",
       "site_source_ids": [
@@ -3222,6 +3292,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:11391",
       "site_name": "Laurel Canyon / Filmore",
       "site_source_ids": [
@@ -3310,6 +3381,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:11394",
       "site_name": "Laurel Canyon / Kagel Canyon",
       "site_source_ids": [
@@ -3398,6 +3470,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:11397",
       "site_name": "Laurel Canyon / Montague",
       "site_source_ids": [
@@ -3486,6 +3559,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:11399",
       "site_name": "Laurel Canyon / Osborne",
       "site_source_ids": [
@@ -3574,6 +3648,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:11403",
       "site_name": "Laurel Canyon / Pierce",
       "site_source_ids": [
@@ -3662,6 +3737,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:11412",
       "site_name": "Laurel Canyon / Terra Bella",
       "site_source_ids": [
@@ -3750,6 +3826,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:11414",
       "site_name": "Laurel Canyon / Van Nuys",
       "site_source_ids": [
@@ -3838,6 +3915,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:12617",
       "site_name": "12411 Osborne",
       "site_source_ids": [
@@ -3926,6 +4004,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:12620",
       "site_name": "Osborne / Bradley",
       "site_source_ids": [
@@ -4014,6 +4093,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:12623",
       "site_name": "Glenoaks / Osborne Pl",
       "site_source_ids": [
@@ -4102,6 +4182,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:12624",
       "site_name": "Osborne / Glenoaks",
       "site_source_ids": [
@@ -4190,6 +4271,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:12626",
       "site_name": "Osborne / Haddon",
       "site_source_ids": [
@@ -4278,6 +4360,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:12627",
       "site_name": "Osborne / Laurel Canyon",
       "site_source_ids": [
@@ -4366,6 +4449,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:12628",
       "site_name": "Osborne / San Fernando",
       "site_source_ids": [
@@ -4454,6 +4538,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:12629",
       "site_name": "Osborne / Telfair",
       "site_source_ids": [
@@ -4542,6 +4627,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:12806",
       "site_name": "Glenoaks / Paxton",
       "site_source_ids": [
@@ -4630,6 +4716,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:14184",
       "site_name": "San Fernando / Del Sur",
       "site_source_ids": [
@@ -4718,6 +4805,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:14199",
       "site_name": "San Fernando / Branford",
       "site_source_ids": [
@@ -4806,6 +4894,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:14201",
       "site_name": "San Fernando / Desmond",
       "site_source_ids": [
@@ -4896,6 +4985,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:14203",
       "site_name": "San Fernando / Filmore",
       "site_source_ids": [
@@ -4984,6 +5074,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:14206",
       "site_name": "San Fernando / Kagel Canyon",
       "site_source_ids": [
@@ -5072,6 +5163,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:142066",
       "site_name": "Van Nuys / Glenoaks Layover",
       "site_source_ids": [
@@ -5189,6 +5281,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:14210",
       "site_name": "San Fernando / Montague",
       "site_source_ids": [
@@ -5277,6 +5370,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:14212",
       "site_name": "San Fernando / Osborne",
       "site_source_ids": [
@@ -5365,6 +5459,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:14213",
       "site_name": "San Fernando / Paxton",
       "site_source_ids": [
@@ -5453,6 +5548,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:14217",
       "site_name": "San Fernando / Pierce",
       "site_source_ids": [
@@ -5541,6 +5637,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:14230",
       "site_name": "San Fernando / Terra Bella",
       "site_source_ids": [
@@ -5629,6 +5726,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:14235",
       "site_name": "San Fernando / Van Nuys",
       "site_source_ids": [
@@ -5717,6 +5815,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:15127",
       "site_name": "Van Nuys / Borden",
       "site_source_ids": [
@@ -5805,6 +5904,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:15128",
       "site_name": "Van Nuys / Bradley",
       "site_source_ids": [
@@ -5893,6 +5993,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:15135",
       "site_name": "Van Nuys / Dronfield",
       "site_source_ids": [
@@ -5981,6 +6082,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:15137",
       "site_name": "Van Nuys / Foothill",
       "site_source_ids": [
@@ -6069,6 +6171,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:15138",
       "site_name": "Van Nuys / Glenoaks",
       "site_source_ids": [
@@ -6159,6 +6262,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:15139",
       "site_name": "Van Nuys / Haddon",
       "site_source_ids": [
@@ -6276,6 +6380,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:15143",
       "site_name": "Van Nuys / Herrick",
       "site_source_ids": [
@@ -6366,6 +6471,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:15146",
       "site_name": "Van Nuys / Kewen",
       "site_source_ids": [
@@ -6454,6 +6560,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:15149",
       "site_name": "Van Nuys / Laurel Canyon",
       "site_source_ids": [
@@ -6542,6 +6649,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:15154",
       "site_name": "Van Nuys / Norris",
       "site_source_ids": [
@@ -6630,6 +6738,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:15160",
       "site_name": "Van Nuys / Ralston",
       "site_source_ids": [
@@ -6718,6 +6827,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:15170",
       "site_name": "Van Nuys / Telfair",
       "site_source_ids": [
@@ -6806,6 +6916,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:1842",
       "site_name": "Branford / Glenoaks",
       "site_source_ids": [
@@ -6894,6 +7005,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:19059",
       "site_name": "San Fernando / Paxton",
       "site_source_ids": [
@@ -6982,6 +7094,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:196",
       "site_name": "Van Nuys / Laurel Canyon",
       "site_source_ids": [
@@ -7072,6 +7185,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:20073",
       "site_name": "Laurel Canyon / Montague",
       "site_source_ids": [
@@ -7160,6 +7274,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2042",
       "site_name": "Foothill / Osborne",
       "site_source_ids": [
@@ -7248,6 +7363,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2046",
       "site_name": "Foothill / Pierce",
       "site_source_ids": [
@@ -7336,6 +7452,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:214",
       "site_name": "Van Nuys / Laurel Canyon",
       "site_source_ids": [
@@ -7424,6 +7541,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2216",
       "site_name": "Glenoaks / Gain",
       "site_source_ids": [
@@ -7512,6 +7630,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2231",
       "site_name": "Glenoaks / Filmore",
       "site_source_ids": [
@@ -7600,6 +7719,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2239",
       "site_name": "Glenoaks / Montague",
       "site_source_ids": [
@@ -7688,6 +7808,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2246",
       "site_name": "Glenoaks / Osborne",
       "site_source_ids": [
@@ -7776,6 +7897,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2251",
       "site_name": "Glenoaks / Pierce",
       "site_source_ids": [
@@ -7893,6 +8015,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2255",
       "site_name": "Glenoaks / Osborne",
       "site_source_ids": [
@@ -7981,6 +8104,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2258",
       "site_name": "Glenoaks / Van Nuys",
       "site_source_ids": [
@@ -8071,6 +8195,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2259",
       "site_name": "Glenoaks / Vaughn",
       "site_source_ids": [
@@ -8159,6 +8284,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2260",
       "site_name": "Foothill / Paxton",
       "site_source_ids": [
@@ -8247,6 +8373,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2894",
       "site_name": "Laurel Canyon / Branford",
       "site_source_ids": [
@@ -8335,6 +8462,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2901",
       "site_name": "Laurel Canyon / Filmore",
       "site_source_ids": [
@@ -8423,6 +8551,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2905",
       "site_name": "Laurel Canyon / Kagel Canyon",
       "site_source_ids": [
@@ -8511,6 +8640,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2908",
       "site_name": "Laurel Canyon / Osborne",
       "site_source_ids": [
@@ -8599,6 +8729,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2911",
       "site_name": "Laurel Canyon / Paxton",
       "site_source_ids": [
@@ -8689,6 +8820,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2913",
       "site_name": "Laurel Canyon / Pierce",
       "site_source_ids": [
@@ -8777,6 +8909,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2922",
       "site_name": "Laurel Canyon / Terra Bella",
       "site_source_ids": [
@@ -8865,6 +8998,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2924",
       "site_name": "Van Nuys / Laurel Canyon",
       "site_source_ids": [
@@ -8953,6 +9087,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2925",
       "site_name": "Laurel Canyon / Van Nuys",
       "site_source_ids": [
@@ -9041,6 +9176,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:2984",
       "site_name": "Foothill / Osborne",
       "site_source_ids": [
@@ -9129,6 +9265,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:364",
       "site_name": "Laurel Canyon / Paxton",
       "site_source_ids": [
@@ -9246,6 +9383,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:4136",
       "site_name": "12411 Osborne",
       "site_source_ids": [
@@ -9334,6 +9472,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:4140",
       "site_name": "Osborne / Bradley",
       "site_source_ids": [
@@ -9422,6 +9561,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:4142",
       "site_name": "Glenoaks / Osborne Pl",
       "site_source_ids": [
@@ -9510,6 +9650,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:4143",
       "site_name": "Osborne / Glenoaks",
       "site_source_ids": [
@@ -9598,6 +9739,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:4146",
       "site_name": "Osborne / Haddon",
       "site_source_ids": [
@@ -9686,6 +9828,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:4147",
       "site_name": "Osborne / Laurel Canyon",
       "site_source_ids": [
@@ -9774,6 +9917,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:4148",
       "site_name": "Osborne / San Fernando",
       "site_source_ids": [
@@ -9862,6 +10006,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:4149",
       "site_name": "Osborne / Telfair",
       "site_source_ids": [
@@ -9950,6 +10095,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:4348",
       "site_name": "Glenoaks / Paxton",
       "site_source_ids": [
@@ -10038,6 +10184,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:5825",
       "site_name": "San Fernando / Del Sur",
       "site_source_ids": [
@@ -10126,6 +10273,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:5826",
       "site_name": "San Fernando / Desmond",
       "site_source_ids": [
@@ -10216,6 +10364,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:5829",
       "site_name": "San Fernando / Filmore",
       "site_source_ids": [
@@ -10304,6 +10453,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:5832",
       "site_name": "San Fernando / Kagel Canyon",
       "site_source_ids": [
@@ -10392,6 +10542,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:5836",
       "site_name": "San Fernando / Montague",
       "site_source_ids": [
@@ -10480,6 +10631,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:5838",
       "site_name": "San Fernando / Osborne",
       "site_source_ids": [
@@ -10568,6 +10720,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:5843",
       "site_name": "San Fernando / Pierce",
       "site_source_ids": [
@@ -10656,6 +10809,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:5854",
       "site_name": "San Fernando / Terra Bella",
       "site_source_ids": [
@@ -10744,6 +10898,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:5859",
       "site_name": "San Fernando / Van Nuys",
       "site_source_ids": [
@@ -10832,6 +10987,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:6774",
       "site_name": "Van Nuys / Borden",
       "site_source_ids": [
@@ -10920,6 +11076,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:6775",
       "site_name": "Van Nuys / Bradley",
       "site_source_ids": [
@@ -11008,6 +11165,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:6782",
       "site_name": "Van Nuys / Dronfield",
       "site_source_ids": [
@@ -11096,6 +11254,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:6784",
       "site_name": "Van Nuys / Glenoaks",
       "site_source_ids": [
@@ -11186,6 +11345,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:6788",
       "site_name": "Van Nuys / Herrick",
       "site_source_ids": [
@@ -11303,6 +11463,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:6791",
       "site_name": "Van Nuys / Kewen",
       "site_source_ids": [
@@ -11391,6 +11552,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:6794",
       "site_name": "Van Nuys / Haddon",
       "site_source_ids": [
@@ -11479,6 +11641,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:6799",
       "site_name": "Van Nuys / Norris",
       "site_source_ids": [
@@ -11569,6 +11732,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:6805",
       "site_name": "Van Nuys / Ralston",
       "site_source_ids": [
@@ -11657,6 +11821,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:6808",
       "site_name": "Van Nuys / San Fernando",
       "site_source_ids": [
@@ -11745,6 +11910,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:6810",
       "site_name": "Van Nuys / San Fernando",
       "site_source_ids": [
@@ -11833,6 +11999,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "shade_structure",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "metro-stop:6815",
       "site_name": "Van Nuys / Telfair",
       "site_source_ids": [
@@ -11981,6 +12148,7 @@
       "intersecting_tile_count": 2,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "park:207",
       "site_name": "Alicia Broadous-Duncan Multi-Purpose Senior Center",
       "site_source_ids": [
@@ -12152,6 +12320,7 @@
       "intersecting_tile_count": 3,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "park:337",
       "site_name": "Hubert H Humphrey Memorial Recreation Center",
       "site_source_ids": [
@@ -12359,6 +12528,7 @@
       "intersecting_tile_count": 2,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "park:350",
       "site_name": "Lake View Terrace Branch Library",
       "site_source_ids": [
@@ -12470,6 +12640,7 @@
       "intersecting_tile_count": 3,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "park:351",
       "site_name": "Discovery Cube Lost Angeles",
       "site_source_ids": [
@@ -12625,6 +12796,7 @@
       "intersecting_tile_count": 2,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "park:353",
       "site_name": "Ritchie Valens Pool",
       "site_source_ids": [
@@ -12792,6 +12964,7 @@
       "intersecting_tile_count": 2,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "park:388",
       "site_name": "Ritchie Valens Recreation Center",
       "site_source_ids": [
@@ -12983,6 +13156,7 @@
       "intersecting_tile_count": 4,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "park:419",
       "site_name": "Hubert H Humphrey Pool",
       "site_source_ids": [
@@ -13242,6 +13416,7 @@
       "intersecting_tile_count": 10,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "park:434",
       "site_name": "Hansen Dam Aquatic Center",
       "site_source_ids": [
@@ -13501,6 +13676,7 @@
       "intersecting_tile_count": 4,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "park:437",
       "site_name": "David M Gonzales Pacoima Recreation Center",
       "site_source_ids": [
@@ -13684,6 +13860,7 @@
       "intersecting_tile_count": 2,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "park:5",
       "site_name": "Hansen Dam Ranger Station",
       "site_source_ids": [
@@ -13807,6 +13984,7 @@
       "intersecting_tile_count": 3,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "park:6",
       "site_name": "Project Youth Green, Roger W Jessup Park",
       "site_source_ids": [
@@ -13894,6 +14072,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:1039",
       "site_name": "Haddon Avenue Science, Technology, Engineering, Arts and Math Magnet Elementary School",
       "site_source_ids": [
@@ -13981,6 +14160,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:1282",
       "site_name": "Hillery T. Broadous Elementary School",
       "site_source_ids": [
@@ -14068,6 +14248,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:1388",
       "site_name": "Sara Coughlin Elementary School State Preschool",
       "site_source_ids": [
@@ -14155,6 +14336,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:1431",
       "site_name": "Hillery T. Broadous Science, Technology and Math Magnet Elementary School",
       "site_source_ids": [
@@ -14242,6 +14424,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:144",
       "site_name": "Vaughn Early Education Center",
       "site_source_ids": [
@@ -14329,6 +14512,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:1444",
       "site_name": "Pacoima Film, Media and Performing Arts Magnet Middle",
       "site_source_ids": [
@@ -14416,6 +14600,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:1539",
       "site_name": "PUC Inspire Charter Academy",
       "site_source_ids": [
@@ -14503,6 +14688,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:1553",
       "site_name": "Vaughn Next Century Learning Center",
       "site_source_ids": [
@@ -14590,6 +14776,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:1554",
       "site_name": "Vaughn Next Century Learning Center",
       "site_source_ids": [
@@ -14677,6 +14864,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:1562",
       "site_name": "Vaughn Next Century Learning Center",
       "site_source_ids": [
@@ -14764,6 +14952,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:1575",
       "site_name": "Pacoima Computer Science and Math Magnet Middle",
       "site_source_ids": [
@@ -14851,6 +15040,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:16",
       "site_name": "Telfair Avenue Early Education Center",
       "site_source_ids": [
@@ -14938,6 +15128,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:1605",
       "site_name": "Bert Corona Charter High School",
       "site_source_ids": [
@@ -15025,6 +15216,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:19",
       "site_name": "Haddon Avenue Early Education Center",
       "site_source_ids": [
@@ -15112,6 +15304,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:213",
       "site_name": "Telfair Avenue Elementary Dual Language Spanish",
       "site_source_ids": [
@@ -15199,6 +15392,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:333",
       "site_name": "Vaughn Next Century Learning Center",
       "site_source_ids": [
@@ -15286,6 +15480,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:361",
       "site_name": "Montague Street Elementary",
       "site_source_ids": [
@@ -15373,6 +15568,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:365",
       "site_name": "Pacoima Charter Elementary",
       "site_source_ids": [
@@ -15460,6 +15656,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:374",
       "site_name": "Telfair Avenue Elementary School",
       "site_source_ids": [
@@ -15547,6 +15744,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:39",
       "site_name": "Local District Northeast Support Site",
       "site_source_ids": [
@@ -15634,6 +15832,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:41",
       "site_name": "Los Angeles School Police Northeast Division",
       "site_source_ids": [
@@ -15721,6 +15920,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:424",
       "site_name": "Bert Corona Charter School",
       "site_source_ids": [
@@ -15808,6 +16008,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:503",
       "site_name": "Pacoima Middle School",
       "site_source_ids": [
@@ -15895,6 +16096,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:521",
       "site_name": "Haddon Avenue Elementary School Cal State Preschool Program",
       "site_source_ids": [
@@ -15982,6 +16184,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:53",
       "site_name": "Pacoima Early Education Center",
       "site_source_ids": [
@@ -16097,6 +16300,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:542",
       "site_name": "Fenton Primary Center",
       "site_source_ids": [
@@ -16184,6 +16388,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:588",
       "site_name": "Broadous Early Education Center",
       "site_source_ids": [
@@ -16271,6 +16476,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:624",
       "site_name": "Sara Coughlin Elementary School",
       "site_source_ids": [
@@ -16358,6 +16564,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:639",
       "site_name": "Haddon Avenue Elementary School",
       "site_source_ids": [
@@ -16445,6 +16652,7 @@
       "intersecting_tile_count": 1,
       "intervention_type": "tree_canopy",
       "planning_cost_usd": 50000,
+      "satellite_surface_context": null,
       "site_id": "school:640",
       "site_name": "Charles Maclay Middle School",
       "site_source_ids": [
@@ -16529,6 +16737,11 @@
       "id": "pacoima_pavement_condition",
       "path": "data/processed/pacoima_pavement_condition.geojson",
       "sha256": "11141da287d0cdc6f365ae36505ce7ab0a95df63aac09c249db808c081944cc1"
+    },
+    {
+      "id": "pacoima_satellite_evidence",
+      "path": "data/processed/pacoima_satellite_evidence.json",
+      "sha256": "ca2a468cdad1d6e3d1ddb8f4e1a7639d68026c46b4e05765db9ee596e42583cd"
     }
   ],
   "version": "1.0"

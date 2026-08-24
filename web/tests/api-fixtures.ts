@@ -59,6 +59,7 @@ export const candidates = Array.from({ length: 20 }, (_, index) => ({
       limitation: "Source completeness does not establish medical risk, individual exposure, intervention feasibility, or a guaranteed cooling outcome.",
     },
   } : null,
+  satellite_surface_context: null,
   evidence: ["observed_heat", "exposure", "vulnerability", "applicability", "planning_assumption"].map((kind) => ({
     kind,
     statement: `${kind.replaceAll("_", " ")} evidence for this screened Pacoima candidate.`,

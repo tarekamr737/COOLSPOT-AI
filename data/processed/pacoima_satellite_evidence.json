@@ -1,0 +1,38 @@
+{
+  "site_count": 1,
+  "sites": [
+    {
+      "activity_id": "54e55cc7-c2be-46bf-866f-4c663c1b2dad",
+      "assessment": "source_complete",
+      "candidate_id": "cool_pavement:pavement:21486",
+      "image_height_px": 395,
+      "image_width_px": 395,
+      "image_year": 2026,
+      "latitude": 34.27129442261886,
+      "limitation": "Dated overhead class coverage is surface-screening context for this exact finalist only. It does not establish ownership, current pavement condition, treatment area, traction, glare, drainage, pedestrian radiant exposure, product compatibility, permits, or construction feasibility.",
+      "longitude": -118.41498370709242,
+      "observed_credit_delta": 14400,
+      "request_hash": "839afb7ccdcf43302459c9a6cadbc9372b3d8fb0242f75061df8278f636ea6a7",
+      "segments": {
+        "building": 22.85,
+        "earth, ground": 0.61,
+        "grass": 1.83,
+        "others": 1.56,
+        "road, route": 59.41,
+        "sidewalk, pavement": 8.39,
+        "tree": 5.35
+      },
+      "site_id": "pavement:21486",
+      "source_url": "https://docs-api.fortyguard.com/docs/satellite-view-segmentation",
+      "surface_class_coverage": {
+        "combined_surface_class_percent": 67.8,
+        "road_route_percent": 59.41,
+        "sidewalk_pavement_percent": 8.39
+      },
+      "tile_id": "1355"
+    }
+  ],
+  "source_probe_path": "data/processed/fortyguard_satellite_probe.json",
+  "source_probe_sha256": "5948deffc339a6db9445977844f46fe004fa92afa2d29cb23ac279ba88bed50f",
+  "version": "1.0"
+}

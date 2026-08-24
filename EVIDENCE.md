@@ -821,3 +821,14 @@
 - Satellite unit-cost measurement: the observed delta for this exact one-point, single-hour,
   100 m request shape is `14,400` credits. It is a measured runtime cost, not a published price or
   a generalized estimate for other coordinates, dates, granularities, or batch sizes.
+- Finalist-enrichment proof: the full 527 KB probe response is normalized into a compact,
+  image-free `pacoima_satellite_evidence.json` record containing exact point/tile identity, image
+  year/dimensions, seven published class percentages, the `67.80%` combined road-route plus
+  sidewalk-pavement context, request/activity provenance, cost, source, and limitations.
+- Scope-isolation proof: exactly one of 20 cool-pavement candidates—asset `21486`, the deterministic
+  top pavement option—receives `satellite_surface_context` and a traceable evidence record. The
+  other 19 remain `null`; no shade/tree candidate is enriched, and suitability, feasibility,
+  confidence, priority, and optimizer code are unchanged.
+- Automated proof: the normalized artifact excludes original/mask image payloads, remains under
+  5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
+  candidate rebuild, and all 7 active frontend tests pass.

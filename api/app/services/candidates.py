@@ -44,6 +44,11 @@ from api.app.services.roadway_geometry import (
     PavementConditionFeature,
     load_pavement_conditions,
 )
+from api.app.services.satellite_evidence import (
+    DEFAULT_SATELLITE_EVIDENCE_PATH,
+    SatelliteSurfaceEvidence,
+    load_satellite_evidence,
+)
 from api.app.services.streetview_evidence import (
     DEFAULT_STREETVIEW_EVIDENCE_PATH,
     ExtractedStreetViewFeatures,
@@ -66,6 +71,7 @@ class CandidateSourceArtifact(StrEnum):
     STREET_VIEW_EVIDENCE = "pacoima_streetview_evidence"
     ENVIRONMENTAL_EVIDENCE = "pacoima_environmental_evidence"
     PAVEMENT_CONDITION = "pacoima_pavement_condition"
+    SATELLITE_EVIDENCE = "pacoima_satellite_evidence"
 
 
 class EvidenceKind(StrEnum):
@@ -76,6 +82,7 @@ class EvidenceKind(StrEnum):
     PLANNING_ASSUMPTION = "planning_assumption"
     STREET_CONTEXT = "street_context"
     PAVEMENT = "pavement"
+    SATELLITE_SURFACE = "satellite_surface"
 
 
 class TileSelection(StrEnum):
@@ -191,6 +198,7 @@ class Candidate(BaseModel):
     confidence: UnitInterval
     value_explanation: CandidateValueExplanation
     thermal_stress_context: FinalistEnvironmentalEvidence | None = None
+    satellite_surface_context: SatelliteSurfaceEvidence | None = None
     evidence: tuple[CandidateEvidence, ...] = Field(min_length=5)
     geometry: FixtureGeometry
 
@@ -430,6 +438,7 @@ def _candidate(
     config: CandidateConfig,
     street_context: ExtractedStreetViewFeatures | None,
     thermal_stress_context: FinalistEnvironmentalEvidence | None,
+    satellite_surface_context: SatelliteSurfaceEvidence | None = None,
     suitability_override: tuple[float, tuple[str, ...]] | None = None,
     confidence_override: float | None = None,
     site_evidence_kind: EvidenceKind = EvidenceKind.EXPOSURE,
@@ -463,6 +472,33 @@ def _candidate(
         feasibility_score=config.unverified_feasibility_score,
         confidence_score=confidence,
     )
+    evidence = list(
+        _common_evidence(
+            tile=selected_tile,
+            intervention=intervention,
+            site_statement=site_statement,
+            config=config,
+            street_context=street_context,
+            site_evidence_kind=site_evidence_kind,
+            site_source_artifact_ids=site_source_artifact_ids,
+            uses_street_context=uses_street_context,
+        )
+    )
+    if satellite_surface_context is not None:
+        surface = satellite_surface_context.surface_class_coverage
+        evidence.append(
+            CandidateEvidence(
+                kind=EvidenceKind.SATELLITE_SURFACE,
+                statement=(
+                    f"The exact finalist's {satellite_surface_context.image_year} FortyGuard "
+                    f"satellite segmentation reports {surface.road_route_percent:.2f}% road, "
+                    f"route and {surface.sidewalk_pavement_percent:.2f}% sidewalk, pavement "
+                    f"class coverage ({surface.combined_surface_class_percent:.2f}% combined). "
+                    f"{satellite_surface_context.limitation}"
+                ),
+                source_artifact_ids=(CandidateSourceArtifact.SATELLITE_EVIDENCE,),
+            )
+        )
     return Candidate(
         id=f"{intervention.id.value}:{site_id}",
         site_id=site_id,
@@ -492,16 +528,8 @@ def _candidate(
             ),
         ),
         thermal_stress_context=thermal_stress_context,
-        evidence=_common_evidence(
-            tile=selected_tile,
-            intervention=intervention,
-            site_statement=site_statement,
-            config=config,
-            street_context=street_context,
-            site_evidence_kind=site_evidence_kind,
-            site_source_artifact_ids=site_source_artifact_ids,
-            uses_street_context=uses_street_context,
-        ),
+        satellite_surface_context=satellite_surface_context,
+        evidence=tuple(evidence),
         geometry=geometry,
     )
 
@@ -616,6 +644,7 @@ def _cool_pavement_candidates(
     aoi_path: Path,
     intervention: InterventionDefinition,
     config: CandidateConfig,
+    satellite_by_candidate: dict[str, SatelliteSurfaceEvidence],
 ) -> tuple[Candidate, ...]:
     """Create a bounded set only from exact-AOI official pavement-condition lines."""
 
@@ -679,6 +708,9 @@ def _cool_pavement_candidates(
             config=config,
             street_context=None,
             thermal_stress_context=None,
+            satellite_surface_context=satellite_by_candidate.get(
+                f"cool_pavement:pavement:{feature.properties.ASSETID}"
+            ),
             suitability_override=(
                 fallback,
                 (
@@ -705,6 +737,7 @@ def build_candidates(
     environmental_evidence_path: Path = DEFAULT_ENVIRONMENTAL_EVIDENCE_PATH,
     pavement_path: Path = DEFAULT_PAVEMENT_PATH,
     aoi_path: Path = DEFAULT_AOI_PATH,
+    satellite_evidence_path: Path = DEFAULT_SATELLITE_EVIDENCE_PATH,
 ) -> CandidateArtifact:
     table = load_feature_table(feature_table_path)
     public = load_processed_fixture(public_data_path)
@@ -715,6 +748,10 @@ def build_candidates(
     environmental_artifact = load_environmental_evidence(environmental_evidence_path)
     environment_by_site = {site.site_id: site for site in environmental_artifact.sites}
     pavement = load_pavement_conditions(pavement_path)
+    satellite_artifact = load_satellite_evidence(satellite_evidence_path)
+    satellite_by_candidate = {
+        site.candidate_id: site for site in satellite_artifact.sites
+    }
 
     tiles_by_stop: dict[str, list[TileFeature]] = {}
     tiles_by_poi: dict[str, list[TileFeature]] = {}
@@ -767,6 +804,7 @@ def build_candidates(
             aoi_path=aoi_path,
             intervention=cool_pavement,
             config=config,
+            satellite_by_candidate=satellite_by_candidate,
         )
     )
     ordered = tuple(sorted(candidates, key=lambda candidate: candidate.id))
@@ -810,6 +848,11 @@ def build_candidates(
                 id=CandidateSourceArtifact.PAVEMENT_CONDITION,
                 path="data/processed/pacoima_pavement_condition.geojson",
                 sha256=_sha256(pavement_path),
+            ),
+            SourceArtifact(
+                id=CandidateSourceArtifact.SATELLITE_EVIDENCE,
+                path="data/processed/pacoima_satellite_evidence.json",
+                sha256=_sha256(satellite_evidence_path),
             ),
         ),
         counts=CandidateCounts(

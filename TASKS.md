@@ -205,7 +205,7 @@ priority_score
   - product compatibility.
 - [x] Attempt at most one small `/v1/satellite` capability probe if it materially improves surface evidence.
 - [x] Measure the real credit delta.
-- [ ] If supported and cost-safe, enrich only top pavement finalists.
+- [x] If supported and cost-safe, enrich only top pavement finalists.
 - [ ] If unsupported, continue with authoritative public geometry instead of blocking the feature.
 - [ ] Add at least one valid cool-pavement candidate if evidence permits.
 - [ ] Otherwise remove cool pavement from the golden demo and clearly explain why.
