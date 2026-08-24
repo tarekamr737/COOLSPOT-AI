@@ -113,6 +113,8 @@ export const pilot = {
   analysis_date: "2024-07-15",
   budget_presets_usd: [250_000, 500_000, 1_000_000],
   default_budget_usd: 500_000,
+  scoring_presets: ["balanced", "heat_first", "equity_first", "exposure_first"],
+  default_scoring_preset: "balanced",
   candidate_count: 20,
   available_layers: ["heat", "persistence", "exposure", "vulnerability"],
 };

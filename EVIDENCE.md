@@ -840,6 +840,10 @@
 - Conditional-removal decision: removal is not triggered because authoritative geometry supports 20
   candidates and the supported optimizer range demonstrably selects the family. The catalog and UI
   may therefore retain cool pavement while continuing to disclose its unresolved safety gates.
+- Scenario-contract proof: `GET /v1/pilot` now advertises the ordered `balanced`, `heat_first`,
+  `equity_first`, and `exposure_first` enum values plus a balanced default. `POST /v1/optimize`
+  accepts the same typed selector, and the TypeScript client/Zod boundary shares those exact values.
+  Seven API tests, frontend strict type generation, and all seven active frontend tests pass.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.

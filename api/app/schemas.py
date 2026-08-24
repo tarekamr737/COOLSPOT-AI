@@ -21,6 +21,7 @@ from api.app.services.interventions import (
 )
 from api.app.services.optimizer import OptimizerConfig
 from api.app.services.processed_data import FixtureGeometry
+from api.app.services.scenarios import ScoringPreset
 from api.app.services.streetview_evidence import ExtractedStreetViewFeatures
 
 
@@ -135,6 +136,8 @@ class PilotResponse(BaseModel):
     analysis_date: date
     budget_presets_usd: tuple[int, ...]
     default_budget_usd: int
+    scoring_presets: tuple[ScoringPreset, ...]
+    default_scoring_preset: Literal[ScoringPreset.BALANCED] = ScoringPreset.BALANCED
     candidate_count: int = Field(ge=20)
     available_layers: tuple[LayerName, ...]
 
@@ -154,6 +157,7 @@ class OptimizeRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     budget_usd: int = Field(gt=0)
+    scoring_preset: ScoringPreset = ScoringPreset.BALANCED
 
 
 class ExplanationRequest(BaseModel):

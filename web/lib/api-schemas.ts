@@ -3,6 +3,14 @@ import { z } from "zod";
 export const layerNames = ["heat", "persistence", "exposure", "vulnerability"] as const;
 export const layerNameSchema = z.enum(layerNames);
 export type LayerName = z.infer<typeof layerNameSchema>;
+export const scoringPresets = [
+  "balanced",
+  "heat_first",
+  "equity_first",
+  "exposure_first",
+] as const;
+export const scoringPresetSchema = z.enum(scoringPresets);
+export type ScoringPreset = z.infer<typeof scoringPresetSchema>;
 
 const positionSchema = z.tuple([z.number(), z.number()]);
 const pointGeometrySchema = z.object({
@@ -54,6 +62,8 @@ export const pilotSchema = z.object({
   analysis_date: z.string(),
   budget_presets_usd: z.array(z.number().int().positive()).min(1),
   default_budget_usd: z.number().int().positive(),
+  scoring_presets: z.array(scoringPresetSchema).length(4),
+  default_scoring_preset: z.literal("balanced"),
   candidate_count: z.number().int().min(20),
   available_layers: z.array(layerNameSchema),
 });

@@ -12,6 +12,7 @@ import {
   siteSchema,
   streetViewContextSchema,
   type LayerName,
+  type ScoringPreset,
 } from "./api-schemas";
 
 const API_ROOT = "/api/coolspot";
@@ -49,10 +50,10 @@ export const getSite = (siteId: string) =>
   request(`/sites/${encodeURIComponent(siteId)}`, siteSchema);
 export const getStreetView = (siteId: string) =>
   request(`/sites/${encodeURIComponent(siteId)}/street-view`, streetViewContextSchema);
-export const optimize = (budgetUsd: number) =>
+export const optimize = (budgetUsd: number, scoringPreset: ScoringPreset = "balanced") =>
   request("/optimize", portfolioSchema, {
     method: "POST",
-    body: JSON.stringify({ budget_usd: budgetUsd }),
+    body: JSON.stringify({ budget_usd: budgetUsd, scoring_preset: scoringPreset }),
   });
 export const getExplanation = (siteId: string, candidateId: string, budgetUsd: number, regenerate = false) =>
   request(`/sites/${encodeURIComponent(siteId)}/explanation`, explanationSchema, {

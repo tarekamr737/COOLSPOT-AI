@@ -49,6 +49,7 @@ from api.app.services.heatmap_data import (
 from api.app.services.interventions import InterventionCatalog, load_intervention_catalog
 from api.app.services.optimizer import load_optimizer_config
 from api.app.services.processed_data import ProcessedPublicData, load_processed_fixture
+from api.app.services.scenarios import ScoringPreset
 from api.app.services.streetview_evidence import (
     StreetViewEvidenceArtifact,
     load_street_view_evidence_artifact,
@@ -141,6 +142,7 @@ def pilot_response() -> PilotResponse:
         analysis_date=heatmaps.layers[0].date_time.start_date,
         budget_presets_usd=optimizer.budget_presets_usd,
         default_budget_usd=500_000,
+        scoring_presets=tuple(ScoringPreset),
         candidate_count=_candidates().counts.total,
         available_layers=tuple(LayerName),
     )

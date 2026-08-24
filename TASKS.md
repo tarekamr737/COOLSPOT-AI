@@ -254,7 +254,7 @@ Vulnerability 0.20
 Opportunity   0.10
 ```
 
-- [ ] Add preset selector to API contracts.
+- [x] Add preset selector to API contracts.
 - [ ] Re-score/re-optimize without FortyGuard calls.
 - [ ] Compute:
 

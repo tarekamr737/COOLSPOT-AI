@@ -28,6 +28,13 @@ def test_pilot_layers_candidates_site_and_methodology_routes() -> None:
     pilot = PilotResponse.model_validate(pilot_response.json())
     assert pilot.area_sq_mi < 10
     assert pilot.budget_presets_usd == (250_000, 500_000, 1_000_000)
+    assert tuple(preset.value for preset in pilot.scoring_presets) == (
+        "balanced",
+        "heat_first",
+        "equity_first",
+        "exposure_first",
+    )
+    assert pilot.default_scoring_preset.value == "balanced"
     assert pilot.candidate_count == 172
 
     for layer_name in LayerName:
@@ -135,6 +142,13 @@ def test_optimize_is_cached_only_and_validates_budget() -> None:
     assert result.total_cost_usd <= result.budget_usd
     assert submit_heatmap.await_count == 0
     assert fetch_usage.await_count == 0
+
+    unavailable = client.post(
+        "/v1/optimize",
+        json={"budget_usd": 500_000, "scoring_preset": "heat_first"},
+    )
+    assert unavailable.status_code == 422
+    assert "Only the balanced" in unavailable.json()["detail"]
 
     invalid = client.post("/v1/optimize", json={"budget_usd": 49_999})
     assert invalid.status_code == 422

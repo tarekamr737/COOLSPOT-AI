@@ -31,6 +31,7 @@ from api.app.services.live_refresh import (
     refresh_coordinator,
 )
 from api.app.services.optimizer import OptimizationError, PortfolioResult, optimize_portfolio
+from api.app.services.scenarios import ScoringPreset
 
 router = APIRouter(prefix="/v1")
 
@@ -52,6 +53,11 @@ def get_candidates() -> CandidateListResponse:
 
 @router.post("/optimize")
 def optimize(request: OptimizeRequest) -> PortfolioResult:
+    if request.scoring_preset != ScoringPreset.BALANCED:
+        raise HTTPException(
+            status_code=422,
+            detail="Only the balanced scoring preset is active in this API slice.",
+        )
     try:
         return optimize_portfolio(request.budget_usd)
     except ValueError as error:
