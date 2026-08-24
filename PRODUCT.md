@@ -23,7 +23,9 @@ Why:
 - LA Metro publishes unusually useful bus-stop prioritization, ridership, and equity resources.
 - The pilot contains transit stops, schools, parks, civic facilities, homes, and industrial land—good variety for site-level recommendations.
 
-The committed AOI must be validated programmatically before any live FortyGuard call. If an authoritative boundary cannot be obtained quickly, create a documented simplified polygon covering Pacoima with area <9.5 mi² and label it `MVP analysis boundary`.
+The committed official neighborhood AOI is validated programmatically at **7.763 mi²** before any
+live FortyGuard call and is labeled as the analysis boundary. The separate `7.14 mi²` figure above
+is contextual planning literature, not the geometry used by the application.
 
 ## Golden demo
 1. User opens Pacoima.
@@ -32,15 +34,20 @@ The committed AOI must be validated programmatically before any live FortyGuard 
 4. User sets a budget, e.g. `$500k`.
 5. Optimizer selects a portfolio of candidate interventions.
 6. User moves budget to `$1M`; portfolio updates instantly **without another FortyGuard call**.
-7. User clicks a site and sees:
+7. User changes the planning priority among Balanced, Heat-first, Equity-first, and Exposure-first;
+   the deterministic portfolio and each site's four-scenario selection frequency update locally.
+8. User clicks a site and sees:
    - observed/modelled heat evidence,
    - exposure/vulnerability evidence,
+   - cached exact-site street segmentation where available,
+   - optional point environmental context where collected,
    - recommended intervention,
    - planning cost assumption/range,
    - modeled impact score,
-   - confidence/limitations,
+   - feasibility, confidence, scenario robustness, and limitations,
    - source links.
-8. User asks “Why this site?” and gets a grounded explanation from structured evidence.
+9. User asks “Why this site?” and gets a concise, source-linked explanation constrained to the
+   selected site's structured evidence. AI explains; it never ranks or optimizes.
 
 ## MVP inputs
 
@@ -59,6 +66,9 @@ Optional only after access probe:
 - `/v1/heat_intelligence`
 
 Use async `activity_id` + status polling and persist completed results.
+Satellite and Street View are bounded, cached evidence enrichments. Their absence must produce a
+visible unavailable state and must not disable the deterministic core workflow. Heat Intelligence
+remains outside the core dependency path.
 
 ### Public data
 Prefer cached authoritative datasets:
@@ -66,6 +76,7 @@ Prefer cached authoritative datasets:
 - LA Metro Bus Stop Hub: prioritization/ridership/equity data where downloadable/usable.
 - US Census ACS 5-year: population and vulnerability variables.
 - City/County open data or OpenStreetMap: schools, parks, libraries, civic facilities.
+- StreetsLA Bureau of Street Services pavement-condition geometry for cool-pavement screening.
 - Optional authoritative tree-canopy/land-cover layer if licensing and retrieval are straightforward.
 
 Every dataset gets `source`, `retrieved_at`, and `license_notes`.
@@ -86,7 +97,15 @@ Default transparent weights:
 
 `priority_score = weighted sum`
 
-Weights live in config and can be changed by scenario presets. UI must show the active weighting preset.
+Weights live in versioned config and can be changed by four exact scenario presets:
+- Balanced: `0.40 / 0.30 / 0.20 / 0.10`
+- Heat-first: `0.50 / 0.25 / 0.15 / 0.10`
+- Equity-first: `0.30 / 0.25 / 0.35 / 0.10`
+- Exposure-first: `0.30 / 0.40 / 0.20 / 0.10`
+
+The vectors are ordered heat / exposure / vulnerability / cooling opportunity. The UI shows the
+active preset and weights. Scenario robustness is selection frequency across these four planning
+weight sets; it is not statistical confidence, probability, or outcome certainty.
 
 ### Heat severity
 Derived from available FortyGuard signals:
@@ -122,7 +141,9 @@ MVP supports three intervention families:
 2. **Tree canopy**
    - Best for: suitable public corridors, schools, parks.
 3. **Cool pavement**
-   - Best for: suitable large paved public surfaces/corridors.
+   - Best for: exact mapped StreetsLA pavement segments that pass the versioned data-level geometry
+     rule. Surface condition, treatment area, ownership, product, safety, and construction
+     feasibility still require field review.
 
 Each intervention config contains:
 - applicability rules,
@@ -157,6 +178,8 @@ Provide presets:
 - Custom within configured bounds
 
 Re-optimization uses precomputed features and candidates. Moving the slider must not consume FortyGuard credits.
+The custom range is `$50k`–`$5M`; every completed local recalculation visibly reports
+`0 FortyGuard credits`.
 
 ## Required UI surfaces
 All visual/UX work is implemented through the **Impeccable skill**:
@@ -170,6 +193,8 @@ All visual/UX work is implemented through the **Impeccable skill**:
 - data/credit freshness indicator.
 
 Do not add decorative pages that do not help the golden demo.
+The evidence drawer must distinguish observed/published evidence, derived screening scores, and
+planning assumptions with text-complete indicators. Color cannot carry those meanings alone.
 
 ## KPI language
 Allowed:
@@ -192,6 +217,8 @@ Avoid:
 - `demo mode`: loads committed, real cached responses/data; zero external calls.
 - `live refresh`: explicit server-side/admin action; credit-governed.
 - UI always labels data date and whether it is cached/live.
+- A completed refresh reloads layers, candidates, scores, recommendations, and the portfolio; it is
+  not complete if only the map changes.
 
 ## Non-goals for hackathon
 - citywide California coverage,
@@ -207,10 +234,15 @@ Avoid:
 - Pacoima AOI area validation passes and is below 10 mi².
 - At least one real successful FortyGuard heatmap + persistence dataset is cached.
 - At least two public exposure/vulnerability sources are integrated.
-- >=20 candidate sites are generated from real pilot data.
+- The committed catalog contains 172 candidates from real pilot data, including 20 cool-pavement
+  candidates grounded in exact StreetsLA pavement geometry.
 - Optimizer returns deterministic feasible portfolios for all budget presets.
-- Changing budget does not trigger a FortyGuard request.
+- Changing budget or scoring preset does not trigger a FortyGuard request and visibly reports zero
+  credits consumed.
 - Every selected intervention has traceable evidence and a disclosed cost assumption.
+- Scenario robustness is disclosed as four-preset selection frequency and never as confidence.
+- Missing optional Street View, satellite, or environmental evidence remains visibly unavailable;
+  it is never silently replaced with fabricated evidence.
 - No unsupported impact claim appears in UI/API.
 - Demo works with network disconnected except for map basemap if not locally cached.
 - Golden E2E path passes on deployed build.

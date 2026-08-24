@@ -916,6 +916,11 @@
   preserve the recommendation/map/evidence layout. Component regressions verify map-first order,
   the no-segmentation empty state, visible initial-load failure plus Retry recovery, and retained
   operation-error behavior. All 11 active UI tests, strict TypeScript, and zero-warning lint pass.
+- Product-contract audit proof: `PRODUCT.md` now matches the implemented four scoring presets,
+  four-scenario robustness semantics, `$50k`–`$5M` local budget range, zero-credit replanning,
+  bounded optional evidence, AI explanation-only role, exact StreetsLA pavement eligibility, and
+  complete-refresh behavior. A direct config/artifact check confirms three presets at
+  `$250k/$500k/$1M`, four scoring scenarios, 172 total candidates, and 20 pavement candidates.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.
