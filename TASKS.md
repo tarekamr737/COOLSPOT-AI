@@ -207,7 +207,7 @@ priority_score
 - [x] Measure the real credit delta.
 - [x] If supported and cost-safe, enrich only top pavement finalists.
 - [x] If unsupported, continue with authoritative public geometry instead of blocking the feature.
-- [ ] Add at least one valid cool-pavement candidate if evidence permits.
+- [x] Add at least one valid cool-pavement candidate if evidence permits.
 - [ ] Otherwise remove cool pavement from the golden demo and clearly explain why.
 
 **Acceptance:** no UI claims three operational intervention families while the third is impossible to select.

@@ -832,6 +832,11 @@
 - No-satellite fallback proof: a regression build with the optional satellite artifact path absent
   still produces all 20 cool-pavement candidates from the authoritative StreetsLA pavement geometry.
   The optional source is omitted, every satellite context remains `null`, and no live request occurs.
+- Operational-family proof: all 20 pavement options receive data-level suitability `1.0` only after
+  passing the versioned exact StreetsLA geometry, nonempty surface-code, positive-width, and PCI
+  eligibility rule. Feasibility and confidence remain neutral `0.5`, preserving every unresolved
+  field and engineering gate. The deterministic optimizer selects five cool-pavement options at the
+  supported `$5,000,000` maximum budget; 19 focused candidate/optimizer/API tests pass.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.

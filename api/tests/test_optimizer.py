@@ -66,9 +66,20 @@ def test_preset_portfolios_are_deterministic_feasible_and_site_exclusive() -> No
             )
             for candidate in selected
         )
-        assert first.category_counts.shade_structure + first.category_counts.tree_canopy == (
-            first.selected_count
-        )
+        assert sum(first.category_counts.model_dump().values()) == first.selected_count
+
+
+def test_verified_cool_pavement_is_selectable_in_supported_budget_range() -> None:
+    artifact = load_candidates()
+    config = load_optimizer_config()
+
+    result = optimize_portfolio(
+        config.custom_budget_max_usd,
+        candidates=artifact.candidates,
+        config=config,
+    )
+
+    assert result.category_counts.cool_pavement >= 1
 
 
 def test_site_constraint_blocks_two_interventions_at_one_site() -> None:

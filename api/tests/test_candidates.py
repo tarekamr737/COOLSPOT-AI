@@ -141,6 +141,7 @@ def test_candidate_confidence_rules_are_versioned_and_exact_site_only() -> None:
     assert config.cool_pavement_rules.eligibility == (
         "require_bss_pavement_geometry_surface_width_and_pci"
     )
+    assert config.cool_pavement_rules.verified_geometry_suitability_score == 1.0
 
 
 def test_every_non_neutral_adjustment_has_traceable_evidence() -> None:
@@ -240,6 +241,9 @@ def test_cool_pavement_candidates_require_exact_official_pavement_geometry() -> 
         assert aoi.covers(geometry)
         assert shape(source.geometry.model_dump()).covers(geometry)
         assert candidate.site_source_ids == ("la_city_pavement_condition",)
+        assert candidate.suitability_score == 1.0
+        assert candidate.feasibility_score == 0.5
+        assert candidate.confidence == 0.5
         pavement_text = " ".join(
             evidence.statement.lower() for evidence in candidate.evidence
         )

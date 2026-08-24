@@ -319,3 +319,7 @@
 - Made satellite evidence optional at the candidate boundary because plan access is not guaranteed.
   Authoritative StreetsLA pavement geometry remains mandatory, so an unavailable vendor endpoint
   removes only the optional surface context and cannot disable the intervention family.
+- Separated pavement data suitability from engineering feasibility: an exact eligible StreetsLA
+  pavement segment receives full geometry-suitability credit, while confidence and feasibility stay
+  at neutral `0.5`. This makes verified pavement options selectable without implying construction,
+  product, safety, ownership, or outcome certainty.

@@ -74,7 +74,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "1863",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -83,13 +83,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.6039076563244212,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07548845704055265,
+        "modeled_benefit_score": 0.1509769140811053,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -171,7 +171,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "27",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -180,13 +180,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.5869187016352871,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07336483770441089,
+        "modeled_benefit_score": 0.14672967540882179,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -268,7 +268,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "228",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -277,13 +277,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.5770237847887163,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07212797309858954,
+        "modeled_benefit_score": 0.14425594619717907,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -361,7 +361,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "662",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -370,13 +370,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.5785394234920201,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07231742793650252,
+        "modeled_benefit_score": 0.14463485587300504,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -490,7 +490,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "1355",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -499,13 +499,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.6879023647192668,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.08598779558990835,
+        "modeled_benefit_score": 0.1719755911798167,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -583,7 +583,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "146",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -592,13 +592,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.5801504937124963,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07251881171406203,
+        "modeled_benefit_score": 0.14503762342812407,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -676,7 +676,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "65",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -685,13 +685,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.5832919392754897,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07291149240943622,
+        "modeled_benefit_score": 0.14582298481887243,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -769,7 +769,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "1789",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -778,13 +778,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.5854868092455164,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07318585115568955,
+        "modeled_benefit_score": 0.1463717023113791,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -862,7 +862,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "1536",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -871,13 +871,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.6267890651757319,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07834863314696648,
+        "modeled_benefit_score": 0.15669726629393296,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -955,7 +955,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "1415",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -964,13 +964,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.5942751205448261,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07428439006810326,
+        "modeled_benefit_score": 0.14856878013620653,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -1048,7 +1048,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "1884",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -1057,13 +1057,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.5813354081426368,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.0726669260178296,
+        "modeled_benefit_score": 0.1453338520356592,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -1145,7 +1145,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "1361",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -1154,13 +1154,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.6267426718009514,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07834283397511893,
+        "modeled_benefit_score": 0.15668566795023786,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -1238,7 +1238,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "1566",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -1247,13 +1247,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.5897633646044891,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07372042057556114,
+        "modeled_benefit_score": 0.14744084115112227,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -1335,7 +1335,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "1294",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -1344,13 +1344,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.5966307271926186,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07457884089907732,
+        "modeled_benefit_score": 0.14915768179815464,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -1428,7 +1428,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "536",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -1437,13 +1437,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.5882693442541346,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07353366803176682,
+        "modeled_benefit_score": 0.14706733606353364,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -1521,7 +1521,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "1231",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -1530,13 +1530,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.5833951505375287,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07292439381719108,
+        "modeled_benefit_score": 0.14584878763438217,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -1622,7 +1622,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "964",
       "tile_selection": "containing_tile",
@@ -1631,13 +1631,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.6357882292586162,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07947352865732703,
+        "modeled_benefit_score": 0.15894705731465406,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -1715,7 +1715,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "902",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -1724,13 +1724,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.6329082531139057,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07911353163923822,
+        "modeled_benefit_score": 0.15822706327847644,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -1812,7 +1812,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "1354",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -1821,13 +1821,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.5880684414317239,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.07350855517896548,
+        "modeled_benefit_score": 0.14701711035793097,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -1905,7 +1905,7 @@
         "la_city_pavement_condition"
       ],
       "site_type": "public_corridor",
-      "suitability_score": 0.5,
+      "suitability_score": 1.0,
       "thermal_stress_context": null,
       "tile_id": "725",
       "tile_selection": "highest_priority_intersecting_tile",
@@ -1914,13 +1914,13 @@
           "confidence_score": 0.5,
           "feasibility_score": 0.5,
           "priority_score": 0.653997225699248,
-          "suitability_score": 0.5
+          "suitability_score": 1.0
         },
         "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
         "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
-        "modeled_benefit_score": 0.081749653212406,
+        "modeled_benefit_score": 0.163499306424812,
         "suitability_basis": [
-          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+          "An exact official pavement-condition segment with published surface, width, and PCI passes the versioned geometry-suitability rule; unresolved surface condition, product, and engineering checks remain in feasibility."
         ]
       }
     },
@@ -16699,7 +16699,7 @@
   "scoring_notes": [
     "Keep the selected tile's modeled priority score separate, then multiply it by intervention suitability, feasibility, and confidence.",
     "Use the selected tile's modeled vulnerability score as context, not as a count of people served.",
-    "The value 0.5 is a neutral deterministic fallback only for an evidence dimension that remains unverified. All candidates remain field-unverified for feasibility; shade/tree confidence uses exact cached Street View evidence where available, while pavement remains neutral pending field or optional imagery review. The scalar is not a probability or measured effect.",
+    "The value 0.5 is a neutral deterministic fallback only for an evidence dimension that remains unverified. All candidates remain field-unverified for feasibility; shade/tree confidence uses exact cached Street View evidence where available. Pavement geometry suitability is verified only at the data-screening level; pavement confidence and feasibility remain neutral pending field review. These scalars are not probabilities or measured effects.",
     "For a site intersecting multiple heat tiles, select the tile with the highest modeled priority score, then heat score, then lowest numeric tile ID."
   ],
   "source_artifacts": [
@@ -16721,7 +16721,7 @@
     {
       "id": "candidate_config",
       "path": "config/candidates.json",
-      "sha256": "d5468b43cc8186538bb0a272c5d8aff59e80820f34fdfe8af2648f5ad18913ce"
+      "sha256": "9c2c74486bb0733727fdb1cd2d4d47941c70c7ed2f389fbbc0e442d3fc658cee"
     },
     {
       "id": "pacoima_streetview_evidence",

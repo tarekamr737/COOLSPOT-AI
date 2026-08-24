@@ -118,6 +118,7 @@ class CoolPavementCandidateRules(BaseModel):
 
     max_candidates: int = Field(gt=0, le=100)
     eligibility: Literal["require_bss_pavement_geometry_surface_width_and_pci"]
+    verified_geometry_suitability_score: UnitInterval
     selection: Literal["one_longest_segment_per_priority_tile"]
     note: str = Field(min_length=120)
 
@@ -694,7 +695,9 @@ def _cool_pavement_candidates(
             item[1].properties.AutoID,
         ),
     )[: config.cool_pavement_rules.max_candidates]
-    fallback = config.unverified_suitability_score
+    verified_suitability = (
+        config.cool_pavement_rules.verified_geometry_suitability_score
+    )
     return tuple(
         _candidate(
             site_id=f"pavement:{feature.properties.ASSETID}",
@@ -715,10 +718,11 @@ def _cool_pavement_candidates(
                 f"cool_pavement:pavement:{feature.properties.ASSETID}"
             ),
             suitability_override=(
-                fallback,
+                verified_suitability,
                 (
-                    "An exact official pavement-condition segment passes geometry eligibility; "
-                    f"neutral suitability {fallback:.3f} remains until surface/product review.",
+                    "An exact official pavement-condition segment with published surface, width, "
+                    "and PCI passes the versioned geometry-suitability rule; unresolved surface "
+                    "condition, product, and engineering checks remain in feasibility.",
                 ),
             ),
             confidence_override=config.unverified_confidence_score,
