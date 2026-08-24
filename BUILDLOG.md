@@ -265,3 +265,7 @@
 - The environmental go/no-go gate uses the full `N=10` ceiling as a conservative projection even
   though one finalist is already cached. This overstates the next batch by one unit, still leaves
   `1,770,780` credits, and authorizes only the already measured one-location/one-hour shape.
+- Finalist environmental evidence is intentionally limited to apparent temperature, relative
+  humidity, and clear-sky GHI. These cover comfort, moisture, and solar context without promoting
+  unrelated air-quality/gas fields or inventing a composite health score. GHI is labeled as a
+  vendor value because FortyGuard's endpoint schema names the field but does not state its unit.

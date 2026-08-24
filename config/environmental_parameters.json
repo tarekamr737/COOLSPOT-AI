@@ -1,0 +1,33 @@
+{
+  "metrics": [
+    {
+      "display_label": "Apparent temperature",
+      "id": "apparent_temperature",
+      "limitation": "A modeled comfort-context value, not a medical-risk classification or intervention outcome.",
+      "planning_context": "Adds perceived thermal context beside the observed tile temperature.",
+      "source": "parameters",
+      "unit_label": "°C",
+      "vendor_key": "apparent_temperature_celsius"
+    },
+    {
+      "display_label": "Relative humidity",
+      "id": "relative_humidity",
+      "limitation": "A point-in-time modeled value that does not establish individual exposure or health effects.",
+      "planning_context": "Shows the moisture context accompanying the selected site's heat observation.",
+      "source": "parameters",
+      "unit_label": "%",
+      "vendor_key": "relative_humidity_percent"
+    },
+    {
+      "display_label": "Clear-sky GHI",
+      "id": "clear_sky_ghi",
+      "limitation": "The endpoint schema does not publish a unit for this field; preserve it as a vendor-reported value.",
+      "planning_context": "Adds clear-sky solar-irradiance context for screening shade opportunity.",
+      "source": "solar_irradiance.clear_sky",
+      "unit_label": "vendor value",
+      "vendor_key": "ghi"
+    }
+  ],
+  "selection_note": "Exactly three concise planning-context fields are retained from the broader vendor response; all other fields remain cached but are not promoted into finalist evidence.",
+  "version": "1.0"
+}

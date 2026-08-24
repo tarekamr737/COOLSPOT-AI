@@ -677,6 +677,13 @@
   10-request projection only for the identical point/hour shape. At `2,900` credits each, projected
   cost is `29,000`, leaving `1,770,780` credits—`1,270,780` above the hard reserve. The finalist
   workflow may continue with `N <= 10`; wider time ranges remain unmeasured and unauthorized.
+- Evidence-selection proof: versioned `config/environmental_parameters.json` promotes exactly three
+  fields that exist in the real response: apparent temperature, relative humidity, and clear-sky
+  GHI. Typed validation rejects a fourth field, missing/duplicate approved metrics, and unknown
+  config keys. The remaining vendor response stays cached but is not promoted into finalist evidence.
+- Claim-safety proof: each promoted field has a planning use and explicit limitation. Apparent
+  temperature and humidity are not converted into medical or individual-exposure claims; GHI keeps
+  the neutral `vendor value` unit because the endpoint result schema does not publish a unit.
 - Cache proof: `data/processed/fortyguard_env_params_probe.json` validates the exact one-location,
   one-timestamp response, request, result, source, limitations, and balanced credit counters without
   containing the API key. Re-running the workflow returns this report before initializing a client.
