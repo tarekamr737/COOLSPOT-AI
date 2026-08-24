@@ -209,3 +209,9 @@
   single-day filter, granularity, `analytic_type=exceedance`, threshold, and direction fields. The
   general limitations page still omits filter type 4 while the endpoint page documents it; the
   planned frozen exceedance request uses filter type 3, so this inconsistency does not affect it.
+- Measured exceedance with one crash-safe governed request aligned to the cached persistence layer:
+  Pacoima, 2024-07-15, single day, 100 m, above 30 °C. Activity
+  `e754402c-a9c8-4816-a981-786aa3e45f77` completed at the existing heatmap cost of `4,220`
+  credits. Usage moved from `188,880` to `193,100`, leaving `1,806,900`; the activity was journaled
+  before submission and the adapter cached the terminal result. The committed secret-free report
+  is also a no-resubmission marker for fresh checkouts where ignored raw caches are unavailable.

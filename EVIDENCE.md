@@ -582,3 +582,18 @@
 - Automated proof: full backend Pytest returns `74 passed`; Ruff passes; strict Mypy passes across
   `43` source files. Frontend lint, strict TypeScript, and all `7` Vitest tests pass (`1` opt-in
   contract test skipped); the production Next build completes successfully.
+
+## FortyGuard exceedance has a measured live request
+
+- Request proof: canonical hash
+  `01b10110a2455dd1c8a33769eca3b1d9eb2ee1949d4e626cb4236a28907d7a58` represents the Pacoima
+  7.763214 mi² AOI on 2024-07-15 at 100 m, `analytic_type=exceedance`, single-day filter, above
+  30 °C. The request is aligned with the persistence threshold and spatial context.
+- Credit proof: activity `e754402c-a9c8-4816-a981-786aa3e45f77` completed once. FortyGuard usage
+  moved from `188,880` to `193,100`, an observed `4,220`-credit delta, leaving `1,806,900` above
+  the `500,000` hard reserve.
+- Cache proof: the durable terminal adapter record is `3,947,960` bytes, contains 2,001 GeoJSON
+  features, omits the API key, and is tied to the same request hash and activity ID. A pre-submission
+  journal prevents an uncertain request from being repeated.
+- Automated proof: full backend Pytest returns `78 passed`; Ruff passes; strict Mypy passes across
+  `45` source files.
