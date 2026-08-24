@@ -58,9 +58,18 @@ def test_real_candidates_are_complete_compatible_and_traceable() -> None:
             assert any(item.kind.value == "street_context" for item in candidate.evidence)
         else:
             assert candidate.confidence == 0.5
+            assert not any(item.kind.value == "street_context" for item in candidate.evidence)
+        if candidate.confidence == 0.5:
+            assert candidate.site_id not in street_by_site
+        assert any(
+            "feasibility remains at the unverified screening scalar 0.5"
+            in item.statement
+            for item in candidate.evidence
+        )
         assert len(candidate.evidence) == 6
 
     assert len({candidate.confidence for candidate in artifact.candidates}) > 2
+    assert all(candidate.feasibility_score == 0.5 for candidate in artifact.candidates)
 
 
 def test_candidate_scores_and_representative_tiles_come_from_feature_table() -> None:

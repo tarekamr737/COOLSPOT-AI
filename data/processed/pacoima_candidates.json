@@ -11883,7 +11883,7 @@
   "scoring_notes": [
     "Use the selected tile's modeled priority score without an intervention-specific effect multiplier.",
     "Use the selected tile's modeled vulnerability score as context, not as a count of people served.",
-    "The value 0.5 is a neutral deterministic scalar for an intervention that has passed data-level compatibility but not field verification; it is not a probability or measured effect.",
+    "The value 0.5 is a neutral deterministic fallback only for an evidence dimension that remains unverified. All current candidates remain field-unverified for feasibility; confidence uses normalized cached Street View evidence where available. The scalar is not a probability or measured effect.",
     "For a site intersecting multiple heat tiles, select the tile with the highest modeled priority score, then heat score, then lowest numeric tile ID."
   ],
   "source_artifacts": [
@@ -11905,7 +11905,7 @@
     {
       "id": "candidate_config",
       "path": "config/candidates.json",
-      "sha256": "1d1f4027db5f5b84744aeee435ff170ad20e2038683fc4b6b08877cc9e84fbca"
+      "sha256": "0e29cb233b09f55cac32644ef5dcc68c4571ccc98e19550d14ee1b84e4ebf662"
     },
     {
       "id": "pacoima_streetview_evidence",
