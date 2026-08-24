@@ -4,9 +4,12 @@ from copy import deepcopy
 
 import pytest
 
+from api.app.services.candidates import load_candidates
+from api.app.services.optimizer import optimize_portfolio
 from api.app.services.streetview_evidence import (
     StreetViewDirection,
     extract_street_view_features,
+    load_cached_street_view_features,
 )
 
 
@@ -215,3 +218,18 @@ def test_extractor_rejects_non_completed_cached_response() -> None:
 
     with pytest.raises(ValueError, match="not completed"):
         extract_street_view_features(payload)
+
+
+def test_all_one_million_portfolio_street_views_parse_offline() -> None:
+    candidates = load_candidates().candidates
+    by_id = {candidate.id: candidate for candidate in candidates}
+    portfolio = optimize_portfolio(1_000_000, candidates=candidates)
+    expected_site_ids = {
+        by_id[candidate_id].site_id for candidate_id in portfolio.selected_candidate_ids
+    }
+
+    features = load_cached_street_view_features()
+
+    assert len(features) == 20
+    assert {item.site_id for item in features} == expected_site_ids
+    assert [item.site_id for item in features] == sorted(expected_site_ids)

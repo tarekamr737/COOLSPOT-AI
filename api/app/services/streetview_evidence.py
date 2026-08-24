@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
+import json
 import math
 from collections.abc import Mapping
 from datetime import date, datetime
 from enum import StrEnum
 from pathlib import Path
-from typing import Literal, Self
+from typing import Literal, Self, cast
 
 from pydantic import Field, model_validator
 
@@ -21,6 +22,8 @@ from api.app.fortyguard_models import (
 
 ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_STREETVIEW_CONFIG_PATH = ROOT / "config" / "streetview_evidence.json"
+DEFAULT_STREETVIEW_LEGACY_PATH = ROOT / "data" / "processed" / "pacoima_streetview.json"
+DEFAULT_STREETVIEW_SITE_DIR = ROOT / "data" / "processed" / "pacoima_streetview_sites"
 
 
 class StreetContextConfidenceWeights(StrictModel):
@@ -389,3 +392,27 @@ def extract_street_view_features(
             active_config,
         ),
     )
+
+
+def load_cached_street_view_features(
+    site_dir: Path = DEFAULT_STREETVIEW_SITE_DIR,
+    legacy_path: Path = DEFAULT_STREETVIEW_LEGACY_PATH,
+    *,
+    config: StreetViewEvidenceConfig | None = None,
+) -> tuple[ExtractedStreetViewFeatures, ...]:
+    """Parse every committed site cache once and return canonical site order."""
+
+    paths = ([legacy_path] if legacy_path.exists() else []) + sorted(site_dir.glob("*.json"))
+    by_site: dict[str, ExtractedStreetViewFeatures] = {}
+    for path in paths:
+        raw_payload = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(raw_payload, dict):
+            raise ValueError(f"cached Street View document must be an object: {path}")
+        features = extract_street_view_features(
+            cast(dict[str, object], raw_payload),
+            config=config,
+        )
+        if features.site_id in by_site:
+            raise ValueError(f"duplicate cached Street View site_id: {features.site_id}")
+        by_site[features.site_id] = features
+    return tuple(by_site[site_id] for site_id in sorted(by_site))
