@@ -629,6 +629,13 @@
   hour units; threshold and direction are ignored for this analytic.
 - Adapter proof: an offline transport test pins the authenticated single-day, 100 m request and
   exact `analytic_type=time_of_measure` serialization without making a live vendor request.
-- Automated proof: full backend Pytest returns `83 passed`; Ruff passes; strict Mypy passes across
-  `61` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
+- Live measurement proof: canonical request
+  `393a609d34ae19d5124b911b0e2d94d6c59409976357519b301b88bc5da56991` completed once as activity
+  `eaa617ad-07b3-47db-9094-faa26c8eeb79`. Usage moved from `193,100` to `197,320`, an observed
+  `4,220`-credit delta, leaving `1,802,680` above the `500,000` reserve.
+- Result proof: the cached terminal record is `3,938,405` bytes with 2,001 features and `hour`
+  units; aggregate values span UTC hours 3 through 17. The committed secret-free measurement report
+  is validated as a no-resubmission marker before environment or client initialization.
+- Automated proof: full backend Pytest returns `85 passed`; Ruff passes; strict Mypy passes across
+  `63` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
   contract test skipped), and the production Next.js build completes successfully.

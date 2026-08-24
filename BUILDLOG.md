@@ -235,3 +235,7 @@
   analytic literal and generic heatmap result model already support it; the contract test pins a
   single-day 100 m request. Threshold and direction remain serialized defaults but are documented
   by FortyGuard as ignored for `time_of_measure`, so no cache-breaking adapter rewrite is justified.
+- The initial offline test used an incorrect provisional time-of-measure hash constant; it failed
+  before live work and was replaced with the computed canonical hash. One governed Pacoima request
+  then completed as activity `eaa617ad-07b3-47db-9094-faa26c8eeb79` at `4,220` credits, leaving
+  `1,802,680`; the journal, raw cache, ledger, and committed report prevent repeated submission.
