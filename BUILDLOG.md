@@ -316,3 +316,6 @@
 - Satellite segmentation is joined as exact-finalist evidence only, not converted into a new
   ranking scalar. This preserves the deterministic objective while exposing the one observed
   overhead surface result; later scenario work can only use it after a separate versioned rule.
+- Made satellite evidence optional at the candidate boundary because plan access is not guaranteed.
+  Authoritative StreetsLA pavement geometry remains mandatory, so an unavailable vendor endpoint
+  removes only the optional surface context and cannot disable the intervention family.

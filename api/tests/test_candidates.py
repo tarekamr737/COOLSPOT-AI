@@ -11,6 +11,7 @@ from api.app.services.candidates import (
     DEFAULT_CANDIDATES_PATH,
     CandidateSourceArtifact,
     TileSelection,
+    build_candidates,
     canonical_candidate_bytes,
     load_candidate_config,
     load_candidates,
@@ -257,3 +258,22 @@ def test_cool_pavement_candidates_require_exact_official_pavement_geometry() -> 
             == (CandidateSourceArtifact.PAVEMENT_CONDITION,)
             for evidence in candidate.evidence
         )
+
+
+def test_pavement_candidates_do_not_require_optional_satellite_access(
+    tmp_path: Path,
+) -> None:
+    artifact = build_candidates(
+        satellite_evidence_path=tmp_path / "unsupported-satellite.json"
+    )
+
+    pavement = tuple(
+        candidate
+        for candidate in artifact.candidates
+        if candidate.intervention_type == InterventionType.COOL_PAVEMENT
+    )
+    assert len(pavement) == 20
+    assert all(candidate.satellite_surface_context is None for candidate in pavement)
+    assert CandidateSourceArtifact.SATELLITE_EVIDENCE not in {
+        source.id for source in artifact.source_artifacts
+    }

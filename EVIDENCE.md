@@ -829,6 +829,9 @@
   top pavement option—receives `satellite_surface_context` and a traceable evidence record. The
   other 19 remain `null`; no shade/tree candidate is enriched, and suitability, feasibility,
   confidence, priority, and optimizer code are unchanged.
+- No-satellite fallback proof: a regression build with the optional satellite artifact path absent
+  still produces all 20 cool-pavement candidates from the authoritative StreetsLA pavement geometry.
+  The optional source is omitted, every satellite context remains `null`, and no live request occurs.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.

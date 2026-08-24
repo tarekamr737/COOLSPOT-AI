@@ -245,10 +245,13 @@ class CandidateArtifact(BaseModel):
     @model_validator(mode="after")
     def validate_integrity(self) -> Self:
         source_ids = [source.id for source in self.source_artifacts]
-        if len(source_ids) != len(set(source_ids)) or set(source_ids) != set(
-            CandidateSourceArtifact
+        required_sources = set(CandidateSourceArtifact) - {
+            CandidateSourceArtifact.SATELLITE_EVIDENCE
+        }
+        if len(source_ids) != len(set(source_ids)) or not required_sources <= set(
+            source_ids
         ):
-            raise ValueError("candidate artifact must reference each source artifact once")
+            raise ValueError("candidate artifact must reference each required source once")
 
         candidate_ids = [candidate.id for candidate in self.candidates]
         if candidate_ids != sorted(candidate_ids) or len(candidate_ids) != len(
@@ -748,10 +751,14 @@ def build_candidates(
     environmental_artifact = load_environmental_evidence(environmental_evidence_path)
     environment_by_site = {site.site_id: site for site in environmental_artifact.sites}
     pavement = load_pavement_conditions(pavement_path)
-    satellite_artifact = load_satellite_evidence(satellite_evidence_path)
-    satellite_by_candidate = {
-        site.candidate_id: site for site in satellite_artifact.sites
-    }
+    satellite_by_candidate = (
+        {
+            site.candidate_id: site
+            for site in load_satellite_evidence(satellite_evidence_path).sites
+        }
+        if satellite_evidence_path.exists()
+        else {}
+    )
 
     tiles_by_stop: dict[str, list[TileFeature]] = {}
     tiles_by_poi: dict[str, list[TileFeature]] = {}
@@ -849,10 +856,16 @@ def build_candidates(
                 path="data/processed/pacoima_pavement_condition.geojson",
                 sha256=_sha256(pavement_path),
             ),
-            SourceArtifact(
-                id=CandidateSourceArtifact.SATELLITE_EVIDENCE,
-                path="data/processed/pacoima_satellite_evidence.json",
-                sha256=_sha256(satellite_evidence_path),
+            *(
+                (
+                    SourceArtifact(
+                        id=CandidateSourceArtifact.SATELLITE_EVIDENCE,
+                        path="data/processed/pacoima_satellite_evidence.json",
+                        sha256=_sha256(satellite_evidence_path),
+                    ),
+                )
+                if satellite_evidence_path.exists()
+                else ()
             ),
         ),
         counts=CandidateCounts(
