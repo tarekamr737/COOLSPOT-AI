@@ -818,3 +818,6 @@
 - Credit-safety proof: usage was queried before and after the same activity, moving from `226,320`
   to `240,720` credits and leaving `1,759,280`, safely above the `500,000` hard reserve. The journal,
   request cache, and ledger show one submission; subsequent runs poll/reuse that activity.
+- Satellite unit-cost measurement: the observed delta for this exact one-point, single-hour,
+  100 m request shape is `14,400` credits. It is a measured runtime cost, not a published price or
+  a generalized estimate for other coordinates, dates, granularities, or batch sizes.

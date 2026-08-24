@@ -204,7 +204,7 @@ priority_score
   - pedestrian radiant exposure,
   - product compatibility.
 - [x] Attempt at most one small `/v1/satellite` capability probe if it materially improves surface evidence.
-- [ ] Measure the real credit delta.
+- [x] Measure the real credit delta.
 - [ ] If supported and cost-safe, enrich only top pavement finalists.
 - [ ] If unsupported, continue with authoritative public geometry instead of blocking the feature.
 - [ ] Add at least one valid cool-pavement candidate if evidence permits.
