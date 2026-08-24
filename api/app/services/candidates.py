@@ -30,6 +30,11 @@ from api.app.services.processed_data import (
     ProcessedTransitStop,
     load_processed_fixture,
 )
+from api.app.services.streetview_evidence import (
+    DEFAULT_STREETVIEW_EVIDENCE_PATH,
+    ExtractedStreetViewFeatures,
+    load_street_view_evidence_artifact,
+)
 
 ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_PUBLIC_DATA_PATH = ROOT / "data" / "processed" / "pacoima_public_data.json"
@@ -43,6 +48,7 @@ class CandidateSourceArtifact(StrEnum):
     PUBLIC_DATA = "pacoima_public_data"
     INTERVENTION_CATALOG = "intervention_catalog"
     CANDIDATE_CONFIG = "candidate_config"
+    STREET_VIEW_EVIDENCE = "pacoima_streetview_evidence"
 
 
 class EvidenceKind(StrEnum):
@@ -51,6 +57,7 @@ class EvidenceKind(StrEnum):
     VULNERABILITY = "vulnerability"
     APPLICABILITY = "applicability"
     PLANNING_ASSUMPTION = "planning_assumption"
+    STREET_CONTEXT = "street_context"
 
 
 class TileSelection(StrEnum):
@@ -215,8 +222,9 @@ def _common_evidence(
     intervention: InterventionDefinition,
     site_statement: str,
     config: CandidateConfig,
+    street_context: ExtractedStreetViewFeatures | None,
 ) -> tuple[CandidateEvidence, ...]:
-    return (
+    evidence = [
         CandidateEvidence(
             kind=EvidenceKind.OBSERVED_HEAT,
             statement=(
@@ -256,15 +264,40 @@ def _common_evidence(
             statement=(
                 f"Planning cost is ${intervention.planning_cost.estimate_usd:,} per "
                 f"{intervention.planning_cost.unit}; feasibility remains at the unverified "
-                f"screening scalar {config.unverified_feasibility_score:.1f} and confidence at "
-                f"{config.unverified_confidence_score:.1f}."
+                f"screening scalar {config.unverified_feasibility_score:.1f}."
             ),
             source_artifact_ids=(
                 CandidateSourceArtifact.INTERVENTION_CATALOG,
                 CandidateSourceArtifact.CANDIDATE_CONFIG,
             ),
         ),
-    )
+    ]
+    if street_context is not None:
+        evidence.append(
+            CandidateEvidence(
+                kind=EvidenceKind.STREET_CONTEXT,
+                statement=(
+                    f"Cached dated Street View segmentation provides context confidence "
+                    f"{street_context.street_context_confidence.score:.3f} from "
+                    f"{street_context.street_context_confidence.usable_view_count} usable view; "
+                    f"{street_context.shade_intervention_evidence.limitation}"
+                ),
+                source_artifact_ids=(CandidateSourceArtifact.STREET_VIEW_EVIDENCE,),
+            )
+        )
+    else:
+        evidence.append(
+            CandidateEvidence(
+                kind=EvidenceKind.PLANNING_ASSUMPTION,
+                statement=(
+                    f"No normalized Street View evidence is cached for this site, so confidence "
+                    f"remains at the neutral unverified scalar "
+                    f"{config.unverified_confidence_score:.1f}."
+                ),
+                source_artifact_ids=(CandidateSourceArtifact.CANDIDATE_CONFIG,),
+            )
+        )
+    return tuple(evidence)
 
 
 def _candidate(
@@ -278,6 +311,7 @@ def _candidate(
     intervention: InterventionDefinition,
     site_statement: str,
     config: CandidateConfig,
+    street_context: ExtractedStreetViewFeatures | None,
 ) -> Candidate:
     if site_type not in intervention.applicability.eligible_site_types:
         raise ValueError(
@@ -303,12 +337,17 @@ def _candidate(
         benefit_score=selected_tile.scores.priority,
         equity_score=selected_tile.scores.vulnerability,
         feasibility_score=config.unverified_feasibility_score,
-        confidence=config.unverified_confidence_score,
+        confidence=(
+            street_context.street_context_confidence.score
+            if street_context is not None
+            else config.unverified_confidence_score
+        ),
         evidence=_common_evidence(
             tile=selected_tile,
             intervention=intervention,
             site_statement=site_statement,
             config=config,
+            street_context=street_context,
         ),
         geometry=geometry,
     )
@@ -343,11 +382,14 @@ def build_candidates(
     public_data_path: Path = DEFAULT_PUBLIC_DATA_PATH,
     catalog_path: Path = DEFAULT_INTERVENTION_CATALOG_PATH,
     config_path: Path = DEFAULT_CANDIDATE_CONFIG_PATH,
+    streetview_evidence_path: Path = DEFAULT_STREETVIEW_EVIDENCE_PATH,
 ) -> CandidateArtifact:
     table = load_feature_table(feature_table_path)
     public = load_processed_fixture(public_data_path)
     catalog = load_intervention_catalog(catalog_path)
     config = load_candidate_config(config_path)
+    street_artifact = load_street_view_evidence_artifact(streetview_evidence_path)
+    street_by_site = {site.site_id: site for site in street_artifact.sites}
 
     tiles_by_stop: dict[str, list[TileFeature]] = {}
     tiles_by_poi: dict[str, list[TileFeature]] = {}
@@ -370,6 +412,7 @@ def build_candidates(
             intervention=shade,
             site_statement=_stop_statement(stop),
             config=config,
+            street_context=street_by_site.get(stop.id),
         )
         for stop in public.transit_stops
     ]
@@ -384,6 +427,7 @@ def build_candidates(
             intervention=trees,
             site_statement=_poi_statement(poi),
             config=config,
+            street_context=street_by_site.get(poi.id),
         )
         for poi in public.pois
         if poi.kind in {SiteType.SCHOOL.value, SiteType.PARK.value}
@@ -414,6 +458,11 @@ def build_candidates(
                 id=CandidateSourceArtifact.CANDIDATE_CONFIG,
                 path="config/candidates.json",
                 sha256=_sha256(config_path),
+            ),
+            SourceArtifact(
+                id=CandidateSourceArtifact.STREET_VIEW_EVIDENCE,
+                path="data/processed/pacoima_streetview_evidence.json",
+                sha256=_sha256(streetview_evidence_path),
             ),
         ),
         counts=CandidateCounts(

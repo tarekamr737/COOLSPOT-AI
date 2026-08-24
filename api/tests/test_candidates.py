@@ -18,6 +18,10 @@ from api.app.services.interventions import (
     load_intervention_catalog,
 )
 from api.app.services.processed_data import FixtureGeometry, load_processed_fixture
+from api.app.services.streetview_evidence import (
+    DEFAULT_STREETVIEW_EVIDENCE_PATH,
+    load_street_view_evidence_artifact,
+)
 
 PUBLIC_DATA_PATH = Path("data/processed/pacoima_public_data.json")
 
@@ -26,6 +30,9 @@ def test_real_candidates_are_complete_compatible_and_traceable() -> None:
     artifact = load_candidates()
     public = load_processed_fixture(PUBLIC_DATA_PATH)
     catalog = load_intervention_catalog()
+    street_by_site = {
+        site.site_id: site for site in load_street_view_evidence_artifact().sites
+    }
     site_geometries: dict[str, FixtureGeometry] = {
         **{stop.id: stop.geometry for stop in public.transit_stops},
         **{poi.id: poi.geometry for poi in public.pois},
@@ -44,8 +51,16 @@ def test_real_candidates_are_complete_compatible_and_traceable() -> None:
         assert candidate.planning_cost_usd == intervention.planning_cost.estimate_usd
         assert candidate.geometry == site_geometries[candidate.site_id]
         assert candidate.feasibility_score == 0.5
-        assert candidate.confidence == 0.5
-        assert len(candidate.evidence) == 5
+        if candidate.site_id in street_by_site:
+            assert candidate.confidence == (
+                street_by_site[candidate.site_id].street_context_confidence.score
+            )
+            assert any(item.kind.value == "street_context" for item in candidate.evidence)
+        else:
+            assert candidate.confidence == 0.5
+        assert len(candidate.evidence) == 6
+
+    assert len({candidate.confidence for candidate in artifact.candidates}) > 2
 
 
 def test_candidate_scores_and_representative_tiles_come_from_feature_table() -> None:
@@ -73,6 +88,7 @@ def test_candidate_artifact_is_canonical_and_hashes_all_inputs() -> None:
         CandidateSourceArtifact.PUBLIC_DATA: PUBLIC_DATA_PATH,
         CandidateSourceArtifact.INTERVENTION_CATALOG: DEFAULT_INTERVENTION_CATALOG_PATH,
         CandidateSourceArtifact.CANDIDATE_CONFIG: DEFAULT_CANDIDATE_CONFIG_PATH,
+        CandidateSourceArtifact.STREET_VIEW_EVIDENCE: DEFAULT_STREETVIEW_EVIDENCE_PATH,
     }
 
     assert DEFAULT_CANDIDATES_PATH.read_bytes() == canonical_candidate_bytes(artifact)

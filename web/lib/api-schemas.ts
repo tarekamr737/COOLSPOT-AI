@@ -56,6 +56,7 @@ const evidenceSchema = z.object({
     "vulnerability",
     "applicability",
     "planning_assumption",
+    "street_context",
   ]),
   statement: z.string().min(1),
   source_artifact_ids: z.array(z.string()).min(1),

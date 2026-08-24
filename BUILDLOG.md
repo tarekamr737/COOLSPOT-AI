@@ -192,3 +192,7 @@
 - The normalized Street View artifact omits imagery and legends to stay deployment-small, but keeps
   a SHA-256 for each exact cached response plus the evidence-config hash. Its build excludes runtime
   timestamps and sorts sites canonically, enabling byte-for-byte reproducibility.
+- Candidate integration updates confidence only for the 20 exact sites with normalized Street View
+  evidence and retains the neutral `0.5` fallback for the other 132. Feasibility deliberately stays
+  neutral in this slice because camera segmentation does not verify right-of-way, utilities, safety,
+  or constructability; the later intervention-specific rule task owns that distinction.

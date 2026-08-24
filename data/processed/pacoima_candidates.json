@@ -40,7 +40,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -105,7 +112,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -170,7 +184,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -235,7 +256,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -300,7 +328,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -365,7 +400,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -430,7 +472,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -495,7 +544,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -560,7 +616,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -625,7 +688,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -690,7 +760,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -717,7 +794,7 @@
     },
     {
       "benefit_score": 0.5593061104337843,
-      "confidence": 0.5,
+      "confidence": 0.875,
       "equity_score": 0.49856190215018736,
       "evidence": [
         {
@@ -755,7 +832,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.875 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -782,7 +866,7 @@
     },
     {
       "benefit_score": 0.5608762243146902,
-      "confidence": 0.5,
+      "confidence": 0.791667,
       "equity_score": 0.6122743575257028,
       "evidence": [
         {
@@ -820,7 +904,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.792 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -847,7 +938,7 @@
     },
     {
       "benefit_score": 0.5361769468474663,
-      "confidence": 0.5,
+      "confidence": 0.833333,
       "equity_score": 0.44806666818424834,
       "evidence": [
         {
@@ -885,7 +976,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -950,7 +1048,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1015,7 +1120,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1080,7 +1192,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1145,7 +1264,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1210,7 +1336,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1275,7 +1408,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1340,7 +1480,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1405,7 +1552,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1470,7 +1624,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1535,7 +1696,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1600,7 +1768,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1665,7 +1840,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1730,7 +1912,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1795,7 +1984,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1860,7 +2056,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1925,7 +2128,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -1990,7 +2200,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -2055,7 +2272,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -2082,7 +2306,7 @@
     },
     {
       "benefit_score": 0.5362968943266431,
-      "confidence": 0.5,
+      "confidence": 0.833333,
       "equity_score": 0.45540634859939627,
       "evidence": [
         {
@@ -2120,7 +2344,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -2185,7 +2416,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -2250,7 +2488,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -2277,7 +2522,7 @@
     },
     {
       "benefit_score": 0.5401827349212147,
-      "confidence": 0.5,
+      "confidence": 0.833333,
       "equity_score": 0.4775416298983908,
       "evidence": [
         {
@@ -2315,7 +2560,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -2380,7 +2632,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -2445,7 +2704,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -2510,7 +2776,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -2575,7 +2848,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -2640,7 +2920,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -2705,7 +2992,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -2770,7 +3064,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -2835,7 +3136,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -2900,7 +3208,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -2965,7 +3280,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -2992,7 +3314,7 @@
     },
     {
       "benefit_score": 0.5608762243146902,
-      "confidence": 0.5,
+      "confidence": 0.791667,
       "equity_score": 0.6122743575257028,
       "evidence": [
         {
@@ -3030,7 +3352,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.792 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -3057,7 +3386,7 @@
     },
     {
       "benefit_score": 0.5976484413534375,
-      "confidence": 0.5,
+      "confidence": 0.833333,
       "equity_score": 0.5032739506389345,
       "evidence": [
         {
@@ -3095,7 +3424,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -3122,7 +3458,7 @@
     },
     {
       "benefit_score": 0.5334553491329583,
-      "confidence": 0.5,
+      "confidence": 0.833333,
       "equity_score": 0.6823529157519922,
       "evidence": [
         {
@@ -3160,7 +3496,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -3225,7 +3568,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -3290,7 +3640,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -3355,7 +3712,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -3420,7 +3784,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -3485,7 +3856,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -3550,7 +3928,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -3615,7 +4000,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -3642,7 +4034,7 @@
     },
     {
       "benefit_score": 0.5334575467989234,
-      "confidence": 0.5,
+      "confidence": 0.833333,
       "equity_score": 0.5886653956128067,
       "evidence": [
         {
@@ -3680,7 +4072,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -3745,7 +4144,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -3810,7 +4216,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -3875,7 +4288,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -3940,7 +4360,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -4005,7 +4432,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -4070,7 +4504,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -4135,7 +4576,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -4200,7 +4648,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -4227,7 +4682,7 @@
     },
     {
       "benefit_score": 0.5593061104337843,
-      "confidence": 0.5,
+      "confidence": 0.875,
       "equity_score": 0.49856190215018736,
       "evidence": [
         {
@@ -4265,7 +4720,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.875 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -4330,7 +4792,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -4357,7 +4826,7 @@
     },
     {
       "benefit_score": 0.5401827349212147,
-      "confidence": 0.5,
+      "confidence": 0.75,
       "equity_score": 0.4775416298983908,
       "evidence": [
         {
@@ -4395,7 +4864,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.750 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -4460,7 +4936,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -4525,7 +5008,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -4590,7 +5080,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -4655,7 +5152,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -4720,7 +5224,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -4785,7 +5296,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -4812,7 +5330,7 @@
     },
     {
       "benefit_score": 0.5874843274460777,
-      "confidence": 0.5,
+      "confidence": 0.6875,
       "equity_score": 0.49960594355402,
       "evidence": [
         {
@@ -4850,7 +5368,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.688 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -4915,7 +5440,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -4980,7 +5512,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -5045,7 +5584,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -5110,7 +5656,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -5175,7 +5728,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -5202,7 +5762,7 @@
     },
     {
       "benefit_score": 0.5903808955934429,
-      "confidence": 0.5,
+      "confidence": 0.833333,
       "equity_score": 0.5220369404578297,
       "evidence": [
         {
@@ -5240,7 +5800,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -5305,7 +5872,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -5370,7 +5944,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -5435,7 +6016,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -5500,7 +6088,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -5565,7 +6160,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -5630,7 +6232,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -5695,7 +6304,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -5760,7 +6376,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -5825,7 +6448,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -5890,7 +6520,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -5917,7 +6554,7 @@
     },
     {
       "benefit_score": 0.5362968943266431,
-      "confidence": 0.5,
+      "confidence": 0.833333,
       "equity_score": 0.45540634859939627,
       "evidence": [
         {
@@ -5955,7 +6592,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -6020,7 +6664,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -6085,7 +6736,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -6150,7 +6808,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -6215,7 +6880,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -6280,7 +6952,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -6345,7 +7024,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -6410,7 +7096,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -6475,7 +7168,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -6540,7 +7240,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -6605,7 +7312,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -6632,7 +7346,7 @@
     },
     {
       "benefit_score": 0.5608762243146902,
-      "confidence": 0.5,
+      "confidence": 0.791667,
       "equity_score": 0.6122743575257028,
       "evidence": [
         {
@@ -6670,7 +7384,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.792 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -6697,7 +7418,7 @@
     },
     {
       "benefit_score": 0.6273399214347446,
-      "confidence": 0.5,
+      "confidence": 0.875,
       "equity_score": 0.6218115468948806,
       "evidence": [
         {
@@ -6735,7 +7456,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.875 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -6800,7 +7528,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -6865,7 +7600,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -6892,7 +7634,7 @@
     },
     {
       "benefit_score": 0.5379777025719256,
-      "confidence": 0.5,
+      "confidence": 0.833333,
       "equity_score": 0.6194623520893654,
       "evidence": [
         {
@@ -6930,7 +7672,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -6995,7 +7744,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -7060,7 +7816,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -7125,7 +7888,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -7190,7 +7960,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one transit-stop shelter site; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -7255,7 +8032,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -7379,7 +8163,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -7527,7 +8318,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -7711,7 +8509,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -7761,7 +8566,7 @@
     },
     {
       "benefit_score": 0.5903808955934429,
-      "confidence": 0.5,
+      "confidence": 0.875,
       "equity_score": 0.5220369404578297,
       "evidence": [
         {
@@ -7799,7 +8604,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.875 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -7893,7 +8705,7 @@
     },
     {
       "benefit_score": 0.5903808955934429,
-      "confidence": 0.5,
+      "confidence": 0.833333,
       "equity_score": 0.5220369404578297,
       "evidence": [
         {
@@ -7931,7 +8743,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -8047,7 +8866,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -8187,7 +9013,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -8423,7 +9256,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -8659,7 +9499,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -8819,7 +9666,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -8919,7 +9773,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -8983,7 +9844,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9047,7 +9915,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9111,7 +9986,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9175,7 +10057,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9239,7 +10128,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9303,7 +10199,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9367,7 +10270,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9431,7 +10341,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9495,7 +10412,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9559,7 +10483,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9623,7 +10554,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9687,7 +10625,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9751,7 +10696,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9815,7 +10767,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9879,7 +10838,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -9943,7 +10909,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -10007,7 +10980,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -10071,7 +11051,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -10135,7 +11122,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -10199,7 +11193,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -10263,7 +11264,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -10327,7 +11335,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -10391,7 +11406,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -10417,7 +11439,7 @@
     },
     {
       "benefit_score": 0.6273399214347446,
-      "confidence": 0.5,
+      "confidence": 0.833333,
       "equity_score": 0.6218115468948806,
       "evidence": [
         {
@@ -10455,7 +11477,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "street_context",
+          "source_artifact_ids": [
+            "pacoima_streetview_evidence"
+          ],
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -10519,7 +11548,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -10583,7 +11619,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -10647,7 +11690,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -10711,7 +11761,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -10775,7 +11832,14 @@
             "intervention_catalog",
             "candidate_config"
           ],
-          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5 and confidence at 0.5."
+          "statement": "Planning cost is $50,000 per one approximately ten-tree public-site package; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "candidate_config"
+          ],
+          "statement": "No normalized Street View evidence is cached for this site, so confidence remains at the neutral unverified scalar 0.5."
         }
       ],
       "feasibility_score": 0.5,
@@ -10842,6 +11906,11 @@
       "id": "candidate_config",
       "path": "config/candidates.json",
       "sha256": "1d1f4027db5f5b84744aeee435ff170ad20e2038683fc4b6b08877cc9e84fbca"
+    },
+    {
+      "id": "pacoima_streetview_evidence",
+      "path": "data/processed/pacoima_streetview_evidence.json",
+      "sha256": "97816ecd45f8934cd38762a748dd91ab96b7af459d2c05458d8fa3de1a642af5"
     }
   ],
   "version": "1.0"
