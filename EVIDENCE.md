@@ -745,3 +745,7 @@
   objective, applies a stable ID tie break and fixed decision strategy, and runs one worker with
   seed `0`. The preset regression returns identical optimal portfolios when candidate input order
   is reversed (`1 passed`).
+- AI isolation proof: an AST-based architecture regression inspects feature generation, candidate
+  generation, intervention-value calculation, and optimization. It rejects imports of the
+  explanation service or LLM/network-provider libraries, keeping optional AI downstream and
+  explanation-only.

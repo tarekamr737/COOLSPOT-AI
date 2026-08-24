@@ -178,7 +178,7 @@ priority_score
 
 - [x] Keep all derived factors in `[0,1]`.
 - [x] Keep CP-SAT deterministic.
-- [ ] Do not use an LLM in ranking or optimization.
+- [x] Do not use an LLM in ranking or optimization.
 - [ ] Preserve:
   - budget constraint,
   - one intervention per site,
