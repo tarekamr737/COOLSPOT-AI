@@ -37,13 +37,13 @@
       "reason": "The deterministic top 10 finalists completed successfully and every exact point-level response is cached."
     },
     {
-      "access": "unconfirmed",
-      "cached_artifact": null,
-      "dependency": "A top-site-only canopy question that cannot be answered from cached public evidence.",
-      "enabled": false,
+      "access": "confirmed",
+      "cached_artifact": "data/processed/fortyguard_satellite_probe.json",
+      "dependency": "One top-pavement surface-context question not answered by the administrative pavement inventory alone.",
+      "enabled": true,
       "feature": "satellite_segmentation",
-      "probe_attempted": false,
-      "reason": "Premium access is unconfirmed and segmentation is not required for the core MVP."
+      "probe_attempted": true,
+      "reason": "One governed 100 m request for the deterministic top pavement candidate completed and is cached; it adds dated overhead class coverage without replacing field verification."
     },
     {
       "access": "confirmed",
@@ -64,11 +64,11 @@
       "reason": "The report endpoint is not an MVP dependency and was not probed or assumed available."
     }
   ],
-  "credits_remaining": 1773680,
-  "credits_used": 226320,
-  "evaluated_at": "2026-08-24",
+  "credits_remaining": 1759280,
+  "credits_used": 240720,
+  "evaluated_at": "2026-08-25",
   "hard_reserve": 500000,
-  "optional_live_probes_made": 2,
+  "optional_live_probes_made": 3,
   "total_credits": 2000000,
   "version": "1.0"
 }

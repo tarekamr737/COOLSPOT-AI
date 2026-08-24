@@ -30,18 +30,21 @@ def test_optional_features_are_explicitly_gated() -> None:
         FortyGuardFeature.HEATMAP_TCM,
         FortyGuardFeature.HEATMAP_PERSISTENCE,
         FortyGuardFeature.ENVIRONMENTAL_PARAMETERS,
+        FortyGuardFeature.SATELLITE_SEGMENTATION,
         FortyGuardFeature.STREET_VIEW_SEGMENTATION,
     }
 
-    assert manifest.optional_live_probes_made == 2
-    assert manifest.credits_used == 226_320
-    assert manifest.credits_remaining == 1_773_680
+    assert manifest.optional_live_probes_made == 3
+    assert manifest.credits_used == 240_720
+    assert manifest.credits_remaining == 1_759_280
     env_params = manifest.require_enabled(FortyGuardFeature.ENVIRONMENTAL_PARAMETERS)
     assert env_params.cached_artifact == (
         "data/processed/pacoima_environmental_sites"
     )
     street_view = manifest.require_enabled(FortyGuardFeature.STREET_VIEW_SEGMENTATION)
     assert street_view.cached_artifact == "data/processed/pacoima_streetview_sites"
+    satellite = manifest.require_enabled(FortyGuardFeature.SATELLITE_SEGMENTATION)
+    assert satellite.cached_artifact == "data/processed/fortyguard_satellite_probe.json"
     for feature in set(FortyGuardFeature) - enabled:
         capability = manifest.get(feature)
         assert capability.enabled is False

@@ -309,3 +309,7 @@
   segment geometry plus surface, width, PCI, category, and source date. Because its surface/class
   code definitions are not published in the service metadata, the codes remain uninterpreted.
   Candidate volume is versioned at 20, with one longest eligible asset per representative heat tile.
+- The completed satellite runtime payload included both documented `orignal_image` and additional
+  `original_image` keys. After the first strict parse failed, polling the same cached activity also
+  exposed a second-pass normalization path using `original_images`. The adapter now accepts equal
+  aliases, rejects conflicting values, and is idempotent; no second satellite job was submitted.

@@ -23,6 +23,7 @@ from api.app.fortyguard_models import (
     PolygonAoi,
     SatelliteCoordinates,
     SatelliteRequest,
+    SatelliteResult,
     StreetViewRequest,
 )
 from api.app.services.boundary import PolygonGeometry
@@ -31,6 +32,7 @@ from api.app.services.fortyguard import (
     FortyGuardError,
     HttpxJsonTransport,
     TransportResponse,
+    _normalize_result,
     canonical_request_hash,
 )
 
@@ -443,3 +445,34 @@ def test_typed_optional_endpoint_submissions_use_documented_paths(tmp_path: Path
         "https://api.fortyguard.com/v1/satellite",
         "https://api.fortyguard.com/v1/streetview",
     ]
+
+
+def test_satellite_normalization_accepts_observed_dual_image_fields() -> None:
+    payload: dict[str, JsonValue] = {
+        "coordinates": {"latitude": "34.27", "longitude": "-118.41"},
+        "orignal_image": ["same-image"],
+        "original_image": ["same-image"],
+        "image_year": 2026,
+        "segmentation": {
+            "image_dimensions": {"height": 350, "width": 350},
+            "mode": "sat",
+            "processing_time_seconds": 0.2,
+            "request_id": "fixture-request",
+            "segments": {"road": 25.0},
+            "image_legend": {"road": [1, 2, 3]},
+            "image_content": "segmented-image",
+        },
+    }
+
+    result = _normalize_result(FortyGuardEndpoint.SATELLITE, payload)
+
+    assert isinstance(result, SatelliteResult)
+    assert result.original_images == ("same-image",)
+    repeated = _normalize_result(
+        FortyGuardEndpoint.SATELLITE, result.model_dump(mode="json")
+    )
+    assert repeated == result
+
+    payload["original_image"] = ["conflicting-image"]
+    with pytest.raises(FortyGuardError, match="conflicting original-image fields"):
+        _normalize_result(FortyGuardEndpoint.SATELLITE, payload)

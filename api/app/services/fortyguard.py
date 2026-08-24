@@ -231,9 +231,21 @@ def _normalize_result(
         return EnvironmentalParametersResult.model_validate(payload)
     if endpoint == FortyGuardEndpoint.SATELLITE:
         normalized = dict(payload)
-        original_images = normalized.pop("orignal_image", None)
-        if original_images is None:
-            original_images = normalized.pop("original_image", None)
+        documented_images = normalized.pop("orignal_image", None)
+        runtime_images = normalized.pop("original_image", None)
+        normalized_images = normalized.pop("original_images", None)
+        image_variants = tuple(
+            images
+            for images in (documented_images, runtime_images, normalized_images)
+            if images is not None
+        )
+        if len(image_variants) > 1 and any(
+            images != image_variants[0] for images in image_variants[1:]
+        ):
+            raise FortyGuardProtocolError(
+                "satellite response returned conflicting original-image fields"
+            )
+        original_images = image_variants[0] if image_variants else None
         normalized["original_images"] = original_images
         return SatelliteResult.model_validate(normalized)
     if endpoint == FortyGuardEndpoint.STREETVIEW:

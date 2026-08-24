@@ -806,3 +806,15 @@
   compatibility. A catalog regression requires all six gates, while candidate tests require the
   same wording on each of the 20 serialized options; 13 focused tests pass and the rebuilt
   candidate artifact remains byte-for-byte reproducible.
+- Satellite capability proof: exactly one governed 100 m `/v1/satellite` request was submitted for
+  the deterministic top pavement corridor (`cool_pavement:pavement:21486`, tile `1355`) using the
+  active heatmap date/hour. Activity `54e55cc7-c2be-46bf-866f-4c663c1b2dad` completed and is cached
+  under canonical request hash `839afb7ccdcf43302459c9a6cadbc9372b3d8fb0242f75061df8278f636ea6a7`.
+- Material-evidence proof: the 2026 satellite result reports `59.41%` `road, route` and `8.39%`
+  `sidewalk, pavement` at the exact probe point, alongside building/vegetation context. This adds
+  dated overhead surface coverage distinct from the City's administrative pavement line while
+  remaining explicitly insufficient for ownership, condition, traction, glare, drainage, or
+  product compatibility.
+- Credit-safety proof: usage was queried before and after the same activity, moving from `226,320`
+  to `240,720` credits and leaving `1,759,280`, safely above the `500,000` hard reserve. The journal,
+  request cache, and ledger show one submission; subsequent runs poll/reuse that activity.
