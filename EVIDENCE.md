@@ -749,3 +749,6 @@
   generation, intervention-value calculation, and optimization. It rejects imports of the
   explanation service or LLM/network-provider libraries, keeping optional AI downstream and
   explanation-only.
+- Constraint-preservation proof: focused regressions cover all budget presets, assert total cost
+  never exceeds budget, reject selecting two interventions at one site, and verify every one of the
+  152 committed candidates against its intervention catalog eligibility rules (`3 passed`).
