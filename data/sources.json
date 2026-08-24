@@ -99,6 +99,87 @@
       }
     },
     {
+      "id": "fortyguard_heatmap",
+      "title": "FortyGuard Heatmap API — TCM, persistence, exceedance, and time of measure",
+      "publisher": "FortyGuard",
+      "dataset_url": "https://docs-api.fortyguard.com/docs/create-heatmap",
+      "retrieved_at": "2026-08-21",
+      "data_vintage": "Active TCM and persistence: 2026-08-20; historical exceedance and peak-time context: 2024-07-15",
+      "license_notes": "Cached hackathon API outputs are retained for this project under the provider account terms; public redistribution rights are not inferred.",
+      "license_url": "https://docs-api.fortyguard.com/",
+      "fields": {
+        "average_temperature": "Vendor-returned tile-average temperature",
+        "persistence": "Vendor-returned hours above the configured 30 °C threshold",
+        "exceedance": "Vendor-returned historical exceedance hours",
+        "time_of_measure": "Vendor-returned historical peak-hour context"
+      },
+      "limitations": [
+        "The outputs are model evidence for relative screening, not a site forecast, health-risk estimate, or guaranteed intervention effect.",
+        "Historical exceedance and peak time are not contemporaneous with the active TCM and persistence layers."
+      ],
+      "artifacts": []
+    },
+    {
+      "id": "fortyguard_streetview",
+      "title": "FortyGuard Street View Segmentation API",
+      "publisher": "FortyGuard",
+      "dataset_url": "https://docs-api.fortyguard.com/docs/street-view-segmentation",
+      "retrieved_at": "2026-08-21",
+      "data_vintage": "Twenty cached exact-site frames with vendor image dates spanning 2017-05-01 through 2025-12-01",
+      "license_notes": "Cached hackathon API outputs are retained for this project under the provider account terms; public redistribution rights are not inferred.",
+      "license_url": "https://docs-api.fortyguard.com/",
+      "fields": {
+        "image_date": "Vendor-returned capture month",
+        "segments": "Vendor-returned semantic class percentages",
+        "original_image": "Cached original frame when returned",
+        "segmented_image": "Cached segmentation rendering when returned"
+      },
+      "limitations": [
+        "A dated camera frame does not prove current conditions, all-day shade, right-of-way, utilities, or construction feasibility.",
+        "Evidence is limited to the deterministic 20-site sample; other sites remain explicitly unavailable."
+      ],
+      "artifacts": []
+    },
+    {
+      "id": "fortyguard_environmental_parameters",
+      "title": "FortyGuard Environmental Parameters API",
+      "publisher": "FortyGuard",
+      "dataset_url": "https://docs-api.fortyguard.com/docs/environmental-parameters",
+      "retrieved_at": "2026-08-21",
+      "data_vintage": "Ten cached finalist point requests observed at 2026-08-20 14:00, vendor timezone UTC−08:00",
+      "license_notes": "Cached hackathon API outputs are retained for this project under the provider account terms; public redistribution rights are not inferred.",
+      "license_url": "https://docs-api.fortyguard.com/",
+      "fields": {
+        "apparent_temperature": "Vendor-returned apparent temperature",
+        "relative_humidity": "Vendor-returned relative humidity",
+        "clear_sky_ghi": "Vendor-returned clear-sky GHI value; unit is not stated in the endpoint schema"
+      },
+      "limitations": [
+        "Single-hour point outputs are explanation context only and are not used in ranking.",
+        "The fields do not establish medical risk, individual exposure, or intervention feasibility."
+      ],
+      "artifacts": []
+    },
+    {
+      "id": "fortyguard_satellite",
+      "title": "FortyGuard Satellite View Segmentation API",
+      "publisher": "FortyGuard",
+      "dataset_url": "https://docs-api.fortyguard.com/docs/satellite-view-segmentation",
+      "retrieved_at": "2026-08-25",
+      "data_vintage": "One cached 2026 overhead segmentation for the deterministic top pavement finalist",
+      "license_notes": "Cached hackathon API outputs are retained for this project under the provider account terms; public redistribution rights are not inferred.",
+      "license_url": "https://docs-api.fortyguard.com/",
+      "fields": {
+        "image_year": "Vendor-returned image year",
+        "segments": "Vendor-returned overhead semantic class percentages"
+      },
+      "limitations": [
+        "One overhead classification is surface-screening context only and is not used to rank candidates.",
+        "It does not establish ownership, current condition, treatment area, safety, permits, product compatibility, or construction feasibility."
+      ],
+      "artifacts": []
+    },
+    {
       "id": "lausd_school_sites",
       "title": "LAUSD School Site Locations",
       "publisher": "Los Angeles Unified School District via Los Angeles GeoHub",

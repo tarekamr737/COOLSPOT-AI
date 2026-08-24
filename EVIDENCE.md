@@ -18,6 +18,7 @@ state at that task's completion and may be superseded by this snapshot or a late
 | Credit boundary | The capability snapshot records `1,759,280` credits remaining and the server enforces the `500,000` reserve. Budget/scenario replanning visibly consumes `0 FortyGuard credits`. |
 | UI regression | Strict TypeScript and zero-warning lint pass; 11 active component tests cover the golden workspace, keyboard tour, empty state, recovery, refresh, and zero-vendor replanning. |
 | Decision log | `BUILDLOG.md` records only material runtime discoveries and architecture/product decisions; its current audit entry points readers to validated configs/artifacts rather than copying historical state forward. |
+| Source registry | `data/sources.json` contains 13 unique typed sources. Heatmap, Street View, environmental, and satellite evidence now each disclose provider documentation, retrieval/data dates, retained fields, provider-terms caveat, and decision-safe limitations; all four registry tests pass. |
 
 Machine-readable provenance remains in `data/sources.json`, the capability snapshot in
 `data/processed/fortyguard_capabilities.json`, and versioned decision assumptions in `config/`.

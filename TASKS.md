@@ -323,7 +323,7 @@ Selected in 4/4 planning scenarios
 - [x] Update `README.md`.
 - [x] Update `EVIDENCE.md`.
 - [x] Update `BUILDLOG.md`.
-- [ ] Update `data/sources.json`.
+- [x] Update `data/sources.json`.
 - [ ] Update capability snapshot.
 - [ ] Update all scoring/config documentation.
 - [ ] Remove outdated claims about universal `0.5` confidence/feasibility.
