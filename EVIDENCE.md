@@ -770,3 +770,15 @@
   cost (`$50,000`), feasibility (`1.0`), and confidence (`1.0`) equal for two distinct sites. With
   one available slot, swapping only their suitability evidence (`0.9` versus `0.1`) swaps the
   selected site; the full optimizer test module passes all 4 tests.
+
+## Authoritative Pacoima roadway geometry
+
+- Acquisition proof: `scripts/acquire_roadway_geometry.py` queries the City of Los Angeles
+  `Street_Information/MapServer/36` Streets (Centerline) layer using the committed Pacoima AOI
+  envelope, requests WGS84 GeoJSON, and follows the service's 1,000-record pagination boundary.
+- Completeness proof: a count query reported 1,913 intersecting centerlines; the committed
+  `data/processed/pacoima_street_centerlines.geojson` contains exactly 1,913 unique, ordered
+  service `AutoID` records and validates every geometry as a LineString or MultiLineString.
+- Reproducibility proof: the acquisition sorts by the service-declared object ID, validates each
+  page through strict typed schemas, writes atomically, and its committed artifact matches the
+  canonical serializer byte-for-byte. Both focused tests, Ruff, and Mypy pass.

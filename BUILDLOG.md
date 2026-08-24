@@ -299,3 +299,8 @@
 - The first Vitest run timed out before starting its thread worker. Re-running the unchanged suite
   with one forked worker completed in 7.43 seconds with all 7 active tests passing; this was a test
   runner resource issue, not an application assertion failure.
+- The City street-centerline query returned exactly 1,000 records on the first attempt, revealing
+  the documented service cap rather than a complete snapshot. Paginated runtime responses also add
+  `exceededTransferLimit`, and the layer's actual object-ID field is `AutoID` (the ordinary
+  `OBJECTID` attribute is not unique). The acquisition now validates that runtime shape, orders and
+  deduplicates on `AutoID`, and rejects any result count mismatch.
