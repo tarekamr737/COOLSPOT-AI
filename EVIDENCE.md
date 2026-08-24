@@ -1,5 +1,26 @@
 # EVIDENCE
 
+## Current verified snapshot
+
+This section is the current judge-facing proof index. Later sections preserve the chronological
+build record, so intermediate counts, model names, and unavailable capabilities there describe the
+state at that task's completion and may be superseded by this snapshot or a later section.
+
+| Requirement | Current proof |
+| --- | --- |
+| Official pilot boundary | `data/processed/pacoima_aoi.geojson` validates at `7.763214 mi²`, below the `10 mi²` limit. |
+| Cached heat decision data | Four API layers are derived from 2,001 validated Pacoima tiles; ordinary reads make no vendor request. |
+| Candidate catalog | `data/processed/pacoima_candidates.json` contains 172 unique-site candidates: 111 shade, 41 tree, and 20 cool pavement. |
+| Deterministic planning | CP-SAT enforces budget and one intervention per site; four versioned scoring presets are locally re-scored. |
+| Robustness semantics | The API/UI report site selection frequency across exactly four presets, never statistical confidence or probability. |
+| Bounded optional evidence | Committed normalized artifacts contain 20 Street View records, 10 environmental finalists, and one satellite pavement record. Missing records remain visibly unavailable. |
+| Explanation boundary | Deterministic templates are the default; optional `stealth/ox-alpha` wording is source-constrained, cached, and cannot rank or add evidence. |
+| Credit boundary | The capability snapshot records `1,759,280` credits remaining and the server enforces the `500,000` reserve. Budget/scenario replanning visibly consumes `0 FortyGuard credits`. |
+| UI regression | Strict TypeScript and zero-warning lint pass; 11 active component tests cover the golden workspace, keyboard tour, empty state, recovery, refresh, and zero-vendor replanning. |
+
+Machine-readable provenance remains in `data/sources.json`, the capability snapshot in
+`data/processed/fortyguard_capabilities.json`, and versioned decision assumptions in `config/`.
+
 ## Pacoima AOI is below the FortyGuard limit
 
 - Requirement: committed Pacoima AOI is valid WGS84 GeoJSON and smaller than 10 mi².
@@ -933,4 +954,4 @@
   `20/10/1` street/environmental/satellite evidence records.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
-  candidate rebuild, and all 7 active frontend tests pass.
+  candidate rebuild, and all 11 active frontend tests pass.
