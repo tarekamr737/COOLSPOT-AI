@@ -4,9 +4,12 @@ import json
 import urllib.parse
 
 from api.app.services.roadway_geometry import (
+    DEFAULT_PAVEMENT_PATH,
     DEFAULT_ROADWAY_PATH,
     acquire_street_centerlines,
+    canonical_pavement_condition_bytes,
     canonical_street_centerline_bytes,
+    load_pavement_conditions,
     load_street_centerlines,
 )
 
@@ -63,3 +66,16 @@ def test_committed_street_centerlines_are_complete_and_canonical() -> None:
 
     assert len(document.features) == 1913
     assert DEFAULT_ROADWAY_PATH.read_bytes() == canonical_street_centerline_bytes(document)
+
+
+def test_committed_pavement_conditions_are_complete_and_canonical() -> None:
+    document = load_pavement_conditions()
+
+    assert len(document.features) == 1703
+    assert {feature.properties.PCI_Category for feature in document.features} == {
+        "Good",
+        "Fair",
+        "Poor",
+    }
+    assert all(feature.properties.Surface for feature in document.features)
+    assert DEFAULT_PAVEMENT_PATH.read_bytes() == canonical_pavement_condition_bytes(document)

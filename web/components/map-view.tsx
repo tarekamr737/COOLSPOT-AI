@@ -76,7 +76,9 @@ function layerCollection(layer: LayerResponse): GeoJsonCollection {
 function geometryCenter(geometry: Geometry): [number, number] {
   if (geometry.type === "Point") return geometry.coordinates;
   const positions =
-    geometry.type === "Polygon"
+    geometry.type === "LineString"
+      ? geometry.coordinates
+      : geometry.type === "Polygon" || geometry.type === "MultiLineString"
       ? geometry.coordinates.flat()
       : geometry.coordinates.flat(2);
   const total = positions.reduce(

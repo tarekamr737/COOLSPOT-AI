@@ -304,3 +304,8 @@
   `exceededTransferLimit`, and the layer's actual object-ID field is `AutoID` (the ordinary
   `OBJECTID` attribute is not unique). The acquisition now validates that runtime shape, orders and
   deduplicates on `AutoID`, and rejects any result count mismatch.
+- Street centerlines alone did not prove paved material, so they were not used to activate cool
+  pavement. The official Bureau of Street Services Pavement Condition layer directly supplies
+  segment geometry plus surface, width, PCI, category, and source date. Because its surface/class
+  code definitions are not published in the service metadata, the codes remain uninterpreted.
+  Candidate volume is versioned at 20, with one longest eligible asset per representative heat tile.

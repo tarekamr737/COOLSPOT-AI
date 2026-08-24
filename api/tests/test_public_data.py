@@ -21,6 +21,7 @@ def test_source_registry_covers_required_inputs() -> None:
     assert {
         "pacoima_boundary",
         "la_city_street_centerlines",
+        "la_city_pavement_condition",
         "lausd_school_sites",
         "la_city_parks",
         "lapl_branches",
@@ -39,6 +40,13 @@ def test_source_registry_covers_required_inputs() -> None:
     assert roadway.geometry_provenance is not None
     assert roadway.geometry_provenance.record_count == 1913
     assert roadway.geometry_provenance.pagination_key == "AutoID"
+
+    pavement = next(
+        source for source in registry.sources if source.id == "la_city_pavement_condition"
+    )
+    assert pavement.geometry_provenance is not None
+    assert pavement.geometry_provenance.record_count == 1703
+    assert pavement.data_vintage.endswith("2026-08-06")
 
 
 def test_read_or_fetch_reuses_successful_cache(tmp_path: Path) -> None:

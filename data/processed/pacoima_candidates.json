@@ -1,6 +1,1874 @@
 {
   "candidates": [
     {
+      "benefit_score": 0.6039076563244212,
+      "confidence": 0.5,
+      "equity_score": 0.44806666818424834,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 1863 reports 36.03 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1826 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 14056 maps VAUGHN ST from GLENOAKS BL to DE GARMO AV, with published surface code AS, width 36, PCI 69 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.4481; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.42115933025757,
+            34.282625434188695
+          ],
+          [
+            -118.4228255522388,
+            34.2814105831531
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:14056",
+      "intersecting_tile_count": 3,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:14056",
+      "site_name": "VAUGHN ST: GLENOAKS BL / DE GARMO AV",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "1863",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6039076563244212,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07548845704055265,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.5869187016352871,
+      "confidence": 0.5,
+      "equity_score": 0.7079202804028022,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 27 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0889 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 14976 maps MONTAGUE ST from LAUREL CANYON BL to REMICK AV, with published surface code AS, width 28, PCI 86 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.7079; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.41637126125654,
+            34.243885369537544
+          ],
+          [
+            -118.41699395794488,
+            34.243430822186845
+          ],
+          [
+            -118.41748604083585,
+            34.24307207070025
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:14976",
+      "intersecting_tile_count": 3,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:14976",
+      "site_name": "MONTAGUE ST: LAUREL CANYON BL / REMICK AV",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "27",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5869187016352871,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07336483770441089,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.5770237847887163,
+      "confidence": 0.5,
+      "equity_score": 0.6394641842187657,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 228 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9999 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 177076 maps LAUREL CANYON BL from TERRA BELLA ST to GLAMIS ST, with published surface code OV, width 74, PCI 46 (Poor), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.6395; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.42448968595305,
+            34.25156685524763
+          ],
+          [
+            -118.42459721366289,
+            34.251668782925606
+          ],
+          [
+            -118.4258232671349,
+            34.252830949081776
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:177076",
+      "intersecting_tile_count": 3,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:177076",
+      "site_name": "LAUREL CANYON BL: TERRA BELLA ST / GLAMIS ST",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "228",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5770237847887163,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07212797309858954,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.5785394234920201,
+      "confidence": 0.5,
+      "equity_score": 0.5729193503202538,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 662 reports 35.96 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9995 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 1815 maps O'MELVENY AV from VAN NUYS BL to CARL ST, with published surface code AS, width 36, PCI 72 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.5729; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.42809229086531,
+            34.259094989414415
+          ],
+          [
+            -118.42966726913433,
+            34.260583064640954
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:1815",
+      "intersecting_tile_count": 5,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:1815",
+      "site_name": "O'MELVENY AV: VAN NUYS BL / CARL ST",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "662",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5785394234920201,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07231742793650252,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.6879023647192668,
+      "confidence": 0.5,
+      "equity_score": 0.6218115468948806,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 1355 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0432 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 21486 maps HERRICK AV from VAN NUYS BL to PIERCE ST, with published surface code AS, width 36, PCI 74 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.6218; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.41182871573231,
+            34.268316071265275
+          ],
+          [
+            -118.41498370709242,
+            34.27129442261886
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:21486",
+      "intersecting_tile_count": 8,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:21486",
+      "site_name": "HERRICK AV: VAN NUYS BL / PIERCE ST",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "1355",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6879023647192668,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.08598779558990835,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.5801504937124963,
+      "confidence": 0.5,
+      "equity_score": 0.7137094409509334,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 146 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9928 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 26259 maps LAUREL CANYON BL from GOLETA ST to KAGEL CANYON ST, with published surface code OV, width 61, PCI 84 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.7137; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.42267638921311,
+            34.249847868425036
+          ],
+          [
+            -118.4234654968576,
+            34.250595918057066
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:26259",
+      "intersecting_tile_count": 2,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:26259",
+      "site_name": "LAUREL CANYON BL: GOLETA ST / KAGEL CANYON ST",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "146",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5801504937124963,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07251881171406203,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.5832919392754897,
+      "confidence": 0.5,
+      "equity_score": 0.7339705671273522,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 65 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0171 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 28792 maps OSBORNE ST from LAUREL CANYON BL to REMICK AV, with published surface code OV, width 78, PCI 84 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.7340; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.4195277132065,
+            34.246863314583656
+          ],
+          [
+            -118.42094977137783,
+            34.245826018504225
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:28792",
+      "intersecting_tile_count": 4,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:28792",
+      "site_name": "OSBORNE ST: LAUREL CANYON BL / REMICK AV",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "65",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5832919392754897,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07291149240943622,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.5854868092455164,
+      "confidence": 0.5,
+      "equity_score": 0.4566373499591014,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 1789 reports 35.93 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0366 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 28951 maps PAXTON ST from FELLOWS AV to GLENOAKS BL, with published surface code AS, width 62, PCI 55 (Poor), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.4566; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.41633613404218,
+            34.28086223556345
+          ],
+          [
+            -118.41800316007217,
+            34.27964682162588
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:28951",
+      "intersecting_tile_count": 4,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:28951",
+      "site_name": "PAXTON ST: FELLOWS AV / GLENOAKS BL",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "1789",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5854868092455164,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07318585115568955,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.6267890651757319,
+      "confidence": 0.5,
+      "equity_score": 0.6122743575257028,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 1536 reports 36.01 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1434 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 33888 maps GLENOAKS BL from VAN NUYS BL to PIERCE ST, with published surface code AS, width 78, PCI 67 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.6123; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.40854452098054,
+            34.270710998808745
+          ],
+          [
+            -118.41169828574503,
+            34.273690553089224
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:33888",
+      "intersecting_tile_count": 7,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:33888",
+      "site_name": "GLENOAKS BL: VAN NUYS BL / PIERCE ST",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "1536",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6267890651757319,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07834863314696648,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.5942751205448261,
+      "confidence": 0.5,
+      "equity_score": 0.6823529157519922,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 1415 reports 35.94 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0478 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 33889 maps VAN NUYS BL from DE FOE AV to HERRICK AV, with published surface code AS, width 80, PCI 73 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.6824; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.41416121498787,
+            34.271894321985535
+          ],
+          [
+            -118.41498370709242,
+            34.27129442261886
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:33889",
+      "intersecting_tile_count": 2,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:33889",
+      "site_name": "VAN NUYS BL: DE FOE AV / HERRICK AV",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "1415",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5942751205448261,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07428439006810326,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.5813354081426368,
+      "confidence": 0.5,
+      "equity_score": 0.3719367726761063,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 1884 reports 36.04 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1934 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 38761 maps GLENOAKS BL from CORCORAN ST to DEL SUR ST, with published surface code AS, width 67, PCI 53 (Poor), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.3719; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.4219445788546,
+            34.28336984211867
+          ],
+          [
+            -118.42273262769997,
+            34.284116885739806
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:38761",
+      "intersecting_tile_count": 3,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:38761",
+      "site_name": "GLENOAKS BL: CORCORAN ST / DEL SUR ST",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "1884",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5813354081426368,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.0726669260178296,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.6267426718009514,
+      "confidence": 0.5,
+      "equity_score": 0.49856190215018736,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 1361 reports 36.04 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.1965 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 51034 maps PIERCE ST from BORDEN AV to GLENOAKS BL, with published surface code AS, width 28, PCI 56 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.4986; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.40525986258419,
+            34.273106429488834
+          ],
+          [
+            -118.40605896789901,
+            34.27252368220915
+          ],
+          [
+            -118.40854452098054,
+            34.270710998808745
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:51034",
+      "intersecting_tile_count": 6,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:51034",
+      "site_name": "PIERCE ST: BORDEN AV / GLENOAKS BL",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "1361",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6267426718009514,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07834283397511893,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.5897633646044891,
+      "confidence": 0.5,
+      "equity_score": 0.45540634859939627,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 1566 reports 36.05 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0109 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 58374 maps DESMOND ST from SAN FERNANDO RD to ILEX AV, with published surface code AS, width 36, PCI 75 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.4554; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.43097839511736,
+            34.2744512850401
+          ],
+          [
+            -118.43214547216348,
+            34.273600732115064
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:58374",
+      "intersecting_tile_count": 3,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:58374",
+      "site_name": "DESMOND ST: SAN FERNANDO RD / ILEX AV",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "1566",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5897633646044891,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07372042057556114,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.5966307271926186,
+      "confidence": 0.5,
+      "equity_score": 0.6194623520893654,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 1294 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.007 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 58378 maps NORRIS AV from VAN NUYS BL to PIERCE ST, with published surface code AS, width 36, PCI 80 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.6195; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.41307284095318,
+            34.267408794031795
+          ],
+          [
+            -118.4138704806278,
+            34.26816268669211
+          ],
+          [
+            -118.4162256605169,
+            34.27038858731677
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:58378",
+      "intersecting_tile_count": 8,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:58378",
+      "site_name": "NORRIS AV: VAN NUYS BL / PIERCE ST",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "1294",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5966307271926186,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07457884089907732,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.5882693442541346,
+      "confidence": 0.5,
+      "equity_score": 0.5886653956128067,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 536 reports 35.99 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9998 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 03:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 60837 maps RINCON AV from VAN NUYS BL to CARL ST, with published surface code AS, width 36, PCI 95 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.5887; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.42973368899297,
+            34.25789771849036
+          ],
+          [
+            -118.43130874382443,
+            34.25938542955495
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:60837",
+      "intersecting_tile_count": 4,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:60837",
+      "site_name": "RINCON AV: VAN NUYS BL / CARL ST",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "536",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5882693442541346,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07353366803176682,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.5833951505375287,
+      "confidence": 0.5,
+      "equity_score": 0.64911822996668,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 1231 reports 35.88 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9731 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 60882 maps VAN NUYS BL from LEHIGH AV to BRADLEY AV, with published surface code AS, width 74, PCI 73 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.6491; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.41724681646906,
+            34.269643768498035
+          ],
+          [
+            -118.41826660386978,
+            34.26889991938315
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:60882",
+      "intersecting_tile_count": 3,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:60882",
+      "site_name": "VAN NUYS BL: LEHIGH AV / BRADLEY AV",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "1231",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5833951505375287,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07292439381719108,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.6357882292586162,
+      "confidence": 0.5,
+      "equity_score": 0.5220369404578297,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 964 reports 36.36 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9997 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 6669 maps LAUREL CANYON BL from CHAMBERLAIN ST to PAXTON ST, with published surface code OV, width 80, PCI 49 (Poor), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.5220; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.43843698450425,
+            34.26474337730556
+          ],
+          [
+            -118.44010238923497,
+            34.266316235212216
+          ],
+          [
+            -118.44028544352025,
+            34.26648911591705
+          ],
+          [
+            -118.44051779939481,
+            34.26670854644567
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:6669",
+      "intersecting_tile_count": 1,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:6669",
+      "site_name": "LAUREL CANYON BL: CHAMBERLAIN ST / PAXTON ST",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "964",
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6357882292586162,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07947352865732703,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.6329082531139057,
+      "confidence": 0.5,
+      "equity_score": 0.49960594355402,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 902 reports 36.35 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9999 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 68158 maps DAVENTRY ST from LAUREL CANYON BL to REMICK AV, with published surface code AS, width 36, PCI 83 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.4996; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.43764357837698,
+            34.263994009257615
+          ],
+          [
+            -118.4392835582906,
+            34.26279565288402
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:68158",
+      "intersecting_tile_count": 3,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:68158",
+      "site_name": "DAVENTRY ST: LAUREL CANYON BL / REMICK AV",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "902",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6329082531139057,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07911353163923822,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.5880684414317239,
+      "confidence": 0.5,
+      "equity_score": 0.6726606627579034,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 1354 reports 35.91 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 7.0106 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 9080 maps NORRIS AV from PINNEY ST to VAN NUYS BL, with published surface code AS, width 36, PCI 59 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.6727; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.4162256605169,
+            34.27038858731677
+          ],
+          [
+            -118.41666252726222,
+            34.270801465857645
+          ],
+          [
+            -118.41705560365467,
+            34.27117295170672
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:9080",
+      "intersecting_tile_count": 3,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:9080",
+      "site_name": "NORRIS AV: PINNEY ST / VAN NUYS BL",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "1354",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5880684414317239,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07350855517896548,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
+      "benefit_score": 0.653997225699248,
+      "confidence": 0.5,
+      "equity_score": 0.5032739506389345,
+      "evidence": [
+        {
+          "kind": "observed_heat",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "FortyGuard tile 725 reports 35.95 \u00b0C average temperature and 10 persistence hours for the active analysis, plus 6.9994 historical exceedance hours; its threshold and source dates are disclosed in methodology. Peak temperature occurred around 17:00 UTC in the historical heatmap; this timing is explanation-only and is not used in scoring or pedestrian-activity inference."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "City Bureau of Street Services Pavement Condition asset 9108 maps VAN NUYS BL from ONEIDA AV to HADDON AV, with published surface code AS, width 74, PCI 69 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+        },
+        {
+          "kind": "vulnerability",
+          "source_artifact_ids": [
+            "pacoima_tile_feature_table"
+          ],
+          "statement": "The selected tile has modeled vulnerability score 0.5033; ACS values are tract context and not a site population count."
+        },
+        {
+          "kind": "applicability",
+          "source_artifact_ids": [
+            "intervention_catalog"
+          ],
+          "statement": "The site type passes the Cool pavement data-level screening rule. Require direct evidence of a public paved treatment area; a nearby school, park, or hot tile alone is not pavement evidence."
+        },
+        {
+          "kind": "planning_assumption",
+          "source_artifact_ids": [
+            "intervention_catalog",
+            "candidate_config"
+          ],
+          "statement": "Planning cost is $120,000 per one approximately 20,000-square-foot public treatment area; feasibility remains at the unverified screening scalar 0.5."
+        },
+        {
+          "kind": "pavement",
+          "source_artifact_ids": [
+            "pacoima_pavement_condition"
+          ],
+          "statement": "The official pavement segment establishes direct mapped pavement context, but confidence remains at the neutral unverified scalar 0.5 until current surface condition and project feasibility are field-checked."
+        }
+      ],
+      "feasibility_score": 0.5,
+      "geometry": {
+        "coordinates": [
+          [
+            -118.4280253643354,
+            34.26178094746049
+          ],
+          [
+            -118.42884668071495,
+            34.26118175243305
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "cool_pavement:pavement:9108",
+      "intersecting_tile_count": 2,
+      "intervention_type": "cool_pavement",
+      "planning_cost_usd": 120000,
+      "site_id": "pavement:9108",
+      "site_name": "VAN NUYS BL: ONEIDA AV / HADDON AV",
+      "site_source_ids": [
+        "la_city_pavement_condition"
+      ],
+      "site_type": "public_corridor",
+      "suitability_score": 0.5,
+      "thermal_stress_context": null,
+      "tile_id": "725",
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.653997225699248,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.081749653212406,
+        "suitability_basis": [
+          "An exact official pavement-condition segment passes geometry eligibility; neutral suitability 0.500 remains until surface/product review."
+        ]
+      }
+    },
+    {
       "benefit_score": 0.3680497811699693,
       "confidence": 0.5,
       "equity_score": 0.34337349398322664,
@@ -14604,17 +16472,17 @@
     }
   ],
   "counts": {
-    "cool_pavement": 0,
+    "cool_pavement": 20,
     "shade_structure": 111,
-    "total": 152,
+    "total": 172,
     "tree_canopy": 41,
-    "unique_sites": 152
+    "unique_sites": 172
   },
   "crs": "EPSG:4326",
   "generated_at": "2026-08-21T17:35:17.350255Z",
   "limitations": [
     "Candidates are screening options, not construction recommendations or procurement estimates; catalog preconstruction checks remain unresolved.",
-    "No cool-pavement candidate is generated because the cached pilot inputs contain no verified public paved-surface or corridor geometry.",
+    "Cool-pavement candidates use exact-AOI City Bureau of Street Services pavement-condition lines only; eligibility does not establish treatment compatibility, permits, safety, or constructability.",
     "Site geometry and heat-tile evidence do not establish existing shade, canopy gaps, ownership approval, constructability, or a guaranteed cooling effect.",
     "Modeled benefit and equity scores are relative Pacoima tile scores, not counts of people served or predicted temperature reductions.",
     "Thermal stress context is available only for the deterministic top 10 finalists and is not used in candidate scores or optimization."
@@ -14623,7 +16491,7 @@
   "scoring_notes": [
     "Keep the selected tile's modeled priority score separate, then multiply it by intervention suitability, feasibility, and confidence.",
     "Use the selected tile's modeled vulnerability score as context, not as a count of people served.",
-    "The value 0.5 is a neutral deterministic fallback only for an evidence dimension that remains unverified. All current candidates remain field-unverified for feasibility; confidence uses normalized cached Street View evidence where available. The scalar is not a probability or measured effect.",
+    "The value 0.5 is a neutral deterministic fallback only for an evidence dimension that remains unverified. All candidates remain field-unverified for feasibility; shade/tree confidence uses exact cached Street View evidence where available, while pavement remains neutral pending field or optional imagery review. The scalar is not a probability or measured effect.",
     "For a site intersecting multiple heat tiles, select the tile with the highest modeled priority score, then heat score, then lowest numeric tile ID."
   ],
   "source_artifacts": [
@@ -14645,7 +16513,7 @@
     {
       "id": "candidate_config",
       "path": "config/candidates.json",
-      "sha256": "9606c72fede9babf1a6048d8d7bd42f0b4488fb6bb56d1abe6d8f3c76db51291"
+      "sha256": "d5468b43cc8186538bb0a272c5d8aff59e80820f34fdfe8af2648f5ad18913ce"
     },
     {
       "id": "pacoima_streetview_evidence",
@@ -14656,6 +16524,11 @@
       "id": "pacoima_environmental_evidence",
       "path": "data/processed/pacoima_environmental_evidence.json",
       "sha256": "0052d8bfb4c548ec30df5581821e6dcc6d29fa8ab6f2de0b89937f744c2cc56e"
+    },
+    {
+      "id": "pacoima_pavement_condition",
+      "path": "data/processed/pacoima_pavement_condition.geojson",
+      "sha256": "11141da287d0cdc6f365ae36505ce7ab0a95df63aac09c249db808c081944cc1"
     }
   ],
   "version": "1.0"

@@ -1,7 +1,10 @@
 """Tests for deterministic, compatible candidates from real Pacoima sites."""
 
 import hashlib
+import json
 from pathlib import Path
+
+from shapely.geometry import shape
 
 from api.app.services.candidates import (
     DEFAULT_CANDIDATE_CONFIG_PATH,
@@ -20,6 +23,11 @@ from api.app.services.interventions import (
     load_intervention_catalog,
 )
 from api.app.services.processed_data import FixtureGeometry, load_processed_fixture
+from api.app.services.roadway_geometry import (
+    DEFAULT_AOI_PATH,
+    DEFAULT_PAVEMENT_PATH,
+    load_pavement_conditions,
+)
 from api.app.services.streetview_evidence import (
     DEFAULT_STREETVIEW_EVIDENCE_PATH,
     load_street_view_evidence_artifact,
@@ -40,18 +48,19 @@ def test_real_candidates_are_complete_compatible_and_traceable() -> None:
         **{poi.id: poi.geometry for poi in public.pois},
     }
 
-    assert artifact.counts.total == 152
-    assert artifact.counts.unique_sites == 152
+    assert artifact.counts.total == 172
+    assert artifact.counts.unique_sites == 172
     assert artifact.counts.shade_structure == 111
     assert artifact.counts.tree_canopy == 41
-    assert artifact.counts.cool_pavement == 0
+    assert artifact.counts.cool_pavement == 20
     assert artifact.counts.total >= 20
 
     for candidate in artifact.candidates:
         intervention = catalog.get(candidate.intervention_type)
         assert candidate.site_type in intervention.applicability.eligible_site_types
         assert candidate.planning_cost_usd == intervention.planning_cost.estimate_usd
-        assert candidate.geometry == site_geometries[candidate.site_id]
+        if candidate.intervention_type != InterventionType.COOL_PAVEMENT:
+            assert candidate.geometry == site_geometries[candidate.site_id]
         assert candidate.suitability_score == (
             candidate.value_explanation.factors.suitability_score
         )
@@ -113,6 +122,10 @@ def test_candidate_confidence_rules_are_versioned_and_exact_site_only() -> None:
     assert config.suitability_rules.exact_tree_street_view == "use_low_tree_context"
     assert config.suitability_rules.unmatched_site == "use_unverified_suitability_score"
     assert config.unverified_suitability_score == 0.5
+    assert config.cool_pavement_rules.max_candidates == 20
+    assert config.cool_pavement_rules.eligibility == (
+        "require_bss_pavement_geometry_surface_width_and_pci"
+    )
 
 
 def test_every_non_neutral_adjustment_has_traceable_evidence() -> None:
@@ -165,6 +178,7 @@ def test_candidate_artifact_is_canonical_and_hashes_all_inputs() -> None:
         CandidateSourceArtifact.CANDIDATE_CONFIG: DEFAULT_CANDIDATE_CONFIG_PATH,
         CandidateSourceArtifact.STREET_VIEW_EVIDENCE: DEFAULT_STREETVIEW_EVIDENCE_PATH,
         CandidateSourceArtifact.ENVIRONMENTAL_EVIDENCE: DEFAULT_ENVIRONMENTAL_EVIDENCE_PATH,
+        CandidateSourceArtifact.PAVEMENT_CONDITION: DEFAULT_PAVEMENT_PATH,
     }
 
     assert DEFAULT_CANDIDATES_PATH.read_bytes() == canonical_candidate_bytes(artifact)
@@ -178,7 +192,41 @@ def test_candidate_artifact_is_canonical_and_hashes_all_inputs() -> None:
     )
     for prohibited_claim in ("people protected", "lives saved", "deaths prevented"):
         assert prohibited_claim not in all_text
-    assert all(
-        candidate.intervention_type != InterventionType.COOL_PAVEMENT
+    assert sum(
+        candidate.intervention_type == InterventionType.COOL_PAVEMENT
         for candidate in artifact.candidates
+    ) == 20
+
+
+def test_cool_pavement_candidates_require_exact_official_pavement_geometry() -> None:
+    candidates = tuple(
+        candidate
+        for candidate in load_candidates().candidates
+        if candidate.intervention_type == InterventionType.COOL_PAVEMENT
     )
+    pavement_by_asset = {
+        feature.properties.ASSETID: feature for feature in load_pavement_conditions().features
+    }
+    aoi_document = json.loads(DEFAULT_AOI_PATH.read_text(encoding="utf-8"))
+    aoi = shape(aoi_document["features"][0]["geometry"])
+
+    assert len(candidates) == 20
+    assert len({candidate.tile_id for candidate in candidates}) == 20
+    for candidate in candidates:
+        asset_id = int(candidate.site_id.removeprefix("pavement:"))
+        source = pavement_by_asset[asset_id]
+        geometry = shape(candidate.geometry.model_dump())
+
+        assert source.properties.Surface
+        assert source.properties.Width > 0
+        assert source.properties.PCI_Category in {"Good", "Fair", "Poor"}
+        assert source.properties.Datasource_DT > 0
+        assert aoi.covers(geometry)
+        assert shape(source.geometry.model_dump()).covers(geometry)
+        assert candidate.site_source_ids == ("la_city_pavement_condition",)
+        assert any(
+            evidence.kind.value == "pavement"
+            and evidence.source_artifact_ids
+            == (CandidateSourceArtifact.PAVEMENT_CONDITION,)
+            for evidence in candidate.evidence
+        )

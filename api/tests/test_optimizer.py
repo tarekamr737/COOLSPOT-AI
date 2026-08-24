@@ -72,7 +72,11 @@ def test_preset_portfolios_are_deterministic_feasible_and_site_exclusive() -> No
 
 
 def test_site_constraint_blocks_two_interventions_at_one_site() -> None:
-    source = load_candidates().candidates
+    source = tuple(
+        candidate
+        for candidate in load_candidates().candidates
+        if candidate.intervention_type.value == "shade_structure"
+    )
     first = source[0]
     alternate_payload = first.model_dump(mode="json")
     alternate_payload.update(

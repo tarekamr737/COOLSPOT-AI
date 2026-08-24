@@ -788,3 +788,16 @@
   pagination, acquisition script, committed artifact, and 1,913-record count. It explicitly warns
   that centerlines do not prove width, ownership, paved material/condition, or constructability.
   The typed registry tests require this provenance and pass with the geometry tests (`6 passed`).
+- Pavement-eligibility proof: the separate City Bureau of Street Services `Pavement Condition`
+  layer contributed 1,703 dated segments with direct geometry, nonempty published surface codes,
+  positive widths, and PCI values/categories. Candidate generation clips those lines to the exact
+  Pacoima boundary, assigns intersecting verified heat tiles, retains the longest eligible segment
+  per representative tile, and takes the 20 highest-priority tiles with stable asset-ID ties.
+- Candidate proof: the canonical artifact now contains 172 candidates: 111 shade structures, 41
+  tree-canopy sites, and exactly 20 cool-pavement corridors on 20 distinct official pavement
+  assets/tiles. Each pavement record cites the exact source artifact and preserves surface codes
+  without inventing definitions; suitability, feasibility, and confidence remain neutral pending
+  product, field, and safety review.
+- Automated proof: 24 focused acquisition/source/candidate/optimizer/API tests pass; the artifact
+  rebuild is byte-for-byte stable; Ruff and Mypy pass across 79 source files; frontend strict types,
+  ESLint, and all 7 active Vitest tests pass.

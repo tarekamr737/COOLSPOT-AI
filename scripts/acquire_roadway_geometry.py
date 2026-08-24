@@ -3,8 +3,11 @@
 import os
 
 from api.app.services.roadway_geometry import (
+    DEFAULT_PAVEMENT_PATH,
     DEFAULT_ROADWAY_PATH,
+    acquire_pavement_conditions,
     acquire_street_centerlines,
+    canonical_pavement_condition_bytes,
     canonical_street_centerline_bytes,
 )
 
@@ -16,6 +19,12 @@ def main() -> None:
     temporary.write_bytes(canonical_street_centerline_bytes(document))
     os.replace(temporary, DEFAULT_ROADWAY_PATH)
     print(f"acquired {len(document.features)} official street centerlines")
+
+    pavement = acquire_pavement_conditions()
+    pavement_temporary = DEFAULT_PAVEMENT_PATH.with_suffix(".geojson.part")
+    pavement_temporary.write_bytes(canonical_pavement_condition_bytes(pavement))
+    os.replace(pavement_temporary, DEFAULT_PAVEMENT_PATH)
+    print(f"acquired {len(pavement.features)} official pavement-condition segments")
 
 
 if __name__ == "__main__":

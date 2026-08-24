@@ -33,10 +33,17 @@ from api.app.services.public_data import (
     SchoolProperties,
     validate_artifact,
 )
+from api.app.services.roadway_geometry import LineStringGeometry, MultiLineStringGeometry
 
 SHA256_PATTERN = r"^[0-9a-f]{64}$"
 AreaGeometry = PolygonGeometry | MultiPolygonGeometry
-FixtureGeometry = PointGeometry | PolygonGeometry | MultiPolygonGeometry
+FixtureGeometry = (
+    PointGeometry
+    | PolygonGeometry
+    | MultiPolygonGeometry
+    | LineStringGeometry
+    | MultiLineStringGeometry
+)
 
 
 class ProcessedPoi(BaseModel):

@@ -17,10 +17,20 @@ const multiPolygonGeometrySchema = z.object({
   type: z.literal("MultiPolygon"),
   coordinates: z.array(z.array(z.array(positionSchema))),
 });
+const lineStringGeometrySchema = z.object({
+  type: z.literal("LineString"),
+  coordinates: z.array(positionSchema).min(2),
+});
+const multiLineStringGeometrySchema = z.object({
+  type: z.literal("MultiLineString"),
+  coordinates: z.array(z.array(positionSchema).min(2)).min(1),
+});
 export const geometrySchema = z.discriminatedUnion("type", [
   pointGeometrySchema,
   polygonGeometrySchema,
   multiPolygonGeometrySchema,
+  lineStringGeometrySchema,
+  multiLineStringGeometrySchema,
 ]);
 export type Geometry = z.infer<typeof geometrySchema>;
 
@@ -57,6 +67,7 @@ const evidenceSchema = z.object({
     "applicability",
     "planning_assumption",
     "street_context",
+    "pavement",
   ]),
   statement: z.string().min(1),
   source_artifact_ids: z.array(z.string()).min(1),

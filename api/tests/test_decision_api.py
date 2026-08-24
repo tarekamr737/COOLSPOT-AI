@@ -28,7 +28,7 @@ def test_pilot_layers_candidates_site_and_methodology_routes() -> None:
     pilot = PilotResponse.model_validate(pilot_response.json())
     assert pilot.area_sq_mi < 10
     assert pilot.budget_presets_usd == (250_000, 500_000, 1_000_000)
-    assert pilot.candidate_count == 152
+    assert pilot.candidate_count == 172
 
     for layer_name in LayerName:
         response = client.get(f"/v1/layers/{layer_name.value}")
@@ -41,7 +41,7 @@ def test_pilot_layers_candidates_site_and_methodology_routes() -> None:
     candidates_response = client.get("/v1/candidates")
     assert candidates_response.status_code == 200
     candidates = CandidateListResponse.model_validate(candidates_response.json())
-    assert candidates.counts.total == 152
+    assert candidates.counts.total == 172
     assert sum(
         candidate.thermal_stress_context is not None
         for candidate in candidates.candidates
@@ -150,7 +150,7 @@ def test_data_status_and_missing_site_are_explicit() -> None:
     assert status.credits.used >= 8_440
     assert status.credits.remaining == status.credits.total - status.credits.used
     assert status.credits.remaining >= status.credits.hard_reserve
-    assert status.candidate_count == 152
+    assert status.candidate_count == 172
 
     missing = client.get("/v1/sites/not-a-real-site")
     assert missing.status_code == 404

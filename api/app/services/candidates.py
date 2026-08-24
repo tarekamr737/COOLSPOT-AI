@@ -10,7 +10,8 @@ from enum import StrEnum
 from pathlib import Path
 from typing import Literal, Self
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, TypeAdapter, model_validator
+from shapely.geometry import mapping, shape
 
 from api.app.services.environmental_evidence import (
     DEFAULT_ENVIRONMENTAL_EVIDENCE_PATH,
@@ -37,6 +38,12 @@ from api.app.services.processed_data import (
     ProcessedTransitStop,
     load_processed_fixture,
 )
+from api.app.services.roadway_geometry import (
+    DEFAULT_AOI_PATH,
+    DEFAULT_PAVEMENT_PATH,
+    PavementConditionFeature,
+    load_pavement_conditions,
+)
 from api.app.services.streetview_evidence import (
     DEFAULT_STREETVIEW_EVIDENCE_PATH,
     ExtractedStreetViewFeatures,
@@ -48,6 +55,7 @@ DEFAULT_PUBLIC_DATA_PATH = ROOT / "data" / "processed" / "pacoima_public_data.js
 DEFAULT_CANDIDATE_CONFIG_PATH = ROOT / "config" / "candidates.json"
 DEFAULT_CANDIDATES_PATH = ROOT / "data" / "processed" / "pacoima_candidates.json"
 SHA256_PATTERN = r"^[0-9a-f]{64}$"
+FIXTURE_GEOMETRY_ADAPTER: TypeAdapter[FixtureGeometry] = TypeAdapter(FixtureGeometry)
 
 
 class CandidateSourceArtifact(StrEnum):
@@ -57,6 +65,7 @@ class CandidateSourceArtifact(StrEnum):
     CANDIDATE_CONFIG = "candidate_config"
     STREET_VIEW_EVIDENCE = "pacoima_streetview_evidence"
     ENVIRONMENTAL_EVIDENCE = "pacoima_environmental_evidence"
+    PAVEMENT_CONDITION = "pacoima_pavement_condition"
 
 
 class EvidenceKind(StrEnum):
@@ -66,6 +75,7 @@ class EvidenceKind(StrEnum):
     APPLICABILITY = "applicability"
     PLANNING_ASSUMPTION = "planning_assumption"
     STREET_CONTEXT = "street_context"
+    PAVEMENT = "pavement"
 
 
 class TileSelection(StrEnum):
@@ -94,6 +104,17 @@ class CandidateSuitabilityRules(BaseModel):
     note: str = Field(min_length=120)
 
 
+class CoolPavementCandidateRules(BaseModel):
+    """Versioned eligibility and bounded candidate-volume rules."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    max_candidates: int = Field(gt=0, le=100)
+    eligibility: Literal["require_bss_pavement_geometry_surface_width_and_pci"]
+    selection: Literal["one_longest_segment_per_priority_tile"]
+    note: str = Field(min_length=120)
+
+
 class CandidateConfig(BaseModel):
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
 
@@ -103,6 +124,7 @@ class CandidateConfig(BaseModel):
     unverified_suitability_score: UnitInterval
     confidence_rules: CandidateConfidenceRules
     suitability_rules: CandidateSuitabilityRules
+    cool_pavement_rules: CoolPavementCandidateRules
     benefit_score_basis: str = Field(min_length=30)
     equity_score_basis: str = Field(min_length=30)
     screening_score_note: str = Field(min_length=50)
@@ -113,7 +135,7 @@ class SourceArtifact(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     id: CandidateSourceArtifact
-    path: str = Field(pattern=r"^(config|data)/.+\.json$")
+    path: str = Field(pattern=r"^(config|data)/.+\.(json|geojson)$")
     sha256: str = Field(pattern=SHA256_PATTERN)
 
 
@@ -290,6 +312,12 @@ def _common_evidence(
     site_statement: str,
     config: CandidateConfig,
     street_context: ExtractedStreetViewFeatures | None,
+    site_evidence_kind: EvidenceKind = EvidenceKind.EXPOSURE,
+    site_source_artifact_ids: tuple[CandidateSourceArtifact, ...] = (
+        CandidateSourceArtifact.PUBLIC_DATA,
+        CandidateSourceArtifact.FEATURE_TABLE,
+    ),
+    uses_street_context: bool = True,
 ) -> tuple[CandidateEvidence, ...]:
     evidence = [
         CandidateEvidence(
@@ -306,12 +334,9 @@ def _common_evidence(
             source_artifact_ids=(CandidateSourceArtifact.FEATURE_TABLE,),
         ),
         CandidateEvidence(
-            kind=EvidenceKind.EXPOSURE,
+            kind=site_evidence_kind,
             statement=site_statement,
-            source_artifact_ids=(
-                CandidateSourceArtifact.PUBLIC_DATA,
-                CandidateSourceArtifact.FEATURE_TABLE,
-            ),
+            source_artifact_ids=site_source_artifact_ids,
         ),
         CandidateEvidence(
             kind=EvidenceKind.VULNERABILITY,
@@ -343,7 +368,7 @@ def _common_evidence(
             ),
         ),
     ]
-    if street_context is not None:
+    if uses_street_context and street_context is not None:
         confidence = street_context.street_context_confidence
         components = confidence.components
         image_dates = ", ".join(
@@ -365,7 +390,7 @@ def _common_evidence(
                 source_artifact_ids=(CandidateSourceArtifact.STREET_VIEW_EVIDENCE,),
             )
         )
-    else:
+    elif uses_street_context:
         evidence.append(
             CandidateEvidence(
                 kind=EvidenceKind.PLANNING_ASSUMPTION,
@@ -375,6 +400,18 @@ def _common_evidence(
                     f"{config.unverified_confidence_score:.1f}."
                 ),
                 source_artifact_ids=(CandidateSourceArtifact.CANDIDATE_CONFIG,),
+            )
+        )
+    else:
+        evidence.append(
+            CandidateEvidence(
+                kind=EvidenceKind.PAVEMENT,
+                statement=(
+                    "The official pavement segment establishes direct mapped pavement context, "
+                    "but confidence remains at the neutral unverified scalar 0.5 until current "
+                    "surface condition and project feasibility are field-checked."
+                ),
+                source_artifact_ids=(CandidateSourceArtifact.PAVEMENT_CONDITION,),
             )
         )
     return tuple(evidence)
@@ -393,6 +430,14 @@ def _candidate(
     config: CandidateConfig,
     street_context: ExtractedStreetViewFeatures | None,
     thermal_stress_context: FinalistEnvironmentalEvidence | None,
+    suitability_override: tuple[float, tuple[str, ...]] | None = None,
+    confidence_override: float | None = None,
+    site_evidence_kind: EvidenceKind = EvidenceKind.EXPOSURE,
+    site_source_artifact_ids: tuple[CandidateSourceArtifact, ...] = (
+        CandidateSourceArtifact.PUBLIC_DATA,
+        CandidateSourceArtifact.FEATURE_TABLE,
+    ),
+    uses_street_context: bool = True,
 ) -> Candidate:
     if site_type not in intervention.applicability.eligible_site_types:
         raise ValueError(
@@ -404,11 +449,13 @@ def _candidate(
         if len(tiles) == 1
         else TileSelection.HIGHEST_PRIORITY_INTERSECTING_TILE
     )
-    confidence = _candidate_confidence(config, street_context)
-    suitability, suitability_basis = _candidate_suitability(
-        intervention.id,
-        config,
-        street_context,
+    confidence = (
+        _candidate_confidence(config, street_context)
+        if confidence_override is None
+        else confidence_override
+    )
+    suitability, suitability_basis = suitability_override or _candidate_suitability(
+        intervention.id, config, street_context
     )
     factors = InterventionValueFactors(
         priority_score=selected_tile.scores.priority,
@@ -451,6 +498,9 @@ def _candidate(
             site_statement=site_statement,
             config=config,
             street_context=street_context,
+            site_evidence_kind=site_evidence_kind,
+            site_source_artifact_ids=site_source_artifact_ids,
+            uses_street_context=uses_street_context,
         ),
         geometry=geometry,
     )
@@ -545,6 +595,104 @@ def _poi_statement(poi: ProcessedPoi) -> str:
     )
 
 
+def _pavement_statement(feature: PavementConditionFeature) -> str:
+    properties = feature.properties
+    return (
+        f"City Bureau of Street Services Pavement Condition asset {properties.ASSETID} "
+        f"maps {properties.Street} from {properties.From_Street} to "
+        f"{properties.To_Street}, with published surface code {properties.Surface}, "
+        f"width {properties.Width}, PCI {properties.PCI} ({properties.PCI_Category}), and "
+        "direct line geometry. Codes and dimensions are retained as published; they do not "
+        "establish treatment compatibility or engineering clearance."
+    )
+
+
+def _cool_pavement_candidates(
+    *,
+    table_tiles: tuple[TileFeature, ...],
+    pavement_features: tuple[PavementConditionFeature, ...],
+    aoi_path: Path,
+    intervention: InterventionDefinition,
+    config: CandidateConfig,
+) -> tuple[Candidate, ...]:
+    """Create a bounded set only from exact-AOI official pavement-condition lines."""
+
+    aoi_document = json.loads(aoi_path.read_text(encoding="utf-8"))
+    aoi = shape(aoi_document["features"][0]["geometry"])
+    tile_shapes = {tile.tile_id: shape(tile.geometry.model_dump()) for tile in table_tiles}
+    eligible_by_tile: dict[
+        str, tuple[float, PavementConditionFeature, FixtureGeometry, tuple[TileFeature, ...]]
+    ] = {}
+    for feature in pavement_features:
+        properties = feature.properties
+        if not properties.Surface or properties.Width <= 0 or not properties.PCI_Category:
+            continue
+        clipped = shape(feature.geometry.model_dump()).intersection(aoi)
+        if clipped.is_empty or clipped.geom_type not in {"LineString", "MultiLineString"}:
+            continue
+        intersecting = tuple(
+            tile
+            for tile in table_tiles
+            if clipped.intersection(tile_shapes[tile.tile_id]).length > 0
+        )
+        if not intersecting:
+            continue
+        selected_tile = _select_tile(intersecting)
+        overlap = clipped.intersection(tile_shapes[selected_tile.tile_id]).length
+        geometry = FIXTURE_GEOMETRY_ADAPTER.validate_python(mapping(clipped))
+        existing = eligible_by_tile.get(selected_tile.tile_id)
+        if existing is None or (overlap, -properties.AutoID) > (
+            existing[0],
+            -existing[1].properties.AutoID,
+        ):
+            eligible_by_tile[selected_tile.tile_id] = (
+                overlap,
+                feature,
+                geometry,
+                intersecting,
+            )
+
+    selected = sorted(
+        eligible_by_tile.values(),
+        key=lambda item: (
+            -_select_tile(item[3]).scores.priority,
+            int(_select_tile(item[3]).tile_id),
+            item[1].properties.AutoID,
+        ),
+    )[: config.cool_pavement_rules.max_candidates]
+    fallback = config.unverified_suitability_score
+    return tuple(
+        _candidate(
+            site_id=f"pavement:{feature.properties.ASSETID}",
+            site_name=(
+                f"{feature.properties.Street}: {feature.properties.From_Street} / "
+                f"{feature.properties.To_Street}"
+            ),
+            site_type=SiteType.PUBLIC_CORRIDOR,
+            site_source_ids=("la_city_pavement_condition",),
+            geometry=geometry,
+            tiles=intersecting,
+            intervention=intervention,
+            site_statement=_pavement_statement(feature),
+            config=config,
+            street_context=None,
+            thermal_stress_context=None,
+            suitability_override=(
+                fallback,
+                (
+                    "An exact official pavement-condition segment passes geometry eligibility; "
+                    f"neutral suitability {fallback:.3f} remains until surface/product review.",
+                ),
+            ),
+            confidence_override=config.unverified_confidence_score,
+            site_evidence_kind=EvidenceKind.PAVEMENT,
+            site_source_artifact_ids=(CandidateSourceArtifact.PAVEMENT_CONDITION,),
+            uses_street_context=False,
+        )
+        for _, feature, geometry, intersecting in selected
+    )
+
+
 def build_candidates(
     *,
     feature_table_path: Path = DEFAULT_FEATURE_TABLE_PATH,
@@ -553,6 +701,8 @@ def build_candidates(
     config_path: Path = DEFAULT_CANDIDATE_CONFIG_PATH,
     streetview_evidence_path: Path = DEFAULT_STREETVIEW_EVIDENCE_PATH,
     environmental_evidence_path: Path = DEFAULT_ENVIRONMENTAL_EVIDENCE_PATH,
+    pavement_path: Path = DEFAULT_PAVEMENT_PATH,
+    aoi_path: Path = DEFAULT_AOI_PATH,
 ) -> CandidateArtifact:
     table = load_feature_table(feature_table_path)
     public = load_processed_fixture(public_data_path)
@@ -562,6 +712,7 @@ def build_candidates(
     street_by_site = {site.site_id: site for site in street_artifact.sites}
     environmental_artifact = load_environmental_evidence(environmental_evidence_path)
     environment_by_site = {site.site_id: site for site in environmental_artifact.sites}
+    pavement = load_pavement_conditions(pavement_path)
 
     tiles_by_stop: dict[str, list[TileFeature]] = {}
     tiles_by_poi: dict[str, list[TileFeature]] = {}
@@ -573,6 +724,7 @@ def build_candidates(
 
     shade = catalog.get(InterventionType.SHADE_STRUCTURE)
     trees = catalog.get(InterventionType.TREE_CANOPY)
+    cool_pavement = catalog.get(InterventionType.COOL_PAVEMENT)
     candidates = [
         _candidate(
             site_id=stop.id,
@@ -605,6 +757,15 @@ def build_candidates(
         )
         for poi in public.pois
         if poi.kind in {SiteType.SCHOOL.value, SiteType.PARK.value}
+    )
+    candidates.extend(
+        _cool_pavement_candidates(
+            table_tiles=table.tiles,
+            pavement_features=pavement.features,
+            aoi_path=aoi_path,
+            intervention=cool_pavement,
+            config=config,
+        )
     )
     ordered = tuple(sorted(candidates, key=lambda candidate: candidate.id))
     return CandidateArtifact(
@@ -643,6 +804,11 @@ def build_candidates(
                 path="data/processed/pacoima_environmental_evidence.json",
                 sha256=_sha256(environmental_evidence_path),
             ),
+            SourceArtifact(
+                id=CandidateSourceArtifact.PAVEMENT_CONDITION,
+                path="data/processed/pacoima_pavement_condition.geojson",
+                sha256=_sha256(pavement_path),
+            ),
         ),
         counts=CandidateCounts(
             total=len(ordered),
@@ -669,8 +835,9 @@ def build_candidates(
         limitations=(
             "Candidates are screening options, not construction recommendations or procurement "
             "estimates; catalog preconstruction checks remain unresolved.",
-            "No cool-pavement candidate is generated because the cached pilot inputs contain no "
-            "verified public paved-surface or corridor geometry.",
+            "Cool-pavement candidates use exact-AOI City Bureau of Street Services pavement-"
+            "condition lines only; eligibility does not establish treatment compatibility, "
+            "permits, safety, or constructability.",
             "Site geometry and heat-tile evidence do not establish existing shade, canopy gaps, "
             "ownership approval, constructability, or a guaranteed cooling effect.",
             "Modeled benefit and equity scores are relative Pacoima tile scores, not counts of "
