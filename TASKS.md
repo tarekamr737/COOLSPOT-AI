@@ -184,7 +184,7 @@ priority_score
   - one intervention per site,
   - compatibility rules.
 - [x] Add explanation fields showing why each intervention received its value.
-- [ ] Add regression tests proving deterministic portfolios.
+- [x] Add regression tests proving deterministic portfolios.
 - [ ] Add tests showing intervention evidence can alter portfolio selection.
 
 **Acceptance:** COOLSPOT optimizes **intervention fit + priority**, not merely hotspot priority.

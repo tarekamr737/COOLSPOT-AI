@@ -763,3 +763,6 @@
 - Automated proof: the candidate artifact rebuild is byte-for-byte reproducible; 24 focused
   backend tests pass; Ruff and Mypy pass across 76 source files; frontend lint and strict types
   pass; Vitest passes 7 tests with 1 opt-in test skipped; and the production Next build succeeds.
+- Intervention-aware portfolio regression: every configured budget is solved twice, once with the
+  committed candidate order and once reversed. Results are identical, optimal, within budget, and
+  site-exclusive after suitability enters the objective.
