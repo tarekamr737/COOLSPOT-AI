@@ -260,6 +260,13 @@ export type LayerResponse = z.infer<typeof layerResponseSchema>;
 
 export const portfolioSchema = z.object({
   solver_status: z.literal("optimal"),
+  scoring_preset: scoringPresetSchema,
+  scoring_weights: z.object({
+    heat: z.number().min(0).max(1),
+    exposure: z.number().min(0).max(1),
+    vulnerability: z.number().min(0).max(1),
+    cooling_opportunity: z.number().min(0).max(1),
+  }),
   budget_usd: z.number().int().positive(),
   total_cost_usd: z.number().int().nonnegative(),
   unused_budget_usd: z.number().int().nonnegative(),

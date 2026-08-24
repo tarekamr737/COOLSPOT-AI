@@ -11,7 +11,13 @@ from ortools.sat.python import cp_model
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from api.app.services.candidates import Candidate, load_candidates
+from api.app.services.feature_table import PriorityWeights, load_feature_table
 from api.app.services.interventions import InterventionType
+from api.app.services.scenarios import (
+    ScoringPreset,
+    load_scenario_catalog,
+    scenario_priority,
+)
 
 ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_OPTIMIZER_CONFIG_PATH = ROOT / "config" / "optimizer.json"
@@ -66,6 +72,8 @@ class PortfolioResult(BaseModel):
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
 
     solver_status: Literal["optimal"] = "optimal"
+    scoring_preset: ScoringPreset
+    scoring_weights: PriorityWeights
     budget_usd: int = Field(gt=0)
     total_cost_usd: int = Field(ge=0)
     unused_budget_usd: int = Field(ge=0)
@@ -99,12 +107,18 @@ def load_optimizer_config(path: Path = DEFAULT_OPTIMIZER_CONFIG_PATH) -> Optimiz
     return OptimizerConfig.model_validate_json(path.read_text(encoding="utf-8"))
 
 
-def _modeled_impact(candidate: Candidate) -> float:
-    return candidate.value_explanation.modeled_benefit_score
+def _modeled_impact(candidate: Candidate, priority_score: float) -> float:
+    factors = candidate.value_explanation.factors
+    return (
+        priority_score
+        * factors.suitability_score
+        * factors.feasibility_score
+        * factors.confidence_score
+    )
 
 
-def _primary_coefficient(candidate: Candidate, scale: int) -> int:
-    return max(0, round(_modeled_impact(candidate) * scale))
+def _primary_coefficient(modeled_impact: float, scale: int) -> int:
+    return max(0, round(modeled_impact * scale))
 
 
 def optimize_portfolio(
@@ -112,6 +126,7 @@ def optimize_portfolio(
     *,
     candidates: tuple[Candidate, ...] | None = None,
     config: OptimizerConfig | None = None,
+    scoring_preset: ScoringPreset = ScoringPreset.BALANCED,
 ) -> PortfolioResult:
     active_config = config or load_optimizer_config()
     if not (
@@ -132,6 +147,23 @@ def optimize_portfolio(
         raise ValueError("candidate IDs must be unique")
     active_candidates = tuple(
         sorted(supplied_candidates, key=lambda candidate: candidate.id)
+    )
+    scenario = load_scenario_catalog().get(scoring_preset)
+    scores_by_tile = {tile.tile_id: tile.scores for tile in load_feature_table().tiles}
+    missing_tiles = tuple(
+        sorted(
+            {candidate.tile_id for candidate in active_candidates} - scores_by_tile.keys(),
+            key=int,
+        )
+    )
+    if missing_tiles:
+        raise ValueError(f"candidate tile scores are missing for: {', '.join(missing_tiles)}")
+    modeled_impacts = tuple(
+        _modeled_impact(
+            candidate,
+            scenario_priority(scores_by_tile[candidate.tile_id], scenario.weights),
+        )
+        for candidate in active_candidates
     )
 
     model = cp_model.CpModel()
@@ -154,8 +186,8 @@ def optimize_portfolio(
         model.add(sum(site_variables) <= 1)
 
     primary_coefficients = tuple(
-        _primary_coefficient(candidate, active_config.objective_scale)
-        for candidate in active_candidates
+        _primary_coefficient(impact, active_config.objective_scale)
+        for impact in modeled_impacts
     )
     tie_break_factor = sum(range(1, len(active_candidates) + 1)) + 1
     combined_coefficients = tuple(
@@ -195,10 +227,12 @@ def optimize_portfolio(
     selected = tuple(active_candidates[index] for index in selected_indexes)
     selected_ids = tuple(sorted(candidate.id for candidate in selected))
     total_cost = sum(candidate.planning_cost_usd for candidate in selected)
-    impacts = tuple(_modeled_impact(candidate) for candidate in selected)
+    impacts = tuple(modeled_impacts[index] for index in selected_indexes)
     equity_scores = tuple(candidate.equity_score for candidate in selected)
     equity_sum = math.fsum(equity_scores)
     return PortfolioResult(
+        scoring_preset=scenario.id,
+        scoring_weights=scenario.weights,
         budget_usd=budget_usd,
         total_cost_usd=total_cost,
         unused_budget_usd=budget_usd - total_cost,

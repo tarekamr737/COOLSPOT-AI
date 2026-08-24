@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "default": "balanced",
+  "scenarios": [
+    {
+      "id": "balanced",
+      "label": "Balanced",
+      "weights": {"heat": 0.40, "exposure": 0.30, "vulnerability": 0.20, "cooling_opportunity": 0.10}
+    },
+    {
+      "id": "heat_first",
+      "label": "Heat-first",
+      "weights": {"heat": 0.50, "exposure": 0.25, "vulnerability": 0.15, "cooling_opportunity": 0.10}
+    },
+    {
+      "id": "equity_first",
+      "label": "Equity-first",
+      "weights": {"heat": 0.30, "exposure": 0.25, "vulnerability": 0.35, "cooling_opportunity": 0.10}
+    },
+    {
+      "id": "exposure_first",
+      "label": "Exposure-first",
+      "weights": {"heat": 0.30, "exposure": 0.40, "vulnerability": 0.20, "cooling_opportunity": 0.10}
+    }
+  ]
+}

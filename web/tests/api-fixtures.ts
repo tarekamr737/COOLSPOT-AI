@@ -130,6 +130,8 @@ export function portfolio(budget = 500_000) {
   const count = budget === 1_000_000 ? 20 : budget === 250_000 ? 5 : 10;
   return {
     solver_status: "optimal",
+    scoring_preset: "balanced",
+    scoring_weights: { heat: 0.4, exposure: 0.3, vulnerability: 0.2, cooling_opportunity: 0.1 },
     budget_usd: budget,
     total_cost_usd: count * 50_000,
     unused_budget_usd: budget - count * 50_000,

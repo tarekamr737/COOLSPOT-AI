@@ -323,3 +323,6 @@
   pavement segment receives full geometry-suitability credit, while confidence and feasibility stay
   at neutral `0.5`. This makes verified pavement options selectable without implying construction,
   product, safety, ownership, or outcome certainty.
+- Scenario optimization reuses normalized committed tile components rather than rebuilding vendor
+  artifacts or mutating the canonical candidate file. Each response records the active versioned
+  weights, so priority changes remain deterministic and auditable at zero FortyGuard cost.

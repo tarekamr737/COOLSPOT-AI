@@ -4,6 +4,7 @@ import pytest
 
 from api.app.services.candidates import Candidate, load_candidates
 from api.app.services.optimizer import load_optimizer_config, optimize_portfolio
+from api.app.services.scenarios import ScoringPreset
 
 
 def _candidate_with_suitability(candidate: Candidate, suitability: float) -> Candidate:
@@ -80,6 +81,21 @@ def test_verified_cool_pavement_is_selectable_in_supported_budget_range() -> Non
     )
 
     assert result.category_counts.cool_pavement >= 1
+
+
+def test_scenario_reweights_cached_features_before_optimization() -> None:
+    candidates = load_candidates().candidates
+
+    balanced = optimize_portfolio(500_000, candidates=candidates)
+    heat_first = optimize_portfolio(
+        500_000,
+        candidates=candidates,
+        scoring_preset=ScoringPreset.HEAT_FIRST,
+    )
+
+    assert balanced.scoring_weights.heat == 0.4
+    assert heat_first.scoring_weights.heat == 0.5
+    assert heat_first.selected_candidate_ids != balanced.selected_candidate_ids
 
 
 def test_site_constraint_blocks_two_interventions_at_one_site() -> None:

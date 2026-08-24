@@ -143,12 +143,14 @@ def test_optimize_is_cached_only_and_validates_budget() -> None:
     assert submit_heatmap.await_count == 0
     assert fetch_usage.await_count == 0
 
-    unavailable = client.post(
+    heat_first = client.post(
         "/v1/optimize",
         json={"budget_usd": 500_000, "scoring_preset": "heat_first"},
     )
-    assert unavailable.status_code == 422
-    assert "Only the balanced" in unavailable.json()["detail"]
+    assert heat_first.status_code == 200
+    heat_result = PortfolioResult.model_validate(heat_first.json())
+    assert heat_result.scoring_preset.value == "heat_first"
+    assert heat_result.scoring_weights.heat == 0.5
 
     invalid = client.post("/v1/optimize", json={"budget_usd": 49_999})
     assert invalid.status_code == 422

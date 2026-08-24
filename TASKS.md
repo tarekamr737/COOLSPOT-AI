@@ -255,7 +255,7 @@ Opportunity   0.10
 ```
 
 - [x] Add preset selector to API contracts.
-- [ ] Re-score/re-optimize without FortyGuard calls.
+- [x] Re-score/re-optimize without FortyGuard calls.
 - [ ] Compute:
 
 ```text

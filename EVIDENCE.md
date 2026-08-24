@@ -844,6 +844,11 @@
   `equity_first`, and `exposure_first` enum values plus a balanced default. `POST /v1/optimize`
   accepts the same typed selector, and the TypeScript client/Zod boundary shares those exact values.
   Seven API tests, frontend strict type generation, and all seven active frontend tests pass.
+- Zero-cost scenario proof: `config/scenarios.json` versions the four required weight sets. The
+  optimizer recomputes priority from the committed tile heat, exposure, vulnerability, and cooling-
+  opportunity scores, then applies the unchanged suitability/feasibility/confidence factors and
+  CP-SAT constraints. A 500k heat-first request returns different selected IDs from balanced with no
+  FortyGuard path involved; 13 focused API/optimizer tests and frontend checks pass.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.
