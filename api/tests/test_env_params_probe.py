@@ -1,10 +1,14 @@
 """Offline checks for the one-request environmental-parameters probe."""
 
 import asyncio
+from pathlib import Path
 
 from api.app.fortyguard_models import FortyGuardEndpoint
+from api.app.services.credits import CreditGovernor, CreditLedger, CreditSettings
 from api.app.services.fortyguard import canonical_request_hash
 from scripts.probe_fortyguard_env_params import (
+    MAX_ENVIRONMENTAL_FINALISTS,
+    OBSERVED_ENV_PARAMS_UNIT_COST,
     PORTFOLIO_BUDGET_USD,
     REPORT_PATH,
     EnvironmentalProbeReport,
@@ -56,3 +60,23 @@ def test_real_env_params_probe_is_completed_cached_and_above_reserve() -> None:
     assert report.remaining_after >= report.hard_reserve
     assert "api_key" not in report_text.lower()
     assert asyncio.run(probe_env_params()) == report
+
+
+def test_supported_env_params_batch_is_credit_safe(tmp_path: Path) -> None:
+    report = EnvironmentalProbeReport.model_validate_json(
+        REPORT_PATH.read_text(encoding="utf-8")
+    )
+    request_hashes = tuple(f"{index:064x}" for index in range(MAX_ENVIRONMENTAL_FINALISTS))
+
+    authorization = CreditGovernor(
+        CreditSettings(live=True), CreditLedger(tmp_path / "ledger.json")
+    ).authorize_estimate(
+        request_hashes=request_hashes,
+        current_usage=report.usage_after,
+        estimated_unit_cost=OBSERVED_ENV_PARAMS_UNIT_COST,
+    )
+
+    assert MAX_ENVIRONMENTAL_FINALISTS == 10
+    assert authorization.projected_cost == 29_000
+    assert authorization.remaining_after == 1_770_780
+    assert authorization.remaining_after > authorization.reserve

@@ -38,6 +38,8 @@ from scripts.measure_fortyguard_heatmap import (
 JOURNAL_PATH = RAW_ROOT / "env_params_probe_journal.json"
 REPORT_PATH = ROOT / "data" / "processed" / "fortyguard_env_params_probe.json"
 PORTFOLIO_BUDGET_USD = 1_000_000
+OBSERVED_ENV_PARAMS_UNIT_COST = 2_900
+MAX_ENVIRONMENTAL_FINALISTS = 10
 
 
 class EnvironmentalProbeReport(BaseModel):

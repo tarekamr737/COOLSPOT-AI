@@ -126,7 +126,7 @@ Peak heat observed around: 15:00
 
 - [x] Probe `/v1/env_params` with one minimal valid request.
 - [x] Measure observed credit cost.
-- [ ] Continue only if supported and credit-safe.
+- [x] Continue only if supported and credit-safe.
 - [ ] Prefer no more than three useful parameters:
   - apparent temperature or heat index,
   - relative humidity,

@@ -262,3 +262,6 @@
 - The measured `2,900`-credit delta applies only to the completed one-location, one-hour
   environmental request. It may be used as the conservative observed unit cost for an identical
   finalist request shape, but is not treated as a published vendor price or generalized to ranges.
+- The environmental go/no-go gate uses the full `N=10` ceiling as a conservative projection even
+  though one finalist is already cached. This overstates the next batch by one unit, still leaves
+  `1,770,780` credits, and authorizes only the already measured one-location/one-hour shape.

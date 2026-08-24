@@ -673,6 +673,10 @@
 - Cost proof: the balanced before/after counters establish an observed `2,900`-credit cost for this
   one-location, one-hour environmental request shape. A regression pins the activity, request hash,
   both counters, delta, and remaining balance; it does not extrapolate cost to other request shapes.
+- Go/no-go proof: access is runtime-confirmed and the reserve governor authorizes a conservative
+  10-request projection only for the identical point/hour shape. At `2,900` credits each, projected
+  cost is `29,000`, leaving `1,770,780` credits—`1,270,780` above the hard reserve. The finalist
+  workflow may continue with `N <= 10`; wider time ranges remain unmeasured and unauthorized.
 - Cache proof: `data/processed/fortyguard_env_params_probe.json` validates the exact one-location,
   one-timestamp response, request, result, source, limitations, and balanced credit counters without
   containing the API key. Re-running the workflow returns this report before initializing a client.
