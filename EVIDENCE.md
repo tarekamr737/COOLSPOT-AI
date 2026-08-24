@@ -724,6 +724,11 @@
   apparent temperature, humidity, GHI vendor value, observation date, vendor timezone, exact
   coordinates, source-completeness status, FortyGuard documentation link, and medical/outcome
   limitation. Sites outside the finalist set omit the block instead of implying missing live data.
+- Live visual proof: Chrome DevTools MCP rendered the selected Van Nuys / Herrick finalist at
+  1920×1080. The point-thermal block remained legible beside the map and displayed `35.30 °C`,
+  `24.3%`, `779.49 vendor value`, `Source complete · 3 of 3`, date/timezone, coordinates, source
+  link, and limitation. Console inspection found only the already-tolerated upstream basemap-tile
+  `502` responses; no application/runtime error appeared.
 - Cache proof: `data/processed/fortyguard_env_params_probe.json` validates the exact one-location,
   one-timestamp response, request, result, source, limitations, and balanced credit counters without
   containing the API key. Re-running the workflow returns this report before initializing a client.
