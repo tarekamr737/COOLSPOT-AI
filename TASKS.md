@@ -26,7 +26,7 @@
 - [x] Add a derived `shade_intervention_evidence_score`.
 - [x] Clearly document that this is **intervention-screening evidence**, not proof that a stop is unshaded.
 - [x] Parse all currently cached Street View results for the `$1M` portfolio.
-- [ ] Persist normalized site evidence to a small versioned processed artifact.
+- [x] Persist normalized site evidence to a small versioned processed artifact.
 - [ ] Add unit tests for:
   - missing views,
   - malformed segmentation,

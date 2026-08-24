@@ -189,3 +189,6 @@
   visible-tree context, renormalizes across only available inputs, then multiplies by street-context
   confidence. It is intentionally isolated from candidate ranking until the later confidence and
   feasibility task, and it does not assert current or all-day shade conditions.
+- The normalized Street View artifact omits imagery and legends to stay deployment-small, but keeps
+  a SHA-256 for each exact cached response plus the evidence-config hash. Its build excludes runtime
+  timestamps and sorts sites canonically, enabling byte-for-byte reproducibility.

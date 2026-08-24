@@ -1,0 +1,1996 @@
+{
+  "config_sha256": "a75ab70dfb65f2b082f953e8acbbe785d154e72ae78a9bb4df91c868b1172c7e",
+  "pilot": "Pacoima, Los Angeles",
+  "portfolio_budget_usd": 1000000,
+  "shade_screening_limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+  "site_count": 20,
+  "sites": [
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 1,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 1.37,
+          "grass_pct": 7.28,
+          "road_pct": 26.93,
+          "sidewalk_pct": 8.9,
+          "sky_pct": 31.57,
+          "tree_pct": 13.1
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.270733,
+        "longitude": -118.40875
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2025-09-01",
+          "metrics": {
+            "building_pct": 1.37,
+            "grass_pct": 7.28,
+            "road_pct": 26.93,
+            "sidewalk_pct": 8.9,
+            "sky_pct": 31.57,
+            "tree_pct": 13.1
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 1.37
+            },
+            {
+              "label": "car",
+              "percentage": 1.12
+            },
+            {
+              "label": "fence",
+              "percentage": 4.28
+            },
+            {
+              "label": "grass",
+              "percentage": 7.28
+            },
+            {
+              "label": "others",
+              "percentage": 0.22
+            },
+            {
+              "label": "pole",
+              "percentage": 4.33
+            },
+            {
+              "label": "road",
+              "percentage": 26.93
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 8.9
+            },
+            {
+              "label": "signboard",
+              "percentage": 0.9
+            },
+            {
+              "label": "sky",
+              "percentage": 31.57
+            },
+            {
+              "label": "tree",
+              "percentage": 13.1
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.869,
+        "open_sky_context": 0.3157,
+        "score": 0.518306,
+        "street_context_confidence": 0.875
+      },
+      "site_id": "metro-stop:10787",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 1.0,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 355,
+        "score": 0.875,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 0,
+          "road_pct": 1,
+          "sidewalk_pct": 0,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 6.53,
+          "grass_pct": null,
+          "road_pct": 40.33,
+          "sidewalk_pct": null,
+          "sky_pct": 43.47,
+          "tree_pct": 0.65
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.273715,
+        "longitude": -118.411903
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2024-10-01",
+          "metrics": {
+            "building_pct": 6.53,
+            "grass_pct": null,
+            "road_pct": 40.33,
+            "sidewalk_pct": null,
+            "sky_pct": 43.47,
+            "tree_pct": 0.65
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 6.53
+            },
+            {
+              "label": "car",
+              "percentage": 7.38
+            },
+            {
+              "label": "others",
+              "percentage": 0.28
+            },
+            {
+              "label": "road",
+              "percentage": 40.33
+            },
+            {
+              "label": "signboard",
+              "percentage": 0.6
+            },
+            {
+              "label": "sky",
+              "percentage": 43.47
+            },
+            {
+              "label": "streetlight",
+              "percentage": 0.77
+            },
+            {
+              "label": "tree",
+              "percentage": 0.65
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.9935,
+        "open_sky_context": 0.4347,
+        "score": 0.565329,
+        "street_context_confidence": 0.791667
+      },
+      "site_id": "metro-stop:10794",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.6666666666666666,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 690,
+        "score": 0.791667,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 0,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 2.85,
+          "grass_pct": null,
+          "road_pct": 42.96,
+          "sidewalk_pct": 0.59,
+          "sky_pct": 44.49,
+          "tree_pct": 3.25
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.282345,
+        "longitude": -118.421045
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2024-10-01",
+          "metrics": {
+            "building_pct": 2.85,
+            "grass_pct": null,
+            "road_pct": 42.96,
+            "sidewalk_pct": 0.59,
+            "sky_pct": 44.49,
+            "tree_pct": 3.25
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 2.85
+            },
+            {
+              "label": "car",
+              "percentage": 3.44
+            },
+            {
+              "label": "fence",
+              "percentage": 2.21
+            },
+            {
+              "label": "others",
+              "percentage": 0.21
+            },
+            {
+              "label": "road",
+              "percentage": 42.96
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 0.59
+            },
+            {
+              "label": "sky",
+              "percentage": 44.49
+            },
+            {
+              "label": "tree",
+              "percentage": 3.25
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.9675,
+        "open_sky_context": 0.4449,
+        "score": 0.5885,
+        "street_context_confidence": 0.833333
+      },
+      "site_id": "metro-stop:10795",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.8333333333333334,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 690,
+        "score": 0.833333,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 0,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 6.3,
+          "grass_pct": null,
+          "road_pct": 31.23,
+          "sidewalk_pct": 15.65,
+          "sky_pct": 43.3,
+          "tree_pct": 1.25
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.274171,
+        "longitude": -118.430858
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2024-10-01",
+          "metrics": {
+            "building_pct": 6.3,
+            "grass_pct": null,
+            "road_pct": 31.23,
+            "sidewalk_pct": 15.65,
+            "sky_pct": 43.3,
+            "tree_pct": 1.25
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 6.3
+            },
+            {
+              "label": "earth",
+              "percentage": 0.51
+            },
+            {
+              "label": "fence",
+              "percentage": 1.13
+            },
+            {
+              "label": "others",
+              "percentage": 0.63
+            },
+            {
+              "label": "road",
+              "percentage": 31.23
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 15.65
+            },
+            {
+              "label": "sky",
+              "percentage": 43.3
+            },
+            {
+              "label": "tree",
+              "percentage": 1.25
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.9875,
+        "open_sky_context": 0.433,
+        "score": 0.591875,
+        "street_context_confidence": 0.833333
+      },
+      "site_id": "metro-stop:14201",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.8333333333333334,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 690,
+        "score": 0.833333,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 0,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 8.07,
+          "grass_pct": null,
+          "road_pct": 32.22,
+          "sidewalk_pct": 0.81,
+          "sky_pct": 41.52,
+          "tree_pct": 1.19
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.274151,
+        "longitude": -118.411279
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2024-10-01",
+          "metrics": {
+            "building_pct": 8.07,
+            "grass_pct": null,
+            "road_pct": 32.22,
+            "sidewalk_pct": 0.81,
+            "sky_pct": 41.52,
+            "tree_pct": 1.19
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 8.07
+            },
+            {
+              "label": "others",
+              "percentage": 1.88
+            },
+            {
+              "label": "road",
+              "percentage": 32.22
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 0.81
+            },
+            {
+              "label": "sky",
+              "percentage": 41.52
+            },
+            {
+              "label": "tree",
+              "percentage": 1.19
+            },
+            {
+              "label": "truck",
+              "percentage": 14.31
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.9881,
+        "open_sky_context": 0.4152,
+        "score": 0.584708,
+        "street_context_confidence": 0.833333
+      },
+      "site_id": "metro-stop:142066",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.8333333333333334,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 690,
+        "score": 0.833333,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 0,
+          "road_pct": 1,
+          "sidewalk_pct": 0,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 6.76,
+          "grass_pct": null,
+          "road_pct": 40.82,
+          "sidewalk_pct": null,
+          "sky_pct": 43.32,
+          "tree_pct": 0.56
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.273607,
+        "longitude": -118.412024
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2024-10-01",
+          "metrics": {
+            "building_pct": 6.76,
+            "grass_pct": null,
+            "road_pct": 40.82,
+            "sidewalk_pct": null,
+            "sky_pct": 43.32,
+            "tree_pct": 0.56
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 6.76
+            },
+            {
+              "label": "car",
+              "percentage": 5.01
+            },
+            {
+              "label": "fence",
+              "percentage": 1.12
+            },
+            {
+              "label": "others",
+              "percentage": 0.5
+            },
+            {
+              "label": "road",
+              "percentage": 40.82
+            },
+            {
+              "label": "signboard",
+              "percentage": 0.79
+            },
+            {
+              "label": "sky",
+              "percentage": 43.32
+            },
+            {
+              "label": "tree",
+              "percentage": 0.56
+            },
+            {
+              "label": "truck",
+              "percentage": 1.12
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.9944,
+        "open_sky_context": 0.43320000000000003,
+        "score": 0.565092,
+        "street_context_confidence": 0.791667
+      },
+      "site_id": "metro-stop:15138",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.6666666666666666,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 690,
+        "score": 0.791667,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 0,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 16.79,
+          "grass_pct": null,
+          "road_pct": 39.46,
+          "sidewalk_pct": 3.89,
+          "sky_pct": 36.45,
+          "tree_pct": 2.29
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.261356,
+        "longitude": -118.42881
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2025-11-01",
+          "metrics": {
+            "building_pct": 16.79,
+            "grass_pct": null,
+            "road_pct": 39.46,
+            "sidewalk_pct": 3.89,
+            "sky_pct": 36.45,
+            "tree_pct": 2.29
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 16.79
+            },
+            {
+              "label": "others",
+              "percentage": 0.1
+            },
+            {
+              "label": "road",
+              "percentage": 39.46
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 3.89
+            },
+            {
+              "label": "sky",
+              "percentage": 36.45
+            },
+            {
+              "label": "streetlight",
+              "percentage": 1.02
+            },
+            {
+              "label": "tree",
+              "percentage": 2.29
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.9771,
+        "open_sky_context": 0.36450000000000005,
+        "score": 0.559,
+        "street_context_confidence": 0.833333
+      },
+      "site_id": "metro-stop:15139",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.8333333333333334,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 294,
+        "score": 0.833333,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 0,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 9.88,
+          "grass_pct": null,
+          "road_pct": 32.24,
+          "sidewalk_pct": 6.25,
+          "sky_pct": 39.86,
+          "tree_pct": 4.86
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.271478,
+        "longitude": -118.41494
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2024-10-01",
+          "metrics": {
+            "building_pct": 9.88,
+            "grass_pct": null,
+            "road_pct": 32.24,
+            "sidewalk_pct": 6.25,
+            "sky_pct": 39.86,
+            "tree_pct": 4.86
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 9.88
+            },
+            {
+              "label": "fence",
+              "percentage": 3.76
+            },
+            {
+              "label": "others",
+              "percentage": 2.05
+            },
+            {
+              "label": "pole",
+              "percentage": 1.1
+            },
+            {
+              "label": "road",
+              "percentage": 32.24
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 6.25
+            },
+            {
+              "label": "sky",
+              "percentage": 39.86
+            },
+            {
+              "label": "tree",
+              "percentage": 4.86
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.9514,
+        "open_sky_context": 0.3986,
+        "score": 0.5625,
+        "street_context_confidence": 0.833333
+      },
+      "site_id": "metro-stop:15143",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.8333333333333334,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 690,
+        "score": 0.833333,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 0,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 10.62,
+          "grass_pct": null,
+          "road_pct": 24.91,
+          "sidewalk_pct": 4.66,
+          "sky_pct": 37.54,
+          "tree_pct": 9.24
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.259152,
+        "longitude": -118.431406
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2025-11-01",
+          "metrics": {
+            "building_pct": 10.62,
+            "grass_pct": null,
+            "road_pct": 24.91,
+            "sidewalk_pct": 4.66,
+            "sky_pct": 37.54,
+            "tree_pct": 9.24
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 10.62
+            },
+            {
+              "label": "car",
+              "percentage": 12.11
+            },
+            {
+              "label": "others",
+              "percentage": 0.41
+            },
+            {
+              "label": "road",
+              "percentage": 24.91
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 4.66
+            },
+            {
+              "label": "signboard",
+              "percentage": 0.51
+            },
+            {
+              "label": "sky",
+              "percentage": 37.54
+            },
+            {
+              "label": "tree",
+              "percentage": 9.24
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.9076,
+        "open_sky_context": 0.3754,
+        "score": 0.534583,
+        "street_context_confidence": 0.833333
+      },
+      "site_id": "metro-stop:196",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.8333333333333334,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 294,
+        "score": 0.833333,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 1,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 1.22,
+          "grass_pct": 6.3,
+          "road_pct": 32.88,
+          "sidewalk_pct": 6.27,
+          "sky_pct": 32.97,
+          "tree_pct": 16.37
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.271,
+        "longitude": -118.408629
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2025-09-01",
+          "metrics": {
+            "building_pct": 1.22,
+            "grass_pct": 6.3,
+            "road_pct": 32.88,
+            "sidewalk_pct": 6.27,
+            "sky_pct": 32.97,
+            "tree_pct": 16.37
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 1.22
+            },
+            {
+              "label": "car",
+              "percentage": 1.08
+            },
+            {
+              "label": "fence",
+              "percentage": 2.89
+            },
+            {
+              "label": "grass",
+              "percentage": 6.3
+            },
+            {
+              "label": "others",
+              "percentage": 0.03
+            },
+            {
+              "label": "road",
+              "percentage": 32.88
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 6.27
+            },
+            {
+              "label": "sky",
+              "percentage": 32.97
+            },
+            {
+              "label": "tree",
+              "percentage": 16.37
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.8363,
+        "open_sky_context": 0.3297,
+        "score": 0.510125,
+        "street_context_confidence": 0.875
+      },
+      "site_id": "metro-stop:2251",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 1.0,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 355,
+        "score": 0.875,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 0,
+          "road_pct": 1,
+          "sidewalk_pct": 0,
+          "sky_pct": 1,
+          "tree_pct": 0
+        },
+        "metrics": {
+          "building_pct": 21.37,
+          "grass_pct": null,
+          "road_pct": 39.69,
+          "sidewalk_pct": null,
+          "sky_pct": 31.23,
+          "tree_pct": null
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.273982,
+        "longitude": -118.411781
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2024-10-01",
+          "metrics": {
+            "building_pct": 21.37,
+            "grass_pct": null,
+            "road_pct": 39.69,
+            "sidewalk_pct": null,
+            "sky_pct": 31.23,
+            "tree_pct": null
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 21.37
+            },
+            {
+              "label": "car",
+              "percentage": 4.71
+            },
+            {
+              "label": "others",
+              "percentage": 0.41
+            },
+            {
+              "label": "road",
+              "percentage": 39.69
+            },
+            {
+              "label": "signboard",
+              "percentage": 2.6
+            },
+            {
+              "label": "sky",
+              "percentage": 31.23
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": null,
+        "open_sky_context": 0.3123,
+        "score": 0.234225,
+        "street_context_confidence": 0.75
+      },
+      "site_id": "metro-stop:2258",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.5,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 690,
+        "score": 0.75,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 1,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 0.78,
+          "grass_pct": 0.62,
+          "road_pct": 44.2,
+          "sidewalk_pct": 0.85,
+          "sky_pct": 41.74,
+          "tree_pct": 7.09
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.264477,
+        "longitude": -118.438361
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2017-05-01",
+          "metrics": {
+            "building_pct": 0.78,
+            "grass_pct": 0.62,
+            "road_pct": 44.2,
+            "sidewalk_pct": 0.85,
+            "sky_pct": 41.74,
+            "tree_pct": 7.09
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 0.78
+            },
+            {
+              "label": "car",
+              "percentage": 3.79
+            },
+            {
+              "label": "grass",
+              "percentage": 0.62
+            },
+            {
+              "label": "others",
+              "percentage": 0.23
+            },
+            {
+              "label": "road",
+              "percentage": 44.2
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 0.85
+            },
+            {
+              "label": "signboard",
+              "percentage": 0.7
+            },
+            {
+              "label": "sky",
+              "percentage": 41.74
+            },
+            {
+              "label": "tree",
+              "percentage": 7.09
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.9291,
+        "open_sky_context": 0.4174,
+        "score": 0.462859,
+        "street_context_confidence": 0.6875
+      },
+      "site_id": "metro-stop:2911",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 0.25,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 1.0,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 3400,
+        "score": 0.6875,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 1,
+          "road_pct": 1,
+          "sidewalk_pct": 0,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 0.67,
+          "grass_pct": 1.48,
+          "road_pct": 46.64,
+          "sidewalk_pct": null,
+          "sky_pct": 38.59,
+          "tree_pct": 10.14
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.264744,
+        "longitude": -118.43824
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2025-12-01",
+          "metrics": {
+            "building_pct": 0.67,
+            "grass_pct": 1.48,
+            "road_pct": 46.64,
+            "sidewalk_pct": null,
+            "sky_pct": 38.59,
+            "tree_pct": 10.14
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 0.67
+            },
+            {
+              "label": "car",
+              "percentage": 1.38
+            },
+            {
+              "label": "grass",
+              "percentage": 1.48
+            },
+            {
+              "label": "others",
+              "percentage": 0.04
+            },
+            {
+              "label": "road",
+              "percentage": 46.64
+            },
+            {
+              "label": "signboard",
+              "percentage": 1.06
+            },
+            {
+              "label": "sky",
+              "percentage": 38.59
+            },
+            {
+              "label": "tree",
+              "percentage": 10.14
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.8986,
+        "open_sky_context": 0.3859,
+        "score": 0.535208,
+        "street_context_confidence": 0.833333
+      },
+      "site_id": "metro-stop:364",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.8333333333333334,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 264,
+        "score": 0.833333,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 0,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 6.58,
+          "grass_pct": null,
+          "road_pct": 38.57,
+          "sidewalk_pct": 1.48,
+          "sky_pct": 42.49,
+          "tree_pct": 1.34
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.274441,
+        "longitude": -118.430737
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2025-10-01",
+          "metrics": {
+            "building_pct": 6.58,
+            "grass_pct": null,
+            "road_pct": 38.57,
+            "sidewalk_pct": 1.48,
+            "sky_pct": 42.49,
+            "tree_pct": 1.34
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 6.58
+            },
+            {
+              "label": "car",
+              "percentage": 6.31
+            },
+            {
+              "label": "fence",
+              "percentage": 2.89
+            },
+            {
+              "label": "others",
+              "percentage": 0.34
+            },
+            {
+              "label": "road",
+              "percentage": 38.57
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 1.48
+            },
+            {
+              "label": "sky",
+              "percentage": 42.49
+            },
+            {
+              "label": "tree",
+              "percentage": 1.34
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.9866,
+        "open_sky_context": 0.4249,
+        "score": 0.588125,
+        "street_context_confidence": 0.833333
+      },
+      "site_id": "metro-stop:5826",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.8333333333333334,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 325,
+        "score": 0.833333,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 0,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 0
+        },
+        "metrics": {
+          "building_pct": 13.29,
+          "grass_pct": null,
+          "road_pct": 15.03,
+          "sidewalk_pct": 25.55,
+          "sky_pct": 39.99,
+          "tree_pct": null
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.27378,
+        "longitude": -118.41133
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2024-10-01",
+          "metrics": {
+            "building_pct": 13.29,
+            "grass_pct": null,
+            "road_pct": 15.03,
+            "sidewalk_pct": 25.55,
+            "sky_pct": 39.99,
+            "tree_pct": null
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 13.29
+            },
+            {
+              "label": "car",
+              "percentage": 5.83
+            },
+            {
+              "label": "others",
+              "percentage": 0.31
+            },
+            {
+              "label": "road",
+              "percentage": 15.03
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 25.55
+            },
+            {
+              "label": "sky",
+              "percentage": 39.99
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": null,
+        "open_sky_context": 0.39990000000000003,
+        "score": 0.316588,
+        "street_context_confidence": 0.791667
+      },
+      "site_id": "metro-stop:6784",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.6666666666666666,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 690,
+        "score": 0.791667,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 1,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 2.61,
+          "grass_pct": 3.57,
+          "road_pct": 34.29,
+          "sidewalk_pct": 5.2,
+          "sky_pct": 30.72,
+          "tree_pct": 18.68
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.271105,
+        "longitude": -118.414991
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2025-09-01",
+          "metrics": {
+            "building_pct": 2.61,
+            "grass_pct": 3.57,
+            "road_pct": 34.29,
+            "sidewalk_pct": 5.2,
+            "sky_pct": 30.72,
+            "tree_pct": 18.68
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 2.61
+            },
+            {
+              "label": "fence",
+              "percentage": 1.95
+            },
+            {
+              "label": "grass",
+              "percentage": 3.57
+            },
+            {
+              "label": "others",
+              "percentage": 2.98
+            },
+            {
+              "label": "road",
+              "percentage": 34.29
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 5.2
+            },
+            {
+              "label": "sky",
+              "percentage": 30.72
+            },
+            {
+              "label": "tree",
+              "percentage": 18.68
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.8132,
+        "open_sky_context": 0.3072,
+        "score": 0.490175,
+        "street_context_confidence": 0.875
+      },
+      "site_id": "metro-stop:6788",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 1.0,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 355,
+        "score": 0.875,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 0,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 8.03,
+          "grass_pct": null,
+          "road_pct": 39.18,
+          "sidewalk_pct": 6.26,
+          "sky_pct": 23.29,
+          "tree_pct": 19.71
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.270205,
+        "longitude": -118.416225
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2025-09-01",
+          "metrics": {
+            "building_pct": 8.03,
+            "grass_pct": null,
+            "road_pct": 39.18,
+            "sidewalk_pct": 6.26,
+            "sky_pct": 23.29,
+            "tree_pct": 19.71
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 8.03
+            },
+            {
+              "label": "car",
+              "percentage": 1.71
+            },
+            {
+              "label": "others",
+              "percentage": 0.03
+            },
+            {
+              "label": "road",
+              "percentage": 39.18
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 6.26
+            },
+            {
+              "label": "signboard",
+              "percentage": 1.79
+            },
+            {
+              "label": "sky",
+              "percentage": 23.29
+            },
+            {
+              "label": "tree",
+              "percentage": 19.71
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.8029,
+        "open_sky_context": 0.2329,
+        "score": 0.431583,
+        "street_context_confidence": 0.833333
+      },
+      "site_id": "metro-stop:6799",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.8333333333333334,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 355,
+        "score": 0.833333,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 1,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 1.32,
+          "grass_pct": 2.98,
+          "road_pct": 36.6,
+          "sidewalk_pct": 2.21,
+          "sky_pct": 37.95,
+          "tree_pct": 12.51
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.26479312522725,
+        "longitude": -118.43921865633273
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2025-10-01",
+          "metrics": {
+            "building_pct": 1.32,
+            "grass_pct": 2.98,
+            "road_pct": 36.6,
+            "sidewalk_pct": 2.21,
+            "sky_pct": 37.95,
+            "tree_pct": 12.51
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 1.32
+            },
+            {
+              "label": "car",
+              "percentage": 4.68
+            },
+            {
+              "label": "grass",
+              "percentage": 2.98
+            },
+            {
+              "label": "others",
+              "percentage": 1.19
+            },
+            {
+              "label": "road",
+              "percentage": 36.6
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 2.21
+            },
+            {
+              "label": "sky",
+              "percentage": 37.95
+            },
+            {
+              "label": "tree",
+              "percentage": 12.51
+            },
+            {
+              "label": "truck",
+              "percentage": 0.56
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.8749,
+        "open_sky_context": 0.3795,
+        "score": 0.5488,
+        "street_context_confidence": 0.875
+      },
+      "site_id": "park:353",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 1.0,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 325,
+        "score": 0.875,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 1,
+          "road_pct": 1,
+          "sidewalk_pct": 0,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 0.66,
+          "grass_pct": 1.29,
+          "road_pct": 42.26,
+          "sidewalk_pct": null,
+          "sky_pct": 41.03,
+          "tree_pct": 8.75
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.26568196555755,
+        "longitude": -118.4386405459496
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2024-10-01",
+          "metrics": {
+            "building_pct": 0.66,
+            "grass_pct": 1.29,
+            "road_pct": 42.26,
+            "sidewalk_pct": null,
+            "sky_pct": 41.03,
+            "tree_pct": 8.75
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 0.66
+            },
+            {
+              "label": "car",
+              "percentage": 5.53
+            },
+            {
+              "label": "grass",
+              "percentage": 1.29
+            },
+            {
+              "label": "others",
+              "percentage": 0.48
+            },
+            {
+              "label": "road",
+              "percentage": 42.26
+            },
+            {
+              "label": "sky",
+              "percentage": 41.03
+            },
+            {
+              "label": "tree",
+              "percentage": 8.75
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.9125,
+        "open_sky_context": 0.4103,
+        "score": 0.551166,
+        "street_context_confidence": 0.833333
+      },
+      "site_id": "park:388",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.8333333333333334,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 690,
+        "score": 0.833333,
+        "usable_view_count": 1
+      }
+    },
+    {
+      "aggregate": {
+        "contributing_views": {
+          "building_pct": 1,
+          "grass_pct": 0,
+          "road_pct": 1,
+          "sidewalk_pct": 1,
+          "sky_pct": 1,
+          "tree_pct": 1
+        },
+        "metrics": {
+          "building_pct": 5.26,
+          "grass_pct": null,
+          "road_pct": 41.82,
+          "sidewalk_pct": 4.73,
+          "sky_pct": 41.27,
+          "tree_pct": 4.19
+        },
+        "view_count": 1
+      },
+      "coordinates": {
+        "latitude": 34.2709562471485,
+        "longitude": -118.415050822736
+      },
+      "frames": [
+        {
+          "direction": "front",
+          "image_date": "2025-09-01",
+          "metrics": {
+            "building_pct": 5.26,
+            "grass_pct": null,
+            "road_pct": 41.82,
+            "sidewalk_pct": 4.73,
+            "sky_pct": 41.27,
+            "tree_pct": 4.19
+          },
+          "original_image_available": true,
+          "segmented_image_available": true,
+          "segments": [
+            {
+              "label": "building",
+              "percentage": 5.26
+            },
+            {
+              "label": "car",
+              "percentage": 0.96
+            },
+            {
+              "label": "others",
+              "percentage": 0.06
+            },
+            {
+              "label": "road",
+              "percentage": 41.82
+            },
+            {
+              "label": "sidewalk",
+              "percentage": 4.73
+            },
+            {
+              "label": "signboard",
+              "percentage": 0.98
+            },
+            {
+              "label": "sky",
+              "percentage": 41.27
+            },
+            {
+              "label": "streetlight",
+              "percentage": 0.73
+            },
+            {
+              "label": "tree",
+              "percentage": 4.19
+            }
+          ]
+        }
+      ],
+      "shade_intervention_evidence": {
+        "limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
+        "low_tree_context": 0.9581,
+        "open_sky_context": 0.4127,
+        "score": 0.571166,
+        "street_context_confidence": 0.833333
+      },
+      "site_id": "school:53",
+      "street_context_confidence": {
+        "components": {
+          "imagery_age": 1.0,
+          "imagery_availability": 1.0,
+          "segmentation_completeness": 0.8333333333333334,
+          "usable_views": 0.5
+        },
+        "oldest_image_age_days": 355,
+        "score": 0.833333,
+        "usable_view_count": 1
+      }
+    }
+  ],
+  "source_artifacts": [
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__10787.json",
+      "sha256": "6dedca8ed69517755f80ab37992ddc6c25ee6681de44a41a52d1e9a55474ee26",
+      "site_id": "metro-stop:10787"
+    },
+    {
+      "path": "data/processed/pacoima_streetview.json",
+      "sha256": "79e5e88b6a655a332f8cb40df5bbfaf055464c56a8e9f08a405cfebc71019d89",
+      "site_id": "metro-stop:10794"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__10795.json",
+      "sha256": "42b1a2aaec202c000d23134e9b377076c111989416b17c7124e9268cec342ff7",
+      "site_id": "metro-stop:10795"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__14201.json",
+      "sha256": "41a4d8d2c6c74056e5b7a91970d560ac68e46d1aedf6802c92b2465c6c756d6d",
+      "site_id": "metro-stop:14201"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__142066.json",
+      "sha256": "476c948b5dadb1bbc581c086b5b66017d3fe6a90a6858d208e70da14c92a178e",
+      "site_id": "metro-stop:142066"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__15138.json",
+      "sha256": "e2ef4e968651d17db285af90a7027388dc7ad9979726ea9833bb93b15b39ac5e",
+      "site_id": "metro-stop:15138"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__15139.json",
+      "sha256": "f993b2290e25127195ad3d4928720fb3a00669e294ee9199b38d697d800e0e88",
+      "site_id": "metro-stop:15139"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__15143.json",
+      "sha256": "ab6a7a6e6dbb391bb0a130f8e1c9cdd1b14a85fccef4c259bf26398d34cba126",
+      "site_id": "metro-stop:15143"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__196.json",
+      "sha256": "c0ca6d14c11b1e3cce52a77b9fdb4747de868048dea93a45da9a2f227fda4b30",
+      "site_id": "metro-stop:196"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__2251.json",
+      "sha256": "9c9adb7ddfbd8a3fe264cb2ceaa8907f4da03a83f2290101d117df2aecc5feaf",
+      "site_id": "metro-stop:2251"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__2258.json",
+      "sha256": "9b7cc1569ea8ca1790be3b069352ef17beee41f0c8f61839378674783af939b3",
+      "site_id": "metro-stop:2258"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__2911.json",
+      "sha256": "8891db3a811a65978c49d52f293daeb917584ee87cbe3b693ae6c23d880dfe80",
+      "site_id": "metro-stop:2911"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__364.json",
+      "sha256": "61be9d2d85e703a86635952476bb5d1cc4aa04969a93934ce08db507db1b7c49",
+      "site_id": "metro-stop:364"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__5826.json",
+      "sha256": "ec4d0a5fab6754db363c2572c6a020ea51581b4c6d2db30f02492cafe978b077",
+      "site_id": "metro-stop:5826"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__6784.json",
+      "sha256": "7713d34b655b3a0e6185b86f6a0f6e5711b88a0a1384be1bf1cb7f342b47515e",
+      "site_id": "metro-stop:6784"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__6788.json",
+      "sha256": "72165af9516f7ae1c07f50786862f7dd7f68f7f8d3324ae43278b6c0d6fbc915",
+      "site_id": "metro-stop:6788"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/metro-stop__6799.json",
+      "sha256": "ab401b7eca229c4e951b17bd19d546791a143e8799765b233b2155b5e6924641",
+      "site_id": "metro-stop:6799"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/park__353.json",
+      "sha256": "c7bfa92be72c90b13486c6f0d5e6df0be8aeb4bfe7c54a1e54b79193b0a7a3a4",
+      "site_id": "park:353"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/park__388.json",
+      "sha256": "8bd62cc967fbb91c8a0b70b1b0593e25fc1838c778b6020371df947657756c72",
+      "site_id": "park:388"
+    },
+    {
+      "path": "data/processed/pacoima_streetview_sites/school__53.json",
+      "sha256": "8d7685a600441b0873a3d3226e78c93aa67621a56e66fd5467974300e4265d8e",
+      "site_id": "school:53"
+    }
+  ],
+  "version": "1.0"
+}

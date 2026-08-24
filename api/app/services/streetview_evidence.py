@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 from collections.abc import Mapping
@@ -24,6 +25,9 @@ ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_STREETVIEW_CONFIG_PATH = ROOT / "config" / "streetview_evidence.json"
 DEFAULT_STREETVIEW_LEGACY_PATH = ROOT / "data" / "processed" / "pacoima_streetview.json"
 DEFAULT_STREETVIEW_SITE_DIR = ROOT / "data" / "processed" / "pacoima_streetview_sites"
+DEFAULT_STREETVIEW_EVIDENCE_PATH = (
+    ROOT / "data" / "processed" / "pacoima_streetview_evidence.json"
+)
 
 
 class StreetContextConfidenceWeights(StrictModel):
@@ -173,6 +177,38 @@ class ExtractedStreetViewFeatures(StrictModel):
     aggregate: AggregatedStreetViewMetrics
     street_context_confidence: StreetContextConfidence
     shade_intervention_evidence: ShadeInterventionEvidence
+
+
+class StreetViewSourceArtifact(StrictModel):
+    """Traceability link to one exact cached vendor response."""
+
+    site_id: str = Field(min_length=1)
+    path: str = Field(min_length=1)
+    sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
+
+
+class StreetViewEvidenceArtifact(StrictModel):
+    """Versioned, image-free Street View evidence for the frozen portfolio."""
+
+    version: Literal["1.0"]
+    pilot: Literal["Pacoima, Los Angeles"]
+    portfolio_budget_usd: Literal[1_000_000]
+    site_count: int = Field(ge=1)
+    config_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
+    shade_screening_limitation: str = Field(min_length=1)
+    source_artifacts: tuple[StreetViewSourceArtifact, ...]
+    sites: tuple[ExtractedStreetViewFeatures, ...]
+
+    @model_validator(mode="after")
+    def validate_counts_and_sites(self) -> Self:
+        if self.site_count != len(self.sites):
+            raise ValueError("Street View evidence site_count does not match sites")
+        site_ids = tuple(site.site_id for site in self.sites)
+        if site_ids != tuple(sorted(site_ids)) or len(site_ids) != len(set(site_ids)):
+            raise ValueError("Street View evidence sites must be unique and sorted")
+        if tuple(source.site_id for source in self.source_artifacts) != site_ids:
+            raise ValueError("Street View source artifacts must align with sites")
+        return self
 
 
 def _mean_observed(values: tuple[float | None, ...]) -> float | None:
@@ -416,3 +452,74 @@ def load_cached_street_view_features(
             raise ValueError(f"duplicate cached Street View site_id: {features.site_id}")
         by_site[features.site_id] = features
     return tuple(by_site[site_id] for site_id in sorted(by_site))
+
+
+def _source_path_for_site(
+    site_id: str,
+    site_dir: Path,
+    legacy_path: Path,
+) -> Path:
+    site_path = site_dir / f"{site_id.replace(':', '__')}.json"
+    return site_path if site_path.exists() else legacy_path
+
+
+def build_street_view_evidence_artifact(
+    site_dir: Path = DEFAULT_STREETVIEW_SITE_DIR,
+    legacy_path: Path = DEFAULT_STREETVIEW_LEGACY_PATH,
+    config_path: Path = DEFAULT_STREETVIEW_CONFIG_PATH,
+) -> StreetViewEvidenceArtifact:
+    """Build canonical processed evidence from committed caches without vendor calls."""
+
+    config = load_streetview_evidence_config(config_path)
+    sites = load_cached_street_view_features(
+        site_dir,
+        legacy_path,
+        config=config,
+    )
+    sources = tuple(
+        StreetViewSourceArtifact(
+            site_id=site.site_id,
+            path=_source_path_for_site(site.site_id, site_dir, legacy_path)
+            .relative_to(ROOT)
+            .as_posix(),
+            sha256=hashlib.sha256(
+                _source_path_for_site(site.site_id, site_dir, legacy_path).read_bytes()
+            ).hexdigest(),
+        )
+        for site in sites
+    )
+    return StreetViewEvidenceArtifact(
+        version="1.0",
+        pilot="Pacoima, Los Angeles",
+        portfolio_budget_usd=1_000_000,
+        site_count=len(sites),
+        config_sha256=hashlib.sha256(config_path.read_bytes()).hexdigest(),
+        shade_screening_limitation=config.shade_screening_limitation,
+        source_artifacts=sources,
+        sites=sites,
+    )
+
+
+def canonical_street_view_evidence_bytes(
+    artifact: StreetViewEvidenceArtifact,
+) -> bytes:
+    """Serialize processed evidence deterministically for reproducible commits."""
+
+    return (
+        json.dumps(
+            artifact.model_dump(mode="json"),
+            allow_nan=False,
+            ensure_ascii=False,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n"
+    ).encode()
+
+
+def load_street_view_evidence_artifact(
+    path: Path = DEFAULT_STREETVIEW_EVIDENCE_PATH,
+) -> StreetViewEvidenceArtifact:
+    """Load the committed normalized evidence artifact."""
+
+    return StreetViewEvidenceArtifact.model_validate_json(path.read_text(encoding="utf-8"))

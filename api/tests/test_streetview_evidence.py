@@ -7,9 +7,13 @@ import pytest
 from api.app.services.candidates import load_candidates
 from api.app.services.optimizer import optimize_portfolio
 from api.app.services.streetview_evidence import (
+    DEFAULT_STREETVIEW_EVIDENCE_PATH,
     StreetViewDirection,
+    build_street_view_evidence_artifact,
+    canonical_street_view_evidence_bytes,
     extract_street_view_features,
     load_cached_street_view_features,
+    load_street_view_evidence_artifact,
 )
 
 
@@ -233,3 +237,16 @@ def test_all_one_million_portfolio_street_views_parse_offline() -> None:
     assert len(features) == 20
     assert {item.site_id for item in features} == expected_site_ids
     assert [item.site_id for item in features] == sorted(expected_site_ids)
+
+
+def test_processed_street_view_evidence_is_canonical_and_image_free() -> None:
+    committed = load_street_view_evidence_artifact()
+    rebuilt = build_street_view_evidence_artifact()
+
+    assert committed == rebuilt
+    assert DEFAULT_STREETVIEW_EVIDENCE_PATH.read_bytes() == (
+        canonical_street_view_evidence_bytes(committed)
+    )
+    assert committed.site_count == 20
+    assert DEFAULT_STREETVIEW_EVIDENCE_PATH.stat().st_size < 100_000
+    assert b"base64" not in DEFAULT_STREETVIEW_EVIDENCE_PATH.read_bytes()
