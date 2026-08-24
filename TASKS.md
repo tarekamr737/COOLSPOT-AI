@@ -17,7 +17,7 @@
   - `sidewalk_pct`
   - `building_pct`
   - `image_date`
-- [ ] Aggregate front/back views conservatively without calling them direct shade measurements.
+- [x] Aggregate front/back views conservatively without calling them direct shade measurements.
 - [ ] Add a `street_context_confidence` based on:
   - number of usable views,
   - imagery availability,

@@ -43,6 +43,25 @@ class StreetViewSegmentationMetrics(StrictModel):
     building_pct: float | None = Field(default=None, ge=0, le=100)
 
 
+class StreetViewMetricCoverage(StrictModel):
+    """Number of observed views contributing to each aggregated percentage."""
+
+    tree_pct: int = Field(ge=0, le=2)
+    grass_pct: int = Field(ge=0, le=2)
+    sky_pct: int = Field(ge=0, le=2)
+    road_pct: int = Field(ge=0, le=2)
+    sidewalk_pct: int = Field(ge=0, le=2)
+    building_pct: int = Field(ge=0, le=2)
+
+
+class AggregatedStreetViewMetrics(StrictModel):
+    """Equal-weight mean of observed views, without interpreting shade."""
+
+    view_count: int = Field(ge=1, le=2)
+    metrics: StreetViewSegmentationMetrics
+    contributing_views: StreetViewMetricCoverage
+
+
 class ExtractedStreetViewFrame(StrictModel):
     """Compact frame evidence with image payloads intentionally removed."""
 
@@ -58,6 +77,42 @@ class ExtractedStreetViewFeatures(StrictModel):
     site_id: str = Field(min_length=1)
     coordinates: ResultCoordinates
     frames: tuple[ExtractedStreetViewFrame, ...] = Field(min_length=1, max_length=2)
+    aggregate: AggregatedStreetViewMetrics
+
+
+def _mean_observed(values: tuple[float | None, ...]) -> float | None:
+    observed = tuple(value for value in values if value is not None)
+    return round(math.fsum(observed) / len(observed), 6) if observed else None
+
+
+def _aggregate_frames(
+    frames: tuple[ExtractedStreetViewFrame, ...],
+) -> AggregatedStreetViewMetrics:
+    tree = tuple(frame.metrics.tree_pct for frame in frames)
+    grass = tuple(frame.metrics.grass_pct for frame in frames)
+    sky = tuple(frame.metrics.sky_pct for frame in frames)
+    road = tuple(frame.metrics.road_pct for frame in frames)
+    sidewalk = tuple(frame.metrics.sidewalk_pct for frame in frames)
+    building = tuple(frame.metrics.building_pct for frame in frames)
+    return AggregatedStreetViewMetrics(
+        view_count=len(frames),
+        metrics=StreetViewSegmentationMetrics(
+            tree_pct=_mean_observed(tree),
+            grass_pct=_mean_observed(grass),
+            sky_pct=_mean_observed(sky),
+            road_pct=_mean_observed(road),
+            sidewalk_pct=_mean_observed(sidewalk),
+            building_pct=_mean_observed(building),
+        ),
+        contributing_views=StreetViewMetricCoverage(
+            tree_pct=sum(value is not None for value in tree),
+            grass_pct=sum(value is not None for value in grass),
+            sky_pct=sum(value is not None for value in sky),
+            road_pct=sum(value is not None for value in road),
+            sidewalk_pct=sum(value is not None for value in sidewalk),
+            building_pct=sum(value is not None for value in building),
+        ),
+    )
 
 
 def _extract_frame(
@@ -114,8 +169,10 @@ def extract_street_view_features(
     frames = [_extract_frame(StreetViewDirection.FRONT, result.front)]
     if result.back is not None:
         frames.append(_extract_frame(StreetViewDirection.BACK, result.back))
+    normalized_frames = tuple(frames)
     return ExtractedStreetViewFeatures(
         site_id=site_id,
         coordinates=result.coordinates,
-        frames=tuple(frames),
+        frames=normalized_frames,
+        aggregate=_aggregate_frames(normalized_frames),
     )

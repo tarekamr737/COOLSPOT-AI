@@ -178,3 +178,6 @@
 - Named per-view metrics copy only exact FortyGuard categories (`tree`, `grass`, `sky`, `road`,
   `sidewalk`, and `building`). Missing categories remain null instead of being estimated from
   `others`, visual appearance, or related classes.
+- Front/back aggregation uses an equal-weight mean of observed percentages and records the number
+  of contributing views per metric. A missing view or category is excluded, never converted to a
+  zero that would imply observed absence.
