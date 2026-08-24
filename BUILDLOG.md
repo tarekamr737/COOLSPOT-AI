@@ -259,3 +259,6 @@
 - The first local probe command used a script-file invocation and failed at import time before any
   journal or network request existed. It was rerun with Python's module invocation; exactly one
   vendor activity was submitted and completed.
+- The measured `2,900`-credit delta applies only to the completed one-location, one-hour
+  environmental request. It may be used as the conservative observed unit cost for an identical
+  finalist request shape, but is not treated as a published vendor price or generalized to ranges.

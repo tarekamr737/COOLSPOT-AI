@@ -42,9 +42,17 @@ def test_real_env_params_probe_is_completed_cached_and_above_reserve() -> None:
     report = EnvironmentalProbeReport.model_validate_json(report_text)
 
     assert report.status == "Completed"
+    assert report.activity_id == "0bd748b2-88dd-498c-ae5d-7aac35f07f92"
+    assert report.request_hash == (
+        "99bbf0bca690ad39a776b24025870a6650fb245d592e66364c7d202477ca3d2b"
+    )
     assert report.result is not None
     assert len(report.result.locations) == 1
     assert len(report.result.metadata.timestamps) == 1
+    assert report.usage_before == 197_320
+    assert report.usage_after == 200_220
+    assert report.observed_credit_delta == 2_900
+    assert report.remaining_after == 1_799_780
     assert report.remaining_after >= report.hard_reserve
     assert "api_key" not in report_text.lower()
     assert asyncio.run(probe_env_params()) == report

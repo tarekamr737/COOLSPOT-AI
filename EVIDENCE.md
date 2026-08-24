@@ -670,6 +670,9 @@
   `99bbf0bca690ad39a776b24025870a6650fb245d592e66364c7d202477ca3d2b` completed once as activity
   `0bd748b2-88dd-498c-ae5d-7aac35f07f92`. Usage moved from `197,320` to `200,220`, leaving
   `1,799,780` credits above the `500,000` reserve.
+- Cost proof: the balanced before/after counters establish an observed `2,900`-credit cost for this
+  one-location, one-hour environmental request shape. A regression pins the activity, request hash,
+  both counters, delta, and remaining balance; it does not extrapolate cost to other request shapes.
 - Cache proof: `data/processed/fortyguard_env_params_probe.json` validates the exact one-location,
   one-timestamp response, request, result, source, limitations, and balanced credit counters without
   containing the API key. Re-running the workflow returns this report before initializing a client.
