@@ -603,6 +603,9 @@
 - Normalization proof: all 2,001 tiles carry real `exceedance_hours` and a deterministic
   winsorized `exceedance_score` in `[0,1]`; normalization metadata reports 2,001 valid values and
   zero missing values. The feature table records the exact exceedance-artifact SHA-256 and the
-  2024-07-15 source-date limitation, while the current heat and priority scores remain unchanged.
+  2024-07-15 source-date limitation.
+- Formula proof: every tile's modeled heat score is tested as exactly `0.40 × temperature_score +
+  0.35 × persistence_score + 0.25 × exceedance_score`; deterministic candidate and optimizer tests
+  pass after rebuilding downstream artifacts.
 - Automated proof: full backend Pytest returns `80 passed`; Ruff passes; strict Mypy passes across
   `60` source files.

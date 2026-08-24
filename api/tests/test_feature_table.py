@@ -11,6 +11,7 @@ from api.app.services.feature_table import (
     NormalizedFeature,
     canonical_feature_table_bytes,
     load_feature_table,
+    load_scoring_config,
     normalize_values,
     weighted_available,
 )
@@ -98,6 +99,22 @@ def test_real_feature_table_is_canonical_complete_and_traceable() -> None:
     )
     assert all(
         0 <= tile.heat.exceedance_score <= 1 and tile.heat.exceedance_hours >= 0
+        for tile in table.tiles
+    )
+    heat_weights = load_scoring_config().heat_weights
+    assert heat_weights.model_dump() == {
+        "temperature": 0.4,
+        "persistence": 0.35,
+        "exceedance": 0.25,
+    }
+    assert all(
+        math.isclose(
+            tile.scores.heat,
+            0.4 * tile.heat.temperature_score
+            + 0.35 * tile.heat.persistence_score
+            + 0.25 * tile.heat.exceedance_score,
+            abs_tol=1e-12,
+        )
         for tile in table.tiles
     )
     exceedance = next(

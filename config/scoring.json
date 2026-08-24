@@ -8,8 +8,9 @@
     "transit_stop_count": 0.1
   },
   "heat_weights": {
-    "persistence": 0.5,
-    "temperature": 0.5
+    "exceedance": 0.25,
+    "persistence": 0.35,
+    "temperature": 0.4
   },
   "lower_quantile": 0.02,
   "missing_strategy": "Preserve missing raw/normalized values and renormalize each composite across only its available weighted inputs.",

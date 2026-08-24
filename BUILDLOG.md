@@ -220,5 +220,6 @@
   the same 2,001 tile IDs/geometries but does not claim temporal alignment; later normalization must
   preserve or explicitly resolve that limitation rather than silently mixing dates.
 - Exceedance normalization copies the raw hours, computes the same configured winsorized `[0,1]`
-  transform as other heat inputs, and records the separate artifact hash/date limitation. It does
-  not yet feed heat or priority scores; the next explicit weighting task owns that behavior change.
+  transform as other heat inputs, and records the separate artifact hash/date limitation. The
+  explicit weighting task then adds it as 25% historical context alongside 40% temperature and 35%
+  persistence; the model does not represent the mixed dates as contemporaneous observations.

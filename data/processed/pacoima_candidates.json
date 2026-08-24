@@ -1,7 +1,7 @@
 {
   "candidates": [
     {
-      "benefit_score": 0.36336750066407747,
+      "benefit_score": 0.3680497811699693,
       "confidence": 0.5,
       "equity_score": 0.34337349398322664,
       "evidence": [
@@ -73,7 +73,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.1943670794081171,
+      "benefit_score": 0.20189203310130704,
       "confidence": 0.5,
       "equity_score": 0.327022584165853,
       "evidence": [
@@ -217,7 +217,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.27257101483682716,
+      "benefit_score": 0.28334919746176107,
       "confidence": 0.5,
       "equity_score": 0.3464329248088204,
       "evidence": [
@@ -289,7 +289,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.35864773172050074,
+      "benefit_score": 0.3652840095027609,
       "confidence": 0.5,
       "equity_score": 0.39822410018232635,
       "evidence": [
@@ -505,7 +505,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.47301087117142554,
+      "benefit_score": 0.5368523743260971,
       "confidence": 0.5,
       "equity_score": 0.4482164613878176,
       "evidence": [
@@ -577,7 +577,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.49959893239516223,
+      "benefit_score": 0.5544962370067164,
       "confidence": 0.5,
       "equity_score": 0.4654942664434215,
       "evidence": [
@@ -649,7 +649,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.38226757305076714,
+      "benefit_score": 0.44041026066477257,
       "confidence": 0.5,
       "equity_score": 0.3854250653042001,
       "evidence": [
@@ -721,7 +721,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.45048619110645144,
+      "benefit_score": 0.5039290227211677,
       "confidence": 0.5,
       "equity_score": 0.36599153187525146,
       "evidence": [
@@ -793,7 +793,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5593061104337843,
+      "benefit_score": 0.6267426718009514,
       "confidence": 0.875,
       "equity_score": 0.49856190215018736,
       "evidence": [
@@ -865,7 +865,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5608762243146902,
+      "benefit_score": 0.6267890651757319,
       "confidence": 0.791667,
       "equity_score": 0.6122743575257028,
       "evidence": [
@@ -937,7 +937,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5361769468474663,
+      "benefit_score": 0.6039076563244212,
       "confidence": 0.833333,
       "equity_score": 0.44806666818424834,
       "evidence": [
@@ -1009,7 +1009,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4983866776138202,
+      "benefit_score": 0.5466360316126606,
       "confidence": 0.5,
       "equity_score": 0.5007355985893761,
       "evidence": [
@@ -1081,7 +1081,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5121076401780293,
+      "benefit_score": 0.5683850720384723,
       "confidence": 0.5,
       "equity_score": 0.5706758241480501,
       "evidence": [
@@ -1153,7 +1153,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5226064150553991,
+      "benefit_score": 0.5869187016352871,
       "confidence": 0.5,
       "equity_score": 0.7079202804028022,
       "evidence": [
@@ -1225,7 +1225,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5173419853163719,
+      "benefit_score": 0.5741091245930446,
       "confidence": 0.5,
       "equity_score": 0.641812967546361,
       "evidence": [
@@ -1297,7 +1297,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4796301079881184,
+      "benefit_score": 0.5355522109845,
       "confidence": 0.5,
       "equity_score": 0.5816426489139134,
       "evidence": [
@@ -1369,7 +1369,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.51283658930553,
+      "benefit_score": 0.5696991985014865,
       "confidence": 0.5,
       "equity_score": 0.5886672914027181,
       "evidence": [
@@ -1441,7 +1441,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5174750510251536,
+      "benefit_score": 0.5715701213959525,
       "confidence": 0.5,
       "equity_score": 0.5315003898887625,
       "evidence": [
@@ -1513,7 +1513,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4264312352238479,
+      "benefit_score": 0.48371747785873004,
       "confidence": 0.5,
       "equity_score": 0.45455914554798227,
       "evidence": [
@@ -1585,7 +1585,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.3963938684546601,
+      "benefit_score": 0.4538119751499155,
       "confidence": 0.5,
       "equity_score": 0.45381520113906104,
       "evidence": [
@@ -1657,7 +1657,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.42302068524966413,
+      "benefit_score": 0.48364931799389116,
       "confidence": 0.5,
       "equity_score": 0.34132911340296107,
       "evidence": [
@@ -1729,7 +1729,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.45048619110645144,
+      "benefit_score": 0.5039290227211677,
       "confidence": 0.5,
       "equity_score": 0.36599153187525146,
       "evidence": [
@@ -1801,7 +1801,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.511569124042423,
+      "benefit_score": 0.5661258402934862,
       "confidence": 0.5,
       "equity_score": 0.5500210509606093,
       "evidence": [
@@ -1873,7 +1873,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5173419853163719,
+      "benefit_score": 0.5741091245930446,
       "confidence": 0.5,
       "equity_score": 0.641812967546361,
       "evidence": [
@@ -1945,7 +1945,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.46223332106379117,
+      "benefit_score": 0.5197097431062537,
       "confidence": 0.5,
       "equity_score": 0.3790484894522699,
       "evidence": [
@@ -2017,7 +2017,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4265882756837714,
+      "benefit_score": 0.4824308417233358,
       "confidence": 0.5,
       "equity_score": 0.5105311971619658,
       "evidence": [
@@ -2089,7 +2089,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.41442755820732574,
+      "benefit_score": 0.4765877066915721,
       "confidence": 0.5,
       "equity_score": 0.424964360600345,
       "evidence": [
@@ -2161,7 +2161,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.453905287564705,
+      "benefit_score": 0.5064919761386579,
       "confidence": 0.5,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -2233,7 +2233,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4611836542072894,
+      "benefit_score": 0.5167187206874314,
       "confidence": 0.5,
       "equity_score": 0.37525988149839434,
       "evidence": [
@@ -2305,7 +2305,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5362968943266431,
+      "benefit_score": 0.5897633646044891,
       "confidence": 0.833333,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -2377,7 +2377,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.41693540931318124,
+      "benefit_score": 0.47559924047447427,
       "confidence": 0.5,
       "equity_score": 0.5162370947376137,
       "evidence": [
@@ -2449,7 +2449,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.46083175929094083,
+      "benefit_score": 0.5178355627347396,
       "confidence": 0.5,
       "equity_score": 0.454114239818374,
       "evidence": [
@@ -2521,7 +2521,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5401827349212147,
+      "benefit_score": 0.6036302946122546,
       "confidence": 0.833333,
       "equity_score": 0.4775416298983908,
       "evidence": [
@@ -2593,7 +2593,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.39276349946434347,
+      "benefit_score": 0.44825305453660275,
       "confidence": 0.5,
       "equity_score": 0.3720570261757711,
       "evidence": [
@@ -2665,7 +2665,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4636294717094222,
+      "benefit_score": 0.521284313545362,
       "confidence": 0.5,
       "equity_score": 0.37550384050860014,
       "evidence": [
@@ -2737,7 +2737,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4798277298303652,
+      "benefit_score": 0.5374945137838452,
       "confidence": 0.5,
       "equity_score": 0.49817697187820004,
       "evidence": [
@@ -2809,7 +2809,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5166772930377487,
+      "benefit_score": 0.5744057748385729,
       "confidence": 0.5,
       "equity_score": 0.5706524695512722,
       "evidence": [
@@ -2881,7 +2881,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5115323085722921,
+      "benefit_score": 0.5677898369035018,
       "confidence": 0.5,
       "equity_score": 0.5416152217685679,
       "evidence": [
@@ -2953,7 +2953,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4800806226910573,
+      "benefit_score": 0.5388849180864457,
       "confidence": 0.5,
       "equity_score": 0.5025601915629047,
       "evidence": [
@@ -3025,7 +3025,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5186690346506653,
+      "benefit_score": 0.5690010037622164,
       "confidence": 0.5,
       "equity_score": 0.5003365521411484,
       "evidence": [
@@ -3097,7 +3097,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5261997318893378,
+      "benefit_score": 0.5833951505375287,
       "confidence": 0.5,
       "equity_score": 0.64911822996668,
       "evidence": [
@@ -3169,7 +3169,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.38365073615144946,
+      "benefit_score": 0.394840052448379,
       "confidence": 0.5,
       "equity_score": 0.4270736391293318,
       "evidence": [
@@ -3313,7 +3313,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5608762243146902,
+      "benefit_score": 0.6267890651757319,
       "confidence": 0.791667,
       "equity_score": 0.6122743575257028,
       "evidence": [
@@ -3385,7 +3385,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5976484413534375,
+      "benefit_score": 0.653997225699248,
       "confidence": 0.833333,
       "equity_score": 0.5032739506389345,
       "evidence": [
@@ -3457,7 +3457,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5334553491329583,
+      "benefit_score": 0.5942751205448261,
       "confidence": 0.833333,
       "equity_score": 0.6823529157519922,
       "evidence": [
@@ -3529,7 +3529,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.46886669960251687,
+      "benefit_score": 0.5263382588391885,
       "confidence": 0.5,
       "equity_score": 0.502579943286006,
       "evidence": [
@@ -3601,7 +3601,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5174750510251536,
+      "benefit_score": 0.5715701213959525,
       "confidence": 0.5,
       "equity_score": 0.5315003898887625,
       "evidence": [
@@ -3673,7 +3673,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5291457612811121,
+      "benefit_score": 0.5880684414317239,
       "confidence": 0.5,
       "equity_score": 0.6726606627579034,
       "evidence": [
@@ -3745,7 +3745,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.44900781658785643,
+      "benefit_score": 0.5065675394197838,
       "confidence": 0.5,
       "equity_score": 0.6941063196091488,
       "evidence": [
@@ -3817,7 +3817,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.49368187678174585,
+      "benefit_score": 0.5526407888481703,
       "confidence": 0.5,
       "equity_score": 0.5136286847927249,
       "evidence": [
@@ -3889,7 +3889,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.3849612934949291,
+      "benefit_score": 0.4390493921313346,
       "confidence": 0.5,
       "equity_score": 0.45347988883337065,
       "evidence": [
@@ -3961,7 +3961,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5153194737980549,
+      "benefit_score": 0.5718806020954792,
       "confidence": 0.5,
       "equity_score": 0.473263137624746,
       "evidence": [
@@ -4033,7 +4033,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5334575467989234,
+      "benefit_score": 0.5882693442541346,
       "confidence": 0.833333,
       "equity_score": 0.5886653956128067,
       "evidence": [
@@ -4105,7 +4105,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5226064150553991,
+      "benefit_score": 0.5869187016352871,
       "confidence": 0.5,
       "equity_score": 0.7079202804028022,
       "evidence": [
@@ -4249,7 +4249,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.40521271864001845,
+      "benefit_score": 0.41812449446805683,
       "confidence": 0.5,
       "equity_score": 0.4053138587473129,
       "evidence": [
@@ -4321,7 +4321,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5174750510251536,
+      "benefit_score": 0.5715701213959525,
       "confidence": 0.5,
       "equity_score": 0.5315003898887625,
       "evidence": [
@@ -4393,7 +4393,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.46360098828488433,
+      "benefit_score": 0.5251180699277624,
       "confidence": 0.5,
       "equity_score": 0.403632414625803,
       "evidence": [
@@ -4465,7 +4465,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.49959893239516223,
+      "benefit_score": 0.5544962370067164,
       "confidence": 0.5,
       "equity_score": 0.4654942664434215,
       "evidence": [
@@ -4537,7 +4537,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.44304017450363814,
+      "benefit_score": 0.4993316472711437,
       "confidence": 0.5,
       "equity_score": 0.45327558007300744,
       "evidence": [
@@ -4609,7 +4609,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.45048619110645144,
+      "benefit_score": 0.5039290227211677,
       "confidence": 0.5,
       "equity_score": 0.36599153187525146,
       "evidence": [
@@ -4681,7 +4681,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5593061104337843,
+      "benefit_score": 0.6267426718009514,
       "confidence": 0.875,
       "equity_score": 0.49856190215018736,
       "evidence": [
@@ -4753,7 +4753,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.38805464222387404,
+      "benefit_score": 0.44018531657493193,
       "confidence": 0.5,
       "equity_score": 0.42731588779327045,
       "evidence": [
@@ -4825,7 +4825,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5401827349212147,
+      "benefit_score": 0.6036302946122546,
       "confidence": 0.75,
       "equity_score": 0.4775416298983908,
       "evidence": [
@@ -4897,7 +4897,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5138698462576031,
+      "benefit_score": 0.5813354081426368,
       "confidence": 0.5,
       "equity_score": 0.3719367726761063,
       "evidence": [
@@ -4969,7 +4969,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.37034369076954493,
+      "benefit_score": 0.380814890928127,
       "confidence": 0.5,
       "equity_score": 0.40880759334444194,
       "evidence": [
@@ -5041,7 +5041,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4740758320425487,
+      "benefit_score": 0.5234594997206317,
       "confidence": 0.5,
       "equity_score": 0.6439456631355747,
       "evidence": [
@@ -5113,7 +5113,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4983866776138202,
+      "benefit_score": 0.5466360316126606,
       "confidence": 0.5,
       "equity_score": 0.5007355985893761,
       "evidence": [
@@ -5185,7 +5185,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5236242325076318,
+      "benefit_score": 0.5801504937124963,
       "confidence": 0.5,
       "equity_score": 0.7137094409509334,
       "evidence": [
@@ -5257,7 +5257,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.52497346802876,
+      "benefit_score": 0.5832919392754897,
       "confidence": 0.5,
       "equity_score": 0.7339705671273522,
       "evidence": [
@@ -5329,7 +5329,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5874843274460777,
+      "benefit_score": 0.6329082531139057,
       "confidence": 0.6875,
       "equity_score": 0.49960594355402,
       "evidence": [
@@ -5401,7 +5401,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4796301079881184,
+      "benefit_score": 0.5355522109845,
       "confidence": 0.5,
       "equity_score": 0.5816426489139134,
       "evidence": [
@@ -5473,7 +5473,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.520123939908045,
+      "benefit_score": 0.5770237847887163,
       "confidence": 0.5,
       "equity_score": 0.6394641842187657,
       "evidence": [
@@ -5545,7 +5545,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5174750510251536,
+      "benefit_score": 0.5715701213959525,
       "confidence": 0.5,
       "equity_score": 0.5315003898887625,
       "evidence": [
@@ -5617,7 +5617,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5174750510251536,
+      "benefit_score": 0.5715701213959525,
       "confidence": 0.5,
       "equity_score": 0.5315003898887625,
       "evidence": [
@@ -5761,7 +5761,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5903808955934429,
+      "benefit_score": 0.6357882292586162,
       "confidence": 0.833333,
       "equity_score": 0.5220369404578297,
       "evidence": [
@@ -5833,7 +5833,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.43867131797941733,
+      "benefit_score": 0.4964516745777284,
       "confidence": 0.5,
       "equity_score": 0.45539882134320914,
       "evidence": [
@@ -5905,7 +5905,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.43432549519736113,
+      "benefit_score": 0.49151966055217683,
       "confidence": 0.5,
       "equity_score": 0.4552935102331997,
       "evidence": [
@@ -5977,7 +5977,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.42302068524966413,
+      "benefit_score": 0.48364931799389116,
       "confidence": 0.5,
       "equity_score": 0.34132911340296107,
       "evidence": [
@@ -6049,7 +6049,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.45048619110645144,
+      "benefit_score": 0.5039290227211677,
       "confidence": 0.5,
       "equity_score": 0.36599153187525146,
       "evidence": [
@@ -6121,7 +6121,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.511569124042423,
+      "benefit_score": 0.5661258402934862,
       "confidence": 0.5,
       "equity_score": 0.5500210509606093,
       "evidence": [
@@ -6193,7 +6193,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.51021760481146,
+      "benefit_score": 0.5668355478722781,
       "confidence": 0.5,
       "equity_score": 0.5502691647034639,
       "evidence": [
@@ -6265,7 +6265,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.46135721855208006,
+      "benefit_score": 0.518759067834315,
       "confidence": 0.5,
       "equity_score": 0.3720570261757711,
       "evidence": [
@@ -6337,7 +6337,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.39353820238972276,
+      "benefit_score": 0.4494180345312416,
       "confidence": 0.5,
       "equity_score": 0.3791287932949129,
       "evidence": [
@@ -6409,7 +6409,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.525202611525555,
+      "benefit_score": 0.5854868092455164,
       "confidence": 0.5,
       "equity_score": 0.4566373499591014,
       "evidence": [
@@ -6481,7 +6481,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.453905287564705,
+      "benefit_score": 0.5064919761386579,
       "confidence": 0.5,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -6553,7 +6553,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5362968943266431,
+      "benefit_score": 0.5897633646044891,
       "confidence": 0.833333,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -6625,7 +6625,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.36825561490554354,
+      "benefit_score": 0.42689382804910764,
       "confidence": 0.5,
       "equity_score": 0.46357648393265855,
       "evidence": [
@@ -6697,7 +6697,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.46083175929094083,
+      "benefit_score": 0.5178355627347396,
       "confidence": 0.5,
       "equity_score": 0.454114239818374,
       "evidence": [
@@ -6769,7 +6769,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.40150143689063117,
+      "benefit_score": 0.4571361364993399,
       "confidence": 0.5,
       "equity_score": 0.4044137805119002,
       "evidence": [
@@ -6841,7 +6841,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.49501802982171356,
+      "benefit_score": 0.5527350054854301,
       "confidence": 0.5,
       "equity_score": 0.4371935394947212,
       "evidence": [
@@ -6913,7 +6913,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5166772930377487,
+      "benefit_score": 0.5744057748385729,
       "confidence": 0.5,
       "equity_score": 0.5706524695512722,
       "evidence": [
@@ -6985,7 +6985,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5115323085722921,
+      "benefit_score": 0.5677898369035018,
       "confidence": 0.5,
       "equity_score": 0.5416152217685679,
       "evidence": [
@@ -7057,7 +7057,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4800806226910573,
+      "benefit_score": 0.5388849180864457,
       "confidence": 0.5,
       "equity_score": 0.5025601915629047,
       "evidence": [
@@ -7129,7 +7129,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5186690346506653,
+      "benefit_score": 0.5690010037622164,
       "confidence": 0.5,
       "equity_score": 0.5003365521411484,
       "evidence": [
@@ -7201,7 +7201,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5261997318893378,
+      "benefit_score": 0.5833951505375287,
       "confidence": 0.5,
       "equity_score": 0.64911822996668,
       "evidence": [
@@ -7273,7 +7273,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4602787849322922,
+      "benefit_score": 0.48130038761663924,
       "confidence": 0.5,
       "equity_score": 0.5541133655444974,
       "evidence": [
@@ -7345,7 +7345,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5608762243146902,
+      "benefit_score": 0.6267890651757319,
       "confidence": 0.791667,
       "equity_score": 0.6122743575257028,
       "evidence": [
@@ -7417,7 +7417,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6273399214347446,
+      "benefit_score": 0.6879023647192668,
       "confidence": 0.875,
       "equity_score": 0.6218115468948806,
       "evidence": [
@@ -7489,7 +7489,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4789921758493209,
+      "benefit_score": 0.5372095032445905,
       "confidence": 0.5,
       "equity_score": 0.5032654198525124,
       "evidence": [
@@ -7561,7 +7561,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5222983452163477,
+      "benefit_score": 0.5785394234920201,
       "confidence": 0.5,
       "equity_score": 0.5729193503202538,
       "evidence": [
@@ -7633,7 +7633,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.5379777025719256,
+      "benefit_score": 0.5966307271926186,
       "confidence": 0.833333,
       "equity_score": 0.6194623520893654,
       "evidence": [
@@ -7705,7 +7705,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4728176016257975,
+      "benefit_score": 0.5306100281971637,
       "confidence": 0.5,
       "equity_score": 0.6307871308145726,
       "evidence": [
@@ -7777,7 +7777,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4800806226910573,
+      "benefit_score": 0.5388849180864457,
       "confidence": 0.5,
       "equity_score": 0.5025601915629047,
       "evidence": [
@@ -7849,7 +7849,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4944306828854251,
+      "benefit_score": 0.553409539037402,
       "confidence": 0.5,
       "equity_score": 0.5494647134399261,
       "evidence": [
@@ -7921,7 +7921,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.49368187678174585,
+      "benefit_score": 0.5526407888481703,
       "confidence": 0.5,
       "equity_score": 0.5136286847927249,
       "evidence": [
@@ -7993,7 +7993,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.421149739211568,
+      "benefit_score": 0.4771554370307292,
       "confidence": 0.5,
       "equity_score": 0.5057096362379152,
       "evidence": [
@@ -8124,7 +8124,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.28521401813100844,
+      "benefit_score": 0.29436133182906854,
       "confidence": 0.5,
       "equity_score": 0.4339166147448525,
       "evidence": [
@@ -8470,7 +8470,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.26180781212169824,
+      "benefit_score": 0.2622143161867389,
       "confidence": 0.5,
       "equity_score": 0.38875070131203854,
       "evidence": [
@@ -8565,7 +8565,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.5903808955934429,
+      "benefit_score": 0.6357882292586162,
       "confidence": 0.875,
       "equity_score": 0.5220369404578297,
       "evidence": [
@@ -8704,7 +8704,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.5903808955934429,
+      "benefit_score": 0.6357882292586162,
       "confidence": 0.833333,
       "equity_score": 0.5220369404578297,
       "evidence": [
@@ -8827,7 +8827,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.26777507347280755,
+      "benefit_score": 0.2769016927934084,
       "confidence": 0.5,
       "equity_score": 0.40880759334444194,
       "evidence": [
@@ -8974,7 +8974,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.2150198515449683,
+      "benefit_score": 0.2364087798588384,
       "confidence": 0.5,
       "equity_score": 0.3333333333333333,
       "evidence": [
@@ -9217,7 +9217,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.45262913887826495,
+      "benefit_score": 0.5162716292527981,
       "confidence": 0.5,
       "equity_score": 0.6190574880096632,
       "evidence": [
@@ -9460,7 +9460,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.1807578111513902,
+      "benefit_score": 0.1922992968719998,
       "confidence": 0.5,
       "equity_score": 0.3333333333333333,
       "evidence": [
@@ -9627,7 +9627,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.4212756774442269,
+      "benefit_score": 0.4782257545914542,
       "confidence": 0.5,
       "equity_score": 0.4553988213432092,
       "evidence": [
@@ -9734,7 +9734,7 @@
       "tile_selection": "highest_priority_intersecting_tile"
     },
     {
-      "benefit_score": 0.4228520199754511,
+      "benefit_score": 0.4799426221912524,
       "confidence": 0.5,
       "equity_score": 0.5886672914027181,
       "evidence": [
@@ -9805,7 +9805,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.288406870469183,
+      "benefit_score": 0.3063074124545539,
       "confidence": 0.5,
       "equity_score": 0.40880759334444194,
       "evidence": [
@@ -9876,7 +9876,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.3824815928451163,
+      "benefit_score": 0.4303555527409311,
       "confidence": 0.5,
       "equity_score": 0.39822410018232635,
       "evidence": [
@@ -9947,7 +9947,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.288406870469183,
+      "benefit_score": 0.3063074124545539,
       "confidence": 0.5,
       "equity_score": 0.40880759334444194,
       "evidence": [
@@ -10018,7 +10018,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4180435556840938,
+      "benefit_score": 0.47951006033170196,
       "confidence": 0.5,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -10089,7 +10089,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.424569189064288,
+      "benefit_score": 0.48139426854221457,
       "confidence": 0.5,
       "equity_score": 0.7345851245474677,
       "evidence": [
@@ -10160,7 +10160,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.40416716428010546,
+      "benefit_score": 0.43927941652460145,
       "confidence": 0.5,
       "equity_score": 0.5639133725196306,
       "evidence": [
@@ -10231,7 +10231,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4165935297907748,
+      "benefit_score": 0.47744577547236444,
       "confidence": 0.5,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -10302,7 +10302,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4203128620821618,
+      "benefit_score": 0.47819343592314667,
       "confidence": 0.5,
       "equity_score": 0.698633619131942,
       "evidence": [
@@ -10373,7 +10373,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.41775355050542917,
+      "benefit_score": 0.47832401603612373,
       "confidence": 0.5,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -10444,7 +10444,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.424569189064288,
+      "benefit_score": 0.48139426854221457,
       "confidence": 0.5,
       "equity_score": 0.7345851245474677,
       "evidence": [
@@ -10515,7 +10515,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4194149529168106,
+      "benefit_score": 0.473270858720291,
       "confidence": 0.5,
       "equity_score": 0.5354389814118775,
       "evidence": [
@@ -10586,7 +10586,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4220672997327391,
+      "benefit_score": 0.4858336420605532,
       "confidence": 0.5,
       "equity_score": 0.39822410018232635,
       "evidence": [
@@ -10657,7 +10657,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4180748070804646,
+      "benefit_score": 0.4751571741294176,
       "confidence": 0.5,
       "equity_score": 0.5698715532166316,
       "evidence": [
@@ -10728,7 +10728,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4277215298199701,
+      "benefit_score": 0.47975020021627135,
       "confidence": 0.5,
       "equity_score": 0.5354389814118775,
       "evidence": [
@@ -10799,7 +10799,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4238850885686093,
+      "benefit_score": 0.48655594301893934,
       "confidence": 0.5,
       "equity_score": 0.45540634859939627,
       "evidence": [
@@ -10870,7 +10870,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.40990688497717714,
+      "benefit_score": 0.47387086117027405,
       "confidence": 0.5,
       "equity_score": 0.550269164703464,
       "evidence": [
@@ -10941,7 +10941,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4425825309031216,
+      "benefit_score": 0.5021035978917644,
       "confidence": 0.5,
       "equity_score": 0.6190574880096633,
       "evidence": [
@@ -11012,7 +11012,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4277215298199701,
+      "benefit_score": 0.47975020021627135,
       "confidence": 0.5,
       "equity_score": 0.5354389814118775,
       "evidence": [
@@ -11083,7 +11083,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.42183530716089546,
+      "benefit_score": 0.4785279040945799,
       "confidence": 0.5,
       "equity_score": 0.702555646649375,
       "evidence": [
@@ -11154,7 +11154,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.40837491236867923,
+      "benefit_score": 0.46709808292424143,
       "confidence": 0.5,
       "equity_score": 0.39822410018232635,
       "evidence": [
@@ -11225,7 +11225,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4258534977126567,
+      "benefit_score": 0.46308373636683287,
       "confidence": 0.5,
       "equity_score": 0.7345851245474677,
       "evidence": [
@@ -11296,7 +11296,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.424569189064288,
+      "benefit_score": 0.48139426854221457,
       "confidence": 0.5,
       "equity_score": 0.7345851245474677,
       "evidence": [
@@ -11367,7 +11367,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4228520199754511,
+      "benefit_score": 0.4799426221912524,
       "confidence": 0.5,
       "equity_score": 0.5886672914027181,
       "evidence": [
@@ -11438,7 +11438,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.6273399214347446,
+      "benefit_score": 0.6879023647192668,
       "confidence": 0.833333,
       "equity_score": 0.6218115468948806,
       "evidence": [
@@ -11509,7 +11509,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.3543303381822195,
+      "benefit_score": 0.3669805821173098,
       "confidence": 0.5,
       "equity_score": 0.5758205153543917,
       "evidence": [
@@ -11580,7 +11580,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.25704488186224306,
+      "benefit_score": 0.2615480024218309,
       "confidence": 0.5,
       "equity_score": 0.40880759334444194,
       "evidence": [
@@ -11651,7 +11651,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.3824815928451163,
+      "benefit_score": 0.4303555527409311,
       "confidence": 0.5,
       "equity_score": 0.39822410018232635,
       "evidence": [
@@ -11722,7 +11722,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.4228520199754511,
+      "benefit_score": 0.4799426221912524,
       "confidence": 0.5,
       "equity_score": 0.5886672914027181,
       "evidence": [
@@ -11793,7 +11793,7 @@
       "tile_selection": "containing_tile"
     },
     {
-      "benefit_score": 0.42687309983631144,
+      "benefit_score": 0.4928639466531174,
       "confidence": 0.5,
       "equity_score": 0.39822410018232635,
       "evidence": [
@@ -11890,7 +11890,7 @@
     {
       "id": "pacoima_tile_feature_table",
       "path": "data/processed/pacoima_tile_features.json",
-      "sha256": "3f231c48a71689ab34fb9195a46f7d16bd89e27e7c25221b486f0d5cd66fac4c"
+      "sha256": "af43e8016f0425bfe382b00f61b4eca555a233c532234ce4ca0a3036d8c457ec"
     },
     {
       "id": "pacoima_public_data",

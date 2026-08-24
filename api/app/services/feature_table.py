@@ -50,10 +50,13 @@ class HeatWeights(BaseModel):
 
     temperature: float = Field(ge=0, le=1)
     persistence: float = Field(ge=0, le=1)
+    exceedance: float = Field(ge=0, le=1)
 
     @model_validator(mode="after")
     def validate_sum(self) -> Self:
-        _require_unit_sum((self.temperature, self.persistence), "heat")
+        _require_unit_sum(
+            (self.temperature, self.persistence, self.exceedance), "heat"
+        )
         return self
 
 
@@ -774,6 +777,7 @@ def build_feature_table(
             (
                 (temperature_score, config.heat_weights.temperature),
                 (persistence_score, config.heat_weights.persistence),
+                (exceedance_score, config.heat_weights.exceedance),
             )
         )
         exposure_score = weighted_available(
@@ -935,8 +939,8 @@ def build_feature_table(
             config.cooling_opportunity_note,
             config.point_join_note,
             "Exceedance hours are normalized from the frozen 2024-07-15 layer; the active TCM "
-            "and persistence layers are dated 2026-08-20, so exceedance is not yet included in "
-            "the modeled heat score.",
+            "and persistence layers are dated 2026-08-20. The weighted heat score therefore uses "
+            "exceedance as historical context, not as a contemporaneous observation.",
             "Scores are relative modeled priorities normalized within this frozen Pacoima dataset; "
             "they are not measured cooling effects or predictions of people protected.",
         ),

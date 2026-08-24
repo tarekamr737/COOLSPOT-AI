@@ -87,7 +87,7 @@ Use only after verified paved/public surface geometry exists.
 - [x] Abort further work if projected reserve would fall below `500,000`.
 - [x] Cache one real Pacoima exceedance dataset for the frozen analysis period.
 - [x] Normalize exceedance into the heat feature model.
-- [ ] Update default heat severity:
+- [x] Update default heat severity:
 
 ```text
 heat_score =
