@@ -193,6 +193,30 @@ def test_documented_exceedance_schema_matches_adapter_payload(tmp_path: Path) ->
     assert payload["direction"] == "above"
 
 
+def test_exceedance_threshold_and_direction_are_validated_and_hash_separated() -> None:
+    base_request = heatmap_request()
+    request_values = {
+        "polygon_aoi": base_request.polygon_aoi,
+        "date_time": DateTimeRequest(start_date=date(2024, 7, 15), filter_type=3),
+        "granularity": 100,
+        "analytic_type": "exceedance",
+        "threshold": 32.5,
+    }
+    above = HeatmapRequest.model_validate({**request_values, "direction": "above"})
+    below = HeatmapRequest.model_validate({**request_values, "direction": "below"})
+
+    assert above.analytic_type == "exceedance"
+    assert above.threshold == 32.5
+    assert above.direction == "above"
+    assert canonical_request_hash(
+        FortyGuardEndpoint.HEATMAP, above
+    ) != canonical_request_hash(FortyGuardEndpoint.HEATMAP, below)
+
+    invalid = {**above.model_dump(mode="python"), "direction": "sideways"}
+    with pytest.raises(ValidationError, match="direction"):
+        HeatmapRequest.model_validate(invalid)
+
+
 def test_usage_query_uses_runtime_body_contract_and_validates_balance(tmp_path: Path) -> None:
     transport = FakeTransport(
         [
