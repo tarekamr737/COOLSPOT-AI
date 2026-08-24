@@ -896,6 +896,10 @@
   `Modeled`, `Planning assumption`, and `Field verification required`. Teal, neutral, and amber
   styling reinforce meaning but the literal text carries it for color-independent comprehension.
   Frontend typecheck, zero-warning lint, and all eight active component tests pass.
+- Map-hierarchy proof: the desktop workspace retains fixed `21rem` and `23.5rem` analytical rails
+  around the sole fluid `minmax(28rem, 1fr)` map column. At narrower breakpoints the map remains the
+  first workspace surface before recommendation and evidence content. The eight-test golden UI
+  regression confirms the interactive map region remains present and primary.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.
