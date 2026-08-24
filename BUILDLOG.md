@@ -204,3 +204,8 @@
   imagery into the evidence drawer. The drawer distinguishes observed vendor percentages from
   derived confidence and shade-screening scores; unmatched sites return a visible neutral fallback,
   and no camera-derived value is presented as construction feasibility.
+- Rechecked FortyGuard's current Create Heatmap documentation on 2026-08-24 before exceedance work.
+  The existing typed adapter matches the documented endpoint, authentication header, GeoJSON AOI,
+  single-day filter, granularity, `analytic_type=exceedance`, threshold, and direction fields. The
+  general limitations page still omits filter type 4 while the endpoint page documents it; the
+  planned frozen exceedance request uses filter type 3, so this inconsistency does not affect it.

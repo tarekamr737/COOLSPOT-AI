@@ -151,6 +151,48 @@ def test_request_hash_is_canonical_and_request_validation_enforces_limits() -> N
         )
 
 
+def test_documented_exceedance_schema_matches_adapter_payload(tmp_path: Path) -> None:
+    """Pin the 2026-08-24 Create Heatmap documentation contract."""
+
+    base_request = heatmap_request()
+    request = HeatmapRequest(
+        polygon_aoi=base_request.polygon_aoi,
+        date_time=DateTimeRequest(start_date=date(2024, 7, 15), filter_type=3),
+        granularity=100,
+        analytic_type="exceedance",
+        threshold=30,
+        direction="above",
+    )
+    transport = FakeTransport([fixture_response("submit_heatmap.json")])
+    client = FortyGuardClient(
+        api_key="server-secret",
+        cache_root=tmp_path,
+        transport=transport,
+        clock=lambda: FIXED_NOW,
+    )
+
+    asyncio.run(client.submit_heatmap(request))
+
+    method, url, headers, payload = transport.calls[0]
+    assert method == "POST"
+    assert url == "https://api.fortyguard.com/v1/heatmap"
+    assert headers["api-key"] == "server-secret"
+    assert payload is not None
+    assert set(payload) == {
+        "polygon_aoi",
+        "date_time",
+        "granularity",
+        "analytic_type",
+        "threshold",
+        "direction",
+    }
+    assert payload["date_time"] == {"start_date": "2024-07-15", "filter_type": 3}
+    assert payload["granularity"] == 100
+    assert payload["analytic_type"] == "exceedance"
+    assert payload["threshold"] == 30.0
+    assert payload["direction"] == "above"
+
+
 def test_usage_query_uses_runtime_body_contract_and_validates_balance(tmp_path: Path) -> None:
     transport = FakeTransport(
         [

@@ -81,7 +81,7 @@ Use only after verified paved/public surface geometry exists.
 
 ## 3 — Add FortyGuard `exceedance`
 
-- [ ] Confirm current documented request schema against the existing FortyGuard adapter/models.
+- [x] Confirm current documented request schema against the existing FortyGuard adapter/models.
 - [ ] Add/validate `analytic_type=exceedance` support.
 - [ ] Measure one real request's credit delta using the existing governor workflow.
 - [ ] Abort further work if projected reserve would fall below `500,000`.
