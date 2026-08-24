@@ -692,6 +692,10 @@
   `1,773,680`; all ten one-location/one-timestamp responses validate from the processed cache.
 - Replay proof: once all ten artifacts exist and match their deterministic candidate/request hashes,
   the batch returns them before loading environment settings or constructing a FortyGuard client.
+- Cache-completeness proof: tests require an exact one-to-one mapping between the 10 deterministic
+  finalists and the 10 committed JSON artifacts. Every artifact validates its canonical request
+  hash, unique completed activity, one timestamp/location result, balanced counters, and source URL;
+  the files contain no `api_key` field. Writes use atomic `.part` replacement.
 - Cache proof: `data/processed/fortyguard_env_params_probe.json` validates the exact one-location,
   one-timestamp response, request, result, source, limitations, and balanced credit counters without
   containing the API key. Re-running the workflow returns this report before initializing a client.

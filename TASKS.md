@@ -132,7 +132,7 @@ Peak heat observed around: 15:00
   - relative humidity,
   - solar irradiance.
 - [x] Run only for a small deterministic top-N finalist set, initially `N <= 10`.
-- [ ] Cache every completed response.
+- [x] Cache every completed response.
 - [ ] Persist normalized environmental evidence.
 - [ ] Add `thermal_stress_context` to candidate/site evidence.
 - [ ] Do not fabricate a medical-risk score.
