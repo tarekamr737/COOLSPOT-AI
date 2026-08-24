@@ -208,7 +208,7 @@ priority_score
 - [x] If supported and cost-safe, enrich only top pavement finalists.
 - [x] If unsupported, continue with authoritative public geometry instead of blocking the feature.
 - [x] Add at least one valid cool-pavement candidate if evidence permits.
-- [ ] Otherwise remove cool pavement from the golden demo and clearly explain why.
+- [x] Otherwise remove cool pavement from the golden demo and clearly explain why. *(Not applicable: verified candidates are selectable.)*
 
 **Acceptance:** no UI claims three operational intervention families while the third is impossible to select.
 

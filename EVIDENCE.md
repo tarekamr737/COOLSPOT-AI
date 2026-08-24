@@ -837,6 +837,9 @@
   eligibility rule. Feasibility and confidence remain neutral `0.5`, preserving every unresolved
   field and engineering gate. The deterministic optimizer selects five cool-pavement options at the
   supported `$5,000,000` maximum budget; 19 focused candidate/optimizer/API tests pass.
+- Conditional-removal decision: removal is not triggered because authoritative geometry supports 20
+  candidates and the supported optimizer range demonstrably selects the family. The catalog and UI
+  may therefore retain cool pavement while continuing to disclose its unresolved safety gates.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.
