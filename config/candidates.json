@@ -3,6 +3,11 @@
   "unverified_feasibility_score": 0.5,
   "unverified_confidence_score": 0.5,
   "benefit_score_basis": "Use the selected tile's modeled priority score without an intervention-specific effect multiplier.",
+  "confidence_rules": {
+    "exact_street_view_match": "use_street_context_confidence",
+    "note": "Copy normalized street_context_confidence only for an exact site_id match to the versioned Street View evidence artifact. Do not transfer evidence between nearby sites or interpret confidence as outcome probability.",
+    "unmatched_site": "use_unverified_confidence_score"
+  },
   "equity_score_basis": "Use the selected tile's modeled vulnerability score as context, not as a count of people served.",
   "screening_score_note": "The value 0.5 is a neutral deterministic fallback only for an evidence dimension that remains unverified. All current candidates remain field-unverified for feasibility; confidence uses normalized cached Street View evidence where available. The scalar is not a probability or measured effect.",
   "representative_tile_rule": "For a site intersecting multiple heat tiles, select the tile with the highest modeled priority score, then heat score, then lowest numeric tile ID."

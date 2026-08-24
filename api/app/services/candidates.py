@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 from enum import StrEnum
 from pathlib import Path
-from typing import Self
+from typing import Literal, Self
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
@@ -65,12 +65,23 @@ class TileSelection(StrEnum):
     HIGHEST_PRIORITY_INTERSECTING_TILE = "highest_priority_intersecting_tile"
 
 
+class CandidateConfidenceRules(BaseModel):
+    """Versioned mapping from evidence availability to candidate confidence."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    exact_street_view_match: Literal["use_street_context_confidence"]
+    unmatched_site: Literal["use_unverified_confidence_score"]
+    note: str = Field(min_length=80)
+
+
 class CandidateConfig(BaseModel):
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
 
     version: str = Field(pattern=r"^1\.0$")
     unverified_feasibility_score: float = Field(ge=0, le=1)
     unverified_confidence_score: float = Field(ge=0, le=1)
+    confidence_rules: CandidateConfidenceRules
     benefit_score_basis: str = Field(min_length=30)
     equity_score_basis: str = Field(min_length=30)
     screening_score_note: str = Field(min_length=50)
@@ -337,11 +348,7 @@ def _candidate(
         benefit_score=selected_tile.scores.priority,
         equity_score=selected_tile.scores.vulnerability,
         feasibility_score=config.unverified_feasibility_score,
-        confidence=(
-            street_context.street_context_confidence.score
-            if street_context is not None
-            else config.unverified_confidence_score
-        ),
+        confidence=_candidate_confidence(config, street_context),
         evidence=_common_evidence(
             tile=selected_tile,
             intervention=intervention,
@@ -351,6 +358,24 @@ def _candidate(
         ),
         geometry=geometry,
     )
+
+
+def _candidate_confidence(
+    config: CandidateConfig,
+    street_context: ExtractedStreetViewFeatures | None,
+) -> float:
+    """Apply the versioned exact-match/fallback confidence rule."""
+
+    if street_context is not None:
+        if (
+            config.confidence_rules.exact_street_view_match
+            != "use_street_context_confidence"
+        ):
+            raise AssertionError("unsupported exact Street View confidence rule")
+        return street_context.street_context_confidence.score
+    if config.confidence_rules.unmatched_site != "use_unverified_confidence_score":
+        raise AssertionError("unsupported unmatched-site confidence rule")
+    return config.unverified_confidence_score
 
 
 def _stop_statement(stop: ProcessedTransitStop) -> str:

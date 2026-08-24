@@ -9,6 +9,7 @@ from api.app.services.candidates import (
     CandidateSourceArtifact,
     TileSelection,
     canonical_candidate_bytes,
+    load_candidate_config,
     load_candidates,
 )
 from api.app.services.feature_table import DEFAULT_FEATURE_TABLE_PATH, load_feature_table
@@ -70,6 +71,17 @@ def test_real_candidates_are_complete_compatible_and_traceable() -> None:
 
     assert len({candidate.confidence for candidate in artifact.candidates}) > 2
     assert all(candidate.feasibility_score == 0.5 for candidate in artifact.candidates)
+
+
+def test_candidate_confidence_rules_are_versioned_and_exact_site_only() -> None:
+    config = load_candidate_config()
+
+    assert config.confidence_rules.exact_street_view_match == (
+        "use_street_context_confidence"
+    )
+    assert config.confidence_rules.unmatched_site == "use_unverified_confidence_score"
+    assert "exact site_id match" in config.confidence_rules.note
+    assert "outcome probability" in config.confidence_rules.note
 
 
 def test_candidate_scores_and_representative_tiles_come_from_feature_table() -> None:

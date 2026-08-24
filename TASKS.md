@@ -42,7 +42,7 @@
 
 - [x] Remove the universal `0.5 / 0.5` candidate treatment where richer evidence exists.
 - [x] Keep neutral fallback values only for genuinely unverified candidates.
-- [ ] Define evidence-based confidence rules in versioned config.
+- [x] Define evidence-based confidence rules in versioned config.
 - [ ] Define intervention-specific feasibility/suitability inputs.
 
 ### Shade structures
