@@ -6,6 +6,10 @@
     "usable_views": 0.25
   },
   "fresh_age_days": 730,
+  "shade_evidence_weights": {
+    "low_tree_context": 0.5,
+    "open_sky_context": 0.5
+  },
   "stale_age_days": 1825,
   "stale_age_score": 0.25,
   "target_view_count": 2,

@@ -185,3 +185,7 @@
   usable views, original/segmented imagery availability, imagery age, and requested-category
   completeness. Age is measured at the cache retrieval date rather than runtime, preventing score
   drift as the application gets older; the result is evidence completeness, not outcome certainty.
+- Shade-intervention evidence uses a versioned equal-weight mean of visible-sky context and low
+  visible-tree context, renormalizes across only available inputs, then multiplies by street-context
+  confidence. It is intentionally isolated from candidate ranking until the later confidence and
+  feasibility task, and it does not assert current or all-day shade conditions.

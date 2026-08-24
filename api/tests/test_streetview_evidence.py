@@ -175,6 +175,38 @@ def test_incomplete_single_view_has_lower_context_confidence() -> None:
     assert confidence.components.segmentation_completeness == pytest.approx(1 / 6)
 
 
+def test_shade_evidence_uses_visual_context_and_confidence() -> None:
+    payload = _payload()
+    result = payload["result"]
+    assert isinstance(result, dict)
+    for direction in ("front", "back"):
+        frame = result[direction]
+        assert isinstance(frame, dict)
+        frame["segments"] = {
+            "tree": 20.0,
+            "grass": 0.0,
+            "sky": 60.0,
+            "road": 10.0,
+            "sidewalk": 5.0,
+            "building": 5.0,
+        }
+
+    evidence = extract_street_view_features(payload).shade_intervention_evidence
+
+    assert evidence.open_sky_context == 0.6
+    assert evidence.low_tree_context == 0.8
+    assert evidence.street_context_confidence == 1
+    assert evidence.score == 0.7
+
+
+def test_shade_evidence_score_is_bounded() -> None:
+    payload = _payload()
+
+    evidence = extract_street_view_features(payload).shade_intervention_evidence
+
+    assert 0 <= evidence.score <= 1
+
+
 def test_extractor_rejects_non_completed_cached_response() -> None:
     payload = _payload()
     payload["status"] = "Processing"

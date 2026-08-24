@@ -38,6 +38,19 @@ class StreetContextConfidenceWeights(StrictModel):
         return self
 
 
+class ShadeEvidenceWeights(StrictModel):
+    """Weights for visual context used to screen shade-structure opportunity."""
+
+    open_sky_context: float = Field(ge=0, le=1)
+    low_tree_context: float = Field(ge=0, le=1)
+
+    @model_validator(mode="after")
+    def validate_total(self) -> Self:
+        if not math.isclose(sum(self.model_dump().values()), 1.0):
+            raise ValueError("shade evidence weights must sum to 1")
+        return self
+
+
 class StreetViewEvidenceConfig(StrictModel):
     """Versioned deterministic Street View evidence settings."""
 
@@ -47,6 +60,7 @@ class StreetViewEvidenceConfig(StrictModel):
     stale_age_days: int = Field(gt=0)
     stale_age_score: float = Field(ge=0, le=1)
     confidence_weights: StreetContextConfidenceWeights
+    shade_evidence_weights: ShadeEvidenceWeights
 
     @model_validator(mode="after")
     def validate_age_thresholds(self) -> Self:
@@ -125,6 +139,15 @@ class StreetContextConfidence(StrictModel):
     components: StreetContextConfidenceComponents
 
 
+class ShadeInterventionEvidence(StrictModel):
+    """Visual intervention-screening evidence, never a direct shade measurement."""
+
+    score: float = Field(ge=0, le=1)
+    open_sky_context: float | None = Field(default=None, ge=0, le=1)
+    low_tree_context: float | None = Field(default=None, ge=0, le=1)
+    street_context_confidence: float = Field(ge=0, le=1)
+
+
 class ExtractedStreetViewFrame(StrictModel):
     """Compact frame evidence with image payloads intentionally removed."""
 
@@ -144,6 +167,7 @@ class ExtractedStreetViewFeatures(StrictModel):
     frames: tuple[ExtractedStreetViewFrame, ...] = Field(min_length=1, max_length=2)
     aggregate: AggregatedStreetViewMetrics
     street_context_confidence: StreetContextConfidence
+    shade_intervention_evidence: ShadeInterventionEvidence
 
 
 def _mean_observed(values: tuple[float | None, ...]) -> float | None:
@@ -259,6 +283,34 @@ def _confidence(
     )
 
 
+def _shade_evidence(
+    aggregate: AggregatedStreetViewMetrics,
+    confidence: StreetContextConfidence,
+    config: StreetViewEvidenceConfig,
+) -> ShadeInterventionEvidence:
+    sky = aggregate.metrics.sky_pct
+    tree = aggregate.metrics.tree_pct
+    open_sky = sky / 100 if sky is not None else None
+    low_tree = 1 - tree / 100 if tree is not None else None
+    weighted = (
+        (open_sky, config.shade_evidence_weights.open_sky_context),
+        (low_tree, config.shade_evidence_weights.low_tree_context),
+    )
+    available_weight = math.fsum(weight for value, weight in weighted if value is not None)
+    context_score = (
+        math.fsum(value * weight for value, weight in weighted if value is not None)
+        / available_weight
+        if available_weight
+        else 0.0
+    )
+    return ShadeInterventionEvidence(
+        score=round(context_score * confidence.score, 6),
+        open_sky_context=open_sky,
+        low_tree_context=low_tree,
+        street_context_confidence=confidence.score,
+    )
+
+
 def _extract_frame(
     direction: StreetViewDirection,
     frame: StreetViewFrame,
@@ -320,14 +372,17 @@ def extract_street_view_features(
     if result.back is not None:
         frames.append(_extract_frame(StreetViewDirection.BACK, result.back))
     normalized_frames = tuple(frames)
+    aggregate = _aggregate_frames(normalized_frames)
+    confidence = _confidence(normalized_frames, retrieved_date, active_config)
     return ExtractedStreetViewFeatures(
         site_id=site_id,
         coordinates=result.coordinates,
         frames=normalized_frames,
-        aggregate=_aggregate_frames(normalized_frames),
-        street_context_confidence=_confidence(
-            normalized_frames,
-            retrieved_date,
+        aggregate=aggregate,
+        street_context_confidence=confidence,
+        shade_intervention_evidence=_shade_evidence(
+            aggregate,
+            confidence,
             active_config,
         ),
     )
