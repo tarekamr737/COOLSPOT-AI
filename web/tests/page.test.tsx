@@ -48,6 +48,7 @@ describe("Home", () => {
     expect(document.querySelector('img[src*="coolspot-logo.png"]')).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Ranked recommendations" })).toBeInTheDocument();
     expect(screen.getAllByText("Selected in 4/4 planning scenarios").length).toBeGreaterThan(0);
+    expect(screen.getByText("Scenario stability only, not statistical confidence.")).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "Van Nuys / Herrick" })).toBeInTheDocument();
     expect(screen.getByLabelText("Map layer hierarchy")).toBeInTheDocument();
     expect(screen.getByLabelText("Data freshness status")).toHaveTextContent("1,991,560 FortyGuard credits remaining");

@@ -292,6 +292,7 @@ export const portfolioSchema = z.object({
     presets_tested: z.literal(4),
     robustness_score: z.number().min(0).max(1),
   })),
+  robustness_note: z.string().min(40),
 });
 export type Portfolio = z.infer<typeof portfolioSchema>;
 

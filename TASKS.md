@@ -271,7 +271,7 @@ number_of_presets_tested
 Selected in 4/4 planning scenarios
 ```
 
-- [ ] Do not present robustness as statistical confidence.
+- [x] Do not present robustness as statistical confidence.
 - [ ] Add tests for all four presets.
 
 **Acceptance:** judges can change planning priorities and see which recommendations remain stable at zero vendor cost.

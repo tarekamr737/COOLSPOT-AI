@@ -35,6 +35,7 @@ class OptimizerConfig(BaseModel):
     determinism_note: str = Field(min_length=40)
     objective_note: str = Field(min_length=40)
     equity_note: str = Field(min_length=40)
+    robustness_note: str = Field(min_length=40)
 
     @model_validator(mode="after")
     def validate_budgets(self) -> Self:
@@ -107,6 +108,7 @@ class PortfolioResult(BaseModel):
     category_counts: PortfolioCategoryCounts
     equity_summary: EquitySummary
     site_robustness: tuple[SiteRobustness, ...] = ()
+    robustness_note: str = Field(min_length=40)
 
     @model_validator(mode="after")
     def validate_totals(self) -> Self:
@@ -285,6 +287,7 @@ def optimize_portfolio(
             score_sum=round(equity_sum, 8),
             note=active_config.equity_note,
         ),
+        robustness_note=active_config.robustness_note,
     )
 
 

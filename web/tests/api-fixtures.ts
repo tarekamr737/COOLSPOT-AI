@@ -149,6 +149,7 @@ export function portfolio(budget = 500_000) {
       presets_tested: 4,
       robustness_score: 1,
     })),
+    robustness_note: "Planning-scenario stability only; this is not statistical confidence or outcome certainty.",
   };
 }
 

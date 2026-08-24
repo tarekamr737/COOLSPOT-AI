@@ -433,6 +433,15 @@
   font-size: 1rem;
 }
 
+.robustnessNote {
+  margin: 0;
+  padding: 0.55rem 1.25rem;
+  border-bottom: 1px solid var(--outline-variant);
+  color: var(--on-surface-muted);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+}
+
 .recommendationList {
   list-style: none;
   margin: 0;

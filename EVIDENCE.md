@@ -857,6 +857,10 @@
   audit copy in the existing metadata row, for example `Selected in 4/4 planning scenarios`. The
   label uses the returned numerator/denominator rather than recalculating in the browser. Frontend
   typecheck, zero-warning ESLint, and all seven active component tests pass.
+- Interpretation-guard proof: the versioned optimizer config and every portfolio response state that
+  robustness is selection frequency across planning-weight scenarios, not statistical confidence,
+  outcome certainty, or probability. The recommendation rail repeats the concise visible warning;
+  14 focused backend tests and all frontend quality gates pass.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.
