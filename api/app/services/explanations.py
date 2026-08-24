@@ -14,6 +14,7 @@ from api.app.services.candidates import Candidate, CandidateEvidence
 from api.app.services.feature_table import TileFeature
 from api.app.services.interventions import InterventionDefinition
 from api.app.services.optimizer import PortfolioResult
+from api.app.services.scenarios import ScoringPreset, scenario_priority
 from api.app.settings import load_project_env
 
 
@@ -28,6 +29,7 @@ class GroundedExplanation(BaseModel):
     site_id: str
     candidate_id: str
     budget_usd: int = Field(gt=0)
+    scoring_preset: ScoringPreset
     summary: str = Field(min_length=80, max_length=700)
     why_selected: tuple[str, ...] = Field(min_length=5)
     limitations: tuple[str, ...] = Field(min_length=3)
@@ -48,12 +50,20 @@ def explain_selected_candidate(
             f"candidate '{candidate.id}' is not selected at the "
             f"${portfolio.budget_usd:,} budget"
         )
-    modeled_impact = candidate.value_explanation.modeled_benefit_score
+    priority_score = scenario_priority(tile.scores, portfolio.scoring_weights)
+    factors = candidate.value_explanation.factors
+    modeled_impact = (
+        priority_score
+        * factors.suitability_score
+        * factors.feasibility_score
+        * factors.confidence_score
+    )
+    preset_label = portfolio.scoring_preset.value.replace("_", "-")
     summary = (
         f"At the ${portfolio.budget_usd:,} screening budget, {candidate.site_name} is one of "
-        f"{portfolio.selected_count} sites in the optimal portfolio for a "
+        f"{portfolio.selected_count} sites in the optimal {preset_label} portfolio for a "
         f"{intervention.label.lower()}. Its representative tile has modeled priority score "
-        f"{tile.scores.priority:.3f}; after the disclosed suitability, feasibility, and "
+        f"{priority_score:.3f}; after the disclosed suitability, feasibility, and "
         f"confidence scalars, this candidate contributes "
         f"{modeled_impact:.3f} modeled impact score."
     )
@@ -61,6 +71,7 @@ def explain_selected_candidate(
         site_id=candidate.site_id,
         candidate_id=candidate.id,
         budget_usd=portfolio.budget_usd,
+        scoring_preset=portfolio.scoring_preset,
         summary=summary,
         why_selected=tuple(item.statement for item in candidate.evidence),
         limitations=(
@@ -135,6 +146,7 @@ def _cache_key(explanation: GroundedExplanation, model: str) -> str:
             "prompt_version": PROMPT_VERSION,
             "candidate_id": explanation.candidate_id,
             "budget_usd": explanation.budget_usd,
+            "scoring_preset": explanation.scoring_preset,
             "summary": explanation.summary,
             "why_selected": explanation.why_selected,
             "limitations": explanation.limitations,

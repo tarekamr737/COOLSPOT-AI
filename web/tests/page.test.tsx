@@ -103,6 +103,27 @@ describe("Home", () => {
     expect(calls.some(([url]) => /fortyguard/i.test(String(url)))).toBe(false);
   });
 
+  it("changes planning priorities at zero vendor cost", async () => {
+    render(<Home />);
+    await screen.findByRole("heading", { name: "Pacoima cooling investment map" });
+    fireEvent.click(screen.getByRole("button", { name: "Skip tour" }));
+
+    fireEvent.change(screen.getByLabelText("Planning priority"), {
+      target: { value: "exposure_first" },
+    });
+
+    await waitFor(() => {
+      expect(screen.getByLabelText("Planning priority")).toHaveValue("exposure_first");
+      expect(screen.getByText("H 30 · E 40 · V 20 · O 10")).toBeInTheDocument();
+    });
+    const calls = vi.mocked(fetch).mock.calls;
+    expect(calls.some(([url, init]) =>
+      String(url).endsWith("/optimize")
+      && String(init?.body).includes('"scoring_preset":"exposure_first"'),
+    )).toBe(true);
+    expect(calls.some(([url]) => /fortyguard/i.test(String(url)))).toBe(false);
+  });
+
   it("generates a deterministic explanation from the selected evidence", async () => {
     render(<Home />);
     await screen.findByRole("heading", { name: "Pacoima cooling investment map" });

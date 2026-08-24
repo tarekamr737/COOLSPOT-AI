@@ -332,3 +332,6 @@
 - Impeccable review placed scenario selection inside the existing investment overlay: this preserves
   the map as the primary workspace, uses a standard control affordance, and avoids adding another
   floating panel or modal to an already dense municipal-planning screen.
+- Propagated the selected scenario into explanation validation and caching. Without that, a site
+  selected only under heat/equity/exposure-first could be rejected against the balanced portfolio or
+  receive balanced score wording after the UI changed priorities.

@@ -165,6 +165,7 @@ class ExplanationRequest(BaseModel):
 
     candidate_id: str = Field(min_length=1)
     budget_usd: int = Field(gt=0)
+    scoring_preset: ScoringPreset = ScoringPreset.BALANCED
     regenerate: bool = False
 
 

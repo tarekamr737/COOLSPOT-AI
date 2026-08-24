@@ -55,10 +55,10 @@ export const optimize = (budgetUsd: number, scoringPreset: ScoringPreset = "bala
     method: "POST",
     body: JSON.stringify({ budget_usd: budgetUsd, scoring_preset: scoringPreset }),
   });
-export const getExplanation = (siteId: string, candidateId: string, budgetUsd: number, regenerate = false) =>
+export const getExplanation = (siteId: string, candidateId: string, budgetUsd: number, scoringPreset: ScoringPreset = "balanced", regenerate = false) =>
   request(`/sites/${encodeURIComponent(siteId)}/explanation`, explanationSchema, {
     method: "POST",
-    body: JSON.stringify({ candidate_id: candidateId, budget_usd: budgetUsd, regenerate }),
+    body: JSON.stringify({ candidate_id: candidateId, budget_usd: budgetUsd, scoring_preset: scoringPreset, regenerate }),
   });
 export const getRefreshStatus = () => request("/refresh/status", refreshStatusSchema);
 export const startRefresh = (analysisDate: string, token: string) =>

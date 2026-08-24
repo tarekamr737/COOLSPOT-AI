@@ -98,7 +98,10 @@ async def explain_site(site_id: str, request: ExplanationRequest) -> GroundedExp
             detail=f"candidate '{request.candidate_id}' was not found at site '{site_id}'",
         )
     try:
-        portfolio = optimize_portfolio(request.budget_usd)
+        portfolio = optimize_portfolio(
+            request.budget_usd,
+            scoring_preset=request.scoring_preset,
+        )
         return await explain_with_optional_llm(
             candidate=option.candidate,
             tile=option.tile,

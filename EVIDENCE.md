@@ -871,6 +871,14 @@
   familiar compact selector and active weights, preserving the map-first hierarchy. The executable
   golden-path validator passes with four layers, 172 candidates, both demo budgets, and credits
   unchanged at `1,759,280` remaining.
+- Scenario-control proof: the existing investment overlay now contains one keyboard-native planning-
+  priority select with all four presets and a compact `H/E/V/O` active-weight readout. Changing it
+  posts the current budget plus preset to the local optimizer, updates portfolio/site/robustness state,
+  preserves the preset across budget changes and refresh reloads, and makes no FortyGuard request.
+- Explanation-consistency proof: explanation requests and cache keys include the active preset;
+  deterministic summaries recompute the displayed priority and modeled impact from that scenario's
+  weights. Thirteen focused backend tests, frontend strict types, zero-warning lint, and all eight
+  active UI tests pass.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.

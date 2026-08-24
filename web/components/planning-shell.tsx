@@ -3,12 +3,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { getCandidates, getDataStatus, getExplanation, getLayer, getMethodology, getPilot, getRefreshStatus, getSite, getStreetView, optimize, startRefresh } from "@/lib/api-client";
-import { layerNames, type Candidate, type CandidateList, type DataStatus, type Explanation, type LayerName, type LayerResponse, type Methodology, type Pilot, type Portfolio, type RefreshStatus, type Site, type StreetViewContext } from "@/lib/api-schemas";
+import { layerNames, scoringPresets, type Candidate, type CandidateList, type DataStatus, type Explanation, type LayerName, type LayerResponse, type Methodology, type Pilot, type Portfolio, type RefreshStatus, type ScoringPreset, type Site, type StreetViewContext } from "@/lib/api-schemas";
 import { MapView } from "./map-view";
 import styles from "./planning-shell.module.css";
 
 type WorkspaceData = { pilot: Pilot; candidates: CandidateList; status: DataStatus; methodology: Methodology; portfolio: Portfolio; site: Site };
 const layerLabels: Record<LayerName, string> = { heat: "Heat", persistence: "Persistence", exposure: "Exposure", vulnerability: "Vulnerability" };
+const scenarioLabels: Record<ScoringPreset, string> = { balanced: "Balanced", heat_first: "Heat-first", equity_first: "Equity-first", exposure_first: "Exposure-first" };
 const legendEndpoints: Record<LayerName, readonly [string, string]> = {
   heat: ["Higher", "Lower"],
   persistence: ["Higher", "Lower"],
@@ -178,15 +179,17 @@ function RecommendationRail({ candidates, portfolio, activeCandidateId, onSelect
   </aside>;
 }
 
-type BudgetBarProps = { budget: number; portfolio: Portfolio; methodology: Methodology; optimizing: boolean; onCommit: (budget: number) => void; onPreview: (budget: number) => void };
+type BudgetBarProps = { budget: number; portfolio: Portfolio; methodology: Methodology; optimizing: boolean; onCommit: (budget: number) => void; onPreview: (budget: number) => void; onScenarioChange: (preset: ScoringPreset) => void };
 
-function BudgetBar({ budget, portfolio, methodology, optimizing, onCommit, onPreview }: BudgetBarProps) {
+function BudgetBar({ budget, portfolio, methodology, optimizing, onCommit, onPreview, onScenarioChange }: BudgetBarProps) {
   const { optimization } = methodology;
+  const weights = portfolio.scoring_weights;
   return <section className={styles.budgetBar} aria-labelledby="budget-title">
     <div><p className={styles.eyebrow}>Investment scenario</p><h2 id="budget-title">{currency.format(budget)} budget</h2></div>
     <div className={styles.budgetControl}><div className={styles.budgetScale} aria-label="Budget presets">{optimization.budget_presets_usd.map((preset) => <button aria-pressed={budget === preset} className={budget === preset ? styles.activeBudget : undefined} disabled={optimizing} key={preset} onClick={() => onCommit(preset)} type="button">{compactCurrency(preset)}</button>)}</div>
       <label className={styles.sliderLabel}><span className="sr-only">Custom budget</span><input aria-valuetext={currency.format(budget)} disabled={optimizing} max={optimization.custom_budget_max_usd} min={optimization.custom_budget_min_usd} onChange={(event) => onPreview(Number(event.currentTarget.value))} onKeyUp={(event) => onCommit(Number(event.currentTarget.value))} onPointerUp={(event) => onCommit(Number(event.currentTarget.value))} step={50_000} type="range" value={budget} /></label>
     </div>
+    <label className={styles.scenarioControl}><span>Planning priority</span><select aria-label="Planning priority" disabled={optimizing} onChange={(event) => onScenarioChange(event.currentTarget.value as ScoringPreset)} value={portfolio.scoring_preset}>{scoringPresets.map((preset) => <option key={preset} value={preset}>{scenarioLabels[preset]}</option>)}</select><small>H {Math.round(weights.heat * 100)} · E {Math.round(weights.exposure * 100)} · V {Math.round(weights.vulnerability * 100)} · O {Math.round(weights.cooling_opportunity * 100)}</small></label>
     <p aria-live="polite" className={styles.budgetNote}>{optimizing ? "Re-optimizing…" : `${portfolio.selected_count} sites · zero vendor calls`}</p>
   </section>;
 }
@@ -197,12 +200,12 @@ function StreetContextWindow({ context, loading, siteName, onClose }: { context:
   return <section aria-busy={loading} aria-label={`Street context for ${siteName}`} className={styles.streetWindow}><header><div><p className={styles.eyebrow}>Verified street context</p><h2>{siteName}</h2></div><button aria-label="Close street context" onClick={onClose} type="button">Close</button></header>{loading ? <div className={styles.streetLoading}>Loading cached site evidence…</div> : context?.available && imageUrl ? <><div className={styles.streetImage}><Image alt={segmented ? `FortyGuard segmented street view for ${siteName}` : `Street view for ${siteName}`} fill sizes="(max-width: 832px) 100vw, 50vw" src={imageUrl} unoptimized /></div><div className={styles.streetControls}><button aria-pressed={!segmented} onClick={() => setSegmented(false)} type="button">Street image</button><button aria-pressed={segmented} onClick={() => setSegmented(true)} type="button">Segmentation</button><span>Image {context.image_date ? formatDate(context.image_date) : "date unavailable"}</span></div><ul className={styles.segmentList}>{Object.entries(context.segments).filter(([, value]) => value >= 0.5).sort((a, b) => b[1] - a[1]).map(([name, value]) => <li key={name}><span>{name}</span><strong>{value.toFixed(1)}%</strong></li>)}</ul><p className={styles.streetLimit}>{context.limitation} <a href={context.source_url} rel="noreferrer" target="_blank">{context.source_label}</a></p></> : <div className={styles.streetUnavailable}><strong>No verified segmentation for this site</strong><p>{context?.limitation ?? "Cached street context is unavailable."}</p></div>}</section>;
 }
 
-type MapWorkspaceProps = { budget: number; data: WorkspaceData; layer: LayerResponse; activeLayer: LayerName; layerLoading: boolean; optimizing: boolean; activeCandidateId: string; streetContext: StreetViewContext | null; streetLoading: boolean; streetVisible: boolean; onCloseStreet: () => void; onBudgetCommit: (budget: number) => void; onBudgetPreview: (budget: number) => void; onLayerChange: (layer: LayerName) => void; onSelectSite: (siteId: string) => void };
+type MapWorkspaceProps = { budget: number; data: WorkspaceData; layer: LayerResponse; activeLayer: LayerName; layerLoading: boolean; optimizing: boolean; activeCandidateId: string; streetContext: StreetViewContext | null; streetLoading: boolean; streetVisible: boolean; onCloseStreet: () => void; onBudgetCommit: (budget: number) => void; onBudgetPreview: (budget: number) => void; onLayerChange: (layer: LayerName) => void; onScenarioChange: (preset: ScoringPreset) => void; onSelectSite: (siteId: string) => void };
 
-function MapWorkspace({ budget, data, layer, activeLayer, layerLoading, optimizing, activeCandidateId, streetContext, streetLoading, streetVisible, onCloseStreet, onBudgetCommit, onBudgetPreview, onLayerChange, onSelectSite }: MapWorkspaceProps) {
+function MapWorkspace({ budget, data, layer, activeLayer, layerLoading, optimizing, activeCandidateId, streetContext, streetLoading, streetVisible, onCloseStreet, onBudgetCommit, onBudgetPreview, onLayerChange, onScenarioChange, onSelectSite }: MapWorkspaceProps) {
   const [legendHigh, legendLow] = legendEndpoints[activeLayer];
   return <section className={styles.mapWorkspace} aria-labelledby="map-title">
-    <BudgetBar budget={budget} methodology={data.methodology} onCommit={onBudgetCommit} onPreview={onBudgetPreview} optimizing={optimizing} portfolio={data.portfolio} />
+    <BudgetBar budget={budget} methodology={data.methodology} onCommit={onBudgetCommit} onPreview={onBudgetPreview} onScenarioChange={onScenarioChange} optimizing={optimizing} portfolio={data.portfolio} />
     <div className={styles.mapCanvas}><h1 className="sr-only" id="map-title">Pacoima cooling investment map</h1><MapView activeCandidateId={activeCandidateId} candidates={data.candidates.candidates} layer={layer} onSelectSite={onSelectSite} pilot={data.pilot} selectedCandidateIds={data.portfolio.selected_candidate_ids} />{streetVisible ? <StreetContextWindow context={streetContext} loading={streetLoading} onClose={onCloseStreet} siteName={data.site.site_name} /> : null}
       <div className={styles.heatLegend} aria-label={`${layerLabels[activeLayer]} normalized score legend, ${legendHigh} at the top and ${legendLow} at the bottom`}><span>{legendHigh}</span><div className={`${styles.legendRamp} ${styles[`${activeLayer}Ramp`]}`} aria-hidden="true"><i /><i /><i /><i /></div><span>{legendLow}</span></div>
     </div>
@@ -277,7 +280,7 @@ function LoadingShell() {
   return <main className={styles.loadingShell} aria-busy="true"><header className={styles.loadingHeader}><BrandMark /><span className={styles.loadingLine} /></header><div className={styles.loadingWorkspace}><div /><div /><div /></div><p className={styles.loadingAnnouncement} role="status">Loading and validating cached Pacoima evidence.</p></main>;
 }
 
-async function fetchWorkspace(budgetUsd?: number) {
+async function fetchWorkspace(budgetUsd?: number, scoringPreset: ScoringPreset = "balanced") {
   const pilotPromise = getPilot();
   const candidatesPromise = getCandidates();
   const statusPromise = getDataStatus();
@@ -289,7 +292,7 @@ async function fetchWorkspace(budgetUsd?: number) {
     statusPromise,
     methodologyPromise,
     heatPromise,
-    optimize(budgetUsd ?? pilot.default_budget_usd),
+    optimize(budgetUsd ?? pilot.default_budget_usd, scoringPreset),
   ]);
   const byId = new Map(candidates.candidates.map((candidate) => [candidate.id, candidate]));
   const first = portfolio.selected_candidate_ids
@@ -359,9 +362,12 @@ export function PlanningShell() {
   }, [applyWorkspace]);
 
   const retry = useCallback(async () => {
-    const loaded = await fetchWorkspace(data?.portfolio.budget_usd ?? budget);
+    const loaded = await fetchWorkspace(
+      data?.portfolio.budget_usd ?? budget,
+      data?.portfolio.scoring_preset ?? "balanced",
+    );
     applyWorkspace(loaded);
-  }, [applyWorkspace, budget, data?.portfolio.budget_usd]);
+  }, [applyWorkspace, budget, data?.portfolio.budget_usd, data?.portfolio.scoring_preset]);
 
   const recommendations = useMemo(() => {
     if (!data) return [];
@@ -389,11 +395,11 @@ export function PlanningShell() {
     if (candidate) void selectCandidate(candidate);
   }, [recommendations, selectCandidate]);
 
-  const changeBudget = useCallback(async (nextBudget: number) => {
-    if (!data || nextBudget === data.portfolio.budget_usd || optimizing) return;
+  const changePlan = useCallback(async (nextBudget: number, nextPreset: ScoringPreset) => {
+    if (!data || optimizing || (nextBudget === data.portfolio.budget_usd && nextPreset === data.portfolio.scoring_preset)) return;
     const sequence = ++requestSequence.current; setBudget(nextBudget); setOptimizing(true); setOperationError(null); setExplanationError(null);
     try {
-      const portfolio = await optimize(nextBudget);
+      const portfolio = await optimize(nextBudget, nextPreset);
       if (sequence !== requestSequence.current) return;
       const byId = new Map(data.candidates.candidates.map((candidate) => [candidate.id, candidate]));
       const ranked = portfolio.selected_candidate_ids.map((id) => byId.get(id)).filter((candidate): candidate is Candidate => Boolean(candidate)).sort((a, b) => impact(b) - impact(a) || a.id.localeCompare(b.id));
@@ -405,6 +411,14 @@ export function PlanningShell() {
     } catch (caught) { setBudget(data.portfolio.budget_usd); setOperationError(`${caught instanceof Error ? caught.message : "Unable to optimize this budget."} The previous portfolio remains active.`); }
     finally { if (sequence === requestSequence.current) setOptimizing(false); }
   }, [activeCandidateId, data, optimizing]);
+
+  const changeBudget = useCallback((nextBudget: number) => {
+    if (data) void changePlan(nextBudget, data.portfolio.scoring_preset);
+  }, [changePlan, data]);
+
+  const changeScenario = useCallback((nextPreset: ScoringPreset) => {
+    if (data) void changePlan(data.portfolio.budget_usd, nextPreset);
+  }, [changePlan, data]);
 
   const changeLayer = useCallback(async (nextLayer: LayerName) => {
     if (nextLayer === activeLayer || layerLoading) return;
@@ -418,10 +432,10 @@ export function PlanningShell() {
 
   const requestExplanation = useCallback(async (candidate: Candidate, regenerate: boolean) => {
     if (!data || explanationLoading) return;
-    const explanationKey = `${candidate.id}:${data.portfolio.budget_usd}`;
+    const explanationKey = `${candidate.id}:${data.portfolio.budget_usd}:${data.portfolio.scoring_preset}`;
     setExplanationLoading(true); setExplanationError(null);
     try {
-      const explanation = await getExplanation(candidate.site_id, candidate.id, data.portfolio.budget_usd, regenerate);
+      const explanation = await getExplanation(candidate.site_id, candidate.id, data.portfolio.budget_usd, data.portfolio.scoring_preset, regenerate);
       setExplanations((current) => ({ ...current, [explanationKey]: explanation }));
     } catch (caught) {
       setExplanationError(caught instanceof Error ? caught.message : "Unable to explain this site.");
@@ -434,11 +448,11 @@ export function PlanningShell() {
   if (!data || !layers[activeLayer]) return <LoadingShell />;
   const activeCandidate = data.candidates.candidates.find((candidate) => candidate.id === activeCandidateId) ?? recommendations[0];
   if (!activeCandidate) return <LoadingShell />;
-  const explanationKey = `${activeCandidate.id}:${data.portfolio.budget_usd}`;
+  const explanationKey = `${activeCandidate.id}:${data.portfolio.budget_usd}:${data.portfolio.scoring_preset}`;
 
   return <div className={styles.appShell}><a className={styles.skipLink} href="#map-title">Skip to map workspace</a>{tourVisible ? <ProductTour onClose={closeTour} /> : null}<TopBar onRefreshComplete={retry} onTour={() => setTourVisible(true)} pilot={data.pilot} status={data.status} />{operationError ? <div className={styles.operationError} role="alert"><span>{operationError}</span><button aria-label="Dismiss error" onClick={() => setOperationError(null)} type="button">Dismiss</button></div> : null}<main className={styles.workspace}>
     <RecommendationRail activeCandidateId={activeCandidate.id} candidates={recommendations} onSelect={(candidate) => void selectCandidate(candidate)} portfolio={data.portfolio} />
-    <MapWorkspace activeCandidateId={activeCandidate.id} activeLayer={activeLayer} budget={budget} data={data} layer={layers[activeLayer]} layerLoading={layerLoading} onBudgetCommit={(value) => void changeBudget(value)} onBudgetPreview={setBudget} onCloseStreet={() => setStreetVisible(false)} onLayerChange={(name) => void changeLayer(name)} onSelectSite={selectSite} optimizing={optimizing} streetContext={streetContext} streetLoading={streetLoading} streetVisible={streetVisible} />
+    <MapWorkspace activeCandidateId={activeCandidate.id} activeLayer={activeLayer} budget={budget} data={data} layer={layers[activeLayer]} layerLoading={layerLoading} onBudgetCommit={changeBudget} onBudgetPreview={setBudget} onCloseStreet={() => setStreetVisible(false)} onLayerChange={(name) => void changeLayer(name)} onScenarioChange={changeScenario} onSelectSite={selectSite} optimizing={optimizing} streetContext={streetContext} streetLoading={streetLoading} streetVisible={streetVisible} />
     <EvidencePanel candidate={activeCandidate} explanation={explanations[explanationKey]} explanationError={explanationError} explanationLoading={explanationLoading} explanationMode={data.status.explanation_mode} methodology={data.methodology} onExplain={() => void requestExplanation(activeCandidate, Boolean(explanations[explanationKey]))} site={data.site} siteLoading={siteLoading} />
   </main></div>;
 }

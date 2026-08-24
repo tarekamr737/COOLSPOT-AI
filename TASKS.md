@@ -283,7 +283,7 @@ Selected in 4/4 planning scenarios
 > All UI/UX changes must use the **Impeccable skill**.
 
 - [x] Re-run Impeccable against the new golden path before coding UI changes.
-- [ ] Add scenario preset control without cluttering the main workspace.
+- [x] Add scenario preset control without cluttering the main workspace.
 - [ ] Upgrade recommendation/site drawer with:
   - FortyGuard heat,
   - persistence,

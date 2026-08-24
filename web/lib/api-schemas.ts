@@ -303,6 +303,7 @@ export const explanationSchema = z.object({
   site_id: z.string().min(1),
   candidate_id: z.string().min(1),
   budget_usd: z.number().int().positive(),
+  scoring_preset: scoringPresetSchema,
   summary: z.string().min(80),
   why_selected: z.array(z.string().min(1)).min(5),
   limitations: z.array(z.string().min(1)).min(3),

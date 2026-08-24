@@ -12,6 +12,7 @@ from api.app.services.explanations import (
 )
 from api.app.services.feature_table import TileFeature
 from api.app.services.optimizer import optimize_portfolio
+from api.app.services.scenarios import ScoringPreset
 
 
 class StubTransport:
@@ -102,6 +103,31 @@ def test_peak_heat_hour_is_explanation_context_only() -> None:
     assert "not used in scoring" in heat_statement
     assert "not used in scoring or pedestrian-activity inference" in heat_statement
     assert "peak pedestrian" not in heat_statement.lower()
+
+
+def test_explanation_uses_the_active_planning_scenario() -> None:
+    portfolio = optimize_portfolio(
+        500_000,
+        scoring_preset=ScoringPreset.HEAT_FIRST,
+    )
+    candidate = next(
+        item
+        for item in candidates_response().candidates
+        if item.id in portfolio.selected_candidate_ids
+    )
+    site = site_response(candidate.site_id)
+    assert site is not None
+    option = next(item for item in site.options if item.candidate.id == candidate.id)
+
+    result = explain_selected_candidate(
+        candidate=candidate,
+        tile=option.tile,
+        intervention=option.intervention,
+        portfolio=portfolio,
+    )
+
+    assert result.scoring_preset == ScoringPreset.HEAT_FIRST
+    assert "heat-first portfolio" in result.summary
 
 
 def test_unsafe_model_claim_falls_back_to_template(tmp_path: Path) -> None:

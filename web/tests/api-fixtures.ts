@@ -126,12 +126,19 @@ export function layer(name = "heat") {
   return { type: "FeatureCollection", layer: name, source_date: "2024-07-15", generated_at: "2026-08-21T00:00:00Z", cached: true, features: [{ type: "Feature", geometry: polygon, properties }], limitations: ["Screening data only."] };
 }
 
-export function portfolio(budget = 500_000) {
+export function portfolio(budget = 500_000, scoringPreset = "balanced") {
   const count = budget === 1_000_000 ? 20 : budget === 250_000 ? 5 : 10;
+  const scoringWeights = scoringPreset === "heat_first"
+    ? { heat: 0.5, exposure: 0.25, vulnerability: 0.15, cooling_opportunity: 0.1 }
+    : scoringPreset === "equity_first"
+      ? { heat: 0.3, exposure: 0.25, vulnerability: 0.35, cooling_opportunity: 0.1 }
+      : scoringPreset === "exposure_first"
+        ? { heat: 0.3, exposure: 0.4, vulnerability: 0.2, cooling_opportunity: 0.1 }
+        : { heat: 0.4, exposure: 0.3, vulnerability: 0.2, cooling_opportunity: 0.1 };
   return {
     solver_status: "optimal",
-    scoring_preset: "balanced",
-    scoring_weights: { heat: 0.4, exposure: 0.3, vulnerability: 0.2, cooling_opportunity: 0.1 },
+    scoring_preset: scoringPreset,
+    scoring_weights: scoringWeights,
     budget_usd: budget,
     total_cost_usd: count * 50_000,
     unused_budget_usd: budget - count * 50_000,
@@ -239,7 +246,7 @@ export function site(index = 0) {
   };
 }
 
-export function explanation(index = 0, budget = 500_000) {
+export function explanation(index = 0, budget = 500_000, scoringPreset = "balanced") {
   const candidate = candidates[index];
   return {
     mode: "template",
@@ -248,6 +255,7 @@ export function explanation(index = 0, budget = 500_000) {
     site_id: candidate.site_id,
     candidate_id: candidate.id,
     budget_usd: budget,
+    scoring_preset: scoringPreset,
     summary: `At the ${compactBudget(budget)} screening budget, ${candidate.site_name} is selected from structured evidence and contributes ${(
       candidate.value_explanation.modeled_benefit_score
     ).toFixed(3)} modeled impact score to the deterministic portfolio.`,
@@ -292,11 +300,14 @@ export function responseFor(url: string, init?: RequestInit) {
   if (url.endsWith("/data-status")) return status;
   if (url.endsWith("/methodology")) return methodology;
   if (url.includes("/layers/")) return layer(url.split("/").at(-1));
-  if (url.endsWith("/optimize")) return portfolio(JSON.parse(String(init?.body)).budget_usd);
+  if (url.endsWith("/optimize")) {
+    const body = JSON.parse(String(init?.body));
+    return portfolio(body.budget_usd, body.scoring_preset);
+  }
   if (url.endsWith("/explanation")) {
     const body = JSON.parse(String(init?.body));
     const index = Math.max(0, candidates.findIndex((candidate) => candidate.id === body.candidate_id));
-    return explanation(index, body.budget_usd);
+    return explanation(index, body.budget_usd, body.scoring_preset);
   }
   if (url.endsWith("/street-view")) {
     const id = decodeURIComponent(url.split("/").at(-2) ?? "site-0");
