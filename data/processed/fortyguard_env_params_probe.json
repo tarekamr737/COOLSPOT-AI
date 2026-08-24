@@ -1,0 +1,115 @@
+{
+  "activity_id": "0bd748b2-88dd-498c-ae5d-7aac35f07f92",
+  "candidate_id": "shade_structure:metro-stop:6788",
+  "endpoint": "env_params",
+  "hard_reserve": 500000,
+  "limitations": [
+    "Point-level environmental context is not a medical-risk score or a guaranteed intervention outcome.",
+    "The request enriches one deterministic finalist and does not characterize every Pacoima site."
+  ],
+  "measured_at": "2026-08-24T19:24:05.260889Z",
+  "observed_credit_delta": 2900,
+  "pilot": "Pacoima, Los Angeles",
+  "portfolio_budget_usd": 1000000,
+  "remaining_after": 1799780,
+  "request": {
+    "date_time": {
+      "end_date": null,
+      "end_time": null,
+      "filter_type": 1,
+      "start_date": "2026-08-20",
+      "start_time": "14:00"
+    },
+    "latitude": 34.271105,
+    "longitude": -118.414991,
+    "temperature": 35.9398
+  },
+  "request_hash": "99bbf0bca690ad39a776b24025870a6650fb245d592e66364c7d202477ca3d2b",
+  "result": {
+    "locations": [
+      {
+        "elevation": 321.0,
+        "lat": 34.271105,
+        "lon": -118.414991,
+        "parameters": {
+          "air_quality:idx": [
+            68.3
+          ],
+          "air_quality_no2:idx": [
+            2.5
+          ],
+          "air_quality_o3:idx": [
+            42.0
+          ],
+          "air_quality_pm10:idx": [
+            23.6
+          ],
+          "air_quality_pm2p5:idx": [
+            68.3
+          ],
+          "air_quality_so2:idx": [
+            2.2
+          ],
+          "apparent_temperature_celsius": [
+            35.3
+          ],
+          "aqi_us_co": [
+            1.6
+          ],
+          "cloud_cover_octas": [
+            91.0
+          ],
+          "co2_ppm": [
+            454.0
+          ],
+          "heat_index_celsius": [
+            34.8
+          ],
+          "methane_ppb": [
+            2086.9
+          ],
+          "precipitation_mm": [
+            0.0
+          ],
+          "relative_humidity_percent": [
+            24.3
+          ],
+          "wet_bulb_temperature_celsius": [
+            20.4
+          ]
+        },
+        "solar_irradiance": {
+          "clear_sky": {
+            "dhi": 135.2,
+            "dni": 792.27,
+            "ghi": 779.49
+          },
+          "description": "The above values provide insights into the solar energy available at the specific location at 2026-08-20 14:00. GHI represents the total solar energy, DNI focuses on direct sunlight, and DHI accounts for scattered and diffuse radiation."
+        },
+        "temperature": 35.9398
+      }
+    ],
+    "metadata": {
+      "time_range": {
+        "count": 1,
+        "end": "2026-08-20T14:00:00-08:00",
+        "interval": "1h",
+        "start": "2026-08-20T14:00:00-08:00"
+      },
+      "timestamps": [
+        "2026-08-20T14:00:00-08:00"
+      ],
+      "timezone": "GMT-8",
+      "timezone_offset_hours": -8.0
+    }
+  },
+  "site_id": "metro-stop:6788",
+  "site_name": "Van Nuys / Herrick",
+  "source_url": "https://api.fortyguard.com/v1/env_params",
+  "status": "Completed",
+  "tile_id": "1355",
+  "total_allocation": 2000000,
+  "usage_after": 200220,
+  "usage_before": 197320,
+  "version": "1.0"
+}

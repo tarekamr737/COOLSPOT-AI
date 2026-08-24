@@ -28,13 +28,13 @@
       "reason": "Not required for core ranking, so no speculative request or access probe was made."
     },
     {
-      "access": "unconfirmed",
-      "cached_artifact": null,
+      "access": "confirmed",
+      "cached_artifact": "data/processed/fortyguard_env_params_probe.json",
       "dependency": "A ranked top-site set and a demonstrated need for point-level enrichment.",
-      "enabled": false,
+      "enabled": true,
       "feature": "environmental_parameters",
-      "probe_attempted": false,
-      "reason": "Deferred until ranked sites exist; the core tile table does not depend on this endpoint."
+      "probe_attempted": true,
+      "reason": "One minimal request for the deterministic top finalist completed successfully and its exact point-level result is cached."
     },
     {
       "access": "unconfirmed",
@@ -64,11 +64,11 @@
       "reason": "The report endpoint is not an MVP dependency and was not probed or assumed available."
     }
   ],
-  "credits_remaining": 1811120,
-  "credits_used": 188880,
-  "evaluated_at": "2026-08-22",
+  "credits_remaining": 1799780,
+  "credits_used": 200220,
+  "evaluated_at": "2026-08-24",
   "hard_reserve": 500000,
-  "optional_live_probes_made": 1,
+  "optional_live_probes_made": 2,
   "total_credits": 2000000,
   "version": "1.0"
 }

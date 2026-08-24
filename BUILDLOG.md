@@ -251,3 +251,11 @@
 - The peak-hour UI reuses the primary evidence list for the concise `HH:00 UTC` value and the
   existing methodology disclosure for identifiers and limitations. This keeps the high-value timing
   visible without introducing a new layer, score, or panel.
+- The environmental probe deterministically selects the highest-impact member of the `$1M`
+  portfolio, then uses that site's representative tile temperature and the exact active TCM
+  date/time. The live response is preserved verbatim: FortyGuard returned `GMT-8` for the timestamp
+  and runtime parameter names that differ from some documentation examples, so later normalization
+  must not silently rename or timezone-correct the vendor evidence.
+- The first local probe command used a script-file invocation and failed at import time before any
+  journal or network request existed. It was rerun with Python's module invocation; exactly one
+  vendor activity was submitted and completed.

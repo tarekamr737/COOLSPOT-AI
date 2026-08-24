@@ -124,7 +124,7 @@ Peak heat observed around: 15:00
 
 ## 5 — Add Environmental Parameters for finalists
 
-- [ ] Probe `/v1/env_params` with one minimal valid request.
+- [x] Probe `/v1/env_params` with one minimal valid request.
 - [ ] Measure observed credit cost.
 - [ ] Continue only if supported and credit-safe.
 - [ ] Prefer no more than three useful parameters:

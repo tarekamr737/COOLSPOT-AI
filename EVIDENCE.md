@@ -654,6 +654,22 @@
   artifact SHA-256, measured cost, source link, and claim limitation. The selected-site drawer shows
   the concise label `Peak heat observed around` with a zero-padded `HH:00 UTC` value and date; its
   expandable provenance repeats that this is not evidence of peak pedestrian volume.
-- Automated proof: full backend Pytest returns `87 passed`; Ruff passes; strict Mypy passes across
-  `65` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
+- Automated proof: full backend Pytest returns `89 passed`; Ruff passes; strict Mypy passes across
+  `67` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
   contract test skipped), and the production Next.js build completes successfully.
+
+## FortyGuard environmental parameters are runtime-confirmed
+
+- Contract proof: FortyGuard's Environmental Parameters documentation was rechecked on 2026-08-24.
+  The probe uses the documented single-hour shape: latitude, longitude, matching heatmap
+  temperature, and `date_time` with filter type 1.
+- Selection proof: the request targets `Van Nuys / Herrick`, the highest modeled-impact member of
+  the deterministic `$1M` portfolio, at its exact site point and representative TCM tile value
+  `35.9398 °C` for `2026-08-20 14:00`.
+- Live proof: canonical request
+  `99bbf0bca690ad39a776b24025870a6650fb245d592e66364c7d202477ca3d2b` completed once as activity
+  `0bd748b2-88dd-498c-ae5d-7aac35f07f92`. Usage moved from `197,320` to `200,220`, leaving
+  `1,799,780` credits above the `500,000` reserve.
+- Cache proof: `data/processed/fortyguard_env_params_probe.json` validates the exact one-location,
+  one-timestamp response, request, result, source, limitations, and balanced credit counters without
+  containing the API key. Re-running the workflow returns this report before initializing a client.
