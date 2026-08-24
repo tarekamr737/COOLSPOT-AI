@@ -47,6 +47,7 @@ describe("Home", () => {
     expect(await screen.findByRole("heading", { name: "Pacoima cooling investment map" })).toBeInTheDocument();
     expect(document.querySelector('img[src*="coolspot-logo.png"]')).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Ranked recommendations" })).toBeInTheDocument();
+    expect(screen.getAllByText("Selected in 4/4 planning scenarios").length).toBeGreaterThan(0);
     expect(screen.getByRole("heading", { level: 2, name: "Van Nuys / Herrick" })).toBeInTheDocument();
     expect(screen.getByLabelText("Map layer hierarchy")).toBeInTheDocument();
     expect(screen.getByLabelText("Data freshness status")).toHaveTextContent("1,991,560 FortyGuard credits remaining");

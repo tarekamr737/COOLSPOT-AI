@@ -853,6 +853,10 @@
   annotates every site in the active portfolio with the exact selected preset IDs, numerator,
   denominator `4`, and `robustness_score = presets_selected / presets_tested`. A regression confirms
   the ratio and includes sites below `1.0`; 14 focused backend and 7 active frontend tests pass.
+- Robustness-label proof: every ranked recommendation with a matching API record now shows concise
+  audit copy in the existing metadata row, for example `Selected in 4/4 planning scenarios`. The
+  label uses the returned numerator/denominator rather than recalculating in the browser. Frontend
+  typecheck, zero-warning ESLint, and all seven active component tests pass.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.

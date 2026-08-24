@@ -163,12 +163,15 @@ function ProductTour({ onClose }: { onClose: () => void }) {
 type RecommendationRailProps = { candidates: Candidate[]; portfolio: Portfolio; activeCandidateId: string; onSelect: (candidate: Candidate) => void };
 
 function RecommendationRail({ candidates, portfolio, activeCandidateId, onSelect }: RecommendationRailProps) {
+  const robustnessBySite = new Map(
+    portfolio.site_robustness.map((item) => [item.site_id, item]),
+  );
   return <aside className={styles.recommendationRail} aria-labelledby="recommendations-title">
     <div className={styles.railHeading}><div><p className={styles.eyebrow}>Optimized portfolio</p><h2 id="recommendations-title">Ranked recommendations</h2></div><span className={styles.countBadge}>{portfolio.selected_count} sites</span></div>
     <div className={styles.portfolioSummary} aria-label="Portfolio summary"><div><span>Budget allocated</span><strong>{compactCurrency(portfolio.total_cost_usd)}</strong></div><div><span>Modeled impact</span><strong>{portfolio.total_modeled_impact_score.toFixed(3)}</strong></div><div><span>Replan credits</span><strong>0</strong></div></div>
     <ol className={styles.recommendationList}>{candidates.map((candidate, index) => <li className={styles.recommendation} key={candidate.id}>
       <button aria-current={candidate.id === activeCandidateId ? "true" : undefined} className={styles.recommendationButton} onClick={() => onSelect(candidate)} type="button">
-        <span className={styles.rank}>{String(index + 1).padStart(2, "0")}</span><span className={styles.recommendationBody}><span className={styles.interventionLabel}>{interventionLabel(candidate.intervention_type)}</span><strong>{candidate.site_name}</strong><span className={styles.recommendationMeta}><span>{compactCurrency(candidate.planning_cost_usd)} LA allowance</span><span>{impact(candidate).toFixed(3)} impact</span></span></span>
+        <span className={styles.rank}>{String(index + 1).padStart(2, "0")}</span><span className={styles.recommendationBody}><span className={styles.interventionLabel}>{interventionLabel(candidate.intervention_type)}</span><strong>{candidate.site_name}</strong><span className={styles.recommendationMeta}><span>{compactCurrency(candidate.planning_cost_usd)} LA allowance</span><span>{impact(candidate).toFixed(3)} impact</span>{robustnessBySite.get(candidate.site_id) ? <span className={styles.robustnessLabel}>Selected in {robustnessBySite.get(candidate.site_id)?.presets_selected}/{robustnessBySite.get(candidate.site_id)?.presets_tested} planning scenarios</span> : null}</span></span>
       </button>
     </li>)}</ol>
   </aside>;

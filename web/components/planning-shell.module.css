@@ -502,6 +502,11 @@
   font-size: 0.6875rem;
 }
 
+.robustnessLabel {
+  flex-basis: 100%;
+  color: var(--secondary);
+}
+
 .mapWorkspace {
   position: relative;
   min-width: 0;

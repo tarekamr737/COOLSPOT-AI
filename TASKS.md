@@ -265,7 +265,7 @@ number_of_presets_selecting_site
 number_of_presets_tested
 ```
 
-- [ ] Surface labels such as:
+- [x] Surface labels such as:
 
 ```text
 Selected in 4/4 planning scenarios
