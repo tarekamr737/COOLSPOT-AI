@@ -16,6 +16,9 @@ from api.app.fortyguard_models import (
 
 ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_HEATMAP_PATH = ROOT / "data" / "processed" / "pacoima_fortyguard_heatmaps.json"
+DEFAULT_EXCEEDANCE_PATH = (
+    ROOT / "data" / "processed" / "pacoima_fortyguard_exceedance.json"
+)
 
 
 class CachedHeatmapLayer(BaseModel):
@@ -23,7 +26,7 @@ class CachedHeatmapLayer(BaseModel):
 
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
 
-    analytic_type: Literal["tcm", "persistence"]
+    analytic_type: Literal["tcm", "persistence", "exceedance"]
     activity_id: str = Field(pattern=ACTIVITY_ID_PATTERN)
     request_hash: str = Field(pattern=SHA256_PATTERN)
     completed_at: datetime
@@ -82,12 +85,49 @@ class PacoimaHeatmapArtifact(BaseModel):
         return self
 
 
+class PacoimaExceedanceArtifact(BaseModel):
+    """One offline-ready real Pacoima exceedance layer with provenance."""
+
+    model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
+
+    version: Literal["1.0"] = "1.0"
+    source: Literal["FortyGuard Heatmap API"] = "FortyGuard Heatmap API"
+    source_url: Literal["https://api.fortyguard.com/v1/heatmap"] = (
+        "https://api.fortyguard.com/v1/heatmap"
+    )
+    license_notes: str
+    pilot: Literal["Pacoima, Los Angeles"] = "Pacoima, Los Angeles"
+    aoi_sha256: str = Field(pattern=r"^[0-9A-F]{64}$")
+    generated_at: datetime
+    layer: CachedHeatmapLayer
+
+    @model_validator(mode="after")
+    def require_exceedance(self) -> Self:
+        if self.layer.analytic_type != "exceedance":
+            raise ValueError("artifact requires an exceedance layer")
+        return self
+
+
 def load_heatmap_artifact(path: Path = DEFAULT_HEATMAP_PATH) -> PacoimaHeatmapArtifact:
     return PacoimaHeatmapArtifact.model_validate_json(path.read_text(encoding="utf-8"))
 
 
+def load_exceedance_artifact(
+    path: Path = DEFAULT_EXCEEDANCE_PATH,
+) -> PacoimaExceedanceArtifact:
+    return PacoimaExceedanceArtifact.model_validate_json(path.read_text(encoding="utf-8"))
+
+
 def canonical_heatmap_bytes(artifact: PacoimaHeatmapArtifact) -> bytes:
     """Serialize refreshed evidence in the repository's deterministic JSON format."""
+
+    return (
+        json.dumps(artifact.model_dump(mode="json"), indent=2, sort_keys=True) + "\n"
+    ).encode()
+
+
+def canonical_exceedance_bytes(artifact: PacoimaExceedanceArtifact) -> bytes:
+    """Serialize the frozen exceedance layer deterministically."""
 
     return (
         json.dumps(artifact.model_dump(mode="json"), indent=2, sort_keys=True) + "\n"

@@ -594,9 +594,11 @@
   the `500,000` hard reserve.
 - Cache proof: the durable terminal adapter record is `3,947,960` bytes, contains 2,001 GeoJSON
   features, omits the API key, and is tied to the same request hash and activity ID. A pre-submission
-  journal prevents an uncertain request from being repeated.
+  journal prevents an uncertain request from being repeated. The validated, deterministic,
+  secret-free dataset is committed as `data/processed/pacoima_fortyguard_exceedance.json`
+  (`1,952,524` bytes), so demo use requires no raw cache or vendor access.
 - Reserve proof: a workflow-level regression uses the observed `4,220`-credit heatmap cost with
   `504,219` credits remaining. The governor projects `499,999`, raises before submission, writes no
   request journal, and leaves the exceedance request absent from the ledger.
-- Automated proof: full backend Pytest returns `79 passed`; Ruff passes; strict Mypy passes across
-  `58` source files.
+- Automated proof: full backend Pytest returns `80 passed`; Ruff passes; strict Mypy passes across
+  `60` source files.
