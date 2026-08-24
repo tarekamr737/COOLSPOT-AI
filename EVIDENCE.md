@@ -654,7 +654,7 @@
   artifact SHA-256, measured cost, source link, and claim limitation. The selected-site drawer shows
   the concise label `Peak heat observed around` with a zero-padded `HH:00 UTC` value and date; its
   expandable provenance repeats that this is not evidence of peak pedestrian volume.
-- Automated proof: full backend Pytest returns `95 passed`; Ruff passes; strict Mypy passes across
+- Automated proof: full backend Pytest returns `98 passed`; Ruff passes; strict Mypy passes across
   `71` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
   contract test skipped), and the production Next.js build completes successfully.
 
@@ -703,6 +703,12 @@
 - Reproducibility proof: rebuilding `data/processed/pacoima_environmental_evidence.json` from the 10
   committed source responses is byte-for-byte stable. Rank 1 preserves the real values `35.3 °C`,
   `24.3%`, and GHI vendor value `779.49`.
+- Candidate/site proof: exactly 10 candidate records receive a typed `thermal_stress_context` by
+  exact `site_id`; all other candidates expose `null`. The candidate artifact hashes the normalized
+  environmental input, and the same field flows through candidate-list and selected-site API
+  schemas without a separate runtime lookup.
+- Scoring isolation proof: the context is a nullable evidence field only. Candidate benefit,
+  feasibility, confidence, objective coefficients, and deterministic portfolio code are unchanged.
 - Cache proof: `data/processed/fortyguard_env_params_probe.json` validates the exact one-location,
   one-timestamp response, request, result, source, limitations, and balanced credit counters without
   containing the API key. Re-running the workflow returns this report before initializing a client.

@@ -62,6 +62,29 @@ const evidenceSchema = z.object({
   source_artifact_ids: z.array(z.string()).min(1),
 });
 
+const thermalStressContextSchema = z.object({
+  finalist_rank: z.number().int().min(1).max(10),
+  candidate_id: z.string().min(1),
+  site_id: z.string().min(1),
+  site_name: z.string().min(1),
+  tile_id: z.string().min(1),
+  latitude: z.number().min(-90).max(90),
+  longitude: z.number().min(-180).max(180),
+  observed_temperature_c: z.number(),
+  apparent_temperature_c: z.number(),
+  relative_humidity_percent: z.number().min(0).max(100),
+  clear_sky_ghi_vendor_value: z.number().nonnegative(),
+  observed_at: z.string(),
+  vendor_timezone: z.string().min(1),
+  vendor_timezone_offset_hours: z.number().min(-14).max(14),
+  request_hash: z.string().regex(/^[0-9a-f]{64}$/),
+  activity_id: z.string().min(1),
+  source_artifact: z.object({
+    path: z.string().min(1),
+    sha256: z.string().regex(/^[0-9a-f]{64}$/),
+  }),
+});
+
 export const candidateSchema = z.object({
   id: z.string().min(1),
   site_id: z.string().min(1),
@@ -77,6 +100,7 @@ export const candidateSchema = z.object({
   equity_score: z.number().min(0).max(1),
   feasibility_score: z.number().min(0).max(1),
   confidence: z.number().min(0).max(1),
+  thermal_stress_context: thermalStressContextSchema.nullable(),
   evidence: z.array(evidenceSchema).min(5),
   geometry: geometrySchema,
 });

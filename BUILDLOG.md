@@ -276,3 +276,6 @@
 - “Normalized environmental evidence” means stable typed field names and provenance, not converting
   values to `[0,1]`. The builder retains the three raw vendor outputs, exact timestamp/timezone,
   request/activity IDs, and source hashes; it performs no imputation, scoring, or timezone repair.
+- Thermal context is joined into candidates by exact `site_id` and stored as a separate nullable
+  object. It is deliberately not appended to benefit, confidence, or feasibility inputs, preserving
+  existing deterministic rankings while making the same evidence available in candidate/site APIs.

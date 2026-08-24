@@ -134,7 +134,7 @@ Peak heat observed around: 15:00
 - [x] Run only for a small deterministic top-N finalist set, initially `N <= 10`.
 - [x] Cache every completed response.
 - [x] Persist normalized environmental evidence.
-- [ ] Add `thermal_stress_context` to candidate/site evidence.
+- [x] Add `thermal_stress_context` to candidate/site evidence.
 - [ ] Do not fabricate a medical-risk score.
 - [ ] Recompute evidence confidence where appropriate.
 

@@ -12,6 +12,7 @@ from api.app.services.candidates import (
     load_candidate_config,
     load_candidates,
 )
+from api.app.services.environmental_evidence import DEFAULT_ENVIRONMENTAL_EVIDENCE_PATH
 from api.app.services.feature_table import DEFAULT_FEATURE_TABLE_PATH, load_feature_table
 from api.app.services.interventions import (
     DEFAULT_INTERVENTION_CATALOG_PATH,
@@ -71,6 +72,16 @@ def test_real_candidates_are_complete_compatible_and_traceable() -> None:
 
     assert len({candidate.confidence for candidate in artifact.candidates}) > 2
     assert all(candidate.feasibility_score == 0.5 for candidate in artifact.candidates)
+    thermal_candidates = tuple(
+        candidate for candidate in artifact.candidates if candidate.thermal_stress_context
+    )
+    assert len(thermal_candidates) == 10
+    assert len({candidate.site_id for candidate in thermal_candidates}) == 10
+    assert all(
+        candidate.thermal_stress_context is None
+        or candidate.thermal_stress_context.site_id == candidate.site_id
+        for candidate in artifact.candidates
+    )
 
 
 def test_candidate_confidence_rules_are_versioned_and_exact_site_only() -> None:
@@ -133,6 +144,7 @@ def test_candidate_artifact_is_canonical_and_hashes_all_inputs() -> None:
         CandidateSourceArtifact.INTERVENTION_CATALOG: DEFAULT_INTERVENTION_CATALOG_PATH,
         CandidateSourceArtifact.CANDIDATE_CONFIG: DEFAULT_CANDIDATE_CONFIG_PATH,
         CandidateSourceArtifact.STREET_VIEW_EVIDENCE: DEFAULT_STREETVIEW_EVIDENCE_PATH,
+        CandidateSourceArtifact.ENVIRONMENTAL_EVIDENCE: DEFAULT_ENVIRONMENTAL_EVIDENCE_PATH,
     }
 
     assert DEFAULT_CANDIDATES_PATH.read_bytes() == canonical_candidate_bytes(artifact)

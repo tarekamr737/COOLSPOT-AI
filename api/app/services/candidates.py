@@ -11,6 +11,11 @@ from typing import Literal, Self
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
+from api.app.services.environmental_evidence import (
+    DEFAULT_ENVIRONMENTAL_EVIDENCE_PATH,
+    FinalistEnvironmentalEvidence,
+    load_environmental_evidence,
+)
 from api.app.services.feature_table import (
     DEFAULT_FEATURE_TABLE_PATH,
     TileFeature,
@@ -49,6 +54,7 @@ class CandidateSourceArtifact(StrEnum):
     INTERVENTION_CATALOG = "intervention_catalog"
     CANDIDATE_CONFIG = "candidate_config"
     STREET_VIEW_EVIDENCE = "pacoima_streetview_evidence"
+    ENVIRONMENTAL_EVIDENCE = "pacoima_environmental_evidence"
 
 
 class EvidenceKind(StrEnum):
@@ -121,6 +127,7 @@ class Candidate(BaseModel):
     equity_score: float = Field(ge=0, le=1)
     feasibility_score: float = Field(ge=0, le=1)
     confidence: float = Field(ge=0, le=1)
+    thermal_stress_context: FinalistEnvironmentalEvidence | None = None
     evidence: tuple[CandidateEvidence, ...] = Field(min_length=5)
     geometry: FixtureGeometry
 
@@ -336,6 +343,7 @@ def _candidate(
     site_statement: str,
     config: CandidateConfig,
     street_context: ExtractedStreetViewFeatures | None,
+    thermal_stress_context: FinalistEnvironmentalEvidence | None,
 ) -> Candidate:
     if site_type not in intervention.applicability.eligible_site_types:
         raise ValueError(
@@ -362,6 +370,7 @@ def _candidate(
         equity_score=selected_tile.scores.vulnerability,
         feasibility_score=config.unverified_feasibility_score,
         confidence=_candidate_confidence(config, street_context),
+        thermal_stress_context=thermal_stress_context,
         evidence=_common_evidence(
             tile=selected_tile,
             intervention=intervention,
@@ -421,6 +430,7 @@ def build_candidates(
     catalog_path: Path = DEFAULT_INTERVENTION_CATALOG_PATH,
     config_path: Path = DEFAULT_CANDIDATE_CONFIG_PATH,
     streetview_evidence_path: Path = DEFAULT_STREETVIEW_EVIDENCE_PATH,
+    environmental_evidence_path: Path = DEFAULT_ENVIRONMENTAL_EVIDENCE_PATH,
 ) -> CandidateArtifact:
     table = load_feature_table(feature_table_path)
     public = load_processed_fixture(public_data_path)
@@ -428,6 +438,8 @@ def build_candidates(
     config = load_candidate_config(config_path)
     street_artifact = load_street_view_evidence_artifact(streetview_evidence_path)
     street_by_site = {site.site_id: site for site in street_artifact.sites}
+    environmental_artifact = load_environmental_evidence(environmental_evidence_path)
+    environment_by_site = {site.site_id: site for site in environmental_artifact.sites}
 
     tiles_by_stop: dict[str, list[TileFeature]] = {}
     tiles_by_poi: dict[str, list[TileFeature]] = {}
@@ -451,6 +463,7 @@ def build_candidates(
             site_statement=_stop_statement(stop),
             config=config,
             street_context=street_by_site.get(stop.id),
+            thermal_stress_context=environment_by_site.get(stop.id),
         )
         for stop in public.transit_stops
     ]
@@ -466,6 +479,7 @@ def build_candidates(
             site_statement=_poi_statement(poi),
             config=config,
             street_context=street_by_site.get(poi.id),
+            thermal_stress_context=environment_by_site.get(poi.id),
         )
         for poi in public.pois
         if poi.kind in {SiteType.SCHOOL.value, SiteType.PARK.value}
@@ -502,6 +516,11 @@ def build_candidates(
                 path="data/processed/pacoima_streetview_evidence.json",
                 sha256=_sha256(streetview_evidence_path),
             ),
+            SourceArtifact(
+                id=CandidateSourceArtifact.ENVIRONMENTAL_EVIDENCE,
+                path="data/processed/pacoima_environmental_evidence.json",
+                sha256=_sha256(environmental_evidence_path),
+            ),
         ),
         counts=CandidateCounts(
             total=len(ordered),
@@ -534,6 +553,8 @@ def build_candidates(
             "ownership approval, constructability, or a guaranteed cooling effect.",
             "Modeled benefit and equity scores are relative Pacoima tile scores, not counts of "
             "people served or predicted temperature reductions.",
+            "Thermal stress context is available only for the deterministic top 10 finalists and "
+            "is not used in candidate scores or optimization.",
         ),
         candidates=ordered,
     )

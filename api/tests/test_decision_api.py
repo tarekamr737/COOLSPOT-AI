@@ -42,6 +42,10 @@ def test_pilot_layers_candidates_site_and_methodology_routes() -> None:
     assert candidates_response.status_code == 200
     candidates = CandidateListResponse.model_validate(candidates_response.json())
     assert candidates.counts.total == 152
+    assert sum(
+        candidate.thermal_stress_context is not None
+        for candidate in candidates.candidates
+    ) == 10
     first = candidates.candidates[0]
 
     site_response = client.get(f"/v1/sites/{first.site_id}")
@@ -55,6 +59,17 @@ def test_pilot_layers_candidates_site_and_methodology_routes() -> None:
     assert site.options[0].tile.heat.peak_heat_hour_utc in {3, 17}
     assert site.options[0].intervention.id == first.intervention_type
     assert site.street_view_evidence is None
+
+    finalist_response = client.get("/v1/sites/metro-stop%3A6788")
+    assert finalist_response.status_code == 200
+    finalist = SiteResponse.model_validate(finalist_response.json())
+    thermal = finalist.options[0].candidate.thermal_stress_context
+    assert thermal is not None
+    assert thermal.site_id == finalist.site_id
+    assert thermal.apparent_temperature_c == 35.3
+    assert thermal.relative_humidity_percent == 24.3
+    assert thermal.clear_sky_ghi_vendor_value == 779.49
+    assert first.thermal_stress_context is None
 
     evidenced_site_response = client.get("/v1/sites/metro-stop%3A10794")
     assert evidenced_site_response.status_code == 200

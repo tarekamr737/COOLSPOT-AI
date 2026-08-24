@@ -19,6 +19,7 @@ export const candidates = Array.from({ length: 20 }, (_, index) => ({
   equity_score: 0.62,
   feasibility_score: 0.5,
   confidence: index === 0 ? 0.791667 : 0.5,
+  thermal_stress_context: null,
   evidence: ["observed_heat", "exposure", "vulnerability", "applicability", "planning_assumption"].map((kind) => ({
     kind,
     statement: `${kind.replaceAll("_", " ")} evidence for this screened Pacoima candidate.`,
