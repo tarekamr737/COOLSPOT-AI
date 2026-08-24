@@ -17,6 +17,7 @@ state at that task's completion and may be superseded by this snapshot or a late
 | Explanation boundary | Deterministic templates are the default; optional `stealth/ox-alpha` wording is source-constrained, cached, and cannot rank or add evidence. |
 | Credit boundary | The capability snapshot records `1,759,280` credits remaining and the server enforces the `500,000` reserve. Budget/scenario replanning visibly consumes `0 FortyGuard credits`. |
 | UI regression | Strict TypeScript and zero-warning lint pass; 11 active component tests cover the golden workspace, keyboard tour, empty state, recovery, refresh, and zero-vendor replanning. |
+| Decision log | `BUILDLOG.md` records only material runtime discoveries and architecture/product decisions; its current audit entry points readers to validated configs/artifacts rather than copying historical state forward. |
 
 Machine-readable provenance remains in `data/sources.json`, the capability snapshot in
 `data/processed/fortyguard_capabilities.json`, and versioned decision assumptions in `config/`.

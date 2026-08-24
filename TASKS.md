@@ -322,7 +322,7 @@ Selected in 4/4 planning scenarios
 - [x] Update `ARCHITECTURE.md`.
 - [x] Update `README.md`.
 - [x] Update `EVIDENCE.md`.
-- [ ] Update `BUILDLOG.md`.
+- [x] Update `BUILDLOG.md`.
 - [ ] Update `data/sources.json`.
 - [ ] Update capability snapshot.
 - [ ] Update all scoring/config documentation.

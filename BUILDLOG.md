@@ -341,3 +341,11 @@
 - Reordered workspace source to put the map first, then restored the desktop visual order with named
   CSS grid areas. This aligns narrow-screen visual and keyboard reading order without changing the
   established three-column desktop hierarchy; the tour now owns a complete modal focus lifecycle.
+
+## 2026-08-25
+
+- Treated validated configs and processed artifacts—not earlier narrative counts—as the source of
+  truth for the methodology audit. `PRODUCT.md`, `ARCHITECTURE.md`, and `README.md` now reflect the
+  current 172-candidate catalog, four scenario presets, bounded optional evidence, and protected
+  refresh flow. Chronological task-time proof remains in `EVIDENCE.md`, with a current snapshot at
+  the top so superseded intermediate states are not mistaken for the judge build.
