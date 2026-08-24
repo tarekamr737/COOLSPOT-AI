@@ -72,7 +72,7 @@ Use:
 
 Use only after verified paved/public surface geometry exists.
 
-- [ ] Add evidence records explaining every non-neutral feasibility/confidence adjustment.
+- [x] Add evidence records explaining every non-neutral feasibility/confidence adjustment.
 - [ ] Surface raw inputs and derived values through the API/site drawer.
 
 **Acceptance:** two sites with different verified evidence can receive different feasibility/confidence scores for explainable reasons.

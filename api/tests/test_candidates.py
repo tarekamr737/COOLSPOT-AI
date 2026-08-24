@@ -84,6 +84,29 @@ def test_candidate_confidence_rules_are_versioned_and_exact_site_only() -> None:
     assert "outcome probability" in config.confidence_rules.note
 
 
+def test_every_non_neutral_adjustment_has_traceable_evidence() -> None:
+    artifact = load_candidates()
+
+    for candidate in artifact.candidates:
+        if candidate.confidence != 0.5:
+            records = [
+                item for item in candidate.evidence if item.kind.value == "street_context"
+            ]
+            assert len(records) == 1
+            record = records[0]
+            assert f"confidence {candidate.confidence:.3f}" in record.statement
+            assert "component scores" in record.statement
+            assert "imagery availability" in record.statement
+            assert "segmentation completeness" in record.statement
+            assert record.source_artifact_ids == (
+                CandidateSourceArtifact.STREET_VIEW_EVIDENCE,
+            )
+        if candidate.feasibility_score != 0.5:
+            assert any(
+                "feasibility" in item.statement.lower() for item in candidate.evidence
+            )
+
+
 def test_candidate_scores_and_representative_tiles_come_from_feature_table() -> None:
     artifact = load_candidates()
     table = load_feature_table()

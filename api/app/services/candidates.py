@@ -284,13 +284,22 @@ def _common_evidence(
         ),
     ]
     if street_context is not None:
+        confidence = street_context.street_context_confidence
+        components = confidence.components
+        image_dates = ", ".join(
+            sorted({frame.image_date.isoformat() for frame in street_context.frames})
+        )
         evidence.append(
             CandidateEvidence(
                 kind=EvidenceKind.STREET_CONTEXT,
                 statement=(
                     f"Cached dated Street View segmentation provides context confidence "
-                    f"{street_context.street_context_confidence.score:.3f} from "
-                    f"{street_context.street_context_confidence.usable_view_count} usable view; "
+                    f"{confidence.score:.3f} from {confidence.usable_view_count} usable view "
+                    f"dated {image_dates}; component scores are usable views "
+                    f"{components.usable_views:.3f}, imagery availability "
+                    f"{components.imagery_availability:.3f}, imagery age "
+                    f"{components.imagery_age:.3f}, and segmentation completeness "
+                    f"{components.segmentation_completeness:.3f}. "
                     f"{street_context.shade_intervention_evidence.limitation}"
                 ),
                 source_artifact_ids=(CandidateSourceArtifact.STREET_VIEW_EVIDENCE,),

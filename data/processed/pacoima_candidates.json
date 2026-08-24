@@ -839,7 +839,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.875 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.875 from 1 usable view dated 2025-09-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 1.000. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -911,7 +911,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.792 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.792 from 1 usable view dated 2024-10-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.667. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -983,7 +983,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view dated 2024-10-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.833. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -2351,7 +2351,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view dated 2024-10-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.833. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -2567,7 +2567,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view dated 2024-10-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.833. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -3359,7 +3359,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.792 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.792 from 1 usable view dated 2024-10-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.667. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -3431,7 +3431,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view dated 2025-11-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.833. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -3503,7 +3503,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view dated 2024-10-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.833. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -4079,7 +4079,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view dated 2025-11-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.833. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -4727,7 +4727,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.875 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.875 from 1 usable view dated 2025-09-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 1.000. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -4871,7 +4871,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.750 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.750 from 1 usable view dated 2024-10-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.500. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -5375,7 +5375,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.688 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.688 from 1 usable view dated 2017-05-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 0.250, and segmentation completeness 1.000. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -5807,7 +5807,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view dated 2025-12-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.833. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -6599,7 +6599,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view dated 2025-10-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.833. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -7391,7 +7391,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.792 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.792 from 1 usable view dated 2024-10-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.667. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -7463,7 +7463,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.875 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.875 from 1 usable view dated 2025-09-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 1.000. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -7679,7 +7679,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view dated 2025-09-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.833. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -8611,7 +8611,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.875 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.875 from 1 usable view dated 2025-10-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 1.000. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -8750,7 +8750,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view dated 2024-10-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.833. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
@@ -11484,7 +11484,7 @@
           "source_artifact_ids": [
             "pacoima_streetview_evidence"
           ],
-          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view; Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
+          "statement": "Cached dated Street View segmentation provides context confidence 0.833 from 1 usable view dated 2025-09-01; component scores are usable views 0.500, imagery availability 1.000, imagery age 1.000, and segmentation completeness 0.833. Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility."
         }
       ],
       "feasibility_score": 0.5,
