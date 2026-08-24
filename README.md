@@ -43,9 +43,12 @@ result from structured evidence.
 - Generates evidence-backed candidates for shade structures, tree canopy, and cool pavement.
 - Ranks candidates with a published, deterministic scoring model.
 - Optimizes a portfolio for `$250k`, `$500k`, `$1M`, or a custom budget using OR-Tools CP-SAT.
-- Re-optimizes instantly from cached features, with **zero FortyGuard calls on budget changes**.
+- Re-optimizes instantly from cached features, with **zero FortyGuard calls on budget or planning-priority changes**.
+- Compares Balanced, Heat-first, Equity-first, and Exposure-first priorities and reports how often a
+  site remains selected across those four scenarios.
 - Shows local planning allowances, price anchors, evidence confidence, sources, and field-check limitations.
-- Provides cached FortyGuard street-view segmentation for the 20 sites in the `$1M` portfolio.
+- Provides cached FortyGuard street-view segmentation for a deterministic 20-site sample,
+  environmental context for 10 finalists, and satellite surface context for one pavement finalist.
 - Offers an optional, grounded AI explanation that cannot add evidence or change the ranking.
 
 ## Decision workflow
@@ -55,6 +58,7 @@ flowchart LR
     A[FortyGuard heat evidence] --> D[Normalized tile features]
     B[LA Metro and public places] --> D
     C[Census ACS context] --> D
+    P[StreetsLA pavement geometry] --> F
     D --> E[Deterministic priority score]
     E --> F[Compatible interventions]
     F --> G[CP-SAT budget optimizer]
@@ -72,6 +76,10 @@ All component scores are normalized to `[0, 1]`. Intervention feasibility and ev
 are applied when estimating candidate impact. At most one intervention may be selected per site,
 and total planning cost may not exceed the chosen budget.
 
+The four weight presets are versioned in [`config/scenarios.json`](config/scenarios.json). The
+displayed robustness value is selection frequency across those four planning assumptions; it is
+not a probability, statistical confidence interval, or guarantee.
+
 ## Evidence and data provenance
 
 The committed demo data is real, cached, and source-attributed. Normal application reads do not
@@ -84,6 +92,9 @@ contact FortyGuard.
 | Schools, parks, and libraries | LAUSD and City of Los Angeles open data | Public-destination context and intervention compatibility |
 | Demographic and socioeconomic context | U.S. Census 2020–2024 ACS 5-year estimates | Area-level vulnerability context |
 | Street segmentation | FortyGuard street-view API | Cached visual context for selected top-portfolio sites |
+| Pavement geometry and condition | StreetsLA Bureau of Street Services | Exact-segment cool-pavement eligibility screen |
+| Point weather context | FortyGuard environmental parameters | Cached explanation context for 10 finalists; not a health forecast |
+| Overhead segmentation | FortyGuard satellite API | Cached surface context for one pavement finalist |
 
 Retrieval dates, source URLs, publishers, and usage notes are recorded in
 [`data/sources.json`](data/sources.json). The current capability snapshot is recorded in
@@ -99,6 +110,9 @@ COOLSPOT AI is a **planning-screening tool**. Its outputs are designed to suppor
 - Proximity to transit or a public destination is not treated as invented foot traffic.
 - A mapped site does not establish ownership, available right-of-way, utilities, engineering feasibility,
   shade conditions, or procurement readiness.
+- Street or satellite segmentation is a dated screening observation, not proof of current or all-day
+  conditions.
+- Scenario robustness is not statistical confidence or outcome certainty.
 - Recommended sites require field validation and agency review before implementation.
 
 Claims such as “people saved,” “deaths prevented,” and unsupported exact cooling effects are
@@ -185,7 +199,7 @@ Open <http://127.0.0.1:7860>.
 | `FORTYGUARD_CREDIT_RESERVE` | `500000` | Hard reserve that live work may not cross |
 | `COOLSPOT_REFRESH_TOKEN` | empty | Administrator token required by the live-refresh endpoint |
 | `API_BASE_URL` | `http://127.0.0.1:8000` | Server-side API origin used by Next.js |
-| `EXPLANATION_MODE` | `template` | `template` or optional `llm` explanation mode |
+| `EXPLANATION_MODE` | `template` | `template` or optional `openrouter` explanation mode |
 | `OPENROUTER_API_KEY` | empty | Server-only OpenRouter credential |
 | `OPENROUTER_MODEL` | `stealth/ox-alpha` | OpenRouter model used only for grounded explanations |
 
@@ -225,9 +239,11 @@ Live mode is not required to use the core application.
 | `POST` | `/v1/sites/{site_id}/explanation` | Grounded explanation of a selected result |
 | `GET` | `/v1/methodology` | Weights, assumptions, sources, and limitations |
 | `GET` | `/v1/data-status` | Freshness, mode, and credit status |
+| `GET` | `/v1/refresh/status` | Current governed-refresh state |
 | `POST` | `/v1/refresh` | Authenticated, credit-governed live refresh |
 
-`POST /v1/optimize` accepts scenario inputs only and never calls FortyGuard.
+`POST /v1/optimize` accepts a validated budget and scoring preset, returns active weights plus
+four-scenario selection frequency, and never calls FortyGuard.
 
 ## Testing and validation
 
@@ -277,9 +293,10 @@ CI and automated tests must not make live FortyGuard calls.
 ## Project status
 
 The hackathon MVP is implemented and validated locally. Deployment and final demo freeze remain
-tracked in [`TASKS.md`](TASKS.md). The cached dataset currently includes 152 compatible candidates,
-real FortyGuard TCM and persistence layers, and street segmentation for the deterministic `$1M`
-portfolio.
+tracked in [`TASKS.md`](TASKS.md). The cached dataset currently includes 172 compatible candidates
+(111 shade structures, 41 tree-canopy options, and 20 cool-pavement options), real FortyGuard TCM,
+persistence, and exceedance evidence, 20 cached Street View records, 10 environmental finalist
+records, and one satellite pavement record.
 
 ## Documentation
 

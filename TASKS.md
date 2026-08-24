@@ -320,7 +320,7 @@ Selected in 4/4 planning scenarios
 
 - [x] Update `PRODUCT.md`.
 - [x] Update `ARCHITECTURE.md`.
-- [ ] Update `README.md`.
+- [x] Update `README.md`.
 - [ ] Update `EVIDENCE.md`.
 - [ ] Update `BUILDLOG.md`.
 - [ ] Update `data/sources.json`.

@@ -926,6 +926,11 @@
   workspace reload, exact StreetsLA pavement dependency, bounded `20/10/1` street/environmental/
   satellite enrichments, cached image serving, and OpenRouter explanation fallback using the
   configured `stealth/ox-alpha` model. All 21 decision API, optimizer, and explanation tests pass.
+- README audit proof: the professional project entry point now documents four planning scenarios,
+  bounded optional evidence, StreetsLA pavement screening, `openrouter` mode, refresh status,
+  robustness limitations, and the current artifact inventory. Every referenced local file exists;
+  direct artifact parsing confirms 172 candidates (`111` shade, `41` tree, `20` pavement) and
+  `20/10/1` street/environmental/satellite evidence records.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.
