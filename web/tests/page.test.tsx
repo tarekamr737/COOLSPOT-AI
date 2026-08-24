@@ -57,7 +57,10 @@ describe("Home", () => {
     expect(screen.getByText(/Fetch recent FortyGuard evidence/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Confirm live refresh" })).toBeDisabled();
     expect(screen.getByText(/not a temperature forecast or guaranteed outcome/i)).toBeInTheDocument();
-    expect(screen.getByText(/Planning assumption · Pacoima \/ Los Angeles price reference/i)).toBeInTheDocument();
+    expect(screen.getByText("Planning assumption")).toBeInTheDocument();
+    expect(screen.getByText("Modeled")).toBeInTheDocument();
+    expect(screen.getByText("Verified evidence")).toBeInTheDocument();
+    expect(screen.getByText("Field verification required")).toBeInTheDocument();
     expect(screen.getByText("Derived screening scores")).toBeInTheDocument();
     expect(screen.getByText("Observed and published evidence")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Observed inputs and derivation" })).toBeInTheDocument();

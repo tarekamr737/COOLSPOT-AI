@@ -302,7 +302,7 @@ Selected in 4/4 planning scenarios
   - observed evidence,
   - derived screening scores,
   - planning assumptions.
-- [ ] Add concise visual indicators for:
+- [x] Add concise visual indicators for:
   - `Verified evidence`
   - `Modeled`
   - `Planning assumption`

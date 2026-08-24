@@ -892,6 +892,10 @@
   and public inputs as `Observed and published evidence`. Existing Street View subsections retain
   separate observed segmentation and derived-screening headings. Frontend typecheck, lint, and all
   eight active component tests pass.
+- Semantic-indicator proof: restrained, text-complete indicators now label `Verified evidence`,
+  `Modeled`, `Planning assumption`, and `Field verification required`. Teal, neutral, and amber
+  styling reinforce meaning but the literal text carries it for color-independent comprehension.
+  Frontend typecheck, zero-warning lint, and all eight active component tests pass.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.
