@@ -59,6 +59,23 @@ def test_applicability_does_not_infer_unobserved_site_conditions() -> None:
         assert prohibited_claim not in claims
 
 
+def test_cool_pavement_preserves_every_required_safety_gate() -> None:
+    pavement = load_intervention_catalog().get(InterventionType.COOL_PAVEMENT)
+    safety_text = " ".join(
+        (*pavement.applicability.preconstruction_checks, pavement.applicability.exclusion_rule)
+    ).lower()
+
+    for required_gate in (
+        "surface",
+        "traction",
+        "glare",
+        "drainage",
+        "radiant exposure",
+        "product compatibility",
+    ):
+        assert required_gate in safety_text
+
+
 def test_catalog_rejects_invalid_cost_range_and_unknown_source() -> None:
     payload = load_intervention_catalog().model_dump(mode="json")
 

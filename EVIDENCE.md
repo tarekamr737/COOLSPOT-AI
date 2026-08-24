@@ -801,3 +801,8 @@
 - Automated proof: 24 focused acquisition/source/candidate/optimizer/API tests pass; the artifact
   rebuild is byte-for-byte stable; Ruff and Mypy pass across 79 source files; frontend strict types,
   ESLint, and all 7 active Vitest tests pass.
+- Safety-gate proof: every cool-pavement candidate now carries the unresolved requirements for
+  surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product
+  compatibility. A catalog regression requires all six gates, while candidate tests require the
+  same wording on each of the 20 serialized options; 13 focused tests pass and the rebuilt
+  candidate artifact remains byte-for-byte reproducible.

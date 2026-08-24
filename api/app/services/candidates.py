@@ -603,7 +603,9 @@ def _pavement_statement(feature: PavementConditionFeature) -> str:
         f"{properties.To_Street}, with published surface code {properties.Surface}, "
         f"width {properties.Width}, PCI {properties.PCI} ({properties.PCI_Category}), and "
         "direct line geometry. Codes and dimensions are retained as published; they do not "
-        "establish treatment compatibility or engineering clearance."
+        "establish engineering clearance. Surface condition, wet traction, glare, drainage, "
+        "pedestrian radiant exposure, and product compatibility all require field and "
+        "engineering review before this screening option can advance."
     )
 
 

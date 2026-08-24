@@ -224,6 +224,18 @@ def test_cool_pavement_candidates_require_exact_official_pavement_geometry() -> 
         assert aoi.covers(geometry)
         assert shape(source.geometry.model_dump()).covers(geometry)
         assert candidate.site_source_ids == ("la_city_pavement_condition",)
+        pavement_text = " ".join(
+            evidence.statement.lower() for evidence in candidate.evidence
+        )
+        for required_gate in (
+            "surface condition",
+            "traction",
+            "glare",
+            "drainage",
+            "radiant exposure",
+            "product compatibility",
+        ):
+            assert required_gate in pavement_text
         assert any(
             evidence.kind.value == "pavement"
             and evidence.source_artifact_ids

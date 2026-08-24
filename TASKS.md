@@ -196,7 +196,7 @@ priority_score
 - [x] Acquire authoritative public roadway/corridor/paved-surface geometry for Pacoima.
 - [x] Record source, retrieval date, license notes, and geometry provenance.
 - [x] Generate only candidates on verified public paved geometry.
-- [ ] Keep existing safety requirements for:
+- [x] Keep existing safety requirements for:
   - surface condition,
   - traction,
   - glare,

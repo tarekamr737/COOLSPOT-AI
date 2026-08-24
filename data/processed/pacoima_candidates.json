@@ -17,7 +17,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 14056 maps VAUGHN ST from GLENOAKS BL to DE GARMO AV, with published surface code AS, width 36, PCI 69 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 14056 maps VAUGHN ST from GLENOAKS BL to DE GARMO AV, with published surface code AS, width 36, PCI 69 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -109,7 +109,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 14976 maps MONTAGUE ST from LAUREL CANYON BL to REMICK AV, with published surface code AS, width 28, PCI 86 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 14976 maps MONTAGUE ST from LAUREL CANYON BL to REMICK AV, with published surface code AS, width 28, PCI 86 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -205,7 +205,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 177076 maps LAUREL CANYON BL from TERRA BELLA ST to GLAMIS ST, with published surface code OV, width 74, PCI 46 (Poor), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 177076 maps LAUREL CANYON BL from TERRA BELLA ST to GLAMIS ST, with published surface code OV, width 74, PCI 46 (Poor), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -301,7 +301,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 1815 maps O'MELVENY AV from VAN NUYS BL to CARL ST, with published surface code AS, width 36, PCI 72 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 1815 maps O'MELVENY AV from VAN NUYS BL to CARL ST, with published surface code AS, width 36, PCI 72 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -393,7 +393,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 21486 maps HERRICK AV from VAN NUYS BL to PIERCE ST, with published surface code AS, width 36, PCI 74 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 21486 maps HERRICK AV from VAN NUYS BL to PIERCE ST, with published surface code AS, width 36, PCI 74 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -485,7 +485,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 26259 maps LAUREL CANYON BL from GOLETA ST to KAGEL CANYON ST, with published surface code OV, width 61, PCI 84 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 26259 maps LAUREL CANYON BL from GOLETA ST to KAGEL CANYON ST, with published surface code OV, width 61, PCI 84 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -577,7 +577,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 28792 maps OSBORNE ST from LAUREL CANYON BL to REMICK AV, with published surface code OV, width 78, PCI 84 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 28792 maps OSBORNE ST from LAUREL CANYON BL to REMICK AV, with published surface code OV, width 78, PCI 84 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -669,7 +669,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 28951 maps PAXTON ST from FELLOWS AV to GLENOAKS BL, with published surface code AS, width 62, PCI 55 (Poor), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 28951 maps PAXTON ST from FELLOWS AV to GLENOAKS BL, with published surface code AS, width 62, PCI 55 (Poor), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -761,7 +761,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 33888 maps GLENOAKS BL from VAN NUYS BL to PIERCE ST, with published surface code AS, width 78, PCI 67 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 33888 maps GLENOAKS BL from VAN NUYS BL to PIERCE ST, with published surface code AS, width 78, PCI 67 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -853,7 +853,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 33889 maps VAN NUYS BL from DE FOE AV to HERRICK AV, with published surface code AS, width 80, PCI 73 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 33889 maps VAN NUYS BL from DE FOE AV to HERRICK AV, with published surface code AS, width 80, PCI 73 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -945,7 +945,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 38761 maps GLENOAKS BL from CORCORAN ST to DEL SUR ST, with published surface code AS, width 67, PCI 53 (Poor), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 38761 maps GLENOAKS BL from CORCORAN ST to DEL SUR ST, with published surface code AS, width 67, PCI 53 (Poor), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -1037,7 +1037,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 51034 maps PIERCE ST from BORDEN AV to GLENOAKS BL, with published surface code AS, width 28, PCI 56 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 51034 maps PIERCE ST from BORDEN AV to GLENOAKS BL, with published surface code AS, width 28, PCI 56 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -1133,7 +1133,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 58374 maps DESMOND ST from SAN FERNANDO RD to ILEX AV, with published surface code AS, width 36, PCI 75 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 58374 maps DESMOND ST from SAN FERNANDO RD to ILEX AV, with published surface code AS, width 36, PCI 75 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -1225,7 +1225,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 58378 maps NORRIS AV from VAN NUYS BL to PIERCE ST, with published surface code AS, width 36, PCI 80 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 58378 maps NORRIS AV from VAN NUYS BL to PIERCE ST, with published surface code AS, width 36, PCI 80 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -1321,7 +1321,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 60837 maps RINCON AV from VAN NUYS BL to CARL ST, with published surface code AS, width 36, PCI 95 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 60837 maps RINCON AV from VAN NUYS BL to CARL ST, with published surface code AS, width 36, PCI 95 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -1413,7 +1413,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 60882 maps VAN NUYS BL from LEHIGH AV to BRADLEY AV, with published surface code AS, width 74, PCI 73 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 60882 maps VAN NUYS BL from LEHIGH AV to BRADLEY AV, with published surface code AS, width 74, PCI 73 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -1505,7 +1505,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 6669 maps LAUREL CANYON BL from CHAMBERLAIN ST to PAXTON ST, with published surface code OV, width 80, PCI 49 (Poor), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 6669 maps LAUREL CANYON BL from CHAMBERLAIN ST to PAXTON ST, with published surface code OV, width 80, PCI 49 (Poor), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -1605,7 +1605,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 68158 maps DAVENTRY ST from LAUREL CANYON BL to REMICK AV, with published surface code AS, width 36, PCI 83 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 68158 maps DAVENTRY ST from LAUREL CANYON BL to REMICK AV, with published surface code AS, width 36, PCI 83 (Good), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -1697,7 +1697,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 9080 maps NORRIS AV from PINNEY ST to VAN NUYS BL, with published surface code AS, width 36, PCI 59 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 9080 maps NORRIS AV from PINNEY ST to VAN NUYS BL, with published surface code AS, width 36, PCI 59 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
@@ -1793,7 +1793,7 @@
           "source_artifact_ids": [
             "pacoima_pavement_condition"
           ],
-          "statement": "City Bureau of Street Services Pavement Condition asset 9108 maps VAN NUYS BL from ONEIDA AV to HADDON AV, with published surface code AS, width 74, PCI 69 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish treatment compatibility or engineering clearance."
+          "statement": "City Bureau of Street Services Pavement Condition asset 9108 maps VAN NUYS BL from ONEIDA AV to HADDON AV, with published surface code AS, width 74, PCI 69 (Fair), and direct line geometry. Codes and dimensions are retained as published; they do not establish engineering clearance. Surface condition, wet traction, glare, drainage, pedestrian radiant exposure, and product compatibility all require field and engineering review before this screening option can advance."
         },
         {
           "kind": "vulnerability",
