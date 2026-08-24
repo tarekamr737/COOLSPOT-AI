@@ -344,6 +344,7 @@
 .workspace {
   height: calc(100svh - 4.25rem);
   display: grid;
+  grid-template-areas: "recommendations map evidence";
   grid-template-columns: 21rem minmax(28rem, 1fr) 23.5rem;
   overflow: hidden;
 }
@@ -357,6 +358,7 @@
 }
 
 .recommendationRail {
+  grid-area: recommendations;
   border-right: 1px solid var(--outline-variant);
 }
 
@@ -517,6 +519,7 @@
 }
 
 .mapWorkspace {
+  grid-area: map;
   position: relative;
   min-width: 0;
   min-height: 37rem;
@@ -1208,6 +1211,7 @@
 }
 
 .evidencePanel {
+  grid-area: evidence;
   border-left: 1px solid var(--outline-variant);
 }
 

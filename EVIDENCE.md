@@ -910,6 +910,12 @@
   planning control uses a compact native select, evidence semantics are text-complete rather than
   color-dependent, and existing responsive/reduced-motion/focus rules remain intact. It also found
   the tour-dialog keyboard lifecycle as a concrete accessibility follow-up for the next task.
+- Accessibility and resilience proof: the tour now receives initial focus, contains forward and
+  reverse Tab navigation, closes on Escape, and restores the invoking control. Source order now
+  places the map first for narrow-screen and keyboard reading while explicit desktop grid areas
+  preserve the recommendation/map/evidence layout. Component regressions verify map-first order,
+  the no-segmentation empty state, visible initial-load failure plus Retry recovery, and retained
+  operation-error behavior. All 11 active UI tests, strict TypeScript, and zero-warning lint pass.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.

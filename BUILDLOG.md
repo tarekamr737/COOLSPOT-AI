@@ -338,3 +338,6 @@
 - Added selected-candidate scenario scores to the optimizer response instead of recomputing them in
   React. This keeps ranking and display tied to the deterministic backend coefficients and avoids
   showing canonical balanced candidate impacts under another planning preset.
+- Reordered workspace source to put the map first, then restored the desktop visual order with named
+  CSS grid areas. This aligns narrow-screen visual and keyboard reading order without changing the
+  established three-column desktop hierarchy; the tour now owns a complete modal focus lifecycle.

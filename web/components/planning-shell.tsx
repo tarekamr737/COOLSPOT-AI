@@ -157,8 +157,44 @@ function TourVisual({ step }: { step: number }) {
 
 function ProductTour({ onClose }: { onClose: () => void }) {
   const [step, setStep] = useState(0);
+  const dialogRef = useRef<HTMLElement>(null);
   const current = tourSteps[step];
-  return <div className={styles.tourBackdrop}><section aria-describedby="tour-body" aria-labelledby="tour-title" aria-modal="true" className={styles.tourPanel} role="dialog"><div className={styles.tourProgress}><span>{current.label}</span><span>{step + 1} / {tourSteps.length}</span></div><div className={styles.tourContent}><div><h2 id="tour-title">{current.title}</h2><p id="tour-body">{current.body}</p>{step === 0 ? <div className={styles.audienceLine}><span>For residents</span><span>For investors</span><span>For government</span></div> : null}</div><TourVisual step={step} /></div><div className={styles.tourActions}><button onClick={onClose} type="button">Skip tour</button><div>{step > 0 ? <button onClick={() => setStep((value) => value - 1)} type="button">Back</button> : null}<button onClick={() => { if (step === tourSteps.length - 1) onClose(); else setStep((value) => value + 1); }} type="button">{step === tourSteps.length - 1 ? "Explore the plan" : "Next"}</button></div></div></section></div>;
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    const previouslyFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const buttons = () => Array.from(dialog.querySelectorAll<HTMLButtonElement>("button:not(:disabled)"));
+    buttons()[0]?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        onClose();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const focusable = buttons();
+      const first = focusable[0];
+      const last = focusable.at(-1);
+      if (!first || !last) return;
+      if (event.shiftKey && (document.activeElement === first || !dialog.contains(document.activeElement))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      if (previouslyFocused?.isConnected) previouslyFocused.focus();
+    };
+  }, [onClose]);
+
+  return <div className={styles.tourBackdrop}><section aria-describedby="tour-body" aria-labelledby="tour-title" aria-modal="true" className={styles.tourPanel} ref={dialogRef} role="dialog"><div className={styles.tourProgress}><span>{current.label}</span><span>{step + 1} / {tourSteps.length}</span></div><div className={styles.tourContent}><div><h2 id="tour-title">{current.title}</h2><p id="tour-body">{current.body}</p>{step === 0 ? <div className={styles.audienceLine}><span>For residents</span><span>For investors</span><span>For government</span></div> : null}</div><TourVisual step={step} /></div><div className={styles.tourActions}><button onClick={onClose} type="button">Skip tour</button><div>{step > 0 ? <button onClick={() => setStep((value) => value - 1)} type="button">Back</button> : null}<button onClick={() => { if (step === tourSteps.length - 1) onClose(); else setStep((value) => value + 1); }} type="button">{step === tourSteps.length - 1 ? "Explore the plan" : "Next"}</button></div></div></section></div>;
 }
 
 type RecommendationRailProps = { candidates: Candidate[]; portfolio: Portfolio; activeCandidateId: string; onSelect: (candidate: Candidate) => void };
@@ -459,8 +495,8 @@ export function PlanningShell() {
   const explanationKey = `${activeCandidate.id}:${data.portfolio.budget_usd}:${data.portfolio.scoring_preset}`;
 
   return <div className={styles.appShell}><a className={styles.skipLink} href="#map-title">Skip to map workspace</a>{tourVisible ? <ProductTour onClose={closeTour} /> : null}<TopBar onRefreshComplete={retry} onTour={() => setTourVisible(true)} pilot={data.pilot} status={data.status} />{operationError ? <div className={styles.operationError} role="alert"><span>{operationError}</span><button aria-label="Dismiss error" onClick={() => setOperationError(null)} type="button">Dismiss</button></div> : null}<main className={styles.workspace}>
-    <RecommendationRail activeCandidateId={activeCandidate.id} candidates={recommendations} onSelect={(candidate) => void selectCandidate(candidate)} portfolio={data.portfolio} />
     <MapWorkspace activeCandidateId={activeCandidate.id} activeLayer={activeLayer} budget={budget} data={data} layer={layers[activeLayer]} layerLoading={layerLoading} onBudgetCommit={changeBudget} onBudgetPreview={setBudget} onCloseStreet={() => setStreetVisible(false)} onLayerChange={(name) => void changeLayer(name)} onScenarioChange={changeScenario} onSelectSite={selectSite} optimizing={optimizing} streetContext={streetContext} streetLoading={streetLoading} streetVisible={streetVisible} />
+    <RecommendationRail activeCandidateId={activeCandidate.id} candidates={recommendations} onSelect={(candidate) => void selectCandidate(candidate)} portfolio={data.portfolio} />
     <EvidencePanel candidate={activeCandidate} explanation={explanations[explanationKey]} explanationError={explanationError} explanationLoading={explanationLoading} explanationMode={data.status.explanation_mode} methodology={data.methodology} onExplain={() => void requestExplanation(activeCandidate, Boolean(explanations[explanationKey]))} onViewStreet={() => void selectCandidate(activeCandidate)} portfolio={data.portfolio} site={data.site} siteLoading={siteLoading} />
   </main></div>;
 }

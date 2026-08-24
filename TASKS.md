@@ -310,7 +310,7 @@ Selected in 4/4 planning scenarios
 - [x] Keep map-first hierarchy.
 - [x] Keep budget recalculation visibly at `0 FortyGuard credits`.
 - [x] Re-run Impeccable after implementation.
-- [ ] Fix accessibility, responsiveness, hierarchy, empty/error states, and keyboard navigation.
+- [x] Fix accessibility, responsiveness, hierarchy, empty/error states, and keyboard navigation.
 
 **Acceptance:** a judge can understand why a site and intervention were selected in under 15 seconds.
 

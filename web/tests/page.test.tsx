@@ -27,6 +27,7 @@ describe("Home", () => {
     render(<Home />);
 
     expect(await screen.findByRole("heading", { name: "Turn dangerous heat into a fundable decision" })).toBeInTheDocument();
+    await waitFor(() => expect(screen.getByRole("button", { name: "Skip tour" })).toHaveFocus());
     expect(screen.getByText("For residents")).toBeInTheDocument();
     expect(screen.getByRole("img", { name: /cooling investment journey/i })).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Next" }));
@@ -40,11 +41,34 @@ describe("Home", () => {
     expect(window.localStorage.getItem("coolspot-tour-v1")).toBe("complete");
   });
 
+  it("contains tour focus, closes with Escape, and restores the trigger", async () => {
+    render(<Home />);
+
+    const dialog = await screen.findByRole("dialog");
+    const skip = screen.getByRole("button", { name: "Skip tour" });
+    const next = screen.getByRole("button", { name: "Next" });
+    next.focus();
+    fireEvent.keyDown(document, { key: "Tab" });
+    expect(skip).toHaveFocus();
+    fireEvent.click(skip);
+
+    const trigger = await screen.findByRole("button", { name: "How it works" });
+    trigger.focus();
+    fireEvent.click(trigger);
+    expect(await screen.findByRole("dialog")).toBeInTheDocument();
+    fireEvent.keyDown(document, { key: "Escape" });
+
+    expect(dialog).not.toBeInTheDocument();
+    expect(trigger).toHaveFocus();
+  });
+
   it("loads the golden map controls and traceable evidence", async () => {
     render(<Home />);
 
     expect(screen.getByRole("status")).toHaveTextContent(/loading and validating/i);
-    expect(await screen.findByRole("heading", { name: "Pacoima cooling investment map" })).toBeInTheDocument();
+    const mapHeading = await screen.findByRole("heading", { name: "Pacoima cooling investment map" });
+    expect(mapHeading).toBeInTheDocument();
+    expect(mapHeading.closest("section")?.parentElement?.firstElementChild).toHaveAttribute("aria-labelledby", "map-title");
     expect(document.querySelector('img[src*="coolspot-logo.png"]')).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Ranked recommendations" })).toBeInTheDocument();
     expect(screen.getAllByText("Selected in 4/4 planning scenarios").length).toBeGreaterThan(0);
@@ -92,6 +116,47 @@ describe("Home", () => {
     expect(screen.getByRole("link", { name: "FortyGuard Heatmap API" })).toBeInTheDocument();
     expect(screen.getByText(/not contemporaneous with active heat evidence/i)).toBeInTheDocument();
     expect(screen.getByRole("region", { name: "Interactive Pacoima heat layer map" })).toBeInTheDocument();
+  });
+
+  it("shows a truthful empty state when exact-site street context is unavailable", async () => {
+    vi.mocked(fetch).mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      const fixtureUrl = url.endsWith("/street-view") ? url.replace("site-0", "site-1") : url;
+      return new Response(JSON.stringify(responseFor(fixtureUrl, init)), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    });
+    render(<Home />);
+
+    await screen.findByRole("heading", { name: "Pacoima cooling investment map" });
+    fireEvent.click(screen.getByRole("button", { name: "View street images" }));
+
+    expect(await screen.findByText("No verified segmentation for this site")).toBeInTheDocument();
+    expect(screen.getByText("No verified street segmentation is cached for this site.")).toBeInTheDocument();
+  });
+
+  it("exposes an initial load failure and recovers through Retry", async () => {
+    let pilotCalls = 0;
+    vi.mocked(fetch).mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      if (url.endsWith("/pilot") && pilotCalls++ === 0) {
+        return new Response(JSON.stringify({ detail: "Cached pilot data is unavailable." }), {
+          status: 503,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+      return new Response(JSON.stringify(responseFor(url, init)), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    });
+    render(<Home />);
+
+    expect(await screen.findByRole("alert")).toHaveTextContent("Cached pilot data is unavailable.");
+    fireEvent.click(screen.getByRole("button", { name: "Retry" }));
+
+    expect(await screen.findByRole("heading", { name: "Pacoima cooling investment map" })).toBeInTheDocument();
   });
 
   it("loads layers on demand and re-optimizes without a FortyGuard request", async () => {
