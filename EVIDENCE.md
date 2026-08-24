@@ -741,3 +741,7 @@
 - Calculation proof: the modeled-benefit product is deterministic and remains in `[0,1]`.
   Parameterized tests reject negative, above-one, infinite, and NaN values for every factor and
   cover both exact product boundaries.
+- CP-SAT determinism proof: the optimizer sorts candidates by stable ID, integer-scales the
+  objective, applies a stable ID tie break and fixed decision strategy, and runs one worker with
+  seed `0`. The preset regression returns identical optimal portfolios when candidate input order
+  is reversed (`1 passed`).
