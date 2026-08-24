@@ -102,7 +102,8 @@ export function portfolio(budget = 500_000) {
 
 export const methodology = {
   version: "1.0",
-  scoring: { version: "1.0", priority_weights: { heat: 0.4, exposure: 0.3, vulnerability: 0.2, cooling_opportunity: 0.1 }, missing_strategy: "Neutral score", point_join_note: "Nearest sites are joined within the configured distance." },
+  scoring: { version: "1.0", priority_weights: { heat: 0.4, exposure: 0.3, vulnerability: 0.2, cooling_opportunity: 0.1 }, heat_weights: { temperature: 0.4, persistence: 0.35, exceedance: 0.25 }, missing_strategy: "Neutral score", point_join_note: "Nearest sites are joined within the configured distance." },
+  heat_provenance: { source: "FortyGuard Heatmap API", source_url: "https://docs-api.fortyguard.com/docs/create-heatmap", active_analysis_date: "2026-08-20", exceedance_analysis_date: "2024-07-15", exceedance_threshold_c: 30, exceedance_direction: "above", exceedance_request_hash: "01b10110a2455dd1c8a33769eca3b1d9eb2ee1949d4e626cb4236a28907d7a58", exceedance_activity_id: "e754402c-a9c8-4816-a981-786aa3e45f77", exceedance_artifact_sha256: "a".repeat(64), observed_credit_delta: 4220, limitation: "Exceedance is historical context and is not contemporaneous with active heat evidence." },
   candidate_generation: { screening_score_note: "Scores are for screening only.", representative_tile_rule: "Choose the highest-priority intersecting tile." },
   optimization: { budget_presets_usd: [250_000, 500_000, 1_000_000], custom_budget_min_usd: 50_000, custom_budget_max_usd: 2_000_000, determinism_note: "Fixed integer coefficients and deterministic tie breaking.", objective_note: "Maximizes modeled impact under the selected budget.", equity_note: "Reports equity context without claiming population outcomes." },
   interventions: {
@@ -173,7 +174,7 @@ export function site(index = 0) {
       candidate: candidates[index],
       tile: {
         tile_id: String(index + 1), geometry: polygon,
-        heat: { average_temperature_c: 35.45, persistence_hours: 7.04, temperature_score: 0.8, persistence_score: 0.78 },
+        heat: { average_temperature_c: 35.45, persistence_hours: 7.04, exceedance_hours: 6.89, temperature_score: 0.8, persistence_score: 0.78, exceedance_score: 0.74 },
         exposure: { transit_stop_count: 1, published_patronage_activity: 79.79, poi_count: 0 },
         vulnerability: { children_rate: 0.2, older_adult_rate: 0.1, poverty_rate: 0.18, no_vehicle_rate: 0.06 },
         scores: { heat: 0.75, exposure: 0.8, vulnerability: 0.622, cooling_opportunity: 0.4, priority: 0.84 },

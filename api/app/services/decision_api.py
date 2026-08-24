@@ -11,6 +11,7 @@ from api.app.schemas import (
     DataStatusResponse,
     ExposureLayerProperties,
     HeatLayerProperties,
+    HeatProvenance,
     LayerFeature,
     LayerName,
     LayerProperties,
@@ -36,7 +37,12 @@ from api.app.services.feature_table import (
     load_feature_table,
     load_scoring_config,
 )
-from api.app.services.heatmap_data import PacoimaHeatmapArtifact, load_heatmap_artifact
+from api.app.services.heatmap_data import (
+    PacoimaExceedanceArtifact,
+    PacoimaHeatmapArtifact,
+    load_exceedance_artifact,
+    load_heatmap_artifact,
+)
 from api.app.services.interventions import InterventionCatalog, load_intervention_catalog
 from api.app.services.optimizer import load_optimizer_config
 from api.app.services.processed_data import ProcessedPublicData, load_processed_fixture
@@ -59,6 +65,7 @@ def clear_decision_caches() -> None:
     loaders = (
         _boundary,
         _heatmaps,
+        _exceedance,
         _features,
         _candidates,
         _catalog,
@@ -78,6 +85,11 @@ def _boundary() -> BoundaryCollection:
 @lru_cache(maxsize=1)
 def _heatmaps() -> PacoimaHeatmapArtifact:
     return load_heatmap_artifact()
+
+
+@lru_cache(maxsize=1)
+def _exceedance() -> PacoimaExceedanceArtifact:
+    return load_exceedance_artifact()
 
 
 @lru_cache(maxsize=1)
@@ -277,10 +289,30 @@ def street_view_response(site_id: str) -> StreetViewContextResponse:
     )
 def methodology_response() -> MethodologyResponse:
     artifact = _candidates()
+    features = _features()
+    heatmaps = _heatmaps()
+    exceedance = _exceedance().layer
+    active_analysis_date = heatmaps.layers[0].date_time.start_date
+    exceedance_analysis_date = exceedance.date_time.start_date
     optimizer = load_optimizer_config()
     catalog = _catalog()
     return MethodologyResponse(
         scoring=load_scoring_config(),
+        heat_provenance=HeatProvenance(
+            active_analysis_date=active_analysis_date,
+            exceedance_analysis_date=exceedance_analysis_date,
+            exceedance_threshold_c=exceedance.threshold_c,
+            exceedance_direction=exceedance.direction,
+            exceedance_request_hash=exceedance.request_hash,
+            exceedance_activity_id=exceedance.activity_id,
+            exceedance_artifact_sha256=features.exceedance_artifact_sha256,
+            observed_credit_delta=exceedance.observed_credit_delta,
+            limitation=(
+                f"Exceedance is historical context from {exceedance_analysis_date.isoformat()}, "
+                "while active TCM and persistence evidence is dated "
+                f"{active_analysis_date.isoformat()}; the inputs are not contemporaneous."
+            ),
+        ),
         candidate_generation=load_candidate_config(),
         optimization=optimizer,
         interventions=catalog,

@@ -243,8 +243,10 @@ const tileSchema = z.object({
   heat: z.object({
     average_temperature_c: z.number(),
     persistence_hours: z.number().nonnegative(),
+    exceedance_hours: z.number().nonnegative(),
     temperature_score: z.number().min(0).max(1),
     persistence_score: z.number().min(0).max(1),
+    exceedance_score: z.number().min(0).max(1),
   }),
   exposure: z.object({
     transit_stop_count: z.number().int().nonnegative(),
@@ -351,8 +353,26 @@ export const methodologySchema = z.object({
   scoring: z.object({
     version: z.string(),
     priority_weights: z.record(z.string(), z.number()),
+    heat_weights: z.object({
+      temperature: z.number().min(0).max(1),
+      persistence: z.number().min(0).max(1),
+      exceedance: z.number().min(0).max(1),
+    }),
     missing_strategy: z.string(),
     point_join_note: z.string(),
+  }),
+  heat_provenance: z.object({
+    source: z.literal("FortyGuard Heatmap API"),
+    source_url: z.url(),
+    active_analysis_date: z.string(),
+    exceedance_analysis_date: z.string(),
+    exceedance_threshold_c: z.number(),
+    exceedance_direction: z.enum(["above", "below"]),
+    exceedance_request_hash: z.string().regex(/^[0-9a-f]{64}$/),
+    exceedance_activity_id: z.string().min(1),
+    exceedance_artifact_sha256: z.string().regex(/^[0-9a-f]{64}$/),
+    observed_credit_delta: z.number().int().nonnegative(),
+    limitation: z.string().min(40),
   }),
   candidate_generation: z.object({
     screening_score_note: z.string(),

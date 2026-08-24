@@ -616,5 +616,11 @@
   replacement is 40% at `$250k`, 10% at `$500k`, and 0% at `$1M`; the test therefore classifies the
   smaller-budget effect as material at the predefined 10% decision threshold. This is a sensitivity
   result, not a causal claim, because exceedance is dated 2024-07-15 while active layers are 2026.
+- API/UI proof: every site response exposes raw and normalized exceedance evidence. Methodology
+  publishes the exact 40/35/25 heat weights, both analysis dates, 30 °C threshold/direction,
+  canonical request hash, activity ID, artifact SHA-256, measured credit delta, FortyGuard source
+  link, and mixed-period limitation. The drawer shows historical exceedance beside heat and
+  persistence, then repeats its score/weight and provenance in progressively disclosed details.
 - Automated proof: full backend Pytest returns `82 passed`; Ruff passes; strict Mypy passes across
-  `61` source files.
+  `61` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
+  contract test skipped), and the production Next.js build completes successfully.

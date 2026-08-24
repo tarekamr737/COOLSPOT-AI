@@ -196,11 +196,30 @@ class StreetViewContextResponse(BaseModel):
     limitation: str
 
 
+class HeatProvenance(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    source: Literal["FortyGuard Heatmap API"] = "FortyGuard Heatmap API"
+    source_url: Literal["https://docs-api.fortyguard.com/docs/create-heatmap"] = (
+        "https://docs-api.fortyguard.com/docs/create-heatmap"
+    )
+    active_analysis_date: date
+    exceedance_analysis_date: date
+    exceedance_threshold_c: float
+    exceedance_direction: Literal["above", "below"]
+    exceedance_request_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
+    exceedance_activity_id: str = Field(min_length=1)
+    exceedance_artifact_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
+    observed_credit_delta: int = Field(ge=0)
+    limitation: str = Field(min_length=40)
+
+
 class MethodologyResponse(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     version: Literal["1.0"] = "1.0"
     scoring: ScoringConfig
+    heat_provenance: HeatProvenance
     candidate_generation: CandidateConfig
     optimization: OptimizerConfig
     interventions: InterventionCatalog

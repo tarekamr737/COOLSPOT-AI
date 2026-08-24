@@ -50,6 +50,8 @@ def test_pilot_layers_candidates_site_and_methodology_routes() -> None:
     assert site.site_id == first.site_id
     assert site.options[0].candidate.id == first.id
     assert site.options[0].tile.tile_id == first.tile_id
+    assert site.options[0].tile.heat.exceedance_hours >= 0
+    assert 0 <= site.options[0].tile.heat.exceedance_score <= 1
     assert site.options[0].intervention.id == first.intervention_type
     assert site.street_view_evidence is None
 
@@ -69,6 +71,22 @@ def test_pilot_layers_candidates_site_and_methodology_routes() -> None:
     assert methodology_response.status_code == 200
     methodology = MethodologyResponse.model_validate(methodology_response.json())
     assert methodology.scoring.version == "1.0"
+    assert methodology.scoring.heat_weights.model_dump() == {
+        "temperature": 0.4,
+        "persistence": 0.35,
+        "exceedance": 0.25,
+    }
+    assert methodology.heat_provenance.active_analysis_date.isoformat() == "2026-08-20"
+    assert methodology.heat_provenance.exceedance_analysis_date.isoformat() == "2024-07-15"
+    assert methodology.heat_provenance.exceedance_threshold_c == 30
+    assert methodology.heat_provenance.observed_credit_delta == 4_220
+    assert methodology.heat_provenance.exceedance_request_hash == (
+        "01b10110a2455dd1c8a33769eca3b1d9eb2ee1949d4e626cb4236a28907d7a58"
+    )
+    assert methodology.heat_provenance.exceedance_activity_id == (
+        "e754402c-a9c8-4816-a981-786aa3e45f77"
+    )
+    assert "not contemporaneous" in methodology.heat_provenance.limitation
     assert methodology.interventions.version == "1.0"
     assert methodology.optimization.objective_scale == 1_000_000
 

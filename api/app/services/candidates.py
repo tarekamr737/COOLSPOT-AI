@@ -241,7 +241,8 @@ def _common_evidence(
             statement=(
                 f"FortyGuard tile {tile.tile_id} reports {tile.heat.average_temperature_c:.2f} "
                 f"°C average temperature and {tile.heat.persistence_hours:g} persistence hours "
-                "for the frozen analysis period."
+                f"for the active analysis, plus {tile.heat.exceedance_hours:g} historical "
+                "exceedance hours; its threshold and source dates are disclosed in methodology."
             ),
             source_artifact_ids=(CandidateSourceArtifact.FEATURE_TABLE,),
         ),

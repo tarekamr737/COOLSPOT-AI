@@ -1406,6 +1406,15 @@
   margin: 0.65rem 0;
 }
 
+.scoreBreakdown h4 {
+  margin: 0.85rem 0 0;
+  color: var(--on-surface);
+  font-family: var(--font-data);
+  font-size: 0.625rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .scoreBreakdown dl div {
   display: flex;
   justify-content: space-between;
@@ -1524,6 +1533,29 @@
   margin: 1.25rem 0 0.5rem;
   color: var(--on-surface);
   font-size: 0.8125rem;
+}
+
+.methodologyBody dl {
+  margin: 0.75rem 0 0;
+}
+
+.methodologyBody dl div {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.methodologyBody dt {
+  color: var(--on-surface);
+  font-family: var(--font-data);
+}
+
+.methodologyBody dd {
+  margin: 0;
+  font-family: var(--font-data);
+  overflow-wrap: anywhere;
 }
 
 .sourceList a {

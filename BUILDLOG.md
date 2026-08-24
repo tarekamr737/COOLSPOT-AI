@@ -227,3 +227,7 @@
   replacement in any supported budget portfolio versus the former 50/50 heat baseline. The real
   comparison clears that threshold for `$250k` and `$500k` but not `$1M`; it remains labeled a
   mixed-period sensitivity result because freshness comparability limits stronger interpretation.
+- Exceedance provenance uses the existing evidence list and expandable methodology rather than a
+  new panel: planners see the value/date immediately, then can inspect weights, source identifiers,
+  credit cost, and limitation on demand. This preserves map space and keeps raw evidence distinct
+  from normalized/modelled values.

@@ -60,7 +60,13 @@ describe("Home", () => {
     expect(screen.getByText("Street context confidence").nextElementSibling).toHaveTextContent("0.792");
     expect(screen.getByText("Shade opportunity screen").nextElementSibling).toHaveTextContent("0.565");
     expect(screen.getByText(/does not prove all-day shade/i)).toBeInTheDocument();
+    expect(screen.getAllByText("Historical exceedance")).toHaveLength(2);
+    expect(screen.getByText(/6.89 hours above 30 °C/)).toBeInTheDocument();
     expect(screen.getByText("Methodology & limitations")).toBeInTheDocument();
+    fireEvent.click(screen.getByText("Methodology & limitations"));
+    expect(screen.getByRole("heading", { name: "Heat evidence provenance" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "FortyGuard Heatmap API" })).toBeInTheDocument();
+    expect(screen.getByText(/not contemporaneous with active heat evidence/i)).toBeInTheDocument();
     expect(screen.getByRole("region", { name: "Interactive Pacoima heat layer map" })).toBeInTheDocument();
   });
 

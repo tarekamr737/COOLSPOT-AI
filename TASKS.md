@@ -98,7 +98,7 @@ heat_score =
 
 - [x] Keep weights versioned/configurable.
 - [x] Add comparison test showing whether exceedance materially changes rankings.
-- [ ] Update methodology and provenance.
+- [x] Update methodology and provenance.
 
 **Acceptance:** exceedance is real, cached, source-attributed, deterministic, and visible in site evidence.
 
