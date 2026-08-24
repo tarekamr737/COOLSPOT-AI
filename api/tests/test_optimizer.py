@@ -3,7 +3,11 @@
 import pytest
 
 from api.app.services.candidates import Candidate, load_candidates
-from api.app.services.optimizer import load_optimizer_config, optimize_portfolio
+from api.app.services.optimizer import (
+    load_optimizer_config,
+    optimize_portfolio,
+    optimize_portfolio_with_robustness,
+)
 from api.app.services.scenarios import ScoringPreset
 
 
@@ -96,6 +100,17 @@ def test_scenario_reweights_cached_features_before_optimization() -> None:
     assert balanced.scoring_weights.heat == 0.4
     assert heat_first.scoring_weights.heat == 0.5
     assert heat_first.selected_candidate_ids != balanced.selected_candidate_ids
+
+
+def test_robustness_is_exact_site_selection_frequency() -> None:
+    result = optimize_portfolio_with_robustness(500_000)
+
+    assert len(result.site_robustness) == result.selected_count
+    assert any(item.robustness_score < 1 for item in result.site_robustness)
+    for item in result.site_robustness:
+        assert item.presets_tested == 4
+        assert item.presets_selected == len(item.selected_in_presets)
+        assert item.robustness_score == item.presets_selected / item.presets_tested
 
 
 def test_site_constraint_blocks_two_interventions_at_one_site() -> None:

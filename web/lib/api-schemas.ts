@@ -285,6 +285,13 @@ export const portfolioSchema = z.object({
     score_sum: z.number().nonnegative(),
     note: z.string(),
   }),
+  site_robustness: z.array(z.object({
+    site_id: z.string().min(1),
+    selected_in_presets: z.array(scoringPresetSchema),
+    presets_selected: z.number().int().min(0).max(4),
+    presets_tested: z.literal(4),
+    robustness_score: z.number().min(0).max(1),
+  })),
 });
 export type Portfolio = z.infer<typeof portfolioSchema>;
 

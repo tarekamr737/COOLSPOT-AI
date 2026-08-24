@@ -256,7 +256,7 @@ Opportunity   0.10
 
 - [x] Add preset selector to API contracts.
 - [x] Re-score/re-optimize without FortyGuard calls.
-- [ ] Compute:
+- [x] Compute:
 
 ```text
 robustness_score =

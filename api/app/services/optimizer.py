@@ -68,6 +68,28 @@ class EquitySummary(BaseModel):
     note: str = Field(min_length=40)
 
 
+class SiteRobustness(BaseModel):
+    model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
+
+    site_id: str = Field(min_length=1)
+    selected_in_presets: tuple[ScoringPreset, ...]
+    presets_selected: int = Field(ge=0)
+    presets_tested: int = Field(gt=0)
+    robustness_score: float = Field(ge=0, le=1)
+
+    @model_validator(mode="after")
+    def validate_ratio(self) -> Self:
+        if self.presets_selected != len(self.selected_in_presets):
+            raise ValueError("selected preset count does not match preset IDs")
+        if self.presets_selected > self.presets_tested or not math.isclose(
+            self.robustness_score,
+            self.presets_selected / self.presets_tested,
+            abs_tol=1e-12,
+        ):
+            raise ValueError("robustness score must equal selected/tested presets")
+        return self
+
+
 class PortfolioResult(BaseModel):
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
 
@@ -84,6 +106,7 @@ class PortfolioResult(BaseModel):
     objective_scale: int = Field(gt=0)
     category_counts: PortfolioCategoryCounts
     equity_summary: EquitySummary
+    site_robustness: tuple[SiteRobustness, ...] = ()
 
     @model_validator(mode="after")
     def validate_totals(self) -> Self:
@@ -263,3 +286,52 @@ def optimize_portfolio(
             note=active_config.equity_note,
         ),
     )
+
+
+def optimize_portfolio_with_robustness(
+    budget_usd: int,
+    *,
+    scoring_preset: ScoringPreset = ScoringPreset.BALANCED,
+    candidates: tuple[Candidate, ...] | None = None,
+    config: OptimizerConfig | None = None,
+) -> PortfolioResult:
+    """Solve every versioned preset and annotate the active portfolio by site."""
+
+    supplied = candidates if candidates is not None else load_candidates().candidates
+    results = {
+        preset: optimize_portfolio(
+            budget_usd,
+            candidates=supplied,
+            config=config,
+            scoring_preset=preset,
+        )
+        for preset in ScoringPreset
+    }
+    site_by_candidate = {candidate.id: candidate.site_id for candidate in supplied}
+    sites_by_preset = {
+        preset: {
+            site_by_candidate[candidate_id]
+            for candidate_id in result.selected_candidate_ids
+        }
+        for preset, result in results.items()
+    }
+    tested = len(ScoringPreset)
+    active_sites = sites_by_preset[scoring_preset]
+    robustness = tuple(
+        SiteRobustness(
+            site_id=site_id,
+            selected_in_presets=tuple(
+                preset for preset in ScoringPreset if site_id in sites_by_preset[preset]
+            ),
+            presets_selected=sum(
+                site_id in sites_by_preset[preset] for preset in ScoringPreset
+            ),
+            presets_tested=tested,
+            robustness_score=(
+                sum(site_id in sites_by_preset[preset] for preset in ScoringPreset)
+                / tested
+            ),
+        )
+        for site_id in sorted(active_sites)
+    )
+    return results[scoring_preset].model_copy(update={"site_robustness": robustness})

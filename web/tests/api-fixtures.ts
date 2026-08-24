@@ -142,6 +142,13 @@ export function portfolio(budget = 500_000) {
     objective_scale: 1_000_000,
     category_counts: { shade_structure: count, tree_canopy: 0, cool_pavement: 0 },
     equity_summary: { mean_selected_vulnerability_score: 0.62, score_sum: count * 0.62, note: "Equity context is not a population count." },
+    site_robustness: Array.from({ length: count }, (_, index) => ({
+      site_id: `site-${index + 1}`,
+      selected_in_presets: ["balanced", "heat_first", "equity_first", "exposure_first"],
+      presets_selected: 4,
+      presets_tested: 4,
+      robustness_score: 1,
+    })),
   };
 }
 

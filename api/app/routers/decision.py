@@ -30,7 +30,12 @@ from api.app.services.live_refresh import (
     RefreshStatus,
     refresh_coordinator,
 )
-from api.app.services.optimizer import OptimizationError, PortfolioResult, optimize_portfolio
+from api.app.services.optimizer import (
+    OptimizationError,
+    PortfolioResult,
+    optimize_portfolio,
+    optimize_portfolio_with_robustness,
+)
 
 router = APIRouter(prefix="/v1")
 
@@ -53,7 +58,7 @@ def get_candidates() -> CandidateListResponse:
 @router.post("/optimize")
 def optimize(request: OptimizeRequest) -> PortfolioResult:
     try:
-        return optimize_portfolio(
+        return optimize_portfolio_with_robustness(
             request.budget_usd,
             scoring_preset=request.scoring_preset,
         )

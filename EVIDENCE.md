@@ -849,6 +849,10 @@
   opportunity scores, then applies the unchanged suitability/feasibility/confidence factors and
   CP-SAT constraints. A 500k heat-first request returns different selected IDs from balanced with no
   FortyGuard path involved; 13 focused API/optimizer tests and frontend checks pass.
+- Robustness-computation proof: each optimize API response now solves all four cached scenarios and
+  annotates every site in the active portfolio with the exact selected preset IDs, numerator,
+  denominator `4`, and `robustness_score = presets_selected / presets_tested`. A regression confirms
+  the ratio and includes sites below `1.0`; 14 focused backend and 7 active frontend tests pass.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.

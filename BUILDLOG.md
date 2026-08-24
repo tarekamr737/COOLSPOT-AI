@@ -326,3 +326,6 @@
 - Scenario optimization reuses normalized committed tile components rather than rebuilding vendor
   artifacts or mutating the canonical candidate file. Each response records the active versioned
   weights, so priority changes remain deterministic and auditable at zero FortyGuard cost.
+- Robustness is counted by stable `site_id`, as the task formula specifies site selection rather
+  than candidate/intervention identity. Only active-portfolio sites are returned to keep the API
+  compact; each record still names every preset that selected that site.
