@@ -861,6 +861,10 @@
   robustness is selection frequency across planning-weight scenarios, not statistical confidence,
   outcome certainty, or probability. The recommendation rail repeats the concise visible warning;
   14 focused backend tests and all frontend quality gates pass.
+- Four-preset regression proof: the optimizer test suite asserts each exact required weight vector,
+  complete ordered catalog membership, stable results under reversed candidate input, the echoed
+  active preset, and budget feasibility for balanced, heat-first, equity-first, and exposure-first.
+  All eight optimizer tests pass with Ruff and Mypy clean.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.

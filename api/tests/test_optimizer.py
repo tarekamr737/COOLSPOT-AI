@@ -8,7 +8,7 @@ from api.app.services.optimizer import (
     optimize_portfolio,
     optimize_portfolio_with_robustness,
 )
-from api.app.services.scenarios import ScoringPreset
+from api.app.services.scenarios import ScoringPreset, load_scenario_catalog
 
 
 def _candidate_with_suitability(candidate: Candidate, suitability: float) -> Candidate:
@@ -111,6 +111,40 @@ def test_robustness_is_exact_site_selection_frequency() -> None:
         assert item.presets_tested == 4
         assert item.presets_selected == len(item.selected_in_presets)
         assert item.robustness_score == item.presets_selected / item.presets_tested
+
+
+def test_all_four_versioned_presets_are_deterministic_and_feasible() -> None:
+    candidates = load_candidates().candidates
+    catalog = load_scenario_catalog()
+    expected = {
+        ScoringPreset.BALANCED: (0.40, 0.30, 0.20, 0.10),
+        ScoringPreset.HEAT_FIRST: (0.50, 0.25, 0.15, 0.10),
+        ScoringPreset.EQUITY_FIRST: (0.30, 0.25, 0.35, 0.10),
+        ScoringPreset.EXPOSURE_FIRST: (0.30, 0.40, 0.20, 0.10),
+    }
+
+    assert tuple(scenario.id for scenario in catalog.scenarios) == tuple(ScoringPreset)
+    for preset, weights in expected.items():
+        scenario = catalog.get(preset)
+        assert (
+            scenario.weights.heat,
+            scenario.weights.exposure,
+            scenario.weights.vulnerability,
+            scenario.weights.cooling_opportunity,
+        ) == weights
+        first = optimize_portfolio(
+            500_000,
+            candidates=candidates,
+            scoring_preset=preset,
+        )
+        second = optimize_portfolio(
+            500_000,
+            candidates=tuple(reversed(candidates)),
+            scoring_preset=preset,
+        )
+        assert first == second
+        assert first.scoring_preset == preset
+        assert first.total_cost_usd <= first.budget_usd
 
 
 def test_site_constraint_blocks_two_interventions_at_one_site() -> None:
