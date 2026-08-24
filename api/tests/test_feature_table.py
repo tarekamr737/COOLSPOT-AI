@@ -1,6 +1,7 @@
 """Tests for deterministic scoring, missing data, and the real tile feature table."""
 
 import hashlib
+import json
 import math
 from pathlib import Path
 
@@ -9,6 +10,7 @@ from api.app.services.feature_table import (
     DEFAULT_FEATURE_TABLE_PATH,
     DEFAULT_PUBLIC_DATA_PATH,
     NormalizedFeature,
+    build_feature_table,
     canonical_feature_table_bytes,
     load_feature_table,
     load_scoring_config,
@@ -57,6 +59,38 @@ def test_weighted_composite_reweights_available_inputs() -> None:
 
     assert math.isclose(score, 2 / 3)
     assert weighted_available(((None, 0.5), (None, 0.5))) == 0
+
+
+def test_heat_weights_are_versioned_and_drive_rebuilt_scores(tmp_path: Path) -> None:
+    default_config = load_scoring_config()
+    alternate_payload = default_config.model_dump(mode="json")
+    alternate_payload["heat_weights"] = {
+        "temperature": 1.0,
+        "persistence": 0.0,
+        "exceedance": 0.0,
+    }
+    alternate_path = tmp_path / "scoring.json"
+    alternate_path.write_text(
+        json.dumps(alternate_payload, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+
+    default_table = load_feature_table()
+    alternate_table = build_feature_table(config_path=alternate_path)
+
+    assert default_config.version == "1.0"
+    assert alternate_table.scoring_config_sha256 == hashlib.sha256(
+        alternate_path.read_bytes()
+    ).hexdigest()
+    assert all(
+        math.isclose(tile.scores.heat, tile.heat.temperature_score, abs_tol=1e-12)
+        for tile in alternate_table.tiles
+    )
+    assert any(
+        not math.isclose(default.scores.heat, alternate.scores.heat, abs_tol=1e-12)
+        for default, alternate in zip(
+            default_table.tiles, alternate_table.tiles, strict=True
+        )
+    )
 
 
 def test_real_feature_table_is_canonical_complete_and_traceable() -> None:

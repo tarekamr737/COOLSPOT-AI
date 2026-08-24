@@ -607,5 +607,9 @@
 - Formula proof: every tile's modeled heat score is tested as exactly `0.40 × temperature_score +
   0.35 × persistence_score + 0.25 × exceedance_score`; deterministic candidate and optimizer tests
   pass after rebuilding downstream artifacts.
-- Automated proof: full backend Pytest returns `80 passed`; Ruff passes; strict Mypy passes across
+- Configuration proof: the three weights live in versioned `config/scoring.json`, are validated to
+  sum to one, and are included in the feature table's scoring-config SHA-256. A functional test
+  rebuilds all tiles with a temporary temperature-only preset, verifies every heat score follows
+  that preset, and confirms scores differ from the committed default.
+- Automated proof: full backend Pytest returns `81 passed`; Ruff passes; strict Mypy passes across
   `60` source files.

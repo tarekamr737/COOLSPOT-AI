@@ -96,7 +96,7 @@ heat_score =
 + 0.25 × exceedance
 ```
 
-- [ ] Keep weights versioned/configurable.
+- [x] Keep weights versioned/configurable.
 - [ ] Add comparison test showing whether exceedance materially changes rankings.
 - [ ] Update methodology and provenance.
 
