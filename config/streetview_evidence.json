@@ -1,0 +1,13 @@
+{
+  "confidence_weights": {
+    "imagery_availability": 0.25,
+    "imagery_age": 0.25,
+    "segmentation_completeness": 0.25,
+    "usable_views": 0.25
+  },
+  "fresh_age_days": 730,
+  "stale_age_days": 1825,
+  "stale_age_score": 0.25,
+  "target_view_count": 2,
+  "version": "1.0"
+}

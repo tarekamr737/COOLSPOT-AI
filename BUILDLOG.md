@@ -181,3 +181,7 @@
 - Front/back aggregation uses an equal-weight mean of observed percentages and records the number
   of contributing views per metric. A missing view or category is excluded, never converted to a
   zero that would imply observed absence.
+- Street context confidence uses four equally weighted, versioned evidence-quality components:
+  usable views, original/segmented imagery availability, imagery age, and requested-category
+  completeness. Age is measured at the cache retrieval date rather than runtime, preventing score
+  drift as the application gets older; the result is evidence completeness, not outcome certainty.

@@ -4,10 +4,12 @@ from __future__ import annotations
 
 import math
 from collections.abc import Mapping
-from datetime import date
+from datetime import date, datetime
 from enum import StrEnum
+from pathlib import Path
+from typing import Literal, Self
 
-from pydantic import Field
+from pydantic import Field, model_validator
 
 from api.app.fortyguard_models import (
     ActivityLifecycle,
@@ -16,6 +18,49 @@ from api.app.fortyguard_models import (
     StreetViewResult,
     StrictModel,
 )
+
+ROOT = Path(__file__).resolve().parents[3]
+DEFAULT_STREETVIEW_CONFIG_PATH = ROOT / "config" / "streetview_evidence.json"
+
+
+class StreetContextConfidenceWeights(StrictModel):
+    """Versioned weights for independently observable confidence components."""
+
+    usable_views: float = Field(ge=0, le=1)
+    imagery_availability: float = Field(ge=0, le=1)
+    imagery_age: float = Field(ge=0, le=1)
+    segmentation_completeness: float = Field(ge=0, le=1)
+
+    @model_validator(mode="after")
+    def validate_total(self) -> Self:
+        if not math.isclose(sum(self.model_dump().values()), 1.0):
+            raise ValueError("Street View confidence weights must sum to 1")
+        return self
+
+
+class StreetViewEvidenceConfig(StrictModel):
+    """Versioned deterministic Street View evidence settings."""
+
+    version: Literal["1.0"]
+    target_view_count: int = Field(ge=1, le=2)
+    fresh_age_days: int = Field(ge=0)
+    stale_age_days: int = Field(gt=0)
+    stale_age_score: float = Field(ge=0, le=1)
+    confidence_weights: StreetContextConfidenceWeights
+
+    @model_validator(mode="after")
+    def validate_age_thresholds(self) -> Self:
+        if self.stale_age_days <= self.fresh_age_days:
+            raise ValueError("stale_age_days must be greater than fresh_age_days")
+        return self
+
+
+def load_streetview_evidence_config(
+    path: Path = DEFAULT_STREETVIEW_CONFIG_PATH,
+) -> StreetViewEvidenceConfig:
+    """Load the versioned confidence settings."""
+
+    return StreetViewEvidenceConfig.model_validate_json(path.read_text(encoding="utf-8"))
 
 
 class StreetViewDirection(StrEnum):
@@ -62,11 +107,31 @@ class AggregatedStreetViewMetrics(StrictModel):
     contributing_views: StreetViewMetricCoverage
 
 
+class StreetContextConfidenceComponents(StrictModel):
+    """Auditable component scores used by street context confidence."""
+
+    usable_views: float = Field(ge=0, le=1)
+    imagery_availability: float = Field(ge=0, le=1)
+    imagery_age: float = Field(ge=0, le=1)
+    segmentation_completeness: float = Field(ge=0, le=1)
+
+
+class StreetContextConfidence(StrictModel):
+    """Deterministic evidence completeness score, not outcome certainty."""
+
+    score: float = Field(ge=0, le=1)
+    usable_view_count: int = Field(ge=0, le=2)
+    oldest_image_age_days: int = Field(ge=0)
+    components: StreetContextConfidenceComponents
+
+
 class ExtractedStreetViewFrame(StrictModel):
     """Compact frame evidence with image payloads intentionally removed."""
 
     direction: StreetViewDirection
     image_date: date
+    original_image_available: bool
+    segmented_image_available: bool
     segments: tuple[ExtractedSegment, ...]
     metrics: StreetViewSegmentationMetrics
 
@@ -78,6 +143,7 @@ class ExtractedStreetViewFeatures(StrictModel):
     coordinates: ResultCoordinates
     frames: tuple[ExtractedStreetViewFrame, ...] = Field(min_length=1, max_length=2)
     aggregate: AggregatedStreetViewMetrics
+    street_context_confidence: StreetContextConfidence
 
 
 def _mean_observed(values: tuple[float | None, ...]) -> float | None:
@@ -115,6 +181,84 @@ def _aggregate_frames(
     )
 
 
+def _parse_retrieved_date(value: object) -> date:
+    if not isinstance(value, str):
+        raise ValueError("cached Street View response is missing retrieved_at")
+    try:
+        retrieved_at = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise ValueError("cached Street View retrieved_at is invalid") from exc
+    if retrieved_at.tzinfo is None:
+        raise ValueError("cached Street View retrieved_at must include a timezone")
+    return retrieved_at.date()
+
+
+def _age_component(age_days: int, config: StreetViewEvidenceConfig) -> float:
+    if age_days <= config.fresh_age_days:
+        return 1.0
+    if age_days >= config.stale_age_days:
+        return config.stale_age_score
+    elapsed = age_days - config.fresh_age_days
+    interval = config.stale_age_days - config.fresh_age_days
+    return 1 - (elapsed / interval) * (1 - config.stale_age_score)
+
+
+def _confidence(
+    frames: tuple[ExtractedStreetViewFrame, ...],
+    retrieved_date: date,
+    config: StreetViewEvidenceConfig,
+) -> StreetContextConfidence:
+    usable = tuple(frame for frame in frames if frame.segments)
+    image_ages = tuple((retrieved_date - frame.image_date).days for frame in usable)
+    if any(age < 0 for age in image_ages):
+        raise ValueError("Street View image_date cannot be after retrieved_at")
+    usable_score = min(len(usable) / config.target_view_count, 1.0)
+    imagery_slots = 2 * len(usable)
+    imagery_score = (
+        sum(
+            frame.original_image_available + frame.segmented_image_available
+            for frame in usable
+        )
+        / imagery_slots
+        if imagery_slots
+        else 0.0
+    )
+    age_score = (
+        math.fsum(_age_component(age, config) for age in image_ages) / len(image_ages)
+        if image_ages
+        else 0.0
+    )
+    requested_values = tuple(
+        value
+        for frame in usable
+        for value in frame.metrics.model_dump().values()
+    )
+    completeness_score = (
+        sum(value is not None for value in requested_values) / len(requested_values)
+        if requested_values
+        else 0.0
+    )
+    components = StreetContextConfidenceComponents(
+        usable_views=usable_score,
+        imagery_availability=imagery_score,
+        imagery_age=age_score,
+        segmentation_completeness=completeness_score,
+    )
+    weights = config.confidence_weights
+    score = (
+        components.usable_views * weights.usable_views
+        + components.imagery_availability * weights.imagery_availability
+        + components.imagery_age * weights.imagery_age
+        + components.segmentation_completeness * weights.segmentation_completeness
+    )
+    return StreetContextConfidence(
+        score=round(score, 6),
+        usable_view_count=len(usable),
+        oldest_image_age_days=max(image_ages, default=0),
+        components=components,
+    )
+
+
 def _extract_frame(
     direction: StreetViewDirection,
     frame: StreetViewFrame,
@@ -136,6 +280,8 @@ def _extract_frame(
     return ExtractedStreetViewFrame(
         direction=direction,
         image_date=frame.image_date,
+        original_image_available=bool(frame.original_image.strip()),
+        segmented_image_available=bool(frame.segmented_image.strip()),
         segments=tuple(
             ExtractedSegment(label=label, percentage=percentage)
             for label, percentage in sorted(normalized.items())
@@ -153,6 +299,8 @@ def _extract_frame(
 
 def extract_street_view_features(
     payload: Mapping[str, object],
+    *,
+    config: StreetViewEvidenceConfig | None = None,
 ) -> ExtractedStreetViewFeatures:
     """Extract deterministic, image-free features from a completed cached response."""
 
@@ -166,6 +314,8 @@ def extract_street_view_features(
         raise ValueError("completed cached Street View response is missing result")
 
     result = StreetViewResult.model_validate(raw_result)
+    retrieved_date = _parse_retrieved_date(payload.get("retrieved_at"))
+    active_config = config or load_streetview_evidence_config()
     frames = [_extract_frame(StreetViewDirection.FRONT, result.front)]
     if result.back is not None:
         frames.append(_extract_frame(StreetViewDirection.BACK, result.back))
@@ -175,4 +325,9 @@ def extract_street_view_features(
         coordinates=result.coordinates,
         frames=normalized_frames,
         aggregate=_aggregate_frames(normalized_frames),
+        street_context_confidence=_confidence(
+            normalized_frames,
+            retrieved_date,
+            active_config,
+        ),
     )

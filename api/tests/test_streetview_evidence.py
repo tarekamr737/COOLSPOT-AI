@@ -24,6 +24,7 @@ def _payload() -> dict[str, object]:
     return {
         "site_id": "metro-stop:10794",
         "status": "Completed",
+        "retrieved_at": "2026-08-22T16:33:01+00:00",
         "result": {
             "coordinates": {"latitude": 34.273715, "longitude": -118.411903},
             "front": _frame({"tree": 13.1, "road": 26.93, "sky": 31.57}),
@@ -56,8 +57,8 @@ def test_extractor_is_compact_and_deterministic() -> None:
     ]
     serialized = extracted.model_dump_json()
     assert "base64" not in serialized
-    assert "original_image" not in serialized
-    assert "segmented_image" not in serialized
+    assert '"original_image":' not in serialized
+    assert '"segmented_image":' not in serialized
 
 
 def test_extractor_derives_only_exact_per_view_metrics() -> None:
@@ -125,6 +126,53 @@ def test_front_and_back_aggregation_uses_only_observed_values() -> None:
     assert aggregate.contributing_views.tree_pct == 2
     assert aggregate.contributing_views.sky_pct == 1
     assert aggregate.contributing_views.grass_pct == 0
+
+
+def test_context_confidence_uses_views_images_age_and_completeness() -> None:
+    payload = _payload()
+    result = payload["result"]
+    assert isinstance(result, dict)
+    for direction in ("front", "back"):
+        frame = result[direction]
+        assert isinstance(frame, dict)
+        frame["segments"] = {
+            "tree": 10.0,
+            "grass": 10.0,
+            "sky": 20.0,
+            "road": 30.0,
+            "sidewalk": 20.0,
+            "building": 10.0,
+        }
+
+    confidence = extract_street_view_features(payload).street_context_confidence
+
+    assert confidence.score == 1
+    assert confidence.usable_view_count == 2
+    assert confidence.components.model_dump() == {
+        "usable_views": 1.0,
+        "imagery_availability": 1.0,
+        "imagery_age": 1.0,
+        "segmentation_completeness": 1.0,
+    }
+
+
+def test_incomplete_single_view_has_lower_context_confidence() -> None:
+    payload = _payload()
+    result = payload["result"]
+    assert isinstance(result, dict)
+    result["back"] = None
+    front = result["front"]
+    assert isinstance(front, dict)
+    front["original_image"] = ""
+    front["segments"] = {"road": 60.0}
+
+    confidence = extract_street_view_features(payload).street_context_confidence
+
+    assert 0 <= confidence.score < 1
+    assert confidence.usable_view_count == 1
+    assert confidence.components.usable_views == 0.5
+    assert confidence.components.imagery_availability == 0.5
+    assert confidence.components.segmentation_completeness == pytest.approx(1 / 6)
 
 
 def test_extractor_rejects_non_completed_cached_response() -> None:
