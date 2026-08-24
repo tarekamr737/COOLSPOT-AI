@@ -108,7 +108,7 @@ heat_score =
 
 - [x] Add/validate `analytic_type=time_of_measure`.
 - [x] Measure request credit cost before any repeated request.
-- [ ] Cache one real Pacoima result if supported by the hackathon key.
+- [x] Cache one real Pacoima result if supported by the hackathon key.
 - [ ] Store peak-hour context per tile/site.
 - [ ] Use it for explanation/context only unless strong evidence justifies scoring.
 - [ ] Never imply that peak temperature time equals peak pedestrian volume.

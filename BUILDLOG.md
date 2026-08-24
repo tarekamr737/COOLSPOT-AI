@@ -239,3 +239,6 @@
   before live work and was replaced with the computed canonical hash. One governed Pacoima request
   then completed as activity `eaa617ad-07b3-47db-9094-faa26c8eeb79` at `4,220` credits, leaving
   `1,802,680`; the journal, raw cache, ledger, and committed report prevent repeated submission.
+- The real time-of-measure layer contains only integer UTC values `3` and `17` across 2,001 tiles.
+  The committed artifact preserves these vendor values exactly, validates their domain and spatial
+  alignment, and does not interpolate or infer a smoother peak-time pattern.

@@ -636,6 +636,10 @@
 - Result proof: the cached terminal record is `3,938,405` bytes with 2,001 features and `hour`
   units; aggregate values span UTC hours 3 through 17. The committed secret-free measurement report
   is validated as a no-resubmission marker before environment or client initialization.
-- Automated proof: full backend Pytest returns `85 passed`; Ruff passes; strict Mypy passes across
-  `63` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
+- Committed-cache proof: `data/processed/pacoima_fortyguard_time_of_measure.json` is a deterministic,
+  typed `1,947,712`-byte artifact containing all 2,001 spatially aligned tiles, the exact activity,
+  request hash, UTC timezone, analysis date, observed cost, and source metadata. All tile values are
+  complete integer hours in `[0,23]`; the real result contains only hours 03:00 and 17:00.
+- Automated proof: full backend Pytest returns `86 passed`; Ruff passes; strict Mypy passes across
+  `65` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
   contract test skipped), and the production Next.js build completes successfully.
