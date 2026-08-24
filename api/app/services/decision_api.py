@@ -40,6 +40,10 @@ from api.app.services.heatmap_data import PacoimaHeatmapArtifact, load_heatmap_a
 from api.app.services.interventions import InterventionCatalog, load_intervention_catalog
 from api.app.services.optimizer import load_optimizer_config
 from api.app.services.processed_data import ProcessedPublicData, load_processed_fixture
+from api.app.services.streetview_evidence import (
+    StreetViewEvidenceArtifact,
+    load_street_view_evidence_artifact,
+)
 from api.app.settings import load_project_env
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -60,6 +64,7 @@ def clear_decision_caches() -> None:
         _catalog,
         _public_data,
         _capabilities,
+        _street_view_evidence,
     )
     for loader in loaders:
         loader.cache_clear()
@@ -98,6 +103,11 @@ def _public_data() -> ProcessedPublicData:
 @lru_cache(maxsize=1)
 def _capabilities() -> CapabilityManifest:
     return load_capabilities()
+
+
+@lru_cache(maxsize=1)
+def _street_view_evidence() -> StreetViewEvidenceArtifact:
+    return load_street_view_evidence_artifact()
 
 
 def pilot_response() -> PilotResponse:
@@ -209,10 +219,14 @@ def site_response(site_id: str) -> SiteResponse | None:
         return None
     tiles = {tile.tile_id: tile for tile in _features().tiles}
     catalog = _catalog()
+    street_evidence = {
+        site.site_id: site for site in _street_view_evidence().sites
+    }.get(site_id)
     return SiteResponse(
         site_id=site_id,
         site_name=candidates[0].site_name,
         geometry=candidates[0].geometry,
+        street_view_evidence=street_evidence,
         options=tuple(
             SiteOption(
                 candidate=candidate,

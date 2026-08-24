@@ -200,3 +200,7 @@
   permits heat, persistence, published transit exposure, and exact-site tree/sky context; trees add
   public-site compatibility and optional vegetation/environment context; cool pavement cannot
   become operational without verified public paved geometry.
+- The site API exposes the committed normalized Street View record rather than reading raw Base64
+  imagery into the evidence drawer. The drawer distinguishes observed vendor percentages from
+  derived confidence and shade-screening scores; unmatched sites return a visible neutral fallback,
+  and no camera-derived value is presented as construction feasibility.

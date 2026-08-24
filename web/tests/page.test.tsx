@@ -55,6 +55,11 @@ describe("Home", () => {
     expect(screen.getByText(/Fetch recent FortyGuard evidence/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Confirm live refresh" })).toBeDisabled();
     expect(screen.getByText(/not a temperature forecast or guaranteed outcome/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Observed inputs and derivation" })).toBeInTheDocument();
+    expect(screen.getByText("43.5%")).toBeInTheDocument();
+    expect(screen.getByText("Street context confidence").nextElementSibling).toHaveTextContent("0.792");
+    expect(screen.getByText("Shade opportunity screen").nextElementSibling).toHaveTextContent("0.565");
+    expect(screen.getByText(/does not prove all-day shade/i)).toBeInTheDocument();
     expect(screen.getByText("Methodology & limitations")).toBeInTheDocument();
     expect(screen.getByRole("region", { name: "Interactive Pacoima heat layer map" })).toBeInTheDocument();
   });

@@ -18,7 +18,7 @@ export const candidates = Array.from({ length: 20 }, (_, index) => ({
   benefit_score: 0.84 - index * 0.01,
   equity_score: 0.62,
   feasibility_score: 0.5,
-  confidence: 0.5,
+  confidence: index === 0 ? 0.791667 : 0.5,
   evidence: ["observed_heat", "exposure", "vulnerability", "applicability", "planning_assumption"].map((kind) => ({
     kind,
     statement: `${kind.replaceAll("_", " ")} evidence for this screened Pacoima candidate.`,
@@ -134,6 +134,41 @@ export function site(index = 0) {
     site_id: candidates[index].site_id,
     site_name: candidates[index].site_name,
     geometry,
+    street_view_evidence: index === 0 ? {
+      site_id: candidates[index].site_id,
+      coordinates: { latitude: 34.273715, longitude: -118.411903 },
+      frames: [{
+        direction: "front",
+        image_date: "2024-10-01",
+        original_image_available: true,
+        segmented_image_available: true,
+        segments: [
+          { label: "building", percentage: 6.53 },
+          { label: "road", percentage: 40.33 },
+          { label: "sky", percentage: 43.47 },
+          { label: "tree", percentage: 0.65 },
+        ],
+        metrics: { tree_pct: 0.65, grass_pct: null, sky_pct: 43.47, road_pct: 40.33, sidewalk_pct: null, building_pct: 6.53 },
+      }],
+      aggregate: {
+        view_count: 1,
+        metrics: { tree_pct: 0.65, grass_pct: null, sky_pct: 43.47, road_pct: 40.33, sidewalk_pct: null, building_pct: 6.53 },
+        contributing_views: { tree_pct: 1, grass_pct: 0, sky_pct: 1, road_pct: 1, sidewalk_pct: 0, building_pct: 1 },
+      },
+      street_context_confidence: {
+        score: 0.791667,
+        usable_view_count: 1,
+        oldest_image_age_days: 690,
+        components: { usable_views: 0.5, imagery_availability: 1, imagery_age: 1, segmentation_completeness: 0.666667 },
+      },
+      shade_intervention_evidence: {
+        score: 0.565329,
+        open_sky_context: 0.4347,
+        low_tree_context: 0.9935,
+        street_context_confidence: 0.791667,
+        limitation: "Street View segmentation is screening evidence. It does not prove all-day shade, right-of-way, or construction feasibility.",
+      },
+    } : null,
     options: [{
       candidate: candidates[index],
       tile: {

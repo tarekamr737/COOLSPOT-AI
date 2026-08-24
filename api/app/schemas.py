@@ -21,6 +21,7 @@ from api.app.services.interventions import (
 )
 from api.app.services.optimizer import OptimizerConfig
 from api.app.services.processed_data import FixtureGeometry
+from api.app.services.streetview_evidence import ExtractedStreetViewFeatures
 
 
 class HealthResponse(BaseModel):
@@ -177,6 +178,7 @@ class SiteResponse(BaseModel):
     site_id: str
     site_name: str
     geometry: FixtureGeometry
+    street_view_evidence: ExtractedStreetViewFeatures | None = None
     options: tuple[SiteOption, ...] = Field(min_length=1)
 
 

@@ -34,6 +34,10 @@ function impact(candidate: Candidate) {
   return candidate.benefit_score * candidate.feasibility_score * candidate.confidence;
 }
 
+function percentage(value: number | null) {
+  return value === null ? "Not observed" : `${value.toFixed(1)}%`;
+}
+
 function interventionLabel(value: Candidate["intervention_type"]) {
   return value.split("_").map((word) => word[0]?.toUpperCase() + word.slice(1)).join(" ");
 }
@@ -204,6 +208,29 @@ function MapWorkspace({ budget, data, layer, activeLayer, layerLoading, optimizi
 
 type EvidencePanelProps = { candidate: Candidate; site: Site; methodology: Methodology; explanationMode: DataStatus["explanation_mode"]; siteLoading: boolean; explanation?: Explanation; explanationLoading: boolean; explanationError: string | null; onExplain: () => void };
 
+const streetMetricLabels = [
+  ["tree_pct", "Tree"],
+  ["grass_pct", "Grass"],
+  ["sky_pct", "Sky"],
+  ["road_pct", "Road"],
+  ["sidewalk_pct", "Sidewalk"],
+  ["building_pct", "Building"],
+] as const;
+
+function StreetEvidenceSummary({ evidence, interventionType }: { evidence: Site["street_view_evidence"]; interventionType: Candidate["intervention_type"] }) {
+  if (!evidence) {
+    return <section className={styles.streetEvidenceSection} aria-labelledby="street-evidence-title"><div className={styles.streetEvidenceHeading}><div><p className={styles.eyebrow}>Street screening evidence</p><h3 id="street-evidence-title">No exact-site record</h3></div><span>Neutral fallback</span></div><p className={styles.streetEvidenceEmpty}>No normalized Street View evidence is attached to this site. Its confidence remains the disclosed unverified baseline.</p></section>;
+  }
+  const { aggregate, frames, shade_intervention_evidence: shade, street_context_confidence: confidence } = evidence;
+  return <section className={styles.streetEvidenceSection} aria-labelledby="street-evidence-title">
+    <div className={styles.streetEvidenceHeading}><div><p className={styles.eyebrow}>Street screening evidence</p><h3 id="street-evidence-title">Observed inputs and derivation</h3></div><span>{confidence.usable_view_count} exact-site view{confidence.usable_view_count === 1 ? "" : "s"}</span></div>
+    <p className={styles.streetEvidenceProvenance}>Image {frames.map((frame) => `${frame.direction} ${formatDate(frame.image_date)}`).join(" · ")} · {evidence.coordinates.latitude.toFixed(5)}, {evidence.coordinates.longitude.toFixed(5)} · <a href="https://docs-api.fortyguard.com/docs/street-view-segmentation" rel="noreferrer" target="_blank">FortyGuard source</a></p>
+    <div className={styles.streetEvidenceGroup}><h4>Observed segmentation</h4><dl className={styles.streetMetricGrid}>{streetMetricLabels.map(([key, label]) => <div key={key}><dt>{label}</dt><dd>{percentage(aggregate.metrics[key])}</dd></div>)}</dl><p>Equal-weight mean of {aggregate.view_count} observed camera view{aggregate.view_count === 1 ? "" : "s"}. Missing categories stay missing.</p></div>
+    <div className={styles.streetEvidenceGroup}><h4>Derived screening</h4><dl className={styles.derivedEvidenceList}><div><dt>Street context confidence</dt><dd>{confidence.score.toFixed(3)}</dd></div>{interventionType === "shade_structure" ? <div><dt>Shade opportunity screen</dt><dd>{shade.score.toFixed(3)}</dd></div> : null}<div><dt>Usable views component</dt><dd>{confidence.components.usable_views.toFixed(3)}</dd></div><div><dt>Imagery availability</dt><dd>{confidence.components.imagery_availability.toFixed(3)}</dd></div><div><dt>Imagery age</dt><dd>{confidence.components.imagery_age.toFixed(3)}</dd></div><div><dt>Segmentation completeness</dt><dd>{confidence.components.segmentation_completeness.toFixed(3)}</dd></div></dl>{interventionType === "shade_structure" ? <p>Shade screen inputs: {(shade.open_sky_context ?? 0).toFixed(3)} open-sky context and {(shade.low_tree_context ?? 0).toFixed(3)} low-tree context, adjusted by evidence confidence.</p> : <p>The Street View record changes evidence confidence only. It does not add a suitability score for this intervention.</p>}</div>
+    <p className={styles.streetEvidenceLimit}>{shade.limitation}</p>
+  </section>;
+}
+
 function EvidencePanel({ candidate, site, methodology, explanationMode, siteLoading, explanation, explanationLoading, explanationError, onExplain }: EvidencePanelProps) {
   const option = site.options.find((item) => item.candidate.id === candidate.id) ?? site.options[0];
   const { tile, intervention } = option;
@@ -214,8 +241,9 @@ function EvidencePanel({ candidate, site, methodology, explanationMode, siteLoad
     <div className={styles.interventionCallout}><p>Pacoima / Los Angeles price reference</p><h3>{intervention.label}</h3><div><span>{currency.format(intervention.planning_cost.estimate_usd)} planning allowance</span><span>{compactCurrency(intervention.planning_cost.low_usd)}–{compactCurrency(intervention.planning_cost.high_usd)} range</span></div><p className={styles.priceBasis}>{intervention.planning_cost.unit}. {intervention.planning_cost.basis}</p>{sources.filter((source) => intervention.planning_cost.source_ids.includes(source.id)).map((source) => <a href={source.url} key={source.id} rel="noreferrer" target="_blank">Price basis: {source.publisher}</a>)}</div>
     <section className={styles.impactSection}><div><p className={styles.eyebrow}>Modeled impact score</p><strong>{impact(candidate).toFixed(3)}</strong></div><p>Relative planning score from cached evidence and screening assumptions. It is not a temperature forecast or guaranteed outcome.</p></section>
     <dl className={styles.evidenceList}><div><dt>Observed heat</dt><dd>{tile.heat.average_temperature_c.toFixed(2)} °C tile average</dd></div><div><dt>Heat persistence</dt><dd>{tile.heat.persistence_hours.toFixed(2)} hours</dd></div><div><dt>Published patronage activity</dt><dd>{tile.exposure.published_patronage_activity?.toFixed(2) ?? "Not available"}</dd></div><div><dt>Vulnerability context</dt><dd>{tile.scores.vulnerability.toFixed(3)} modeled score</dd></div></dl>
+    <StreetEvidenceSummary evidence={site.street_view_evidence} interventionType={candidate.intervention_type} />
     <details className={styles.scoreBreakdown}><summary>How the priority score is calculated</summary><dl>{Object.entries(tile.scores).map(([name, value]) => <div key={name}><dt>{name.replaceAll("_", " ")}</dt><dd>{value.toFixed(3)}{methodology.scoring.priority_weights[name] !== undefined ? ` · ${(methodology.scoring.priority_weights[name] * 100).toFixed(0)}% weight` : ""}</dd></div>)}</dl><p>Observed and published inputs are normalized to 0–1, then combined with the published weights. The intervention impact also applies feasibility and confidence screening.</p></details>
-    <section className={styles.confidenceSection}><div className={styles.confidenceHeading}><span>Evidence confidence</span><strong>Unverified screening · {candidate.confidence.toFixed(1)}</strong></div><div className={styles.confidenceTrack} aria-label={`Confidence score ${candidate.confidence} out of 1`}><span style={{ width: `${candidate.confidence * 100}%` }} /></div><p>{intervention.uncertainty.summary}</p></section>
+    <section className={styles.confidenceSection}><div className={styles.confidenceHeading}><span>Evidence confidence</span><strong>{site.street_view_evidence ? "Exact-site street screen" : "Unverified screening"} · {candidate.confidence.toFixed(3)}</strong></div><div className={styles.confidenceTrack} aria-label={`Confidence score ${candidate.confidence} out of 1`}><span style={{ width: `${candidate.confidence * 100}%` }} /></div><p>{intervention.uncertainty.summary}</p></section>
     <section className={styles.explanationSection} aria-labelledby="explanation-title">
       <div className={styles.explanationHeading}><div><p className={styles.eyebrow}>AI evidence assistant</p><h3 id="explanation-title">Why this site?</h3></div><button disabled={explanationLoading || siteLoading} onClick={onExplain} type="button">{explanationLoading ? "Explaining…" : explanation && explanationMode === "openrouter" ? "Run AI again" : explanation ? "Refresh explanation" : "Ask AI"}</button></div>
       <p className={styles.aiBoundary}>The AI explains the selected result. It never ranks sites or adds evidence.</p>

@@ -51,6 +51,19 @@ def test_pilot_layers_candidates_site_and_methodology_routes() -> None:
     assert site.options[0].candidate.id == first.id
     assert site.options[0].tile.tile_id == first.tile_id
     assert site.options[0].intervention.id == first.intervention_type
+    assert site.street_view_evidence is None
+
+    evidenced_site_response = client.get("/v1/sites/metro-stop%3A10794")
+    assert evidenced_site_response.status_code == 200
+    evidenced_site = SiteResponse.model_validate(evidenced_site_response.json())
+    assert evidenced_site.street_view_evidence is not None
+    street_evidence = evidenced_site.street_view_evidence
+    assert street_evidence.site_id == evidenced_site.site_id
+    assert street_evidence.frames[0].image_date.isoformat() == "2024-10-01"
+    assert street_evidence.aggregate.metrics.sky_pct == 43.47
+    assert street_evidence.aggregate.metrics.grass_pct is None
+    assert street_evidence.street_context_confidence.score == 0.791667
+    assert street_evidence.shade_intervention_evidence.score == 0.565329
 
     methodology_response = client.get("/v1/methodology")
     assert methodology_response.status_code == 200

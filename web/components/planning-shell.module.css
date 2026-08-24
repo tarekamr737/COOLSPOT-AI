@@ -1290,6 +1290,110 @@
   border-bottom: 1px solid var(--outline-variant);
 }
 
+.streetEvidenceSection {
+  margin: 0 1.25rem 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--outline-variant);
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.streetEvidenceHeading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.streetEvidenceHeading h3 {
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.streetEvidenceHeading > span {
+  color: var(--secondary);
+  font-family: var(--font-data);
+  font-size: 0.625rem;
+  text-align: right;
+}
+
+.streetEvidenceProvenance,
+.streetEvidenceGroup > p,
+.streetEvidenceEmpty,
+.streetEvidenceLimit {
+  color: var(--on-surface-muted);
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.streetEvidenceProvenance {
+  margin-top: 0.6rem;
+}
+
+.streetEvidenceProvenance a {
+  color: var(--secondary);
+}
+
+.streetEvidenceGroup {
+  margin-top: 0.9rem;
+}
+
+.streetEvidenceGroup h4 {
+  margin: 0 0 0.45rem;
+  color: var(--on-surface);
+  font-family: var(--font-data);
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.streetMetricGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin: 0;
+  background: var(--outline-variant);
+}
+
+.streetMetricGrid div {
+  min-width: 0;
+  padding: 0.5rem;
+  background: var(--surface-low);
+}
+
+.streetMetricGrid dt,
+.derivedEvidenceList dt {
+  color: var(--on-surface-muted);
+  font-size: 0.625rem;
+}
+
+.streetMetricGrid dd,
+.derivedEvidenceList dd {
+  margin: 0.2rem 0 0;
+  color: var(--on-surface);
+  font-family: var(--font-data);
+  font-size: 0.7rem;
+}
+
+.derivedEvidenceList {
+  margin: 0;
+}
+
+.derivedEvidenceList div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.3rem 0;
+}
+
+.derivedEvidenceList dd {
+  margin: 0;
+}
+
+.streetEvidenceLimit {
+  margin-top: 0.9rem;
+  color: var(--cached);
+}
+
 .scoreBreakdown summary {
   color: var(--secondary);
   font-family: var(--font-data);

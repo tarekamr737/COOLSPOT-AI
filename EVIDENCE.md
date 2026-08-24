@@ -559,3 +559,26 @@
   segmentation, stale imagery, view-order determinism, artifact regeneration, score bounds, and
   limitation retention. Full backend Pytest returns `69 passed`; Ruff passes; strict Mypy passes
   across `42` source files.
+
+## Candidate confidence is evidence-specific and visible
+
+- Candidate proof: the 20 exact-site Street View records replace the neutral `0.5` confidence with
+  deterministic values from `0.688` to `0.875`; the other 132 candidates retain `0.5`. Feasibility
+  remains the explicit unverified `0.5` because imagery does not establish right-of-way, utilities,
+  safety, or constructability. Tests enforce the exact-site match and the neutral fallback.
+- Rule proof: versioned candidate configuration names the exact-site confidence rule, while
+  versioned intervention configuration declares the suitability inputs and feasibility gates for
+  shade structures, tree canopy, and cool pavement. Cool pavement cannot become operational until
+  verified public paved geometry exists.
+- Traceability proof: every non-neutral candidate includes one Street View evidence record with
+  image dates, usable-view count, all four component scores, derived confidence, artifact source,
+  and the screening limitation. At least two verified sites have different scores for these
+  explainable input differences.
+- API/UI proof: `GET /v1/sites/{site_id}` returns the exact image-free frames, six named
+  segmentation percentages, aggregate view coverage, confidence components, and shade-screening
+  derivation when available, otherwise `null`. The selected-site drawer separates observed inputs
+  from derived screening values, links the FortyGuard source, and keeps the field-verification
+  limitation visible.
+- Automated proof: full backend Pytest returns `74 passed`; Ruff passes; strict Mypy passes across
+  `43` source files. Frontend lint, strict TypeScript, and all `7` Vitest tests pass (`1` opt-in
+  contract test skipped); the production Next build completes successfully.
