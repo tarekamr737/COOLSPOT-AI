@@ -83,6 +83,12 @@ const thermalStressContextSchema = z.object({
     path: z.string().min(1),
     sha256: z.string().regex(/^[0-9a-f]{64}$/),
   }),
+  evidence_confidence: z.object({
+    assessment: z.literal("source_complete"),
+    configured_fields_present: z.literal("3 of 3"),
+    basis: z.string().min(1),
+    limitation: z.string().min(1),
+  }),
 });
 
 export const candidateSchema = z.object({

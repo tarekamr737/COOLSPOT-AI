@@ -76,6 +76,17 @@ class EnvironmentalSourceArtifact(BaseModel):
     sha256: str = Field(pattern=SHA256_PATTERN)
 
 
+class EnvironmentalEvidenceConfidence(BaseModel):
+    """Source completeness assessment, never outcome or medical confidence."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    assessment: Literal["source_complete"] = "source_complete"
+    configured_fields_present: Literal["3 of 3"] = "3 of 3"
+    basis: str = Field(min_length=60)
+    limitation: str = Field(min_length=60)
+
+
 class FinalistEnvironmentalEvidence(BaseModel):
     """Three raw vendor values normalized into stable application fields."""
 
@@ -98,6 +109,7 @@ class FinalistEnvironmentalEvidence(BaseModel):
     request_hash: str = Field(pattern=SHA256_PATTERN)
     activity_id: str = Field(pattern=ACTIVITY_ID_PATTERN)
     source_artifact: EnvironmentalSourceArtifact
+    evidence_confidence: EnvironmentalEvidenceConfidence
 
 
 class PacoimaEnvironmentalEvidenceArtifact(BaseModel):
@@ -191,6 +203,16 @@ def build_environmental_evidence(
                 source_artifact=EnvironmentalSourceArtifact(
                     path=path.relative_to(ROOT).as_posix(),
                     sha256=hashlib.sha256(source_bytes).hexdigest(),
+                ),
+                evidence_confidence=EnvironmentalEvidenceConfidence(
+                    basis=(
+                        "All three configured fields are present in the exact completed "
+                        "FortyGuard request/activity response for this finalist."
+                    ),
+                    limitation=(
+                        "Source completeness does not establish medical risk, individual "
+                        "exposure, intervention feasibility, or a guaranteed cooling outcome."
+                    ),
                 ),
             )
         )

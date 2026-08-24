@@ -82,6 +82,12 @@ def test_real_candidates_are_complete_compatible_and_traceable() -> None:
         or candidate.thermal_stress_context.site_id == candidate.site_id
         for candidate in artifact.candidates
     )
+    assert all(
+        candidate.thermal_stress_context is None
+        or candidate.thermal_stress_context.evidence_confidence.assessment
+        == "source_complete"
+        for candidate in artifact.candidates
+    )
 
 
 def test_candidate_confidence_rules_are_versioned_and_exact_site_only() -> None:

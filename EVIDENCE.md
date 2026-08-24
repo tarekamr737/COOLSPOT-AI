@@ -654,8 +654,8 @@
   artifact SHA-256, measured cost, source link, and claim limitation. The selected-site drawer shows
   the concise label `Peak heat observed around` with a zero-padded `HH:00 UTC` value and date; its
   expandable provenance repeats that this is not evidence of peak pedestrian volume.
-- Automated proof: full backend Pytest returns `98 passed`; Ruff passes; strict Mypy passes across
-  `71` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
+- Automated proof: full backend Pytest returns `99 passed`; Ruff passes; strict Mypy passes across
+  `73` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
   contract test skipped), and the production Next.js build completes successfully.
 
 ## FortyGuard environmental parameters are runtime-confirmed
@@ -713,6 +713,13 @@
   and rejects an injected `medical_risk_score` as an extra field. Tests also reject any normalized
   environmental field name containing `score` or `risk`; limitations explicitly state that the
   evidence is not a medical-risk classification or individual health-effect estimate.
+- Confidence proof: every finalist context computes a separate categorical `source_complete`
+  assessment only after all 3 configured fields, exact request/activity IDs, and source artifact
+  validate. Its basis and limitation travel with candidate/site responses. It is not a probability,
+  accuracy claim, medical confidence, or intervention-outcome confidence.
+- Optimizer isolation proof: environmental source completeness does not modify the existing
+  feasibility/confidence scalars. Full optimizer regressions preserve the deterministic portfolios;
+  this avoids treating a complete modeled response as proof that a site is constructible.
 - Cache proof: `data/processed/fortyguard_env_params_probe.json` validates the exact one-location,
   one-timestamp response, request, result, source, limitations, and balanced credit counters without
   containing the API key. Re-running the workflow returns this report before initializing a client.

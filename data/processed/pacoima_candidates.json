@@ -877,6 +877,12 @@
         "apparent_temperature_c": 35.3,
         "candidate_id": "shade_structure:metro-stop:10787",
         "clear_sky_ghi_vendor_value": 779.44,
+        "evidence_confidence": {
+          "assessment": "source_complete",
+          "basis": "All three configured fields are present in the exact completed FortyGuard request/activity response for this finalist.",
+          "configured_fields_present": "3 of 3",
+          "limitation": "Source completeness does not establish medical risk, individual exposure, intervention feasibility, or a guaranteed cooling outcome."
+        },
         "finalist_rank": 4,
         "latitude": 34.270733,
         "longitude": -118.40875,
@@ -1044,6 +1050,12 @@
         "apparent_temperature_c": 35.3,
         "candidate_id": "shade_structure:metro-stop:10795",
         "clear_sky_ghi_vendor_value": 789.13,
+        "evidence_confidence": {
+          "assessment": "source_complete",
+          "basis": "All three configured fields are present in the exact completed FortyGuard request/activity response for this finalist.",
+          "configured_fields_present": "3 of 3",
+          "limitation": "Source completeness does not establish medical risk, individual exposure, intervention feasibility, or a guaranteed cooling outcome."
+        },
         "finalist_rank": 9,
         "latitude": 34.282345,
         "longitude": -118.421045,
@@ -2671,6 +2683,12 @@
         "apparent_temperature_c": 35.3,
         "candidate_id": "shade_structure:metro-stop:142066",
         "clear_sky_ghi_vendor_value": 779.44,
+        "evidence_confidence": {
+          "assessment": "source_complete",
+          "basis": "All three configured fields are present in the exact completed FortyGuard request/activity response for this finalist.",
+          "configured_fields_present": "3 of 3",
+          "limitation": "Source completeness does not establish medical risk, individual exposure, intervention feasibility, or a guaranteed cooling outcome."
+        },
         "finalist_rank": 10,
         "latitude": 34.274151,
         "longitude": -118.411279,
@@ -3568,6 +3586,12 @@
         "apparent_temperature_c": 36.2,
         "candidate_id": "shade_structure:metro-stop:15139",
         "clear_sky_ghi_vendor_value": 789.33,
+        "evidence_confidence": {
+          "assessment": "source_complete",
+          "basis": "All three configured fields are present in the exact completed FortyGuard request/activity response for this finalist.",
+          "configured_fields_present": "3 of 3",
+          "limitation": "Source completeness does not establish medical risk, individual exposure, intervention feasibility, or a guaranteed cooling outcome."
+        },
         "finalist_rank": 6,
         "latitude": 34.261356,
         "longitude": -118.42881,
@@ -4903,6 +4927,12 @@
         "apparent_temperature_c": 35.3,
         "candidate_id": "shade_structure:metro-stop:2251",
         "clear_sky_ghi_vendor_value": 779.44,
+        "evidence_confidence": {
+          "assessment": "source_complete",
+          "basis": "All three configured fields are present in the exact completed FortyGuard request/activity response for this finalist.",
+          "configured_fields_present": "3 of 3",
+          "limitation": "Source completeness does not establish medical risk, individual exposure, intervention feasibility, or a guaranteed cooling outcome."
+        },
         "finalist_rank": 5,
         "latitude": 34.271,
         "longitude": -118.408629,
@@ -6019,6 +6049,12 @@
         "apparent_temperature_c": 36.2,
         "candidate_id": "shade_structure:metro-stop:364",
         "clear_sky_ghi_vendor_value": 789.38,
+        "evidence_confidence": {
+          "assessment": "source_complete",
+          "basis": "All three configured fields are present in the exact completed FortyGuard request/activity response for this finalist.",
+          "configured_fields_present": "3 of 3",
+          "limitation": "Source completeness does not establish medical risk, individual exposure, intervention feasibility, or a guaranteed cooling outcome."
+        },
         "finalist_rank": 7,
         "latitude": 34.264744,
         "longitude": -118.43824,
@@ -7719,6 +7755,12 @@
         "apparent_temperature_c": 35.3,
         "candidate_id": "shade_structure:metro-stop:6788",
         "clear_sky_ghi_vendor_value": 779.49,
+        "evidence_confidence": {
+          "assessment": "source_complete",
+          "basis": "All three configured fields are present in the exact completed FortyGuard request/activity response for this finalist.",
+          "configured_fields_present": "3 of 3",
+          "limitation": "Source completeness does not establish medical risk, individual exposure, intervention feasibility, or a guaranteed cooling outcome."
+        },
         "finalist_rank": 1,
         "latitude": 34.271105,
         "longitude": -118.414991,
@@ -8967,6 +9009,12 @@
         "apparent_temperature_c": 36.2,
         "candidate_id": "tree_canopy:park:353",
         "clear_sky_ghi_vendor_value": 789.39,
+        "evidence_confidence": {
+          "assessment": "source_complete",
+          "basis": "All three configured fields are present in the exact completed FortyGuard request/activity response for this finalist.",
+          "configured_fields_present": "3 of 3",
+          "limitation": "Source completeness does not establish medical risk, individual exposure, intervention feasibility, or a guaranteed cooling outcome."
+        },
         "finalist_rank": 3,
         "latitude": 34.26479312522725,
         "longitude": -118.43921865633273,
@@ -9112,6 +9160,12 @@
         "apparent_temperature_c": 36.2,
         "candidate_id": "tree_canopy:park:388",
         "clear_sky_ghi_vendor_value": 789.38,
+        "evidence_confidence": {
+          "assessment": "source_complete",
+          "basis": "All three configured fields are present in the exact completed FortyGuard request/activity response for this finalist.",
+          "configured_fields_present": "3 of 3",
+          "limitation": "Source completeness does not establish medical risk, individual exposure, intervention feasibility, or a guaranteed cooling outcome."
+        },
         "finalist_rank": 8,
         "latitude": 34.26568196555755,
         "longitude": -118.4386405459496,
@@ -11845,6 +11899,12 @@
         "apparent_temperature_c": 35.3,
         "candidate_id": "tree_canopy:school:53",
         "clear_sky_ghi_vendor_value": 779.49,
+        "evidence_confidence": {
+          "assessment": "source_complete",
+          "basis": "All three configured fields are present in the exact completed FortyGuard request/activity response for this finalist.",
+          "configured_fields_present": "3 of 3",
+          "limitation": "Source completeness does not establish medical risk, individual exposure, intervention feasibility, or a guaranteed cooling outcome."
+        },
         "finalist_rank": 2,
         "latitude": 34.2709562471485,
         "longitude": -118.415050822736,
@@ -12278,7 +12338,7 @@
     {
       "id": "pacoima_environmental_evidence",
       "path": "data/processed/pacoima_environmental_evidence.json",
-      "sha256": "b3df71b1ae4d76470039ebb3016b0af23baa3c136bb059f714eb466b03e9485e"
+      "sha256": "0052d8bfb4c548ec30df5581821e6dcc6d29fa8ab6f2de0b89937f744c2cc56e"
     }
   ],
   "version": "1.0"

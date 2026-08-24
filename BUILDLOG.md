@@ -279,3 +279,6 @@
 - Thermal context is joined into candidates by exact `site_id` and stored as a separate nullable
   object. It is deliberately not appended to benefit, confidence, or feasibility inputs, preserving
   existing deterministic rankings while making the same evidence available in candidate/site APIs.
+- Environmental confidence is recomputed only as categorical source completeness (`3 of 3`
+  configured fields from the exact cached activity). Candidate intervention confidence remains
+  unchanged because environmental completeness does not verify right-of-way or constructability.
