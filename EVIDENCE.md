@@ -611,5 +611,10 @@
   sum to one, and are included in the feature table's scoring-config SHA-256. A functional test
   rebuilds all tiles with a temporary temperature-only preset, verifies every heat score follows
   that preset, and confirms scores differ from the committed default.
-- Automated proof: full backend Pytest returns `81 passed`; Ruff passes; strict Mypy passes across
-  `60` source files.
+- Ranking sensitivity proof: against the former 50% temperature / 50% persistence baseline, 103 of
+  152 candidate rank positions change and the maximum movement is 23 places. Portfolio membership
+  replacement is 40% at `$250k`, 10% at `$500k`, and 0% at `$1M`; the test therefore classifies the
+  smaller-budget effect as material at the predefined 10% decision threshold. This is a sensitivity
+  result, not a causal claim, because exceedance is dated 2024-07-15 while active layers are 2026.
+- Automated proof: full backend Pytest returns `82 passed`; Ruff passes; strict Mypy passes across
+  `61` source files.

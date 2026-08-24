@@ -223,3 +223,7 @@
   transform as other heat inputs, and records the separate artifact hash/date limitation. The
   explicit weighting task then adds it as 25% historical context alongside 40% temperature and 35%
   persistence; the model does not represent the mixed dates as contemporaneous observations.
+- Ranking materiality is defined at the planner's decision grain: at least 10% selected-site
+  replacement in any supported budget portfolio versus the former 50/50 heat baseline. The real
+  comparison clears that threshold for `$250k` and `$500k` but not `$1M`; it remains labeled a
+  mixed-period sensitivity result because freshness comparability limits stronger interpretation.
