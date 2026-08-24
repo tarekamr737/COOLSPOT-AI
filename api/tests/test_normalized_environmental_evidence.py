@@ -1,6 +1,10 @@
 """Tests for normalized finalist environmental evidence."""
 
+import pytest
+from pydantic import ValidationError
+
 from api.app.services.environmental_evidence import (
+    FinalistEnvironmentalEvidence,
     build_environmental_evidence,
     canonical_environmental_evidence_bytes,
     load_environmental_evidence,
@@ -30,3 +34,12 @@ def test_normalized_environmental_values_are_raw_context_not_scores() -> None:
     assert not any("score" in field_name for field_name in field_names)
     assert not any("risk" in field_name for field_name in field_names)
     assert all(site.source_artifact.sha256 for site in artifact.sites)
+
+
+def test_thermal_context_rejects_a_fabricated_medical_risk_score() -> None:
+    site = load_environmental_evidence().sites[0]
+    payload = site.model_dump(mode="json")
+    payload["medical_risk_score"] = 0.9
+
+    with pytest.raises(ValidationError, match="medical_risk_score"):
+        FinalistEnvironmentalEvidence.model_validate(payload)

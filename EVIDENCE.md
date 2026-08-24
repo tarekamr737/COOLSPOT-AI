@@ -709,6 +709,10 @@
   schemas without a separate runtime lookup.
 - Scoring isolation proof: the context is a nullable evidence field only. Candidate benefit,
   feasibility, confidence, objective coefficients, and deterministic portfolio code are unchanged.
+- Medical-claim guard proof: the strict thermal-context schema exposes only raw contextual values
+  and rejects an injected `medical_risk_score` as an extra field. Tests also reject any normalized
+  environmental field name containing `score` or `risk`; limitations explicitly state that the
+  evidence is not a medical-risk classification or individual health-effect estimate.
 - Cache proof: `data/processed/fortyguard_env_params_probe.json` validates the exact one-location,
   one-timestamp response, request, result, source, limitations, and balanced credit counters without
   containing the API key. Re-running the workflow returns this report before initializing a client.

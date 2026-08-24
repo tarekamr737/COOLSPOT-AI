@@ -135,7 +135,7 @@ Peak heat observed around: 15:00
 - [x] Cache every completed response.
 - [x] Persist normalized environmental evidence.
 - [x] Add `thermal_stress_context` to candidate/site evidence.
-- [ ] Do not fabricate a medical-risk score.
+- [x] Do not fabricate a medical-risk score.
 - [ ] Recompute evidence confidence where appropriate.
 
 **Acceptance:** selected finalists show point-level FortyGuard environmental context with source/date/limitations.
