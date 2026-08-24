@@ -905,6 +905,11 @@
   `FortyGuard credits: 0`. The budget regression still verifies that re-optimization makes no
   request to any FortyGuard URL; strict typecheck, zero-warning lint, and all eight active frontend
   tests pass.
+- Post-implementation Impeccable proof: the completed UI was re-audited against the loaded product
+  context and Impeccable guidance. The review confirms the map remains the sole fluid hero, the new
+  planning control uses a compact native select, evidence semantics are text-complete rather than
+  color-dependent, and existing responsive/reduced-motion/focus rules remain intact. It also found
+  the tour-dialog keyboard lifecycle as a concrete accessibility follow-up for the next task.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.

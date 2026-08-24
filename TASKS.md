@@ -309,7 +309,7 @@ Selected in 4/4 planning scenarios
   - `Field verification required`
 - [x] Keep map-first hierarchy.
 - [x] Keep budget recalculation visibly at `0 FortyGuard credits`.
-- [ ] Re-run Impeccable after implementation.
+- [x] Re-run Impeccable after implementation.
 - [ ] Fix accessibility, responsiveness, hierarchy, empty/error states, and keyboard navigation.
 
 **Acceptance:** a judge can understand why a site and intervention were selected in under 15 seconds.
