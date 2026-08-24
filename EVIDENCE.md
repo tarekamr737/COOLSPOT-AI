@@ -766,3 +766,7 @@
 - Intervention-aware portfolio regression: every configured budget is solved twice, once with the
   committed candidate order and once reversed. Results are identical, optimal, within budget, and
   site-exclusive after suitability enters the objective.
+- Intervention-evidence selection proof: a controlled optimizer regression holds priority (`0.8`),
+  cost (`$50,000`), feasibility (`1.0`), and confidence (`1.0`) equal for two distinct sites. With
+  one available slot, swapping only their suitability evidence (`0.9` versus `0.1`) swaps the
+  selected site; the full optimizer test module passes all 4 tests.

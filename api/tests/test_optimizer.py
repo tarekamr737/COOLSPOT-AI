@@ -6,6 +6,33 @@ from api.app.services.candidates import Candidate, load_candidates
 from api.app.services.optimizer import load_optimizer_config, optimize_portfolio
 
 
+def _candidate_with_suitability(candidate: Candidate, suitability: float) -> Candidate:
+    payload = candidate.model_dump(mode="json")
+    payload.update(
+        {
+            "planning_cost_usd": 50_000,
+            "benefit_score": 0.8,
+            "suitability_score": suitability,
+            "feasibility_score": 1.0,
+            "confidence": 1.0,
+        }
+    )
+    factors = payload["value_explanation"]["factors"]
+    factors.update(
+        {
+            "priority_score": 0.8,
+            "suitability_score": suitability,
+            "feasibility_score": 1.0,
+            "confidence_score": 1.0,
+        }
+    )
+    payload["value_explanation"]["modeled_benefit_score"] = 0.8 * suitability
+    payload["value_explanation"]["suitability_basis"] = [
+        f"Synthetic regression evidence sets suitability to {suitability:.1f}."
+    ]
+    return Candidate.model_validate(payload)
+
+
 def test_preset_portfolios_are_deterministic_feasible_and_site_exclusive() -> None:
     artifact = load_candidates()
     config = load_optimizer_config()
@@ -81,3 +108,19 @@ def test_custom_budget_bounds_fail_visibly() -> None:
         optimize_portfolio(config.custom_budget_min_usd - 1)
     with pytest.raises(ValueError, match="budget must be between"):
         optimize_portfolio(config.custom_budget_max_usd + 1)
+
+
+def test_intervention_evidence_can_change_portfolio_selection() -> None:
+    first, second = load_candidates().candidates[:2]
+    assert first.site_id != second.site_id
+
+    first_high = _candidate_with_suitability(first, 0.9)
+    second_low = _candidate_with_suitability(second, 0.1)
+    first_result = optimize_portfolio(50_000, candidates=(second_low, first_high))
+
+    first_low = _candidate_with_suitability(first, 0.1)
+    second_high = _candidate_with_suitability(second, 0.9)
+    second_result = optimize_portfolio(50_000, candidates=(first_low, second_high))
+
+    assert first_result.selected_candidate_ids == (first.id,)
+    assert second_result.selected_candidate_ids == (second.id,)
