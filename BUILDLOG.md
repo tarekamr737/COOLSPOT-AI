@@ -282,3 +282,7 @@
 - Environmental confidence is recomputed only as categorical source completeness (`3 of 3`
   configured fields from the exact cached activity). Candidate intervention confidence remains
   unchanged because environmental completeness does not verify right-of-way or constructability.
+- The first thermal-context UI test exposed that the existing date formatter accepts date-only
+  strings while environmental evidence carries a full timestamp. The component now passes the
+  preserved date portion to that formatter and shows the vendor timezone separately; no timestamp
+  or timezone value is rewritten.

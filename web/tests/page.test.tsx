@@ -64,6 +64,13 @@ describe("Home", () => {
     expect(screen.getByText(/6.89 hours above 30 °C/)).toBeInTheDocument();
     expect(screen.getByText("Peak heat observed around")).toBeInTheDocument();
     expect(screen.getByText(/15:00 UTC/)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Weather conditions at this finalist" })).toBeInTheDocument();
+    expect(screen.getByText(/Source complete · 3 of 3/)).toBeInTheDocument();
+    expect(screen.getByText("Apparent temperature").nextElementSibling).toHaveTextContent("35.30 °C");
+    expect(screen.getByText("Relative humidity").nextElementSibling).toHaveTextContent("24.3%");
+    expect(screen.getByText("Clear-sky GHI").nextElementSibling).toHaveTextContent("779.49 vendor value");
+    expect(screen.getAllByRole("link", { name: "FortyGuard source" }).some((link) => link.getAttribute("href") === "https://docs-api.fortyguard.com/docs/environmental-parameters")).toBe(true);
+    expect(screen.getByText(/does not establish medical risk/i)).toBeInTheDocument();
     expect(screen.getByText("Methodology & limitations")).toBeInTheDocument();
     fireEvent.click(screen.getByText("Methodology & limitations"));
     expect(screen.getByRole("heading", { name: "Heat evidence provenance" })).toBeInTheDocument();

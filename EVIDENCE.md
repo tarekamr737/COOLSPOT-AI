@@ -720,6 +720,10 @@
 - Optimizer isolation proof: environmental source completeness does not modify the existing
   feasibility/confidence scalars. Full optimizer regressions preserve the deterministic portfolios;
   this avoids treating a complete modeled response as proof that a site is constructible.
+- UI acceptance proof: a selected finalist now shows a compact `Point thermal context` block with
+  apparent temperature, humidity, GHI vendor value, observation date, vendor timezone, exact
+  coordinates, source-completeness status, FortyGuard documentation link, and medical/outcome
+  limitation. Sites outside the finalist set omit the block instead of implying missing live data.
 - Cache proof: `data/processed/fortyguard_env_params_probe.json` validates the exact one-location,
   one-timestamp response, request, result, source, limitations, and balanced credit counters without
   containing the API key. Re-running the workflow returns this report before initializing a client.
