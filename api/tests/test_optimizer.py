@@ -27,18 +27,14 @@ def test_preset_portfolios_are_deterministic_feasible_and_site_exclusive() -> No
         assert len({candidate.site_id for candidate in selected}) == len(selected)
         assert first.total_modeled_impact_score == round(
             sum(
-                candidate.benefit_score
-                * candidate.feasibility_score
-                * candidate.confidence
+                candidate.value_explanation.modeled_benefit_score
                 for candidate in selected
             ),
             8,
         )
         assert first.integer_objective_value == sum(
             round(
-                candidate.benefit_score
-                * candidate.feasibility_score
-                * candidate.confidence
+                candidate.value_explanation.modeled_benefit_score
                 * config.objective_scale
             )
             for candidate in selected
@@ -59,6 +55,12 @@ def test_site_constraint_blocks_two_interventions_at_one_site() -> None:
             "benefit_score": 1.0,
             "planning_cost_usd": 50_000,
         }
+    )
+    alternate_payload["value_explanation"]["factors"]["priority_score"] = 1.0
+    alternate_payload["value_explanation"]["modeled_benefit_score"] = (
+        alternate_payload["suitability_score"]
+        * alternate_payload["feasibility_score"]
+        * alternate_payload["confidence"]
     )
     alternate = Candidate.model_validate(alternate_payload)
     unrelated = source[1]

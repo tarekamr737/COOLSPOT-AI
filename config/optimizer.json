@@ -10,6 +10,6 @@
   "objective_scale": 1000000,
   "max_solve_seconds": 5.0,
   "determinism_note": "CP-SAT uses integer costs and integer-scaled modeled-impact coefficients, one search worker, a fixed seed, and a stable candidate-ID tie break.",
-  "objective_note": "Modeled impact equals tile priority score multiplied by the candidate feasibility and confidence screening scalars; it is not a temperature forecast or measured effect.",
+  "objective_note": "Modeled impact equals tile priority score multiplied by intervention suitability, feasibility, and confidence screening scalars; it is not a temperature forecast or measured effect.",
   "equity_note": "The portfolio reports the mean selected tile vulnerability score as equity context; it is not a population count or guaranteed distributional outcome."
 }

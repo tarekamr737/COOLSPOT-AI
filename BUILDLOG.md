@@ -289,3 +289,13 @@
 - Introduced the typed four-factor intervention-value boundary before changing any ranking. The
   current optimizer passes a neutral `1.0` suitability only to preserve the existing portfolio for
   this bounds-only slice; later Section 6 tasks will replace it with evidenced intervention fit.
+- Kept `benefit_score` as the historical tile-priority field and added a separate typed suitability
+  plus serialized value explanation. This avoids silently changing the meaning of an existing API
+  field while letting every impact consumer use one validated four-factor product.
+- The first intervention-aware test run correctly showed that re-ranking the already-paid
+  environmental enrichment batch would name uncached sites. Kept that batch's original frozen
+  selection rule and cached provenance; the new optimizer may select sites without point context
+  but never triggers replacement FortyGuard calls.
+- The first Vitest run timed out before starting its thread worker. Re-running the unchanged suite
+  with one forked worker completed in 7.43 seconds with all 7 active tests passing; this was a test
+  runner resource issue, not an application assertion failure.

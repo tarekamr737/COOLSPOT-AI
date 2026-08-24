@@ -183,7 +183,7 @@ priority_score
   - budget constraint,
   - one intervention per site,
   - compatibility rules.
-- [ ] Add explanation fields showing why each intervention received its value.
+- [x] Add explanation fields showing why each intervention received its value.
 - [ ] Add regression tests proving deterministic portfolios.
 - [ ] Add tests showing intervention evidence can alter portfolio selection.
 

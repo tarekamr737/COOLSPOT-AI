@@ -69,9 +69,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1998",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.3680497811699693,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.04600622264624616,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.20189203310130704,
@@ -142,9 +157,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1561",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.20189203310130704,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.02523650413766338,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.3156397902679711,
@@ -215,9 +245,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1899",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.3156397902679711,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.03945497378349639,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.28334919746176107,
@@ -288,9 +333,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1961",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.28334919746176107,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.035418649682720134,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.3652840095027609,
@@ -361,9 +421,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1599",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.3652840095027609,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.045660501187845114,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.37938341153349203,
@@ -434,9 +509,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1831",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.37938341153349203,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.047422926441686504,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.25412540813087453,
@@ -507,9 +597,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1986",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.25412540813087453,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.031765676016359316,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5368523743260971,
@@ -580,9 +685,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1241",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5368523743260971,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06710654679076214,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5544962370067164,
@@ -653,9 +773,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1698",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5544962370067164,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06931202962583954,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.44041026066477257,
@@ -726,9 +861,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "568",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.44041026066477257,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05505128258309657,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5039290227211677,
@@ -799,9 +949,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "936",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5039290227211677,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06299112784014596,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.6267426718009514,
@@ -872,6 +1037,7 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5923499999999999,
       "thermal_stress_context": {
         "activity_id": "8b7e7b69-08d7-45f7-a34b-e01047e97508",
         "apparent_temperature_c": 35.3,
@@ -901,7 +1067,23 @@
         "vendor_timezone_offset_hours": -8.0
       },
       "tile_id": "1361",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.875,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6267426718009514,
+          "suitability_score": 0.5923499999999999
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.1624223219680659,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.3157.",
+          "Exact-site low-tree context: 0.869.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.6267890651757319,
@@ -972,9 +1154,26 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.7141,
       "thermal_stress_context": null,
       "tile_id": "1536",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.791667,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6267890651757319,
+          "suitability_score": 0.7141
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.177171144544133,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.4347.",
+          "Exact-site low-tree context: 0.9935.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.6039076563244212,
@@ -1045,6 +1244,7 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.7062,
       "thermal_stress_context": {
         "activity_id": "8dd6adee-3994-421a-93e5-93197f8d65bc",
         "apparent_temperature_c": 35.3,
@@ -1074,7 +1274,23 @@
         "vendor_timezone_offset_hours": -8.0
       },
       "tile_id": "1863",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.833333,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6039076563244212,
+          "suitability_score": 0.7062
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.17769975679352978,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.4449.",
+          "Exact-site low-tree context: 0.9675.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.5466360316126606,
@@ -1145,9 +1361,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "719",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5466360316126606,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06832950395158258,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5683850720384723,
@@ -1218,9 +1449,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "147",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5683850720384723,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07104813400480904,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5869187016352871,
@@ -1291,9 +1537,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "27",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5869187016352871,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07336483770441089,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5741091245930446,
@@ -1364,9 +1625,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "83",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5741091245930446,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07176364057413058,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5355522109845,
@@ -1437,9 +1713,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "372",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5355522109845,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.0669440263730625,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5696991985014865,
@@ -1510,9 +1801,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "260",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5696991985014865,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07121239981268582,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5715701213959525,
@@ -1583,9 +1889,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "535",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5715701213959525,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07144626517449407,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.48371747785873004,
@@ -1656,9 +1977,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "562",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.48371747785873004,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.060464684732341255,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4538119751499155,
@@ -1729,9 +2065,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "393",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4538119751499155,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05672649689373944,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.48364931799389116,
@@ -1802,9 +2153,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "753",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.48364931799389116,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.060456164749236395,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5039290227211677,
@@ -1875,9 +2241,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "936",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5039290227211677,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06299112784014596,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5661258402934862,
@@ -1948,9 +2329,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "128",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5661258402934862,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07076573003668578,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5741091245930446,
@@ -2021,9 +2417,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "83",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5741091245930446,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07176364057413058,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5197097431062537,
@@ -2094,9 +2505,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "275",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5197097431062537,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06496371788828172,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4824308417233358,
@@ -2167,9 +2593,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "209",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4824308417233358,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06030385521541697,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4765877066915721,
@@ -2240,9 +2681,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1788",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4765877066915721,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05957346333644651,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5064919761386579,
@@ -2313,9 +2769,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1681",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5064919761386579,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06331149701733224,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5167187206874314,
@@ -2386,9 +2857,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "118",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5167187206874314,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06458984008592893,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5897633646044891,
@@ -2459,9 +2945,26 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.71025,
       "thermal_stress_context": null,
       "tile_id": "1566",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.833333,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5897633646044891,
+          "suitability_score": 0.71025
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.17453302589940273,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.433.",
+          "Exact-site low-tree context: 0.9875.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.47559924047447427,
@@ -2532,9 +3035,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1224",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.47559924047447427,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.059449905059309284,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5178355627347396,
@@ -2605,9 +3123,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "437",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5178355627347396,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06472944534184245,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.6036302946122546,
@@ -2678,6 +3211,7 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.70165,
       "thermal_stress_context": {
         "activity_id": "3b5e9334-14c0-4f2f-bfca-a05d7df860a7",
         "apparent_temperature_c": 35.3,
@@ -2707,7 +3241,23 @@
         "vendor_timezone_offset_hours": -8.0
       },
       "tile_id": "1584",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.833333,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6036302946122546,
+          "suitability_score": 0.70165
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.17647376116658747,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.4152.",
+          "Exact-site low-tree context: 0.9881.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.44825305453660275,
@@ -2778,9 +3328,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "187",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.44825305453660275,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05603163181707534,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.521284313545362,
@@ -2851,9 +3416,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "308",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.521284313545362,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06516053919317025,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5374945137838452,
@@ -2924,9 +3504,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1403",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5374945137838452,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06718681422298065,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5744057748385729,
@@ -2997,9 +3592,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "858",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5744057748385729,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07180072185482161,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5677898369035018,
@@ -3070,9 +3680,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "611",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5677898369035018,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07097372961293773,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5388849180864457,
@@ -3143,9 +3768,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1041",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5388849180864457,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06736061476080571,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5690010037622164,
@@ -3216,9 +3856,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1669",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5690010037622164,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07112512547027705,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5833951505375287,
@@ -3289,9 +3944,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1231",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5833951505375287,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07292439381719108,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.394840052448379,
@@ -3362,9 +4032,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1771",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.394840052448379,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.049355006556047375,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.37938341153349203,
@@ -3435,9 +4120,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1831",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.37938341153349203,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.047422926441686504,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.6267890651757319,
@@ -3508,9 +4208,26 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.7138,
       "thermal_stress_context": null,
       "tile_id": "1536",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.791667,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6267890651757319,
+          "suitability_score": 0.7138
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.17709671331130392,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.43320000000000003.",
+          "Exact-site low-tree context: 0.9944.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.653997225699248,
@@ -3581,6 +4298,7 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.6708000000000001,
       "thermal_stress_context": {
         "activity_id": "fed334bd-e333-4092-af93-b80966fed8e3",
         "apparent_temperature_c": 36.2,
@@ -3610,7 +4328,23 @@
         "vendor_timezone_offset_hours": -8.0
       },
       "tile_id": "725",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.833333,
+          "feasibility_score": 0.5,
+          "priority_score": 0.653997225699248,
+          "suitability_score": 0.6708000000000001
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.18279215146605,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.36450000000000005.",
+          "Exact-site low-tree context: 0.9771.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.5942751205448261,
@@ -3681,9 +4415,26 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.675,
       "thermal_stress_context": null,
       "tile_id": "1415",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.833333,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5942751205448261,
+          "suitability_score": 0.675
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.1671398107972813,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.3986.",
+          "Exact-site low-tree context: 0.9514.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.5263382588391885,
@@ -3754,9 +4505,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "788",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5263382588391885,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06579228235489856,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5715701213959525,
@@ -3827,9 +4593,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "535",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5715701213959525,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07144626517449407,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5880684414317239,
@@ -3900,9 +4681,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1354",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5880684414317239,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07350855517896548,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5065675394197838,
@@ -3973,9 +4769,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1167",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5065675394197838,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06332094242747298,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5526407888481703,
@@ -4046,9 +4857,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "852",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5526407888481703,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06908009860602128,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4390493921313346,
@@ -4119,9 +4945,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "360",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4390493921313346,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.054881174016416824,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5718806020954792,
@@ -4192,9 +5033,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1461",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5718806020954792,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.0714850752619349,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5882693442541346,
@@ -4265,9 +5121,26 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.6415,
       "thermal_stress_context": null,
       "tile_id": "536",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.833333,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5882693442541346,
+          "suitability_score": 0.6415
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.15723943057879733,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.3754.",
+          "Exact-site low-tree context: 0.9076.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.5869187016352871,
@@ -4338,9 +5211,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "27",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5869187016352871,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07336483770441089,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.2579168185724186,
@@ -4411,9 +5299,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1643",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.2579168185724186,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.032239602321552326,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.41812449446805683,
@@ -4484,9 +5387,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1713",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.41812449446805683,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.052265561808507104,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5715701213959525,
@@ -4557,9 +5475,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "535",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5715701213959525,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07144626517449407,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5251180699277624,
@@ -4630,9 +5563,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1242",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5251180699277624,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.0656397587409703,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5544962370067164,
@@ -4703,9 +5651,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1698",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5544962370067164,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06931202962583954,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4993316472711437,
@@ -4776,9 +5739,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "509",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4993316472711437,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.062416455908892964,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5039290227211677,
@@ -4849,9 +5827,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "936",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5039290227211677,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06299112784014596,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.6267426718009514,
@@ -4922,6 +5915,7 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.583,
       "thermal_stress_context": {
         "activity_id": "7190bc0e-158b-4105-a2f8-e56852125ed0",
         "apparent_temperature_c": 35.3,
@@ -4951,7 +5945,23 @@
         "vendor_timezone_offset_hours": -8.0
       },
       "tile_id": "1361",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.875,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6267426718009514,
+          "suitability_score": 0.583
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.15985855272623017,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.3297.",
+          "Exact-site low-tree context: 0.8363.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.44018531657493193,
@@ -5022,9 +6032,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "997",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.44018531657493193,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05502316457186649,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.6036302946122546,
@@ -5095,9 +6120,26 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.3123,
       "thermal_stress_context": null,
       "tile_id": "1584",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.75,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6036302946122546,
+          "suitability_score": 0.3123
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07069265287777766,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.3123.",
+          "Exact-site low-tree context: None.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.5813354081426368,
@@ -5168,9 +6210,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1884",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5813354081426368,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.0726669260178296,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.380814890928127,
@@ -5241,9 +6298,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1948",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.380814890928127,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.04760186136601587,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5234594997206317,
@@ -5314,9 +6386,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "6",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5234594997206317,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06543243746507896,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5466360316126606,
@@ -5387,9 +6474,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "719",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5466360316126606,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06832950395158258,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5801504937124963,
@@ -5460,9 +6562,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "146",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5801504937124963,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07251881171406203,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5832919392754897,
@@ -5533,9 +6650,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "65",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5832919392754897,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07291149240943622,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.6329082531139057,
@@ -5606,9 +6738,26 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.67325,
       "thermal_stress_context": null,
       "tile_id": "902",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.6875,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6329082531139057,
+          "suitability_score": 0.67325
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.14647375923432213,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.4174.",
+          "Exact-site low-tree context: 0.9291.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.5355522109845,
@@ -5679,9 +6828,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "372",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5355522109845,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.0669440263730625,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5770237847887163,
@@ -5752,9 +6916,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "228",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5770237847887163,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07212797309858954,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5715701213959525,
@@ -5825,9 +7004,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "535",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5715701213959525,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07144626517449407,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5715701213959525,
@@ -5898,9 +7092,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "535",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5715701213959525,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07144626517449407,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.24906439810167236,
@@ -5971,9 +7180,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1494",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.24906439810167236,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.031133049762709045,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.6357882292586162,
@@ -6044,6 +7268,7 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.64225,
       "thermal_stress_context": {
         "activity_id": "9db141e1-4da4-48fd-bff1-fd3bb7be1570",
         "apparent_temperature_c": 36.2,
@@ -6073,7 +7298,23 @@
         "vendor_timezone_offset_hours": -8.0
       },
       "tile_id": "964",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.833333,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6357882292586162,
+          "suitability_score": 0.64225
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.17013951121139592,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.3859.",
+          "Exact-site low-tree context: 0.8986.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.4964516745777284,
@@ -6144,9 +7385,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "623",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4964516745777284,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06205645932221605,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.49151966055217683,
@@ -6217,9 +7473,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "443",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.49151966055217683,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.061439957569022104,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.48364931799389116,
@@ -6290,9 +7561,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "753",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.48364931799389116,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.060456164749236395,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5039290227211677,
@@ -6363,9 +7649,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "936",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5039290227211677,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06299112784014596,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5661258402934862,
@@ -6436,9 +7737,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "128",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5661258402934862,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07076573003668578,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5668355478722781,
@@ -6509,9 +7825,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "84",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5668355478722781,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07085444348403476,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.518759067834315,
@@ -6582,9 +7913,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "274",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.518759067834315,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06484488347928938,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4494180345312416,
@@ -6655,9 +8001,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "210",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4494180345312416,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.0561772543164052,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5854868092455164,
@@ -6728,9 +8089,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1789",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5854868092455164,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07318585115568955,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5064919761386579,
@@ -6801,9 +8177,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1681",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5064919761386579,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06331149701733224,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5897633646044891,
@@ -6874,9 +8265,26 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.70575,
       "thermal_stress_context": null,
       "tile_id": "1566",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.833333,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5897633646044891,
+          "suitability_score": 0.70575
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.1734272200330918,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.4249.",
+          "Exact-site low-tree context: 0.9866.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.42689382804910764,
@@ -6947,9 +8355,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1225",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.42689382804910764,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.053361728506138455,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5178355627347396,
@@ -7020,9 +8443,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "437",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5178355627347396,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06472944534184245,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4571361364993399,
@@ -7093,9 +8531,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "188",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4571361364993399,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.057142017062417484,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5527350054854301,
@@ -7166,9 +8619,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "309",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5527350054854301,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06909187568567876,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5744057748385729,
@@ -7239,9 +8707,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "858",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5744057748385729,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07180072185482161,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5677898369035018,
@@ -7312,9 +8795,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "611",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5677898369035018,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07097372961293773,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5388849180864457,
@@ -7385,9 +8883,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1041",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5388849180864457,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06736061476080571,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5690010037622164,
@@ -7458,9 +8971,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1669",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5690010037622164,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07112512547027705,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5833951505375287,
@@ -7531,9 +9059,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1231",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5833951505375287,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07292439381719108,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.48130038761663924,
@@ -7604,9 +9147,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1740",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.48130038761663924,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.060162548452079904,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.6267890651757319,
@@ -7677,9 +9235,26 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.39990000000000003,
       "thermal_stress_context": null,
       "tile_id": "1536",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.791667,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6267890651757319,
+          "suitability_score": 0.39990000000000003
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.0992168333611522,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.39990000000000003.",
+          "Exact-site low-tree context: None.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.6879023647192668,
@@ -7750,6 +9325,7 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5602,
       "thermal_stress_context": {
         "activity_id": "0bd748b2-88dd-498c-ae5d-7aac35f07f92",
         "apparent_temperature_c": 35.3,
@@ -7779,7 +9355,23 @@
         "vendor_timezone_offset_hours": -8.0
       },
       "tile_id": "1355",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.875,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6879023647192668,
+          "suitability_score": 0.5602
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.1685962708131333,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.3072.",
+          "Exact-site low-tree context: 0.8132.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.5372095032445905,
@@ -7850,9 +9442,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "789",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5372095032445905,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06715118790557381,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5785394234920201,
@@ -7923,9 +9530,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "662",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5785394234920201,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.07231742793650252,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5966307271926186,
@@ -7996,9 +9618,26 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5179,
       "thermal_stress_context": null,
       "tile_id": "1294",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.833333,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5966307271926186,
+          "suitability_score": 0.5179
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.1287478875062649,
+        "suitability_basis": [
+          "Exact-site open-sky context: 0.2329.",
+          "Exact-site low-tree context: 0.8029.",
+          "Suitability is the equal mean of available normalized contexts; confidence is applied separately."
+        ]
+      }
     },
     {
       "benefit_score": 0.5306100281971637,
@@ -8069,9 +9708,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1105",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5306100281971637,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06632625352464547,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5388849180864457,
@@ -8142,9 +9796,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1041",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5388849180864457,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06736061476080571,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.553409539037402,
@@ -8215,9 +9884,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "979",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.553409539037402,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06917619237967525,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5526407888481703,
@@ -8288,9 +9972,24 @@
         "la_metro_bus_patronage_2024"
       ],
       "site_type": "transit_stop",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "852",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5526407888481703,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06908009860602128,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4771554370307292,
@@ -8420,9 +10119,24 @@
         "la_city_parks"
       ],
       "site_type": "park",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1664",
-      "tile_selection": "highest_priority_intersecting_tile"
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4771554370307292,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05964442962884115,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.29436133182906854,
@@ -8576,9 +10290,24 @@
         "la_city_parks"
       ],
       "site_type": "park",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1826",
-      "tile_selection": "highest_priority_intersecting_tile"
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.29436133182906854,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.03679516647863357,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.24906439810167236,
@@ -8768,9 +10497,24 @@
         "la_city_parks"
       ],
       "site_type": "park",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1494",
-      "tile_selection": "highest_priority_intersecting_tile"
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.24906439810167236,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.031133049762709045,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.2622143161867389,
@@ -8864,9 +10608,24 @@
         "la_city_parks"
       ],
       "site_type": "park",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1552",
-      "tile_selection": "highest_priority_intersecting_tile"
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.2622143161867389,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.03277678952334236,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.6357882292586162,
@@ -9004,6 +10763,7 @@
         "la_city_parks"
       ],
       "site_type": "park",
+      "suitability_score": 0.8749,
       "thermal_stress_context": {
         "activity_id": "86886e8a-527f-466b-9580-822b78c6abb7",
         "apparent_temperature_c": 36.2,
@@ -9033,7 +10793,22 @@
         "vendor_timezone_offset_hours": -8.0
       },
       "tile_id": "964",
-      "tile_selection": "highest_priority_intersecting_tile"
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.875,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6357882292586162,
+          "suitability_score": 0.8749
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.24335986577803395,
+        "suitability_basis": [
+          "Exact-site low-tree context: 0.875.",
+          "The mapped school/park already passed catalog compatibility; planting space, soil, utilities, ownership, and irrigation remain unverified."
+        ]
+      }
     },
     {
       "benefit_score": 0.6357882292586162,
@@ -9155,6 +10930,7 @@
         "la_city_parks"
       ],
       "site_type": "park",
+      "suitability_score": 0.9125,
       "thermal_stress_context": {
         "activity_id": "9463d728-e3bf-4f88-b780-e6f015c23bb7",
         "apparent_temperature_c": 36.2,
@@ -9184,7 +10960,22 @@
         "vendor_timezone_offset_hours": -8.0
       },
       "tile_id": "964",
-      "tile_selection": "highest_priority_intersecting_tile"
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.833333,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6357882292586162,
+          "suitability_score": 0.9125
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.24173188630657652,
+        "suitability_basis": [
+          "Exact-site low-tree context: 0.912.",
+          "The mapped school/park already passed catalog compatibility; planting space, soil, utilities, ownership, and irrigation remain unverified."
+        ]
+      }
     },
     {
       "benefit_score": 0.2769016927934084,
@@ -9330,9 +11121,24 @@
         "la_city_parks"
       ],
       "site_type": "park",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1876",
-      "tile_selection": "highest_priority_intersecting_tile"
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.2769016927934084,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.03461271159917605,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.2364087798588384,
@@ -9574,9 +11380,24 @@
         "la_city_parks"
       ],
       "site_type": "park",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1320",
-      "tile_selection": "highest_priority_intersecting_tile"
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.2364087798588384,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.0295510974823548,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5162716292527981,
@@ -9818,9 +11639,24 @@
         "la_city_parks"
       ],
       "site_type": "park",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1297",
-      "tile_selection": "highest_priority_intersecting_tile"
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5162716292527981,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06453395365659977,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.1922992968719998,
@@ -9986,9 +11822,24 @@
         "la_city_parks"
       ],
       "site_type": "park",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1250",
-      "tile_selection": "highest_priority_intersecting_tile"
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.1922992968719998,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.024037412108999973,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4782257545914542,
@@ -10094,9 +11945,24 @@
         "la_city_parks"
       ],
       "site_type": "park",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "621",
-      "tile_selection": "highest_priority_intersecting_tile"
+      "tile_selection": "highest_priority_intersecting_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4782257545914542,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05977821932393178,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4799426221912524,
@@ -10166,9 +12032,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "263",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4799426221912524,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05999282777390655,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.3063074124545539,
@@ -10238,9 +12119,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1896",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.3063074124545539,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.03828842655681924,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4303555527409311,
@@ -10310,9 +12206,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1306",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4303555527409311,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05379444409261639,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.3063074124545539,
@@ -10382,9 +12293,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1896",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.3063074124545539,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.03828842655681924,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.47951006033170196,
@@ -10454,9 +12380,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1755",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.47951006033170196,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.059938757541462745,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.48139426854221457,
@@ -10526,9 +12467,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "170",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.48139426854221457,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06017428356777682,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.43927941652460145,
@@ -10598,9 +12554,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1706",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.43927941652460145,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05490992706557518,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.47744577547236444,
@@ -10670,9 +12641,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1754",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.47744577547236444,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.059680721934045555,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.47819343592314667,
@@ -10742,9 +12728,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1531",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.47819343592314667,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.059774179490393334,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.47832401603612373,
@@ -10814,9 +12815,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1782",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.47832401603612373,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05979050200451547,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.48139426854221457,
@@ -10886,9 +12902,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "170",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.48139426854221457,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06017428356777682,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.473270858720291,
@@ -10958,9 +12989,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1219",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.473270858720291,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.059158857340036376,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4858336420605532,
@@ -11030,9 +13076,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1303",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4858336420605532,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06072920525756915,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4751571741294176,
@@ -11102,9 +13163,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "264",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4751571741294176,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.0593946467661772,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.47975020021627135,
@@ -11174,9 +13250,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1156",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.47975020021627135,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05996877502703392,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.48655594301893934,
@@ -11246,9 +13337,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1811",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.48655594301893934,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06081949287736742,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.47387086117027405,
@@ -11318,9 +13424,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "40",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.47387086117027405,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.059233857646284256,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.5021035978917644,
@@ -11390,9 +13511,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1234",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.5021035978917644,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06276294973647055,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.47975020021627135,
@@ -11462,9 +13598,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1156",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.47975020021627135,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05996877502703392,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4785279040945799,
@@ -11534,9 +13685,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "119",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4785279040945799,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05981598801182249,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.46709808292424143,
@@ -11606,9 +13772,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1425",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.46709808292424143,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05838726036553018,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.46308373636683287,
@@ -11678,9 +13859,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.46308373636683287,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05788546704585411,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.48139426854221457,
@@ -11750,9 +13946,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "170",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.48139426854221457,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.06017428356777682,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4799426221912524,
@@ -11822,9 +14033,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "263",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4799426221912524,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05999282777390655,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.6879023647192668,
@@ -11894,6 +14120,7 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.9581,
       "thermal_stress_context": {
         "activity_id": "193820b1-9e51-42ce-a598-27fba0a4eaea",
         "apparent_temperature_c": 35.3,
@@ -11923,7 +14150,22 @@
         "vendor_timezone_offset_hours": -8.0
       },
       "tile_id": "1355",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.833333,
+          "feasibility_score": 0.5,
+          "priority_score": 0.6879023647192668,
+          "suitability_score": 0.9581
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.2746162466690947,
+        "suitability_basis": [
+          "Exact-site low-tree context: 0.958.",
+          "The mapped school/park already passed catalog compatibility; planting space, soil, utilities, ownership, and irrigation remain unverified."
+        ]
+      }
     },
     {
       "benefit_score": 0.3669805821173098,
@@ -11993,9 +14235,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1743",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.3669805821173098,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.04587257276466372,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.2615480024218309,
@@ -12065,9 +14322,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1898",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.2615480024218309,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.03269350030272886,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4303555527409311,
@@ -12137,9 +14409,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1306",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4303555527409311,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05379444409261639,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4799426221912524,
@@ -12209,9 +14496,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "263",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4799426221912524,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.05999282777390655,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     },
     {
       "benefit_score": 0.4928639466531174,
@@ -12281,9 +14583,24 @@
         "lausd_school_sites"
       ],
       "site_type": "school",
+      "suitability_score": 0.5,
       "thermal_stress_context": null,
       "tile_id": "1363",
-      "tile_selection": "containing_tile"
+      "tile_selection": "containing_tile",
+      "value_explanation": {
+        "factors": {
+          "confidence_score": 0.5,
+          "feasibility_score": 0.5,
+          "priority_score": 0.4928639466531174,
+          "suitability_score": 0.5
+        },
+        "formula": "priority_score \u00d7 suitability_score \u00d7 feasibility_score \u00d7 confidence_score",
+        "limitation": "This is a relative screening product, not a measured cooling effect, construction-feasibility finding, or guaranteed outcome.",
+        "modeled_benefit_score": 0.061607993331639674,
+        "suitability_basis": [
+          "No exact-site Street View evidence; neutral suitability 0.500 applies."
+        ]
+      }
     }
   ],
   "counts": {
@@ -12304,7 +14621,7 @@
   ],
   "pilot": "Pacoima, Los Angeles",
   "scoring_notes": [
-    "Use the selected tile's modeled priority score without an intervention-specific effect multiplier.",
+    "Keep the selected tile's modeled priority score separate, then multiply it by intervention suitability, feasibility, and confidence.",
     "Use the selected tile's modeled vulnerability score as context, not as a count of people served.",
     "The value 0.5 is a neutral deterministic fallback only for an evidence dimension that remains unverified. All current candidates remain field-unverified for feasibility; confidence uses normalized cached Street View evidence where available. The scalar is not a probability or measured effect.",
     "For a site intersecting multiple heat tiles, select the tile with the highest modeled priority score, then heat score, then lowest numeric tile ID."
@@ -12328,7 +14645,7 @@
     {
       "id": "candidate_config",
       "path": "config/candidates.json",
-      "sha256": "e088bcf66f7c40ae99b33c8fb82414215cae2c2e65299ae4748c6d5c24d9c244"
+      "sha256": "9606c72fede9babf1a6048d8d7bd42f0b4488fb6bb56d1abe6d8f3c76db51291"
     },
     {
       "id": "pacoima_streetview_evidence",

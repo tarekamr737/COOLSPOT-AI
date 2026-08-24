@@ -16,9 +16,24 @@ export const candidates = Array.from({ length: 20 }, (_, index) => ({
   intervention_type: "shade_structure",
   planning_cost_usd: 50_000,
   benefit_score: 0.84 - index * 0.01,
+  suitability_score: index === 0 ? 0.7 : 0.5,
   equity_score: 0.62,
   feasibility_score: 0.5,
   confidence: index === 0 ? 0.791667 : 0.5,
+  value_explanation: {
+    formula: "priority_score × suitability_score × feasibility_score × confidence_score",
+    factors: {
+      priority_score: 0.84 - index * 0.01,
+      suitability_score: index === 0 ? 0.7 : 0.5,
+      feasibility_score: 0.5,
+      confidence_score: index === 0 ? 0.791667 : 0.5,
+    },
+    modeled_benefit_score:
+      (0.84 - index * 0.01) * (index === 0 ? 0.7 : 0.5) * 0.5 *
+      (index === 0 ? 0.791667 : 0.5),
+    suitability_basis: ["Exact-site screening evidence."],
+    limitation: "This is a relative screening product, not a measured cooling effect or guaranteed outcome.",
+  },
   thermal_stress_context: index === 0 ? {
     finalist_rank: 1,
     candidate_id: "shade_structure:site-0",
@@ -221,7 +236,7 @@ export function explanation(index = 0, budget = 500_000) {
     candidate_id: candidate.id,
     budget_usd: budget,
     summary: `At the ${compactBudget(budget)} screening budget, ${candidate.site_name} is selected from structured evidence and contributes ${(
-      candidate.benefit_score * candidate.feasibility_score * candidate.confidence
+      candidate.value_explanation.modeled_benefit_score
     ).toFixed(3)} modeled impact score to the deterministic portfolio.`,
     why_selected: candidate.evidence.map((item) => item.statement),
     limitations: [

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 from datetime import datetime
 from enum import StrEnum
 from pathlib import Path
@@ -22,7 +23,7 @@ from api.app.services.feature_table import (
     load_feature_table,
     published_patronage_activity,
 )
-from api.app.services.intervention_value import UnitInterval
+from api.app.services.intervention_value import InterventionValueFactors, UnitInterval
 from api.app.services.interventions import (
     DEFAULT_INTERVENTION_CATALOG_PATH,
     InterventionDefinition,
@@ -82,13 +83,26 @@ class CandidateConfidenceRules(BaseModel):
     note: str = Field(min_length=80)
 
 
+class CandidateSuitabilityRules(BaseModel):
+    """Versioned mapping from intervention evidence to suitability."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    exact_shade_street_view: Literal["mean_available_open_sky_and_low_tree_context"]
+    exact_tree_street_view: Literal["use_low_tree_context"]
+    unmatched_site: Literal["use_unverified_suitability_score"]
+    note: str = Field(min_length=120)
+
+
 class CandidateConfig(BaseModel):
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
 
     version: str = Field(pattern=r"^1\.0$")
     unverified_feasibility_score: float = Field(ge=0, le=1)
     unverified_confidence_score: float = Field(ge=0, le=1)
+    unverified_suitability_score: UnitInterval
     confidence_rules: CandidateConfidenceRules
+    suitability_rules: CandidateSuitabilityRules
     benefit_score_basis: str = Field(min_length=30)
     equity_score_basis: str = Field(min_length=30)
     screening_score_note: str = Field(min_length=50)
@@ -111,6 +125,30 @@ class CandidateEvidence(BaseModel):
     source_artifact_ids: tuple[CandidateSourceArtifact, ...] = Field(min_length=1)
 
 
+class CandidateValueExplanation(BaseModel):
+    """Auditable factors behind one intervention's modeled benefit."""
+
+    model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
+
+    formula: Literal[
+        "priority_score × suitability_score × feasibility_score × confidence_score"
+    ]
+    factors: InterventionValueFactors
+    modeled_benefit_score: UnitInterval
+    suitability_basis: tuple[str, ...] = Field(min_length=1)
+    limitation: str = Field(min_length=60)
+
+    @model_validator(mode="after")
+    def validate_product(self) -> Self:
+        if not math.isclose(
+            self.modeled_benefit_score,
+            self.factors.modeled_benefit(),
+            abs_tol=1e-12,
+        ):
+            raise ValueError("modeled benefit must equal the four-factor product")
+        return self
+
+
 class Candidate(BaseModel):
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
 
@@ -125,9 +163,11 @@ class Candidate(BaseModel):
     intervention_type: InterventionType
     planning_cost_usd: int = Field(gt=0)
     benefit_score: UnitInterval
+    suitability_score: UnitInterval
     equity_score: UnitInterval
     feasibility_score: UnitInterval
     confidence: UnitInterval
+    value_explanation: CandidateValueExplanation
     thermal_stress_context: FinalistEnvironmentalEvidence | None = None
     evidence: tuple[CandidateEvidence, ...] = Field(min_length=5)
     geometry: FixtureGeometry
@@ -138,6 +178,14 @@ class Candidate(BaseModel):
             raise ValueError("candidate ID must combine intervention type and site ID")
         if len(self.site_source_ids) != len(set(self.site_source_ids)):
             raise ValueError("candidate site source IDs must be unique")
+        factors = self.value_explanation.factors
+        if not (
+            factors.priority_score == self.benefit_score
+            and factors.suitability_score == self.suitability_score
+            and factors.feasibility_score == self.feasibility_score
+            and factors.confidence_score == self.confidence
+        ):
+            raise ValueError("candidate scores must match the value explanation factors")
         return self
 
 
@@ -356,6 +404,18 @@ def _candidate(
         if len(tiles) == 1
         else TileSelection.HIGHEST_PRIORITY_INTERSECTING_TILE
     )
+    confidence = _candidate_confidence(config, street_context)
+    suitability, suitability_basis = _candidate_suitability(
+        intervention.id,
+        config,
+        street_context,
+    )
+    factors = InterventionValueFactors(
+        priority_score=selected_tile.scores.priority,
+        suitability_score=suitability,
+        feasibility_score=config.unverified_feasibility_score,
+        confidence_score=confidence,
+    )
     return Candidate(
         id=f"{intervention.id.value}:{site_id}",
         site_id=site_id,
@@ -368,9 +428,22 @@ def _candidate(
         intervention_type=intervention.id,
         planning_cost_usd=intervention.planning_cost.estimate_usd,
         benefit_score=selected_tile.scores.priority,
+        suitability_score=suitability,
         equity_score=selected_tile.scores.vulnerability,
         feasibility_score=config.unverified_feasibility_score,
-        confidence=_candidate_confidence(config, street_context),
+        confidence=confidence,
+        value_explanation=CandidateValueExplanation(
+            formula=(
+                "priority_score × suitability_score × feasibility_score × confidence_score"
+            ),
+            factors=factors,
+            modeled_benefit_score=factors.modeled_benefit(),
+            suitability_basis=suitability_basis,
+            limitation=(
+                "This is a relative screening product, not a measured cooling effect, "
+                "construction-feasibility finding, or guaranteed outcome."
+            ),
+        ),
         thermal_stress_context=thermal_stress_context,
         evidence=_common_evidence(
             tile=selected_tile,
@@ -381,6 +454,54 @@ def _candidate(
         ),
         geometry=geometry,
     )
+
+
+def _candidate_suitability(
+    intervention_type: InterventionType,
+    config: CandidateConfig,
+    street_context: ExtractedStreetViewFeatures | None,
+) -> tuple[float, tuple[str, ...]]:
+    """Derive intervention fit only from exact-site normalized evidence."""
+
+    fallback = config.unverified_suitability_score
+    if street_context is None:
+        return fallback, (
+            f"No exact-site Street View evidence; neutral suitability {fallback:.3f} applies.",
+        )
+
+    shade = street_context.shade_intervention_evidence
+    if intervention_type == InterventionType.SHADE_STRUCTURE:
+        contexts = tuple(
+            value
+            for value in (shade.open_sky_context, shade.low_tree_context)
+            if value is not None
+        )
+        if not contexts:
+            return fallback, (
+                f"Exact-site segmentation lacks sky/tree values; neutral suitability "
+                f"{fallback:.3f} applies.",
+            )
+        score = math.fsum(contexts) / len(contexts)
+        return score, (
+            f"Exact-site open-sky context: {shade.open_sky_context!s}.",
+            f"Exact-site low-tree context: {shade.low_tree_context!s}.",
+            "Suitability is the equal mean of available normalized contexts; confidence is "
+            "applied separately.",
+        )
+
+    if intervention_type == InterventionType.TREE_CANOPY:
+        if shade.low_tree_context is None:
+            return fallback, (
+                f"Exact-site segmentation lacks tree context; neutral suitability "
+                f"{fallback:.3f} applies.",
+            )
+        return shade.low_tree_context, (
+            f"Exact-site low-tree context: {shade.low_tree_context:.3f}.",
+            "The mapped school/park already passed catalog compatibility; planting space, soil, "
+            "utilities, ownership, and irrigation remain unverified.",
+        )
+
+    raise ValueError("cool pavement requires verified paved/public geometry before scoring")
 
 
 def _candidate_confidence(

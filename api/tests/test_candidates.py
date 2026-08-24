@@ -52,6 +52,14 @@ def test_real_candidates_are_complete_compatible_and_traceable() -> None:
         assert candidate.site_type in intervention.applicability.eligible_site_types
         assert candidate.planning_cost_usd == intervention.planning_cost.estimate_usd
         assert candidate.geometry == site_geometries[candidate.site_id]
+        assert candidate.suitability_score == (
+            candidate.value_explanation.factors.suitability_score
+        )
+        assert candidate.value_explanation.factors.priority_score == candidate.benefit_score
+        assert candidate.value_explanation.modeled_benefit_score == (
+            candidate.value_explanation.factors.modeled_benefit()
+        )
+        assert candidate.value_explanation.suitability_basis
         assert candidate.feasibility_score == 0.5
         if candidate.site_id in street_by_site:
             assert candidate.confidence == (
@@ -99,6 +107,12 @@ def test_candidate_confidence_rules_are_versioned_and_exact_site_only() -> None:
     assert config.confidence_rules.unmatched_site == "use_unverified_confidence_score"
     assert "exact site_id match" in config.confidence_rules.note
     assert "outcome probability" in config.confidence_rules.note
+    assert config.suitability_rules.exact_shade_street_view == (
+        "mean_available_open_sky_and_low_tree_context"
+    )
+    assert config.suitability_rules.exact_tree_street_view == "use_low_tree_context"
+    assert config.suitability_rules.unmatched_site == "use_unverified_suitability_score"
+    assert config.unverified_suitability_score == 0.5
 
 
 def test_every_non_neutral_adjustment_has_traceable_evidence() -> None:

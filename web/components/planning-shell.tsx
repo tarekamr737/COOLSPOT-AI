@@ -31,7 +31,7 @@ function formatDate(value: string) {
 }
 
 function impact(candidate: Candidate) {
-  return candidate.benefit_score * candidate.feasibility_score * candidate.confidence;
+  return candidate.value_explanation.modeled_benefit_score;
 }
 
 function percentage(value: number | null) {

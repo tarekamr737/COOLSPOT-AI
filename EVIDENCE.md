@@ -752,3 +752,14 @@
 - Constraint-preservation proof: focused regressions cover all budget presets, assert total cost
   never exceeds budget, reject selecting two interventions at one site, and verify every one of the
   152 committed candidates against its intervention catalog eligibility rules (`3 passed`).
+- Value-explanation proof: every candidate now serializes the exact four-factor formula, priority,
+  intervention suitability, feasibility, confidence, final modeled-benefit product, suitability
+  basis, and claim-safe limitation. Exact-site shade suitability uses the mean of available
+  normalized open-sky/low-tree context; tree suitability uses normalized low-tree context; missing
+  exact-site evidence uses the versioned neutral `0.5` fallback.
+- Consumer proof: CP-SAT, template/optional-AI explanations, and the browser all read the same
+  validated `modeled_benefit_score`, while `benefit_score` remains explicitly the underlying tile
+  priority for backward-safe provenance.
+- Automated proof: the candidate artifact rebuild is byte-for-byte reproducible; 24 focused
+  backend tests pass; Ruff and Mypy pass across 76 source files; frontend lint and strict types
+  pass; Vitest passes 7 tests with 1 opt-in test skipped; and the production Next build succeeds.

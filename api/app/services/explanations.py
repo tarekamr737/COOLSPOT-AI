@@ -48,15 +48,14 @@ def explain_selected_candidate(
             f"candidate '{candidate.id}' is not selected at the "
             f"${portfolio.budget_usd:,} budget"
         )
-    modeled_impact = (
-        candidate.benefit_score * candidate.feasibility_score * candidate.confidence
-    )
+    modeled_impact = candidate.value_explanation.modeled_benefit_score
     summary = (
         f"At the ${portfolio.budget_usd:,} screening budget, {candidate.site_name} is one of "
         f"{portfolio.selected_count} sites in the optimal portfolio for a "
         f"{intervention.label.lower()}. Its representative tile has modeled priority score "
-        f"{tile.scores.priority:.3f}; after the disclosed feasibility and confidence screening "
-        f"scalars, this candidate contributes {modeled_impact:.3f} modeled impact score."
+        f"{tile.scores.priority:.3f}; after the disclosed suitability, feasibility, and "
+        f"confidence scalars, this candidate contributes "
+        f"{modeled_impact:.3f} modeled impact score."
     )
     return GroundedExplanation(
         site_id=candidate.site_id,
