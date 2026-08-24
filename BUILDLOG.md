@@ -349,3 +349,8 @@
   current 172-candidate catalog, four scenario presets, bounded optional evidence, and protected
   refresh flow. Chronological task-time proof remains in `EVIDENCE.md`, with a current snapshot at
   the top so superseded intermediate states are not mistaken for the judge build.
+- The capability schema still described exceedance as unprobed and did not enumerate the completed
+  time-of-measure analysis, even though both governed request artifacts were committed. Added both
+  as confirmed cached heatmap capabilities and let the manifest's exact non-core-probe invariant
+  increase from three to five; this repairs provenance without spending credits or enabling a new
+  runtime path.

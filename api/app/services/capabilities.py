@@ -16,6 +16,7 @@ class FortyGuardFeature(StrEnum):
     HEATMAP_TCM = "heatmap_tcm"
     HEATMAP_PERSISTENCE = "heatmap_persistence"
     HEATMAP_EXCEEDANCE = "heatmap_exceedance"
+    HEATMAP_TIME_OF_MEASURE = "heatmap_time_of_measure"
     ENVIRONMENTAL_PARAMETERS = "environmental_parameters"
     SATELLITE_SEGMENTATION = "satellite_segmentation"
     STREET_VIEW_SEGMENTATION = "street_view_segmentation"

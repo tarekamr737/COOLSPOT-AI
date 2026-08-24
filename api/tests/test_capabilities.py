@@ -29,14 +29,24 @@ def test_optional_features_are_explicitly_gated() -> None:
     enabled = {
         FortyGuardFeature.HEATMAP_TCM,
         FortyGuardFeature.HEATMAP_PERSISTENCE,
+        FortyGuardFeature.HEATMAP_EXCEEDANCE,
+        FortyGuardFeature.HEATMAP_TIME_OF_MEASURE,
         FortyGuardFeature.ENVIRONMENTAL_PARAMETERS,
         FortyGuardFeature.SATELLITE_SEGMENTATION,
         FortyGuardFeature.STREET_VIEW_SEGMENTATION,
     }
 
-    assert manifest.optional_live_probes_made == 3
+    assert manifest.optional_live_probes_made == 5
     assert manifest.credits_used == 240_720
     assert manifest.credits_remaining == 1_759_280
+    exceedance = manifest.require_enabled(FortyGuardFeature.HEATMAP_EXCEEDANCE)
+    assert exceedance.cached_artifact == (
+        "data/processed/pacoima_fortyguard_exceedance.json"
+    )
+    peak_time = manifest.require_enabled(FortyGuardFeature.HEATMAP_TIME_OF_MEASURE)
+    assert peak_time.cached_artifact == (
+        "data/processed/pacoima_fortyguard_time_of_measure.json"
+    )
     env_params = manifest.require_enabled(FortyGuardFeature.ENVIRONMENTAL_PARAMETERS)
     assert env_params.cached_artifact == (
         "data/processed/pacoima_environmental_sites"

@@ -324,7 +324,7 @@ Selected in 4/4 planning scenarios
 - [x] Update `EVIDENCE.md`.
 - [x] Update `BUILDLOG.md`.
 - [x] Update `data/sources.json`.
-- [ ] Update capability snapshot.
+- [x] Update capability snapshot.
 - [ ] Update all scoring/config documentation.
 - [ ] Remove outdated claims about universal `0.5` confidence/feasibility.
 - [ ] Remove any claim that cool pavement is supported if still unavailable.

@@ -19,13 +19,22 @@
       "reason": "Required core layer completed successfully and is cached for offline use."
     },
     {
-      "access": "unconfirmed",
-      "cached_artifact": null,
-      "dependency": "Evidence that exceedance materially improves ranking beyond TCM and persistence.",
-      "enabled": false,
+      "access": "confirmed",
+      "cached_artifact": "data/processed/pacoima_fortyguard_exceedance.json",
+      "dependency": "Historical exceedance context that materially changes relative tile ranking beyond active TCM and persistence.",
+      "enabled": true,
       "feature": "heatmap_exceedance",
-      "probe_attempted": false,
-      "reason": "Not required for core ranking, so no speculative request or access probe was made."
+      "probe_attempted": true,
+      "reason": "One governed historical exceedance request completed and is cached; its non-contemporaneous date is disclosed wherever it is used."
+    },
+    {
+      "access": "confirmed",
+      "cached_artifact": "data/processed/pacoima_fortyguard_time_of_measure.json",
+      "dependency": "Historical peak-time context for explanations only; it is not a ranking input or pedestrian-activity proxy.",
+      "enabled": true,
+      "feature": "heatmap_time_of_measure",
+      "probe_attempted": true,
+      "reason": "One governed historical time-of-measure request completed and is cached for source-labeled explanation context."
     },
     {
       "access": "confirmed",
@@ -68,7 +77,7 @@
   "credits_used": 240720,
   "evaluated_at": "2026-08-25",
   "hard_reserve": 500000,
-  "optional_live_probes_made": 3,
+  "optional_live_probes_made": 5,
   "total_credits": 2000000,
   "version": "1.0"
 }

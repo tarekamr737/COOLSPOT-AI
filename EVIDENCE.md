@@ -19,6 +19,7 @@ state at that task's completion and may be superseded by this snapshot or a late
 | UI regression | Strict TypeScript and zero-warning lint pass; 11 active component tests cover the golden workspace, keyboard tour, empty state, recovery, refresh, and zero-vendor replanning. |
 | Decision log | `BUILDLOG.md` records only material runtime discoveries and architecture/product decisions; its current audit entry points readers to validated configs/artifacts rather than copying historical state forward. |
 | Source registry | `data/sources.json` contains 13 unique typed sources. Heatmap, Street View, environmental, and satellite evidence now each disclose provider documentation, retrieval/data dates, retained fields, provider-terms caveat, and decision-safe limitations; all four registry tests pass. |
+| Capability snapshot | The typed capability enum/manifest now records successful cached TCM, persistence, exceedance, time-of-measure, environmental, Street View, and satellite access; only Heat Intelligence remains unconfirmed. Five non-core probes reconcile exactly, credits still balance at `240,720` used plus `1,759,280` remaining, and capability tests, Ruff, and Mypy pass. |
 
 Machine-readable provenance remains in `data/sources.json`, the capability snapshot in
 `data/processed/fortyguard_capabilities.json`, and versioned decision assumptions in `config/`.
