@@ -135,6 +135,18 @@ def test_front_and_back_aggregation_uses_only_observed_values() -> None:
     assert aggregate.contributing_views.grass_pct == 0
 
 
+def test_aggregation_is_independent_of_view_order() -> None:
+    payload = _payload()
+    swapped = deepcopy(payload)
+    result = swapped["result"]
+    assert isinstance(result, dict)
+    result["front"], result["back"] = result["back"], result["front"]
+
+    assert extract_street_view_features(payload).aggregate == (
+        extract_street_view_features(swapped).aggregate
+    )
+
+
 def test_context_confidence_uses_views_images_age_and_completeness() -> None:
     payload = _payload()
     result = payload["result"]
@@ -182,6 +194,22 @@ def test_incomplete_single_view_has_lower_context_confidence() -> None:
     assert confidence.components.segmentation_completeness == pytest.approx(1 / 6)
 
 
+def test_stale_imagery_reduces_age_component_to_configured_floor() -> None:
+    payload = _payload()
+    result = payload["result"]
+    assert isinstance(result, dict)
+    result["back"] = None
+    front = result["front"]
+    assert isinstance(front, dict)
+    front["image_date"] = "2010-01-01"
+
+    confidence = extract_street_view_features(payload).street_context_confidence
+
+    assert confidence.oldest_image_age_days > 5_000
+    assert confidence.components.imagery_age == 0.25
+    assert 0 <= confidence.score <= 1
+
+
 def test_shade_evidence_uses_visual_context_and_confidence() -> None:
     payload = _payload()
     result = payload["result"]
@@ -214,6 +242,19 @@ def test_shade_evidence_score_is_bounded() -> None:
     evidence = extract_street_view_features(payload).shade_intervention_evidence
 
     assert 0 <= evidence.score <= 1
+
+
+@pytest.mark.parametrize("invalid", ["13.1", True, -0.1, 100.1])
+def test_malformed_segmentation_is_rejected(invalid: object) -> None:
+    payload = _payload()
+    result = payload["result"]
+    assert isinstance(result, dict)
+    front = result["front"]
+    assert isinstance(front, dict)
+    front["segments"] = {"tree": invalid}
+
+    with pytest.raises(ValueError, match="Street View segment tree"):
+        extract_street_view_features(payload)
 
 
 def test_extractor_rejects_non_completed_cached_response() -> None:
@@ -250,3 +291,18 @@ def test_processed_street_view_evidence_is_canonical_and_image_free() -> None:
     assert committed.site_count == 20
     assert DEFAULT_STREETVIEW_EVIDENCE_PATH.stat().st_size < 100_000
     assert b"base64" not in DEFAULT_STREETVIEW_EVIDENCE_PATH.read_bytes()
+
+
+def test_real_artifact_has_varied_bounded_scores_and_preserves_limitations() -> None:
+    artifact = load_street_view_evidence_artifact()
+    confidence_scores = {site.street_context_confidence.score for site in artifact.sites}
+    shade_scores = {site.shade_intervention_evidence.score for site in artifact.sites}
+
+    assert len(confidence_scores) > 1
+    assert len(shade_scores) == artifact.site_count
+    assert all(0 <= score <= 1 for score in confidence_scores | shade_scores)
+    assert all(
+        site.shade_intervention_evidence.limitation
+        == artifact.shade_screening_limitation
+        for site in artifact.sites
+    )

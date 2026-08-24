@@ -533,3 +533,29 @@
   candidates, both golden budgets, and unchanged `1,811,120` credits; production Playwright passes
   the tutorial, map readiness, budget, site-context, source, and AI flow in `3.9s` after the
   20-site cache expansion.
+
+## Cached Street View evidence is deterministic and screening-safe
+
+- Exact-cache proof: the offline loader parses the legacy result plus 19 site-specific results and
+  proves their 20 site IDs exactly equal the deterministic `$1M` portfolio. It rejects duplicate
+  sites, incomplete jobs, malformed coordinates, dates, and segmentation values without making an
+  external request.
+- Metric proof: each dated front/back view preserves exact FortyGuard `tree`, `grass`, `sky`,
+  `road`, `sidewalk`, and `building` percentages when present. Missing categories remain null.
+  Aggregates use equal-weight observed means and publish the contributing-view count per metric.
+- Confidence proof: versioned config scores usable views, imagery availability, cache-anchored image
+  age, and segmentation completeness. All 20 real sites have one usable view and produce bounded,
+  site-specific confidence scores from `0.688` to `0.875`.
+- Intervention-screening proof: visible-sky and low-visible-tree context produce 20 distinct bounded
+  shade-evidence scores from `0.234` to `0.592`, discounted by evidence confidence. Every record
+  states that segmentation does not prove an unshaded stop, all-day shade, right-of-way, or
+  construction feasibility. These values remain isolated from candidate ranking until the next
+  checklist section.
+- Artifact proof: `data/processed/pacoima_streetview_evidence.json` is a canonical, image-free
+  `56,594`-byte artifact with SHA-256
+  `97816ecd45f8934cd38762a748dd91ab96b7af459d2c05458d8fa3de1a642af5`. It embeds the config hash
+  and source-cache hashes, and regenerates byte-for-byte from committed inputs.
+- Automated proof: all `18` focused Street View tests pass, including missing views, malformed
+  segmentation, stale imagery, view-order determinism, artifact regeneration, score bounds, and
+  limitation retention. Full backend Pytest returns `69 passed`; Ruff passes; strict Mypy passes
+  across `42` source files.
