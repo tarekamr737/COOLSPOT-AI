@@ -595,5 +595,8 @@
 - Cache proof: the durable terminal adapter record is `3,947,960` bytes, contains 2,001 GeoJSON
   features, omits the API key, and is tied to the same request hash and activity ID. A pre-submission
   journal prevents an uncertain request from being repeated.
-- Automated proof: full backend Pytest returns `78 passed`; Ruff passes; strict Mypy passes across
-  `45` source files.
+- Reserve proof: a workflow-level regression uses the observed `4,220`-credit heatmap cost with
+  `504,219` credits remaining. The governor projects `499,999`, raises before submission, writes no
+  request journal, and leaves the exceedance request absent from the ledger.
+- Automated proof: full backend Pytest returns `79 passed`; Ruff passes; strict Mypy passes across
+  `58` source files.
