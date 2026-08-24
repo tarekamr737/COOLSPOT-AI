@@ -171,3 +171,7 @@
   then reached Playwright but could not launch because its pinned Chromium executable is absent from
   the machine. No browser was downloaded to the full C drive; focused DOM tests and the production
   build remain the verification for this UI-only slice.
+- Street View feature extraction intentionally emits only validated coordinates, dated view
+  directions, and alphabetically ordered raw segmentation percentages. It drops both Base64 images
+  and legends, and does not yet interpret a segment as shade, suitability, or confidence; those
+  transformations remain separate checklist tasks with their own evidence rules.

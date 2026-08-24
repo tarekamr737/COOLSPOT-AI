@@ -1,40 +1,463 @@
 # TASKS.md
 
-> Execute top-to-bottom. Check an item only after its acceptance test passes.
+> Execute top-to-bottom.
+> Mark an item complete only after its acceptance test passes.
+> Preserve the existing deterministic architecture, cached judge mode, source provenance, and credit governor.
 
-## 0 — Bootstrap
-- [x] Scaffold `web/` Next.js and `api/` FastAPI; add strict lint/type/test commands and `.env.example`.
-- [x] Add `GET /health`; run frontend + API locally.
+---
 
-## 1 — Pilot + sources
-- [x] Acquire/build `pacoima_aoi.geojson`; programmatically prove area `<10 mi²` and add boundary test.
-- [x] Create `data/sources.json`; ingest/cache pilot POIs + LA Metro + minimal ACS variables.
-- [x] Produce one clipped, deterministic processed public-data fixture for Pacoima.
+## 1 — Street View evidence extraction
 
-## 2 — FortyGuard safely
-- [x] Implement typed async FortyGuard adapter, request-hash cache, resumable status polling, and fixture tests.
-- [x] Implement credit ledger/governor with 500k hard reserve and `FORTYGUARD_LIVE=0` default.
-- [x] With live mode explicitly enabled, measure one heatmap request's real credit delta; record it.
-- [x] Cache one real Pacoima `tcm` 100m heatmap and one matching `persistence` result without breaching reserve.
-- [x] Probe only the optional endpoint access actually needed; disable unsupported Premium features cleanly.
+- [x] Add a deterministic Street View feature extractor for cached `/v1/streetview` responses.
+- [ ] Derive transparent per-view segmentation metrics where available:
+  - `tree_pct`
+  - `grass_pct`
+  - `sky_pct`
+  - `road_pct`
+  - `sidewalk_pct`
+  - `building_pct`
+  - `image_date`
+- [ ] Aggregate front/back views conservatively without calling them direct shade measurements.
+- [ ] Add a `street_context_confidence` based on:
+  - number of usable views,
+  - imagery availability,
+  - imagery age,
+  - segmentation completeness.
+- [ ] Add a derived `shade_intervention_evidence_score`.
+- [ ] Clearly document that this is **intervention-screening evidence**, not proof that a stop is unshaded.
+- [ ] Parse all currently cached Street View results for the `$1M` portfolio.
+- [ ] Persist normalized site evidence to a small versioned processed artifact.
+- [ ] Add unit tests for:
+  - missing views,
+  - malformed segmentation,
+  - stale imagery,
+  - deterministic aggregation,
+  - score bounds.
 
-## 3 — Decision engine
-- [x] Build tile feature table: heat + exposure + vulnerability + cooling opportunity; unit-test normalization/missing data.
-- [x] Add versioned intervention catalog with applicability, planning cost, evidence, uncertainty, and source.
-- [x] Generate >=20 evidence-backed compatible candidates from real pilot data.
-- [x] Implement deterministic OR-Tools optimizer; prove cost <= budget and <=1 intervention/site for preset budgets.
-- [x] Expose pilot/layers/candidates/optimize/site/methodology/data-status API routes.
+**Acceptance:** cached Street View evidence changes site confidence/opportunity deterministically while preserving all limitations.
 
-## 4 — Product UI
-- [x] Invoke/read **Impeccable skill**; implement the golden map information architecture it specifies.
-- [x] Build map layers, ranked recommendations, budget control, KPIs, evidence drawer, methodology, and data freshness UI.
-- [x] Re-run Impeccable review; fix accessibility, responsive behavior, loading/error states, and visual hierarchy.
-- [x] Add grounded template explanation; optional cached LLM explanation only if it improves judging.
-- [x] Make the map geographically legible; add authenticated live refresh and grounded OpenRouter explanations.
+---
 
-## 5 — Proof
-- [x] Add golden Playwright E2E and assert budget changes make zero FortyGuard calls.
-- [x] Run backend unit/integration suite, frontend checks, and `scripts/validate_demo.py`.
-- [ ] Deploy web + API in demo mode; run golden E2E against deployed URLs.
-- [ ] Perform one final controlled live refresh only if useful and reserve remains >=500k; otherwise keep validated cache.
-- [ ] Freeze demo data, verify sources/limitations/credit status, and record a 2–3 minute judge demo path.
+## 2 — Upgrade candidate confidence + feasibility
+
+- [ ] Remove the universal `0.5 / 0.5` candidate treatment where richer evidence exists.
+- [ ] Keep neutral fallback values only for genuinely unverified candidates.
+- [ ] Define evidence-based confidence rules in versioned config.
+- [ ] Define intervention-specific feasibility/suitability inputs.
+
+### Shade structures
+
+Use only defensible signals such as:
+
+- heat severity,
+- persistence/exceedance,
+- published transit exposure,
+- Street View vegetation context,
+- Street View sky/open-street context,
+- evidence confidence.
+
+Do **not** claim Street View proves useful shade coverage throughout the day.
+
+### Tree canopy
+
+Use:
+
+- heat severity,
+- public-site compatibility,
+- vegetation/canopy opportunity where evidenced,
+- environmental context,
+- evidence confidence.
+
+### Cool pavement
+
+Use only after verified paved/public surface geometry exists.
+
+- [ ] Add evidence records explaining every non-neutral feasibility/confidence adjustment.
+- [ ] Surface raw inputs and derived values through the API/site drawer.
+
+**Acceptance:** two sites with different verified evidence can receive different feasibility/confidence scores for explainable reasons.
+
+---
+
+## 3 — Add FortyGuard `exceedance`
+
+- [ ] Confirm current documented request schema against the existing FortyGuard adapter/models.
+- [ ] Add/validate `analytic_type=exceedance` support.
+- [ ] Measure one real request's credit delta using the existing governor workflow.
+- [ ] Abort further work if projected reserve would fall below `500,000`.
+- [ ] Cache one real Pacoima exceedance dataset for the frozen analysis period.
+- [ ] Normalize exceedance into the heat feature model.
+- [ ] Update default heat severity:
+
+```text
+heat_score =
+0.40 × temperature
++ 0.35 × persistence
++ 0.25 × exceedance
+```
+
+- [ ] Keep weights versioned/configurable.
+- [ ] Add comparison test showing whether exceedance materially changes rankings.
+- [ ] Update methodology and provenance.
+
+**Acceptance:** exceedance is real, cached, source-attributed, deterministic, and visible in site evidence.
+
+---
+
+## 4 — Add FortyGuard `time_of_measure`
+
+- [ ] Add/validate `analytic_type=time_of_measure`.
+- [ ] Measure request credit cost before any repeated request.
+- [ ] Cache one real Pacoima result if supported by the hackathon key.
+- [ ] Store peak-hour context per tile/site.
+- [ ] Use it for explanation/context only unless strong evidence justifies scoring.
+- [ ] Never imply that peak temperature time equals peak pedestrian volume.
+- [ ] Surface a concise label such as:
+
+```text
+Peak heat observed around: 15:00
+```
+
+**Acceptance:** peak timing improves explanation without introducing unsupported exposure claims.
+
+---
+
+## 5 — Add Environmental Parameters for finalists
+
+- [ ] Probe `/v1/env_params` with one minimal valid request.
+- [ ] Measure observed credit cost.
+- [ ] Continue only if supported and credit-safe.
+- [ ] Prefer no more than three useful parameters:
+  - apparent temperature or heat index,
+  - relative humidity,
+  - solar irradiance.
+- [ ] Run only for a small deterministic top-N finalist set, initially `N <= 10`.
+- [ ] Cache every completed response.
+- [ ] Persist normalized environmental evidence.
+- [ ] Add `thermal_stress_context` to candidate/site evidence.
+- [ ] Do not fabricate a medical-risk score.
+- [ ] Recompute evidence confidence where appropriate.
+
+**Acceptance:** selected finalists show point-level FortyGuard environmental context with source/date/limitations.
+
+---
+
+## 6 — Make optimization intervention-aware
+
+Replace the current generic value calculation with intervention-specific modeled benefit.
+
+### Shade
+
+```text
+shade_value =
+priority_score
+× shade_suitability
+× feasibility
+× confidence
+```
+
+### Tree canopy
+
+```text
+tree_value =
+priority_score
+× tree_suitability
+× feasibility
+× confidence
+```
+
+### Cool pavement
+
+```text
+pavement_value =
+priority_score
+× pavement_suitability
+× feasibility
+× confidence
+```
+
+- [ ] Keep all derived factors in `[0,1]`.
+- [ ] Keep CP-SAT deterministic.
+- [ ] Do not use an LLM in ranking or optimization.
+- [ ] Preserve:
+  - budget constraint,
+  - one intervention per site,
+  - compatibility rules.
+- [ ] Add explanation fields showing why each intervention received its value.
+- [ ] Add regression tests proving deterministic portfolios.
+- [ ] Add tests showing intervention evidence can alter portfolio selection.
+
+**Acceptance:** COOLSPOT optimizes **intervention fit + priority**, not merely hotspot priority.
+
+---
+
+## 7 — Activate cool-pavement candidates
+
+- [ ] Acquire authoritative public roadway/corridor/paved-surface geometry for Pacoima.
+- [ ] Record source, retrieval date, license notes, and geometry provenance.
+- [ ] Generate only candidates on verified public paved geometry.
+- [ ] Keep existing safety requirements for:
+  - surface condition,
+  - traction,
+  - glare,
+  - drainage,
+  - pedestrian radiant exposure,
+  - product compatibility.
+- [ ] Attempt at most one small `/v1/satellite` capability probe if it materially improves surface evidence.
+- [ ] Measure the real credit delta.
+- [ ] If supported and cost-safe, enrich only top pavement finalists.
+- [ ] If unsupported, continue with authoritative public geometry instead of blocking the feature.
+- [ ] Add at least one valid cool-pavement candidate if evidence permits.
+- [ ] Otherwise remove cool pavement from the golden demo and clearly explain why.
+
+**Acceptance:** no UI claims three operational intervention families while the third is impossible to select.
+
+---
+
+## 8 — Scenario presets + robustness analysis
+
+Add four versioned scoring presets.
+
+### Balanced
+
+```text
+Heat          0.40
+Exposure      0.30
+Vulnerability 0.20
+Opportunity   0.10
+```
+
+### Heat-first
+
+```text
+Heat          0.50
+Exposure      0.25
+Vulnerability 0.15
+Opportunity   0.10
+```
+
+### Equity-first
+
+```text
+Heat          0.30
+Exposure      0.25
+Vulnerability 0.35
+Opportunity   0.10
+```
+
+### Exposure-first
+
+```text
+Heat          0.30
+Exposure      0.40
+Vulnerability 0.20
+Opportunity   0.10
+```
+
+- [ ] Add preset selector to API contracts.
+- [ ] Re-score/re-optimize without FortyGuard calls.
+- [ ] Compute:
+
+```text
+robustness_score =
+number_of_presets_selecting_site
+/
+number_of_presets_tested
+```
+
+- [ ] Surface labels such as:
+
+```text
+Selected in 4/4 planning scenarios
+```
+
+- [ ] Do not present robustness as statistical confidence.
+- [ ] Add tests for all four presets.
+
+**Acceptance:** judges can change planning priorities and see which recommendations remain stable at zero vendor cost.
+
+---
+
+## 9 — UI/UX upgrade with Impeccable
+
+> All UI/UX changes must use the **Impeccable skill**.
+
+- [ ] Re-run Impeccable against the new golden path before coding UI changes.
+- [ ] Add scenario preset control without cluttering the main workspace.
+- [ ] Upgrade recommendation/site drawer with:
+  - FortyGuard heat,
+  - persistence,
+  - exceedance,
+  - peak timing,
+  - environmental context,
+  - Street View original/segmented context,
+  - intervention evidence score,
+  - feasibility,
+  - confidence,
+  - robustness,
+  - cost,
+  - sources,
+  - limitations.
+- [ ] Clearly separate:
+  - observed evidence,
+  - derived screening scores,
+  - planning assumptions.
+- [ ] Add concise visual indicators for:
+  - `Verified evidence`
+  - `Modeled`
+  - `Planning assumption`
+  - `Field verification required`
+- [ ] Keep map-first hierarchy.
+- [ ] Keep budget recalculation visibly at `0 FortyGuard credits`.
+- [ ] Re-run Impeccable after implementation.
+- [ ] Fix accessibility, responsiveness, hierarchy, empty/error states, and keyboard navigation.
+
+**Acceptance:** a judge can understand why a site and intervention were selected in under 15 seconds.
+
+---
+
+## 10 — Evidence + methodology audit
+
+- [ ] Update `PRODUCT.md`.
+- [ ] Update `ARCHITECTURE.md`.
+- [ ] Update `README.md`.
+- [ ] Update `EVIDENCE.md`.
+- [ ] Update `BUILDLOG.md`.
+- [ ] Update `data/sources.json`.
+- [ ] Update capability snapshot.
+- [ ] Update all scoring/config documentation.
+- [ ] Remove outdated claims about universal `0.5` confidence/feasibility.
+- [ ] Remove any claim that cool pavement is supported if still unavailable.
+- [ ] Verify every numeric claim is traceable to:
+  - FortyGuard,
+  - authoritative public data,
+  - cited research,
+  - or an explicitly labeled model/config assumption.
+
+**Acceptance:** README, application, API, processed data, and methodology tell the same story.
+
+---
+
+## 11 — Optional Heat Intelligence bonus
+
+Do only after all previous tasks pass.
+
+- [ ] Verify current `/v1/heat_intelligence` documentation.
+- [ ] Probe once only if hackathon-key access and credits permit.
+- [ ] Never use the report to rank or optimize sites.
+- [ ] Use only as supporting evidence/reporting for a top recommendation.
+- [ ] Cache the result and record cost/provenance.
+- [ ] Gracefully omit the feature if unavailable.
+
+**Acceptance:** optional report strengthens explanation but is never a core dependency.
+
+---
+
+## 12 — Full regression + adversarial audit
+
+### Backend
+
+- [ ] `ruff`
+- [ ] `mypy`
+- [ ] full `pytest`
+- [ ] fixture parsing
+- [ ] scoring
+- [ ] candidate generation
+- [ ] scenario presets
+- [ ] robustness
+- [ ] optimizer
+- [ ] credit governor
+- [ ] optional-endpoint failure paths
+
+### Frontend
+
+- [ ] lint/type checks
+- [ ] production build
+- [ ] component/unit tests
+- [ ] Playwright golden path
+- [ ] responsive test
+- [ ] accessibility check
+
+### Claim audit
+
+Try to disprove:
+
+- [ ] “This stop is unshaded.”
+- [ ] “This intervention will lower temperature by exactly X°C.”
+- [ ] “X people will be saved.”
+- [ ] “Vulnerability score equals people affected.”
+- [ ] “Street View proves all-day shade.”
+- [ ] “Environmental parameters predict medical outcomes.”
+- [ ] “Robustness score is statistical confidence.”
+
+Fix any UI/API wording that implies those claims.
+
+**Acceptance:** no unsupported claim remains.
+
+---
+
+## 13 — Deploy the judge build
+
+- [ ] Deploy production web/API in frozen demo mode.
+- [ ] Run `scripts/validate_demo.py` against production.
+- [ ] Run full Playwright golden path against production URLs.
+- [ ] Confirm application works when FortyGuard is unavailable.
+- [ ] Confirm budget and scenario changes make zero FortyGuard calls.
+- [ ] Confirm cached Street View and environmental evidence load correctly.
+- [ ] Verify server-only secrets.
+- [ ] Verify CORS/security configuration.
+- [ ] Test Chrome desktop + mobile viewport.
+- [ ] Test one clean incognito session.
+
+**Acceptance:** deployed golden path completes without errors.
+
+---
+
+## 14 — Freeze final hackathon evidence
+
+- [ ] Record exact data dates.
+- [ ] Record final FortyGuard credit usage.
+- [ ] Preserve at least `500,000` credits unless explicitly justified otherwise.
+- [ ] Freeze processed artifacts used for judging.
+- [ ] Generate hashes/manifests for frozen evidence.
+- [ ] Disable unnecessary live experimentation.
+- [ ] Tag final judge-ready commit.
+
+**Acceptance:** final submission is reproducible from committed evidence.
+
+---
+
+## 15 — Final 2–3 minute judge path
+
+Prepare this exact flow:
+
+1. Open Pacoima.
+2. State:
+   **“Cities already know where it is hot. The problem is deciding what to fund.”**
+3. Show Heat.
+4. Show Persistence.
+5. Show Exceedance.
+6. Set `$500k`.
+7. Open the #1 recommendation.
+8. Show:
+   - heat evidence,
+   - transit/public exposure,
+   - vulnerability,
+   - Street View evidence,
+   - environmental parameters,
+   - intervention suitability,
+   - confidence,
+   - cost,
+   - sources.
+9. Switch to `$1M`.
+10. Show portfolio changes with:
+    **`0 additional FortyGuard credits`**
+11. Change `Balanced` → `Equity-first`.
+12. Highlight recommendations that remain selected.
+13. Show:
+    **`Robust across 4/4 scenarios`**
+14. Open methodology/limitations.
+15. Finish:
+    **“FortyGuard tells us where heat is. COOLSPOT tells a city what to fund next.”**
+
+**Acceptance:** complete demo comfortably within 3 minutes without relying on live external APIs.
