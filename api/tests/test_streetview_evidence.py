@@ -197,6 +197,8 @@ def test_shade_evidence_uses_visual_context_and_confidence() -> None:
     assert evidence.low_tree_context == 0.8
     assert evidence.street_context_confidence == 1
     assert evidence.score == 0.7
+    assert "does not prove that a stop is unshaded" in evidence.limitation
+    assert "all-day shade" in evidence.limitation
 
 
 def test_shade_evidence_score_is_bounded() -> None:

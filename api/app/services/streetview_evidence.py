@@ -61,6 +61,7 @@ class StreetViewEvidenceConfig(StrictModel):
     stale_age_score: float = Field(ge=0, le=1)
     confidence_weights: StreetContextConfidenceWeights
     shade_evidence_weights: ShadeEvidenceWeights
+    shade_screening_limitation: str = Field(min_length=1)
 
     @model_validator(mode="after")
     def validate_age_thresholds(self) -> Self:
@@ -146,6 +147,7 @@ class ShadeInterventionEvidence(StrictModel):
     open_sky_context: float | None = Field(default=None, ge=0, le=1)
     low_tree_context: float | None = Field(default=None, ge=0, le=1)
     street_context_confidence: float = Field(ge=0, le=1)
+    limitation: str = Field(min_length=1)
 
 
 class ExtractedStreetViewFrame(StrictModel):
@@ -308,6 +310,7 @@ def _shade_evidence(
         open_sky_context=open_sky,
         low_tree_context=low_tree,
         street_context_confidence=confidence.score,
+        limitation=config.shade_screening_limitation,
     )
 
 

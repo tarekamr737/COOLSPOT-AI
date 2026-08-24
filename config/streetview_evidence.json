@@ -10,6 +10,7 @@
     "low_tree_context": 0.5,
     "open_sky_context": 0.5
   },
+  "shade_screening_limitation": "Street View segmentation is intervention-screening evidence from dated camera views. It does not prove that a stop is unshaded, measure all-day shade, establish right-of-way, or confirm construction feasibility.",
   "stale_age_days": 1825,
   "stale_age_score": 0.25,
   "target_view_count": 2,

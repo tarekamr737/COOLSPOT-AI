@@ -24,7 +24,7 @@
   - imagery age,
   - segmentation completeness.
 - [x] Add a derived `shade_intervention_evidence_score`.
-- [ ] Clearly document that this is **intervention-screening evidence**, not proof that a stop is unshaded.
+- [x] Clearly document that this is **intervention-screening evidence**, not proof that a stop is unshaded.
 - [ ] Parse all currently cached Street View results for the `$1M` portfolio.
 - [ ] Persist normalized site evidence to a small versioned processed artifact.
 - [ ] Add unit tests for:
