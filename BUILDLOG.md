@@ -329,3 +329,6 @@
 - Robustness is counted by stable `site_id`, as the task formula specifies site selection rather
   than candidate/intervention identity. Only active-portfolio sites are returned to keep the API
   compact; each record still names every preset that selected that site.
+- Impeccable review placed scenario selection inside the existing investment overlay: this preserves
+  the map as the primary workspace, uses a standard control affordance, and avoids adding another
+  floating panel or modal to an already dense municipal-planning screen.

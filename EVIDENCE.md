@@ -865,6 +865,12 @@
   complete ordered catalog membership, stable results under reversed candidate input, the echoed
   active preset, and budget feasibility for balanced, heat-first, equity-first, and exposure-first.
   All eight optimizer tests pass with Ruff and Mypy clean.
+- Pre-UI Impeccable proof: the required context loader resolved the full `PRODUCT.md` and `DESIGN.md`,
+  the product-register guidance was applied, and the scenario golden path was reviewed before the
+  next control change. The resulting constraint is to extend the existing budget overlay with a
+  familiar compact selector and active weights, preserving the map-first hierarchy. The executable
+  golden-path validator passes with four layers, 172 candidates, both demo budgets, and credits
+  unchanged at `1,759,280` remaining.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.
