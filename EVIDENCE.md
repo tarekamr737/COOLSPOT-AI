@@ -696,6 +696,13 @@
   finalists and the 10 committed JSON artifacts. Every artifact validates its canonical request
   hash, unique completed activity, one timestamp/location result, balanced counters, and source URL;
   the files contain no `api_key` field. Writes use atomic `.part` replacement.
+- Normalization proof: the 10 full responses are transformed into one typed, deterministic artifact
+  containing only observed temperature, apparent temperature, relative humidity, clear-sky GHI,
+  coordinates, vendor time metadata, request/activity IDs, and per-source SHA-256 hashes. No value is
+  normalized to a score, imputed, or timezone-corrected.
+- Reproducibility proof: rebuilding `data/processed/pacoima_environmental_evidence.json` from the 10
+  committed source responses is byte-for-byte stable. Rank 1 preserves the real values `35.3 °C`,
+  `24.3%`, and GHI vendor value `779.49`.
 - Cache proof: `data/processed/fortyguard_env_params_probe.json` validates the exact one-location,
   one-timestamp response, request, result, source, limitations, and balanced credit counters without
   containing the API key. Re-running the workflow returns this report before initializing a client.

@@ -1,0 +1,240 @@
+{
+  "environmental_config_sha256": "f12bf64c0d5551d53ff920c952d955e3e4e5c3b324a0bd4e0e8bd6907668547c",
+  "finalist_count": 10,
+  "generated_at": "2026-08-20T14:00:00-08:00",
+  "limitations": [
+    "Values are point-level, single-hour FortyGuard model outputs for finalist screening.",
+    "The fields are context only and are not a medical-risk score or guaranteed outcome.",
+    "Clear-sky GHI retains the vendor value because the endpoint schema does not state a unit.",
+    "Vendor-returned timestamps and timezone metadata are preserved without correction."
+  ],
+  "metrics": [
+    "apparent_temperature",
+    "relative_humidity",
+    "clear_sky_ghi"
+  ],
+  "pilot": "Pacoima, Los Angeles",
+  "sites": [
+    {
+      "activity_id": "0bd748b2-88dd-498c-ae5d-7aac35f07f92",
+      "apparent_temperature_c": 35.3,
+      "candidate_id": "shade_structure:metro-stop:6788",
+      "clear_sky_ghi_vendor_value": 779.49,
+      "finalist_rank": 1,
+      "latitude": 34.271105,
+      "longitude": -118.414991,
+      "observed_at": "2026-08-20T14:00:00-08:00",
+      "observed_temperature_c": 35.9398,
+      "relative_humidity_percent": 24.3,
+      "request_hash": "99bbf0bca690ad39a776b24025870a6650fb245d592e66364c7d202477ca3d2b",
+      "site_id": "metro-stop:6788",
+      "site_name": "Van Nuys / Herrick",
+      "source_artifact": {
+        "path": "data/processed/pacoima_environmental_sites/metro-stop__6788.json",
+        "sha256": "4b2801107dd42b9a1088ec7c776e3ac41e756a2eafdd82b7f30e4c89b90ac267"
+      },
+      "tile_id": "1355",
+      "vendor_timezone": "GMT-8",
+      "vendor_timezone_offset_hours": -8.0
+    },
+    {
+      "activity_id": "193820b1-9e51-42ce-a598-27fba0a4eaea",
+      "apparent_temperature_c": 35.3,
+      "candidate_id": "tree_canopy:school:53",
+      "clear_sky_ghi_vendor_value": 779.49,
+      "finalist_rank": 2,
+      "latitude": 34.2709562471485,
+      "longitude": -118.415050822736,
+      "observed_at": "2026-08-20T14:00:00-08:00",
+      "observed_temperature_c": 35.9398,
+      "relative_humidity_percent": 24.3,
+      "request_hash": "8de2c55754dbe693444be74cced3d6439e682744714330f4904f1b188dc32916",
+      "site_id": "school:53",
+      "site_name": "Pacoima Early Education Center",
+      "source_artifact": {
+        "path": "data/processed/pacoima_environmental_sites/school__53.json",
+        "sha256": "1ab3896e1a79e20ad41ef98b0762e0d7e573364353cb49fbf636ef8e2382c1f6"
+      },
+      "tile_id": "1355",
+      "vendor_timezone": "GMT-8",
+      "vendor_timezone_offset_hours": -8.0
+    },
+    {
+      "activity_id": "86886e8a-527f-466b-9580-822b78c6abb7",
+      "apparent_temperature_c": 36.2,
+      "candidate_id": "tree_canopy:park:353",
+      "clear_sky_ghi_vendor_value": 789.39,
+      "finalist_rank": 3,
+      "latitude": 34.26479312522725,
+      "longitude": -118.43921865633273,
+      "observed_at": "2026-08-20T14:00:00-08:00",
+      "observed_temperature_c": 36.3551,
+      "relative_humidity_percent": 24.4,
+      "request_hash": "1fd0848f8dc407322956f5e86dd54c126fddc886638eaa623def8fbab4d6d0f0",
+      "site_id": "park:353",
+      "site_name": "Ritchie Valens Pool",
+      "source_artifact": {
+        "path": "data/processed/pacoima_environmental_sites/park__353.json",
+        "sha256": "d5e174d387634a67e9545017a887b6a9e78565e369dcd07b1a2a07000fa48b70"
+      },
+      "tile_id": "964",
+      "vendor_timezone": "GMT-8",
+      "vendor_timezone_offset_hours": -8.0
+    },
+    {
+      "activity_id": "8b7e7b69-08d7-45f7-a34b-e01047e97508",
+      "apparent_temperature_c": 35.3,
+      "candidate_id": "shade_structure:metro-stop:10787",
+      "clear_sky_ghi_vendor_value": 779.44,
+      "finalist_rank": 4,
+      "latitude": 34.270733,
+      "longitude": -118.40875,
+      "observed_at": "2026-08-20T14:00:00-08:00",
+      "observed_temperature_c": 36.039,
+      "relative_humidity_percent": 24.3,
+      "request_hash": "e79ce1d63c1467c75141bc11148ce324dd1e474f66d39fca7404cd70cea2a2d7",
+      "site_id": "metro-stop:10787",
+      "site_name": "Glenoaks / Pierce",
+      "source_artifact": {
+        "path": "data/processed/pacoima_environmental_sites/metro-stop__10787.json",
+        "sha256": "8dbb3e7414c7f5dcdfe3ac2834cb1bc13aa95b8a317d8f6ec7584bcca09ab142"
+      },
+      "tile_id": "1361",
+      "vendor_timezone": "GMT-8",
+      "vendor_timezone_offset_hours": -8.0
+    },
+    {
+      "activity_id": "7190bc0e-158b-4105-a2f8-e56852125ed0",
+      "apparent_temperature_c": 35.3,
+      "candidate_id": "shade_structure:metro-stop:2251",
+      "clear_sky_ghi_vendor_value": 779.44,
+      "finalist_rank": 5,
+      "latitude": 34.271,
+      "longitude": -118.408629,
+      "observed_at": "2026-08-20T14:00:00-08:00",
+      "observed_temperature_c": 36.039,
+      "relative_humidity_percent": 24.3,
+      "request_hash": "5a27885adf918a6fd5664f4876e2ba0e3233c5b0aea353e20cb4607ea319fdfe",
+      "site_id": "metro-stop:2251",
+      "site_name": "Glenoaks / Pierce",
+      "source_artifact": {
+        "path": "data/processed/pacoima_environmental_sites/metro-stop__2251.json",
+        "sha256": "31cf4c7fac3ca50002066970179689db253922d591f694837a173bf1c3b96fcc"
+      },
+      "tile_id": "1361",
+      "vendor_timezone": "GMT-8",
+      "vendor_timezone_offset_hours": -8.0
+    },
+    {
+      "activity_id": "fed334bd-e333-4092-af93-b80966fed8e3",
+      "apparent_temperature_c": 36.2,
+      "candidate_id": "shade_structure:metro-stop:15139",
+      "clear_sky_ghi_vendor_value": 789.33,
+      "finalist_rank": 6,
+      "latitude": 34.261356,
+      "longitude": -118.42881,
+      "observed_at": "2026-08-20T14:00:00-08:00",
+      "observed_temperature_c": 35.9538,
+      "relative_humidity_percent": 24.4,
+      "request_hash": "4830107684bd0a36745df637e6c5188e4f0ac48d531a2f9443c97de4f7ff4ca1",
+      "site_id": "metro-stop:15139",
+      "site_name": "Van Nuys / Haddon",
+      "source_artifact": {
+        "path": "data/processed/pacoima_environmental_sites/metro-stop__15139.json",
+        "sha256": "3c2d4e71b9eb99b65586e720964c79a7de085d8565570970e1d0b74a98ae85a6"
+      },
+      "tile_id": "725",
+      "vendor_timezone": "GMT-8",
+      "vendor_timezone_offset_hours": -8.0
+    },
+    {
+      "activity_id": "9db141e1-4da4-48fd-bff1-fd3bb7be1570",
+      "apparent_temperature_c": 36.2,
+      "candidate_id": "shade_structure:metro-stop:364",
+      "clear_sky_ghi_vendor_value": 789.38,
+      "finalist_rank": 7,
+      "latitude": 34.264744,
+      "longitude": -118.43824,
+      "observed_at": "2026-08-20T14:00:00-08:00",
+      "observed_temperature_c": 36.3551,
+      "relative_humidity_percent": 24.4,
+      "request_hash": "1550cfc6dd64362b5441a161c4b9edaf251c31d421df549432a0b5b7b4fa45b9",
+      "site_id": "metro-stop:364",
+      "site_name": "Laurel Canyon / Paxton",
+      "source_artifact": {
+        "path": "data/processed/pacoima_environmental_sites/metro-stop__364.json",
+        "sha256": "9626a1ee06a79548f9d60af6e225e50f24bc879d340fdd60a837e2c425048787"
+      },
+      "tile_id": "964",
+      "vendor_timezone": "GMT-8",
+      "vendor_timezone_offset_hours": -8.0
+    },
+    {
+      "activity_id": "9463d728-e3bf-4f88-b780-e6f015c23bb7",
+      "apparent_temperature_c": 36.2,
+      "candidate_id": "tree_canopy:park:388",
+      "clear_sky_ghi_vendor_value": 789.38,
+      "finalist_rank": 8,
+      "latitude": 34.26568196555755,
+      "longitude": -118.4386405459496,
+      "observed_at": "2026-08-20T14:00:00-08:00",
+      "observed_temperature_c": 36.3551,
+      "relative_humidity_percent": 24.4,
+      "request_hash": "9e25a6254a831089f3759af2b5009599a9128aa2ae7ac8849bf0e397f415af07",
+      "site_id": "park:388",
+      "site_name": "Ritchie Valens Recreation Center",
+      "source_artifact": {
+        "path": "data/processed/pacoima_environmental_sites/park__388.json",
+        "sha256": "f337744ef1c065c88d808f8cedf633a714f14546d73bda9e1302f48c635a2ae4"
+      },
+      "tile_id": "964",
+      "vendor_timezone": "GMT-8",
+      "vendor_timezone_offset_hours": -8.0
+    },
+    {
+      "activity_id": "8dd6adee-3994-421a-93e5-93197f8d65bc",
+      "apparent_temperature_c": 35.3,
+      "candidate_id": "shade_structure:metro-stop:10795",
+      "clear_sky_ghi_vendor_value": 789.13,
+      "finalist_rank": 9,
+      "latitude": 34.282345,
+      "longitude": -118.421045,
+      "observed_at": "2026-08-20T14:00:00-08:00",
+      "observed_temperature_c": 36.0319,
+      "relative_humidity_percent": 24.3,
+      "request_hash": "db10f59accdae2c6ba44ed0630fdda9cb36c91e3a98a1c4770242310606801c8",
+      "site_id": "metro-stop:10795",
+      "site_name": "Glenoaks / Vaughn",
+      "source_artifact": {
+        "path": "data/processed/pacoima_environmental_sites/metro-stop__10795.json",
+        "sha256": "92fcbe7b6f1671d1734ca40604e3c4c7eb8e39c7b0c8d4953e22e98e0a66cbdf"
+      },
+      "tile_id": "1863",
+      "vendor_timezone": "GMT-8",
+      "vendor_timezone_offset_hours": -8.0
+    },
+    {
+      "activity_id": "3b5e9334-14c0-4f2f-bfca-a05d7df860a7",
+      "apparent_temperature_c": 35.3,
+      "candidate_id": "shade_structure:metro-stop:142066",
+      "clear_sky_ghi_vendor_value": 779.44,
+      "finalist_rank": 10,
+      "latitude": 34.274151,
+      "longitude": -118.411279,
+      "observed_at": "2026-08-20T14:00:00-08:00",
+      "observed_temperature_c": 35.9843,
+      "relative_humidity_percent": 24.3,
+      "request_hash": "d23b31e980d4e6d32bfdc788bc24bdc95109ce3555828571b1f127a0f28bda09",
+      "site_id": "metro-stop:142066",
+      "site_name": "Van Nuys / Glenoaks Layover",
+      "source_artifact": {
+        "path": "data/processed/pacoima_environmental_sites/metro-stop__142066.json",
+        "sha256": "5c961a7c2a46d8021f40612f6ea2cf3554b95ef6978f4ebdaae7cb9be3877c88"
+      },
+      "tile_id": "1584",
+      "vendor_timezone": "GMT-8",
+      "vendor_timezone_offset_hours": -8.0
+    }
+  ],
+  "version": "1.0"
+}
