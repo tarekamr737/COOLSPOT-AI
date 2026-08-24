@@ -650,6 +650,10 @@
   tests continue to pass with no peak-hour coefficient or normalized feature.
 - Claim-safety proof: the explanation regression requires the peak-hour evidence to state it is not
   used for pedestrian-activity inference and rejects the unsupported phrase `peak pedestrian`.
+- API/UI proof: Methodology exposes the peak-hour date, UTC timezone, request hash, activity ID,
+  artifact SHA-256, measured cost, source link, and claim limitation. The selected-site drawer shows
+  the concise label `Peak heat observed around` with a zero-padded `HH:00 UTC` value and date; its
+  expandable provenance repeats that this is not evidence of peak pedestrian volume.
 - Automated proof: full backend Pytest returns `87 passed`; Ruff passes; strict Mypy passes across
   `65` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
   contract test skipped), and the production Next.js build completes successfully.

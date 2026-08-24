@@ -214,12 +214,29 @@ class HeatProvenance(BaseModel):
     limitation: str = Field(min_length=40)
 
 
+class PeakHourProvenance(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    source: Literal["FortyGuard Heatmap API"] = "FortyGuard Heatmap API"
+    source_url: Literal["https://docs-api.fortyguard.com/docs/create-heatmap"] = (
+        "https://docs-api.fortyguard.com/docs/create-heatmap"
+    )
+    analysis_date: date
+    timezone: Literal["UTC"] = "UTC"
+    request_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
+    activity_id: str = Field(min_length=1)
+    artifact_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
+    observed_credit_delta: int = Field(ge=0)
+    limitation: str = Field(min_length=40)
+
+
 class MethodologyResponse(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     version: Literal["1.0"] = "1.0"
     scoring: ScoringConfig
     heat_provenance: HeatProvenance
+    peak_hour_provenance: PeakHourProvenance
     candidate_generation: CandidateConfig
     optimization: OptimizerConfig
     interventions: InterventionCatalog

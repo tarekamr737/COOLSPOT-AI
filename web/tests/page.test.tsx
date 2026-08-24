@@ -62,6 +62,8 @@ describe("Home", () => {
     expect(screen.getByText(/does not prove all-day shade/i)).toBeInTheDocument();
     expect(screen.getAllByText("Historical exceedance")).toHaveLength(2);
     expect(screen.getByText(/6.89 hours above 30 °C/)).toBeInTheDocument();
+    expect(screen.getByText("Peak heat observed around")).toBeInTheDocument();
+    expect(screen.getByText(/15:00 UTC/)).toBeInTheDocument();
     expect(screen.getByText("Methodology & limitations")).toBeInTheDocument();
     fireEvent.click(screen.getByText("Methodology & limitations"));
     expect(screen.getByRole("heading", { name: "Heat evidence provenance" })).toBeInTheDocument();

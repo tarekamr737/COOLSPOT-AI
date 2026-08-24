@@ -87,6 +87,15 @@ def test_pilot_layers_candidates_site_and_methodology_routes() -> None:
     assert methodology.heat_provenance.exceedance_activity_id == (
         "e754402c-a9c8-4816-a981-786aa3e45f77"
     )
+    assert methodology.peak_hour_provenance.analysis_date.isoformat() == "2024-07-15"
+    assert methodology.peak_hour_provenance.timezone == "UTC"
+    assert methodology.peak_hour_provenance.activity_id == (
+        "eaa617ad-07b3-47db-9094-faa26c8eeb79"
+    )
+    assert methodology.peak_hour_provenance.observed_credit_delta == 4_220
+    assert "not evidence of peak pedestrian volume" in (
+        methodology.peak_hour_provenance.limitation
+    )
     assert "not contemporaneous" in methodology.heat_provenance.limitation
     assert methodology.interventions.version == "1.0"
     assert methodology.optimization.objective_scale == 1_000_000

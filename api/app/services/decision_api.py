@@ -17,6 +17,7 @@ from api.app.schemas import (
     LayerProperties,
     LayerResponse,
     MethodologyResponse,
+    PeakHourProvenance,
     PersistenceLayerProperties,
     PilotResponse,
     SiteOption,
@@ -40,8 +41,10 @@ from api.app.services.feature_table import (
 from api.app.services.heatmap_data import (
     PacoimaExceedanceArtifact,
     PacoimaHeatmapArtifact,
+    PacoimaTimeOfMeasureArtifact,
     load_exceedance_artifact,
     load_heatmap_artifact,
+    load_time_of_measure_artifact,
 )
 from api.app.services.interventions import InterventionCatalog, load_intervention_catalog
 from api.app.services.optimizer import load_optimizer_config
@@ -66,6 +69,7 @@ def clear_decision_caches() -> None:
         _boundary,
         _heatmaps,
         _exceedance,
+        _time_of_measure,
         _features,
         _candidates,
         _catalog,
@@ -90,6 +94,11 @@ def _heatmaps() -> PacoimaHeatmapArtifact:
 @lru_cache(maxsize=1)
 def _exceedance() -> PacoimaExceedanceArtifact:
     return load_exceedance_artifact()
+
+
+@lru_cache(maxsize=1)
+def _time_of_measure() -> PacoimaTimeOfMeasureArtifact:
+    return load_time_of_measure_artifact()
 
 
 @lru_cache(maxsize=1)
@@ -292,6 +301,7 @@ def methodology_response() -> MethodologyResponse:
     features = _features()
     heatmaps = _heatmaps()
     exceedance = _exceedance().layer
+    time_of_measure = _time_of_measure().layer
     active_analysis_date = heatmaps.layers[0].date_time.start_date
     exceedance_analysis_date = exceedance.date_time.start_date
     optimizer = load_optimizer_config()
@@ -311,6 +321,17 @@ def methodology_response() -> MethodologyResponse:
                 f"Exceedance is historical context from {exceedance_analysis_date.isoformat()}, "
                 "while active TCM and persistence evidence is dated "
                 f"{active_analysis_date.isoformat()}; the inputs are not contemporaneous."
+            ),
+        ),
+        peak_hour_provenance=PeakHourProvenance(
+            analysis_date=time_of_measure.date_time.start_date,
+            request_hash=time_of_measure.request_hash,
+            activity_id=time_of_measure.activity_id,
+            artifact_sha256=features.time_of_measure_artifact_sha256,
+            observed_credit_delta=time_of_measure.observed_credit_delta,
+            limitation=(
+                "Peak temperature hour is historical heat context only; it is not evidence of "
+                "peak pedestrian volume and is not used in scoring."
             ),
         ),
         candidate_generation=load_candidate_config(),

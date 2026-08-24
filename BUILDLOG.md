@@ -248,3 +248,6 @@
 - Peak timing is appended to the existing observed-heat evidence record so both template and
   optional LLM explanations receive the same grounded fact. It is deliberately absent from
   normalization, priority weights, candidate benefit math, and optimizer coefficients.
+- The peak-hour UI reuses the primary evidence list for the concise `HH:00 UTC` value and the
+  existing methodology disclosure for identifiers and limitations. This keeps the high-value timing
+  visible without introducing a new layer, score, or panel.

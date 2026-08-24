@@ -112,7 +112,7 @@ heat_score =
 - [x] Store peak-hour context per tile/site.
 - [x] Use it for explanation/context only unless strong evidence justifies scoring.
 - [x] Never imply that peak temperature time equals peak pedestrian volume.
-- [ ] Surface a concise label such as:
+- [x] Surface a concise label such as:
 
 ```text
 Peak heat observed around: 15:00
