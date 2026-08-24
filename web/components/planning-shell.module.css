@@ -1293,6 +1293,16 @@
   border-bottom: 1px solid var(--outline-variant);
 }
 
+.evidenceCategory {
+  margin: 0;
+  padding: 0.8rem 1.25rem 0;
+  color: var(--secondary);
+  font-family: var(--font-data);
+  font-size: 0.625rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .impactSection strong {
   display: block;
   margin-top: 0.25rem;

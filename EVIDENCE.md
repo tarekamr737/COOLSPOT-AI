@@ -887,6 +887,11 @@
   and modeled impact scores. Both the ranked rail and drawer use those returned values, preventing
   balanced-score remnants after a preset change. Fifteen focused backend tests and all eight active
   UI tests pass with both language toolchains clean.
+- Evidence-hierarchy proof: the drawer now explicitly labels the price/intervention block as a
+  `Planning assumption`, the optimizer factors as `Derived screening scores`, and the dated vendor
+  and public inputs as `Observed and published evidence`. Existing Street View subsections retain
+  separate observed segmentation and derived-screening headings. Frontend typecheck, lint, and all
+  eight active component tests pass.
 - Automated proof: the normalized artifact excludes original/mask image payloads, remains under
   5 KB, and rebuilds byte-for-byte. Twenty focused tests, Ruff, Mypy, strict TypeScript, canonical
   candidate rebuild, and all 7 active frontend tests pass.

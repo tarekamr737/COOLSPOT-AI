@@ -298,7 +298,7 @@ Selected in 4/4 planning scenarios
   - cost,
   - sources,
   - limitations.
-- [ ] Clearly separate:
+- [x] Clearly separate:
   - observed evidence,
   - derived screening scores,
   - planning assumptions.
