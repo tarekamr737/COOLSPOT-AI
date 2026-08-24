@@ -621,6 +621,14 @@
   canonical request hash, activity ID, artifact SHA-256, measured credit delta, FortyGuard source
   link, and mixed-period limitation. The drawer shows historical exceedance beside heat and
   persistence, then repeats its score/weight and provenance in progressively disclosed details.
-- Automated proof: full backend Pytest returns `82 passed`; Ruff passes; strict Mypy passes across
+
+## FortyGuard time-of-measure request support is contract-pinned
+
+- Documentation proof: FortyGuard's Create Heatmap contract was rechecked on 2026-08-24. It defines
+  `time_of_measure` on `POST /v1/heatmap` as the UTC hour (0–23) when peak temperature occurs, with
+  hour units; threshold and direction are ignored for this analytic.
+- Adapter proof: an offline transport test pins the authenticated single-day, 100 m request and
+  exact `analytic_type=time_of_measure` serialization without making a live vendor request.
+- Automated proof: full backend Pytest returns `83 passed`; Ruff passes; strict Mypy passes across
   `61` source files. Frontend lint and strict TypeScript pass; all `7` UI tests pass (`1` opt-in
   contract test skipped), and the production Next.js build completes successfully.

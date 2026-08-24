@@ -106,7 +106,7 @@ heat_score =
 
 ## 4 — Add FortyGuard `time_of_measure`
 
-- [ ] Add/validate `analytic_type=time_of_measure`.
+- [x] Add/validate `analytic_type=time_of_measure`.
 - [ ] Measure request credit cost before any repeated request.
 - [ ] Cache one real Pacoima result if supported by the hackathon key.
 - [ ] Store peak-hour context per tile/site.

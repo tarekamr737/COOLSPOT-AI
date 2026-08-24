@@ -231,3 +231,7 @@
   new panel: planners see the value/date immediately, then can inspect weights, source identifiers,
   credit cost, and limitation on demand. This preserves map space and keeps raw evidence distinct
   from normalized/modelled values.
+- Rechecked the official Create Heatmap contract before time-of-measure work. The existing typed
+  analytic literal and generic heatmap result model already support it; the contract test pins a
+  single-day 100 m request. Threshold and direction remain serialized defaults but are documented
+  by FortyGuard as ignored for `time_of_measure`, so no cache-breaking adapter rewrite is justified.
