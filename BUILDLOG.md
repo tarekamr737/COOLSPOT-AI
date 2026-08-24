@@ -175,3 +175,6 @@
   directions, and alphabetically ordered raw segmentation percentages. It drops both Base64 images
   and legends, and does not yet interpret a segment as shade, suitability, or confidence; those
   transformations remain separate checklist tasks with their own evidence rules.
+- Named per-view metrics copy only exact FortyGuard categories (`tree`, `grass`, `sky`, `road`,
+  `sidewalk`, and `building`). Missing categories remain null instead of being estimated from
+  `others`, visual appearance, or related classes.

@@ -60,6 +60,50 @@ def test_extractor_is_compact_and_deterministic() -> None:
     assert "segmented_image" not in serialized
 
 
+def test_extractor_derives_only_exact_per_view_metrics() -> None:
+    payload = _payload()
+    result = payload["result"]
+    assert isinstance(result, dict)
+    front = result["front"]
+    assert isinstance(front, dict)
+    front["segments"] = {
+        "tree": 13.1,
+        "grass": 7.28,
+        "sky": 31.57,
+        "road": 26.93,
+        "sidewalk": 8.9,
+        "building": 1.37,
+        "fence": 4.28,
+    }
+
+    metrics = extract_street_view_features(payload).frames[0].metrics
+
+    assert metrics.model_dump() == {
+        "tree_pct": 13.1,
+        "grass_pct": 7.28,
+        "sky_pct": 31.57,
+        "road_pct": 26.93,
+        "sidewalk_pct": 8.9,
+        "building_pct": 1.37,
+    }
+
+
+def test_absent_per_view_categories_remain_unknown() -> None:
+    payload = _payload()
+    result = payload["result"]
+    assert isinstance(result, dict)
+    front = result["front"]
+    assert isinstance(front, dict)
+    front["segments"] = {"road": 60.0, "others": 40.0}
+
+    frame = extract_street_view_features(payload).frames[0]
+
+    assert frame.image_date.isoformat() == "2024-10-01"
+    assert frame.metrics.road_pct == 60
+    assert frame.metrics.tree_pct is None
+    assert frame.metrics.sky_pct is None
+
+
 def test_extractor_rejects_non_completed_cached_response() -> None:
     payload = _payload()
     payload["status"] = "Processing"

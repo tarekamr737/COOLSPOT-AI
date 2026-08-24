@@ -32,12 +32,24 @@ class ExtractedSegment(StrictModel):
     percentage: float = Field(ge=0, le=100)
 
 
+class StreetViewSegmentationMetrics(StrictModel):
+    """Transparent per-view percentages copied from exact vendor categories."""
+
+    tree_pct: float | None = Field(default=None, ge=0, le=100)
+    grass_pct: float | None = Field(default=None, ge=0, le=100)
+    sky_pct: float | None = Field(default=None, ge=0, le=100)
+    road_pct: float | None = Field(default=None, ge=0, le=100)
+    sidewalk_pct: float | None = Field(default=None, ge=0, le=100)
+    building_pct: float | None = Field(default=None, ge=0, le=100)
+
+
 class ExtractedStreetViewFrame(StrictModel):
     """Compact frame evidence with image payloads intentionally removed."""
 
     direction: StreetViewDirection
     image_date: date
     segments: tuple[ExtractedSegment, ...]
+    metrics: StreetViewSegmentationMetrics
 
 
 class ExtractedStreetViewFeatures(StrictModel):
@@ -72,6 +84,14 @@ def _extract_frame(
         segments=tuple(
             ExtractedSegment(label=label, percentage=percentage)
             for label, percentage in sorted(normalized.items())
+        ),
+        metrics=StreetViewSegmentationMetrics(
+            tree_pct=normalized.get("tree"),
+            grass_pct=normalized.get("grass"),
+            sky_pct=normalized.get("sky"),
+            road_pct=normalized.get("road"),
+            sidewalk_pct=normalized.get("sidewalk"),
+            building_pct=normalized.get("building"),
         ),
     )
 

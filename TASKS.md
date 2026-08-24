@@ -9,7 +9,7 @@
 ## 1 — Street View evidence extraction
 
 - [x] Add a deterministic Street View feature extractor for cached `/v1/streetview` responses.
-- [ ] Derive transparent per-view segmentation metrics where available:
+- [x] Derive transparent per-view segmentation metrics where available:
   - `tree_pct`
   - `grass_pct`
   - `sky_pct`
