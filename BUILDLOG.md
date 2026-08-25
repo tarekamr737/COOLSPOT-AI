@@ -344,6 +344,10 @@
 
 ## 2026-08-25
 
+- Verified the current Heat Intelligence contract before any runtime action. FortyGuard documents
+  it as a Premium-only asynchronous point report returning a temporary signed PDF link, so it stays
+  outside scoring/optimization and disabled until one governed request proves key access and leaves
+  the hard reserve intact.
 - Treated validated configs and processed artifacts—not earlier narrative counts—as the source of
   truth for the methodology audit. `PRODUCT.md`, `ARCHITECTURE.md`, and `README.md` now reflect the
   current 172-candidate catalog, four scenario presets, bounded optional evidence, and protected

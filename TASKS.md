@@ -342,7 +342,7 @@ Selected in 4/4 planning scenarios
 
 Do only after all previous tasks pass.
 
-- [ ] Verify current `/v1/heat_intelligence` documentation.
+- [x] Verify current `/v1/heat_intelligence` documentation.
 - [ ] Probe once only if hackathon-key access and credits permit.
 - [ ] Never use the report to rank or optimize sites.
 - [ ] Use only as supporting evidence/reporting for a top recommendation.

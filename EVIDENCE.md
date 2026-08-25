@@ -24,6 +24,7 @@ state at that task's completion and may be superseded by this snapshot or a late
 | Evidence-specific scalar language | The Impeccable-reviewed tour now labels confidence as `Site-specific` instead of presenting a fixed `0.5`. Current docs describe neutral values only as evidence-dimension or candidate-specific fallbacks, and the early universal-fallback milestone is explicitly marked superseded. All 11 UI tests, strict TypeScript, and lint pass. |
 | Cool-pavement availability | Support is active rather than claimed speculatively: 20 candidates each map to an exact AOI-clipped StreetsLA pavement asset with surface, positive width, and PCI category; the optimizer selects cool pavement within the supported `$5M` custom range. All 15 focused candidate/optimizer tests pass. |
 | Numeric claim audit | Every displayed/API number belongs to one of the lineage classes below: vendor observation, authoritative public input, cited price/research evidence, deterministic derivation, or explicit user/config planning assumption. The 48-test traceability suite passes. |
+| Heat Intelligence contract | Official FortyGuard documentation checked 2026-08-25 confirms `POST /v1/heat_intelligence` is a Premium-only asynchronous point report. The required request fields, five allowed analysis categories, status lifecycle, and temporary PDF download-link handling are recorded below; no request was made for this documentation-only task. |
 
 Machine-readable provenance remains in `data/sources.json`, the capability snapshot in
 `data/processed/fortyguard_capabilities.json`, and versioned decision assumptions in `config/`.
@@ -45,6 +46,31 @@ The browser consumes only typed API responses, displays source links beside evid
 model/config outputs as modeled or planning assumptions. The 48-test numeric-lineage suite covers
 feature tables, public data, price catalog, candidates, optional evidence, scenarios, optimizer,
 decision API, explanations, and capability counters.
+
+## Current Heat Intelligence API contract is verified
+
+- Requirement: verify the current `/v1/heat_intelligence` documentation before attempting the
+  optional endpoint.
+- Official sources checked 2026-08-25:
+  `https://docs-api.fortyguard.com/docs/heat-intelligence` and
+  `https://docs-api.fortyguard.com/docs/limitations`.
+- Access: `POST https://api.fortyguard.com/v1/heat_intelligence` is documented as API Premium only;
+  a credit balance alone does not prove access.
+- Required request fields: `latitude`, `longitude`, `temperature` in °C, `date` in `YYYY-MM-DD`,
+  and an `analysis` array containing a subset of `geographic`, `environmental`, `urban`, `events`,
+  and `anthropogenic`.
+- Date/location constraints: the date must be from 2019-01-01 through 12 hours beyond the current
+  time, should match the source heatmap observation, and the current release is US-only.
+- Result lifecycle: submission returns an `activity_id`; bounded polling uses
+  `GET /v1/status/{activity_id}` until terminal `Completed` or `Failed`. A completed response returns
+  `data.result.download_link`, a temporary signed PDF link that must be downloaded immediately and
+  never logged or shared.
+- Product boundary: any report may support a top recommendation only. It must not rank candidates,
+  alter optimizer inputs, or become a demo dependency.
+- Credit/probe proof: this verification made **zero FortyGuard requests**. The committed counters
+  therefore remain **240,720 used / 1,759,280 remaining**, above the **500,000** reserve.
+- Test proof: `.venv\Scripts\python.exe -m pytest api/tests/test_capabilities.py` validates that the
+  report remains disabled and unconfirmed until a successful governed request is cached.
 
 ## Pacoima AOI is below the FortyGuard limit
 
