@@ -39,6 +39,8 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   `140 passed in 60.40s`. The run covers every backend test module with no live vendor calls.
 - Fixture-parsing proof (2026-08-25): focused FortyGuard adapter, heatmap, environmental,
   satellite, and Street View fixture/artifact tests → `34 passed in 1.74s`.
+- Scoring proof (2026-08-25): feature-table formulas and normalization, intervention-specific
+  value factors, and exceedance sensitivity regressions → `22 passed in 20.50s`.
 
 ## Numeric claim lineage
 

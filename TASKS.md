@@ -361,7 +361,7 @@ Do only after all previous tasks pass.
 - [x] `mypy`
 - [x] full `pytest`
 - [x] fixture parsing
-- [ ] scoring
+- [x] scoring
 - [ ] candidate generation
 - [ ] scenario presets
 - [ ] robustness
