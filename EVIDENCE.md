@@ -82,6 +82,11 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   a stop is unshaded. Every match is an explicit limitation saying dated Street View screening does
   not prove that condition or all-day shade. Focused intervention/Street View tests return
   `21 passed in 1.67s`, and the rendered limitation contract remains covered by `11 passed` UI tests.
+- Exact-temperature claim audit (2026-08-25): targeted UI/API searches find only dated observed
+  temperatures, planning thresholds, and explicit disclaimers that modeled impact is not a
+  temperature forecast or predicted site reduction. The explanation guard's adversarial provider
+  test rejects “will reduce temperatures” language; focused explanation/decision tests return
+  `13 passed in 10.56s`.
 
 ## Numeric claim lineage
 

@@ -383,7 +383,7 @@ Do only after all previous tasks pass.
 Try to disprove:
 
 - [x] “This stop is unshaded.”
-- [ ] “This intervention will lower temperature by exactly X°C.”
+- [x] “This intervention will lower temperature by exactly X°C.”
 - [ ] “X people will be saved.”
 - [ ] “Vulnerability score equals people affected.”
 - [ ] “Street View proves all-day shade.”
