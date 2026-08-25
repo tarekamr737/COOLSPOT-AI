@@ -1885,7 +1885,7 @@
   }
 }
 
-@media (max-width: 52rem) {
+@media (max-width: 56rem) {
   .topBar {
     grid-template-columns: 1fr auto;
     gap: 0.75rem;
@@ -1955,7 +1955,42 @@
 
 @media (max-width: 34rem) {
   .topBar {
+    grid-template-columns: minmax(0, 1fr);
     padding: 0.75rem 1rem;
+  }
+
+  .brandLockup {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .dataActions {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.5rem;
+  }
+
+  .dataStatus {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .statusLine {
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .refreshTrigger,
+  .tourTrigger {
+    min-height: 2.75rem;
+  }
+
+  .pilotIdentity {
+    grid-column: 1;
+    grid-row: 3;
   }
 
   .brandDescriptor,

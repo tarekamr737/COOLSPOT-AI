@@ -374,3 +374,8 @@
   as confirmed cached heatmap capabilities and let the manifest's exact non-core-probe invariant
   increase from three to five; this repairs provenance without spending credits or enabling a new
   runtime path.
+- Chrome DevTools exposed two content-driven responsive failures that width-only overflow checks had
+  missed: the refresh action was clipped on 390px phones, and the planning-priority control crossed
+  the viewport at 844px landscape. The mobile header now gives status/actions their own row, and the
+  existing single-column workspace breakpoint begins at 896px. A Playwright boundary regression
+  locks both fixes while preserving the desktop map-first layout.

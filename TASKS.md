@@ -375,7 +375,7 @@ Do only after all previous tasks pass.
 - [x] production build
 - [x] component/unit tests
 - [x] Playwright golden path
-- [ ] responsive test
+- [x] responsive test
 - [ ] accessibility check
 
 ### Claim audit

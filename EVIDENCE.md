@@ -67,6 +67,11 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   selected evidence/Street View, explanation, and methodology. The request log assertion found zero
   FortyGuard calls. Local Playwright uses installed Chrome to avoid C: downloads; CI retains bundled
   Chromium behavior. The updated config also passes zero-warning ESLint.
+- Responsive proof (2026-08-25): Chrome DevTools inspection found and corrected clipped mobile
+  header actions at 390px and a planning-control overflow at 844px landscape. Live checks then
+  showed zero horizontal overflow and map-before-list-before-evidence order at 320px, 390px,
+  768px, 844px landscape, and desktop. The new boundary regression returns `1 passed in 13.4s`;
+  zero-warning ESLint and strict TypeScript also pass.
 
 ## Numeric claim lineage
 
