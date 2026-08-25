@@ -382,7 +382,7 @@ Do only after all previous tasks pass.
 
 Try to disprove:
 
-- [ ] “This stop is unshaded.”
+- [x] “This stop is unshaded.”
 - [ ] “This intervention will lower temperature by exactly X°C.”
 - [ ] “X people will be saved.”
 - [ ] “Vulnerability score equals people affected.”

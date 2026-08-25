@@ -78,6 +78,10 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   keyboard inspection confirms the skip link transfers focus to the named map workspace. The new
   accessibility test plus the responsive regression return `2 passed in 7.5s`; lint and strict
   TypeScript pass.
+- Unshaded-stop claim audit (2026-08-25): targeted UI/API searches find no affirmative claim that
+  a stop is unshaded. Every match is an explicit limitation saying dated Street View screening does
+  not prove that condition or all-day shade. Focused intervention/Street View tests return
+  `21 passed in 1.67s`, and the rendered limitation contract remains covered by `11 passed` UI tests.
 
 ## Numeric claim lineage
 
