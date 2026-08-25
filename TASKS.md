@@ -360,7 +360,7 @@ Do only after all previous tasks pass.
 - [x] `ruff`
 - [x] `mypy`
 - [x] full `pytest`
-- [ ] fixture parsing
+- [x] fixture parsing
 - [ ] scoring
 - [ ] candidate generation
 - [ ] scenario presets

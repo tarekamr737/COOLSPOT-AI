@@ -37,6 +37,8 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   `Success: no issues found in 64 source files` under the strict project configuration.
 - Full Pytest proof (2026-08-25): `.venv\Scripts\python.exe -m pytest` →
   `140 passed in 60.40s`. The run covers every backend test module with no live vendor calls.
+- Fixture-parsing proof (2026-08-25): focused FortyGuard adapter, heatmap, environmental,
+  satellite, and Street View fixture/artifact tests → `34 passed in 1.74s`.
 
 ## Numeric claim lineage
 
