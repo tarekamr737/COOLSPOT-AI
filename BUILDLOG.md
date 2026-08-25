@@ -352,6 +352,10 @@
   recommendation after a live `1,759,280`-credit preflight. The accepted activity is persisted as
   Processing; subsequent work must poll that exact ID, never resubmit, and must keep the capability
   disabled until the PDF and terminal credit delta are safely cached.
+- Quarantined the completed Heat Intelligence report after full text and 13-page render review.
+  Runtime output misread Celsius as Fahrenheit, assigned Pacoima coordinates to Long Beach / Signal
+  Hill, and added uncited local estimates. Successful endpoint access therefore does not make this
+  particular report decision-safe; it remains cached for audit but is excluded from explanations.
 - Treated validated configs and processed artifacts—not earlier narrative counts—as the source of
   truth for the methodology audit. `PRODUCT.md`, `ARCHITECTURE.md`, and `README.md` now reflect the
   current 172-candidate catalog, four scenario presets, bounded optional evidence, and protected

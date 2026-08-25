@@ -318,8 +318,21 @@ class StreetViewResult(StrictModel):
     back: StreetViewFrame | None = None
 
 
+class HeatIntelligenceResult(StrictModel):
+    """Cached PDF metadata with the temporary signed URL removed."""
+
+    report_sha256: str = Field(pattern=SHA256_PATTERN)
+    report_size_bytes: int = Field(gt=0)
+    report_filename: str = Field(pattern=r"^[A-Za-z0-9][A-Za-z0-9._-]*\.pdf$")
+    media_type: Literal["application/pdf"] = "application/pdf"
+
+
 EndpointResult = (
-    HeatmapResult | EnvironmentalParametersResult | SatelliteResult | StreetViewResult
+    HeatmapResult
+    | EnvironmentalParametersResult
+    | SatelliteResult
+    | StreetViewResult
+    | HeatIntelligenceResult
 )
 
 

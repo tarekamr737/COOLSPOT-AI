@@ -94,6 +94,14 @@ decision API, explanations, and capability counters.
   inspects both deterministic decision modules and fails if either references Heat Intelligence or
   its probe artifact. Candidate generation continues to use versioned heat/public/optional
   screening evidence; CP-SAT continues to consume only candidate factors and scenario weights.
+- Supporting-evidence quality gate: the exact top-recommendation report completed, but validation
+  found that it treated the supplied `35.9398 °C` as `35.94 °F` / `2.18 °C`, described the Pacoima
+  coordinates as Long Beach / Signal Hill, and introduced uncited estimates absent from COOLSPOT's
+  structured evidence. The cached artifact is therefore explicitly `quarantined` with
+  `eligible_for_explanation=false`; it is not shown to users or sent to the explanation layer.
+- PDF QA proof: all 13 pages were text-extracted and rendered locally. Layout was readable, but the
+  factual mismatches above make the report unsuitable as supporting evidence despite successful
+  delivery.
 
 ## Pacoima AOI is below the FortyGuard limit
 

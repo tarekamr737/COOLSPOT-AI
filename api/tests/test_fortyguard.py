@@ -18,6 +18,7 @@ from api.app.fortyguard_models import (
     EnvironmentalParametersRequest,
     FortyGuardEndpoint,
     HeatIntelligenceRequest,
+    HeatIntelligenceResult,
     HeatmapRequest,
     HeatmapResult,
     PollingPolicy,
@@ -29,8 +30,10 @@ from api.app.fortyguard_models import (
 )
 from api.app.services.boundary import PolygonGeometry
 from api.app.services.fortyguard import (
+    BinaryTransportResponse,
     FortyGuardClient,
     FortyGuardError,
+    FortyGuardProtocolError,
     HttpxJsonTransport,
     TransportResponse,
     _normalize_result,
@@ -44,8 +47,14 @@ FIXED_NOW = datetime(2026, 8, 20, 12, tzinfo=UTC)
 class FakeTransport:
     """Deterministic in-memory transport that returns committed response fixtures."""
 
-    def __init__(self, responses: list[TransportResponse]) -> None:
+    def __init__(
+        self,
+        responses: list[TransportResponse],
+        binary_responses: list[BinaryTransportResponse] | None = None,
+    ) -> None:
         self.responses = responses
+        self.binary_responses = binary_responses or []
+        self.byte_urls: list[str] = []
         self.calls: list[
             tuple[str, str, Mapping[str, str], dict[str, JsonValue] | None]
         ] = []
@@ -62,6 +71,12 @@ class FakeTransport:
         if not self.responses:
             raise AssertionError("unexpected FortyGuard transport call")
         return self.responses.pop(0)
+
+    async def request_bytes(self, url: str) -> BinaryTransportResponse:
+        self.byte_urls.append(url)
+        if not self.binary_responses:
+            raise AssertionError("unexpected FortyGuard binary transport call")
+        return self.binary_responses.pop(0)
 
 
 def test_http_transport_wraps_network_failures_without_leaking_internals() -> None:
@@ -470,6 +485,84 @@ def test_typed_optional_endpoint_submissions_use_documented_paths(tmp_path: Path
         "date": "2024-07-15",
         "analysis": ["urban"],
     }
+
+
+def test_heat_intelligence_completion_caches_pdf_and_redacts_signed_url(
+    tmp_path: Path,
+) -> None:
+    signed_url = "https://signed.example/report.pdf?secret=temporary"
+    pdf_bytes = b"%PDF-1.4\n1 0 obj<<>>endobj\n%%EOF\n"
+    transport = FakeTransport(
+        [
+            TransportResponse(
+                status_code=200,
+                payload={
+                    "error": False,
+                    "status_code": 200,
+                    "message": "Submitted Successfully",
+                    "data": {"activity_id": "hi-fixture-002"},
+                },
+            ),
+            TransportResponse(
+                status_code=200,
+                payload={
+                    "error": False,
+                    "status_code": 200,
+                    "message": "Completed",
+                    "data": {
+                        "activity_id": "hi-fixture-002",
+                        "status": "Completed",
+                        "result": {"download_link": signed_url},
+                    },
+                },
+            ),
+        ],
+        [
+            BinaryTransportResponse(
+                status_code=200,
+                content=pdf_bytes,
+                media_type="application/pdf",
+            )
+        ],
+    )
+    client = FortyGuardClient(
+        api_key="fixture-secret",
+        cache_root=tmp_path / "cache",
+        transport=transport,
+        clock=lambda: FIXED_NOW,
+    )
+    request = HeatIntelligenceRequest(
+        latitude=34.26,
+        longitude=-118.42,
+        temperature=38.5,
+        date=date(2024, 7, 15),
+        analysis=("urban",),
+    )
+    handle = asyncio.run(client.submit_heat_intelligence(request))
+    with pytest.raises(FortyGuardProtocolError, match="secure PDF destination"):
+        asyncio.run(client.get_status(handle.activity_id))
+
+    destination = tmp_path / "report.pdf"
+    status = asyncio.run(
+        client.poll_heat_intelligence(
+            handle.activity_id,
+            destination=destination,
+            policy=PollingPolicy(max_attempts=1),
+        )
+    )
+
+    assert status.status == ActivityLifecycle.COMPLETED
+    assert isinstance(status.result, HeatIntelligenceResult)
+    assert status.result.report_filename == "report.pdf"
+    assert status.result.report_size_bytes == len(pdf_bytes)
+    assert destination.read_bytes() == pdf_bytes
+    assert transport.byte_urls == [signed_url]
+    cached_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (tmp_path / "cache").rglob("*.json")
+    )
+    assert signed_url not in cached_text
+    assert "secret=temporary" not in cached_text
 
 
 def test_satellite_normalization_accepts_observed_dual_image_fields() -> None:

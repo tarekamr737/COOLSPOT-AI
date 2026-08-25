@@ -1,0 +1,39 @@
+{
+  "activity_id": "a8244e8a-a289-4e4b-919a-13272a8af2b6",
+  "candidate_id": "tree_canopy:school:53",
+  "checked_at": "2026-08-25T14:21:45.152800Z",
+  "credits_remaining": 1750680,
+  "hard_reserve": 500000,
+  "limitations": [
+    "This optional vendor report supports explanation for one top recommendation only; it is not an optimizer input or a guaranteed intervention outcome.",
+    "The report reflects the supplied point, temperature, date, and urban analysis; it does not replace field, engineering, ownership, or procurement verification."
+  ],
+  "quality_status": "quarantined",
+  "eligible_for_explanation": false,
+  "quality_findings": [
+    "The report interpreted the supplied 35.9398 °C value as 35.94 °F / 2.18 °C.",
+    "The report described the Pacoima coordinates as Long Beach / Signal Hill.",
+    "The report introduced uncited local estimates and projections absent from the structured COOLSPOT evidence payload."
+  ],
+  "observed_credit_delta": 8600,
+  "report_path": "data/processed/pacoima_heat_intelligence_report.pdf",
+  "request_hash": "b6f9a5b7c747b87d5bdbb343956faf4c1ec97013908c93da6f65ddc261a7e5bb",
+  "result": {
+    "media_type": "application/pdf",
+    "report_filename": "pacoima_heat_intelligence_report.pdf",
+    "report_sha256": "08566633fe17e6cc761b21c191dec5703ac688668742c8958c72842458d1f94a",
+    "report_size_bytes": 832761
+  },
+  "site_id": "school:53",
+  "site_name": "Pacoima Early Education Center",
+  "source_urls": [
+    "https://docs-api.fortyguard.com/docs/heat-intelligence",
+    "https://docs-api.fortyguard.com/docs/limitations"
+  ],
+  "status": "Completed",
+  "tile_id": "1355",
+  "total_allocation": 2000000,
+  "usage_after": 249320,
+  "usage_before": 240720,
+  "version": "1.0"
+}

@@ -64,17 +64,17 @@
       "reason": "All 20 sites in the deterministic $1M portfolio completed successfully and are cached; sites outside that portfolio remain unavailable without a separately governed request."
     },
     {
-      "access": "unconfirmed",
-      "cached_artifact": null,
+      "access": "confirmed",
+      "cached_artifact": "data/processed/pacoima_heat_intelligence_report.json",
       "dependency": "A post-MVP reporting requirement not met by deterministic explanations.",
       "enabled": false,
       "feature": "heat_intelligence_report",
       "probe_attempted": true,
-      "reason": "One governed report submission was accepted and remains in Processing; access and cost stay unconfirmed until that exact activity reaches a terminal state and its result is cached."
+      "reason": "The governed report completed and is cached, proving endpoint access, but content validation found a temperature-unit error, wrong place description, and unsupported estimates; it is quarantined from explanations and decisions."
     }
   ],
-  "credits_remaining": 1759280,
-  "credits_used": 240720,
+  "credits_remaining": 1750680,
+  "credits_used": 249320,
   "evaluated_at": "2026-08-25",
   "hard_reserve": 500000,
   "optional_live_probes_made": 6,

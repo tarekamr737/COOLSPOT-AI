@@ -26,6 +26,7 @@ from api.app.fortyguard_models import (
     EnvironmentalParametersResult,
     FortyGuardEndpoint,
     HeatIntelligenceRequest,
+    HeatIntelligenceResult,
     HeatmapRequest,
     HeatmapResult,
     PollingPolicy,
@@ -93,6 +94,18 @@ class JsonTransport(Protocol):
         json_body: dict[str, JsonValue] | None,
     ) -> TransportResponse: ...
 
+    async def request_bytes(self, url: str) -> "BinaryTransportResponse": ...
+
+
+class BinaryTransportResponse(BaseModel):
+    """Transport-neutral binary response used for temporary report downloads."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    status_code: int = Field(ge=100, le=599)
+    content: bytes
+    media_type: str | None = None
+
 
 class HttpxJsonTransport:
     """Production transport backed by a bounded httpx2 async client."""
@@ -122,6 +135,20 @@ class HttpxJsonTransport:
         except ValueError as error:
             raise FortyGuardProtocolError("FortyGuard returned a non-JSON response") from error
         return TransportResponse(status_code=response.status_code, payload=payload)
+
+    async def request_bytes(self, url: str) -> BinaryTransportResponse:
+        """Download a temporary report without including its URL in errors or logs."""
+
+        try:
+            async with httpx2.AsyncClient(timeout=self._timeout_seconds) as client:
+                response = await client.get(url)
+        except httpx2.RequestError as error:
+            raise FortyGuardError("FortyGuard report download failed") from error
+        return BinaryTransportResponse(
+            status_code=response.status_code,
+            content=response.content,
+            media_type=response.headers.get("content-type"),
+        )
 
 
 class VendorModel(BaseModel):
@@ -167,6 +194,17 @@ class VendorStatusEnvelope(VendorModel):
     status_code: int
     message: str
     data: VendorStatusData
+
+
+class VendorHeatIntelligenceResult(VendorModel):
+    download_link: str
+
+    @field_validator("download_link")
+    @classmethod
+    def require_https(cls, value: str) -> str:
+        if not value.startswith("https://"):
+            raise ValueError("Heat Intelligence download link must use HTTPS")
+        return value
 
 
 class VendorCreditSummary(VendorModel):
@@ -256,6 +294,8 @@ def _normalize_result(
         return SatelliteResult.model_validate(normalized)
     if endpoint == FortyGuardEndpoint.STREETVIEW:
         return StreetViewResult.model_validate(payload)
+    if endpoint == FortyGuardEndpoint.HEAT_INTELLIGENCE:
+        return HeatIntelligenceResult.model_validate(payload)
     raise AssertionError(f"unsupported endpoint {endpoint}")
 
 
@@ -340,6 +380,12 @@ class FortyGuardClient:
         """Return cached terminal state or refresh a known in-flight activity."""
 
         record = self._load_by_activity_id(activity_id)
+        if record.endpoint == FortyGuardEndpoint.HEAT_INTELLIGENCE:
+            if record.status in {ActivityLifecycle.COMPLETED, ActivityLifecycle.FAILED}:
+                return self._to_activity_status(record)
+            raise FortyGuardProtocolError(
+                "Heat Intelligence status requires an immediate secure PDF destination"
+            )
         if record.status in {ActivityLifecycle.COMPLETED, ActivityLifecycle.FAILED}:
             return self._to_activity_status(record)
 
@@ -379,6 +425,107 @@ class FortyGuardClient:
         )
         self._store_record(updated)
         return self._to_activity_status(updated)
+
+    async def get_heat_intelligence_status(
+        self, activity_id: str, *, destination: Path
+    ) -> ActivityStatus:
+        """Poll one report and immediately cache a completed PDF without its signed URL."""
+
+        record = self._load_by_activity_id(activity_id)
+        if record.endpoint != FortyGuardEndpoint.HEAT_INTELLIGENCE:
+            raise ValueError("activity is not a Heat Intelligence report")
+        if destination.suffix.lower() != ".pdf":
+            raise ValueError("Heat Intelligence destination must be a PDF path")
+        if record.status in {ActivityLifecycle.COMPLETED, ActivityLifecycle.FAILED}:
+            return self._to_activity_status(record)
+
+        response = await self._transport.request_json(
+            "GET",
+            f"{self._base_url}/v1/status/{activity_id}",
+            headers=self._headers(),
+            json_body=None,
+        )
+        payload = self._require_successful_object(response)
+        envelope = VendorStatusEnvelope.model_validate(payload)
+        if envelope.error:
+            raise FortyGuardProtocolError(envelope.message)
+        if envelope.data.activity_id != activity_id:
+            raise FortyGuardProtocolError("status response activity_id does not match request")
+
+        normalized_result: HeatIntelligenceResult | None = None
+        stored_payload = dict(payload)
+        if envelope.data.status == ActivityLifecycle.COMPLETED:
+            if envelope.data.result is None:
+                raise FortyGuardProtocolError("completed report has no download link")
+            report = VendorHeatIntelligenceResult.model_validate(envelope.data.result)
+            download = await self._transport.request_bytes(report.download_link)
+            if not 200 <= download.status_code < 300:
+                raise FortyGuardHttpError(download.status_code, "report download failed")
+            if not download.content.startswith(b"%PDF-"):
+                raise FortyGuardProtocolError("Heat Intelligence result is not a PDF")
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            temporary_path = destination.with_suffix(f"{destination.suffix}.part")
+            temporary_path.write_bytes(download.content)
+            os.replace(temporary_path, destination)
+            normalized_result = HeatIntelligenceResult(
+                report_sha256=hashlib.sha256(download.content).hexdigest(),
+                report_size_bytes=len(download.content),
+                report_filename=destination.name,
+            )
+            stored_payload = {
+                **payload,
+                "data": {
+                    **dict(payload["data"]),  # type: ignore[arg-type]
+                    "result": {"download_link": "[REDACTED]"},
+                },
+            }
+        elif envelope.data.result is not None:
+            raise FortyGuardProtocolError("non-completed status unexpectedly includes a result")
+
+        updated = CachedActivity.model_validate(
+            {
+                **record.model_dump(mode="python"),
+                "status": envelope.data.status,
+                "message": envelope.message,
+                "last_checked_at": self._now(),
+                "raw_response": stored_payload,
+                "result": (
+                    normalized_result.model_dump(mode="json")
+                    if normalized_result is not None
+                    else None
+                ),
+            }
+        )
+        self._store_record(updated)
+        return self._to_activity_status(updated)
+
+    async def poll_heat_intelligence(
+        self,
+        activity_id: str,
+        *,
+        destination: Path,
+        policy: PollingPolicy | None = None,
+    ) -> ActivityStatus:
+        """Boundedly poll and securely cache one Heat Intelligence PDF."""
+
+        active_policy = policy or PollingPolicy()
+        delay = active_policy.initial_delay_seconds
+        for attempt in range(active_policy.max_attempts):
+            status = await self.get_heat_intelligence_status(
+                activity_id, destination=destination
+            )
+            if status.status != ActivityLifecycle.PROCESSING:
+                return status
+            if attempt == active_policy.max_attempts - 1:
+                break
+            random_value = self._jitter_source()
+            jitter = delay * active_policy.jitter_ratio * ((2 * random_value) - 1)
+            await self._sleeper(max(0, delay + jitter))
+            delay = min(active_policy.maximum_delay_seconds, delay * active_policy.multiplier)
+        raise PollingExhaustedError(
+            f"activity {activity_id} remained Processing after "
+            f"{active_policy.max_attempts} checks"
+        )
 
     async def poll(
         self, activity_id: str, *, policy: PollingPolicy | None = None

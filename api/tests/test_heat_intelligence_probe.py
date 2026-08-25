@@ -8,6 +8,11 @@ from pydantic import ValidationError
 from api.app.fortyguard_models import HeatIntelligenceRequest
 from api.app.services import candidates, optimizer
 from api.app.services.heatmap_data import load_heatmap_artifact
+from scripts.cache_fortyguard_heat_intelligence import (
+    REPORT_METADATA_PATH,
+    REPORT_PDF_PATH,
+    HeatIntelligenceReportArtifact,
+)
 from scripts.probe_fortyguard_heat_intelligence import (
     RECEIPT_PATH,
     HeatIntelligenceProbeReceipt,
@@ -69,3 +74,18 @@ def test_heat_intelligence_is_not_a_ranking_or_optimizer_dependency() -> None:
         source = inspect.getsource(module).lower()
         assert "heat_intelligence" not in source
         assert "fortyguard_heat_intelligence_probe" not in source
+
+
+def test_completed_report_is_quarantined_from_explanations() -> None:
+    artifact = HeatIntelligenceReportArtifact.model_validate_json(
+        REPORT_METADATA_PATH.read_text(encoding="utf-8")
+    )
+
+    assert artifact.status == "Completed"
+    assert artifact.quality_status == "quarantined"
+    assert artifact.eligible_for_explanation is False
+    assert len(artifact.quality_findings) == 3
+    assert artifact.result is not None
+    assert artifact.result.report_size_bytes == REPORT_PDF_PATH.stat().st_size
+    assert artifact.observed_credit_delta == 8_600
+    assert artifact.credits_remaining == 1_750_680
