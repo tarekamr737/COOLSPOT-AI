@@ -21,6 +21,7 @@ state at that task's completion and may be superseded by this snapshot or a late
 | Source registry | `data/sources.json` contains 13 unique typed sources. Heatmap, Street View, environmental, and satellite evidence now each disclose provider documentation, retrieval/data dates, retained fields, provider-terms caveat, and decision-safe limitations; all four registry tests pass. |
 | Capability snapshot | The typed capability enum/manifest now records successful cached TCM, persistence, exceedance, time-of-measure, environmental, Street View, and satellite access; only Heat Intelligence remains unconfirmed. Five non-core probes reconcile exactly, credits still balance at `240,720` used plus `1,759,280` remaining, and capability tests, Ruff, and Mypy pass. |
 | Scoring/config guide | `config/README.md` now defines calculation order, normalization/missing-data behavior, all component and scenario weights, candidate factor fallbacks, robustness semantics, non-scoring evidence, and each config file's authority. It explicitly separates the permitted-evidence catalog from active numeric rules. All 42 focused scoring-to-optimizer tests pass without changing hashed decision artifacts. |
+| Evidence-specific scalar language | The Impeccable-reviewed tour now labels confidence as `Site-specific` instead of presenting a fixed `0.5`. Current docs describe neutral values only as evidence-dimension or candidate-specific fallbacks, and the early universal-fallback milestone is explicitly marked superseded. All 11 UI tests, strict TypeScript, and lint pass. |
 
 Machine-readable provenance remains in `data/sources.json`, the capability snapshot in
 `data/processed/fortyguard_capabilities.json`, and versioned decision assumptions in `config/`.
@@ -184,10 +185,9 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
 - Spatial proof: point sites use their containing tile. Eleven polygon sites intersect multiple
   tiles and use the versioned rule: highest modeled priority, then heat, then lowest numeric tile
   ID. This represents the hottest priority portion of the real site without duplicating it.
-- Scoring/claim proof: benefit equals the frozen tile priority score and equity equals its
-  vulnerability score. Feasibility and confidence use the disclosed neutral `0.5` unverified
-  screening scalar, which is explicitly not a probability or measured effect; no intervention
-  effect multiplier or temperature forecast is invented.
+- Historical scoring proof: at this milestone, before exact-site enrichment, feasibility and
+  confidence both used the disclosed neutral fallback. The later evidence-specific section below
+  supersedes that state; the fallback was never a probability or measured effect.
 - Determinism proof: `.venv\Scripts\python.exe -m scripts.build_candidates --check` rebuilds the
   398,557-byte artifact and matches it byte-for-byte.
 - Test proof: candidate, feature-table, and intervention-catalog suite → `9 passed`; focused Ruff

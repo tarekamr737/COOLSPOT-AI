@@ -37,6 +37,7 @@ describe("Home", () => {
     expect(screen.getByRole("img", { name: /one million dollar portfolio of twenty sites/i })).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Next" }));
     expect(screen.getByRole("img", { name: /street context, price, confidence, and sources/i })).toBeInTheDocument();
+    expect(screen.getByText("Evidence confidence · Site-specific")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Explore the plan" }));
     expect(window.localStorage.getItem("coolspot-tour-v1")).toBe("complete");
   });

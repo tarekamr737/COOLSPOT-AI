@@ -151,7 +151,7 @@ function TourVisual({ step }: { step: number }) {
   }
   return <div aria-label="Miniature selected-site review showing street context, price, confidence, and sources" className={`${styles.tourVisual} ${styles.tourAudit}`} role="img">
     <div className={styles.tourStreet}><small>VERIFIED STREET CONTEXT</small><span><i /><i /><i /><i /></span><strong>Street image + segmentation</strong></div>
-    <div className={styles.tourEvidence}><small>RECOMMENDED INTERVENTION</small><strong>Shade structure</strong><span>$50,000 LA allowance</span><hr /><b>Evidence confidence · 0.5</b><div><i /></div><p>AI explains these verified facts. Sources remain attached.</p></div>
+    <div className={styles.tourEvidence}><small>RECOMMENDED INTERVENTION</small><strong>Shade structure</strong><span>$50,000 LA allowance</span><hr /><b>Evidence confidence · Site-specific</b><div><i /></div><p>AI explains these verified facts. Sources remain attached.</p></div>
   </div>;
 }
 

@@ -50,17 +50,17 @@ The weight order below is heat / exposure / vulnerability / cooling opportunity.
 Scenario robustness is the number of these four presets that select a site. It is not statistical
 confidence, probability, a guarantee, or sensitivity across every plausible assumption.
 
-## Candidate factors and fallbacks
+## Candidate factors and evidence-specific fallbacks
 
 `0.5` is a neutral deterministic fallback only for an evidence dimension that remains unverified:
 
-- feasibility is currently `0.5` for every candidate because field/engineering checks are absent;
+- feasibility uses the neutral fallback while required field/engineering checks are absent;
 - confidence is replaced by exact-site Street View confidence where that cached evidence exists;
 - shade suitability is the mean of available exact-site open-sky and low-tree context;
 - tree suitability uses exact-site low-tree context;
 - unmatched shade/tree suitability remains `0.5`;
 - an eligible exact StreetsLA pavement segment receives `1.0` data-level suitability, while its
-  feasibility and confidence remain `0.5` pending field review.
+  unresolved feasibility and confidence use the neutral fallback pending field review.
 
 These scalars are not probabilities, observed effects, or construction findings. Satellite surface
 context and environmental finalist values are displayed evidence only: neither changes candidate
