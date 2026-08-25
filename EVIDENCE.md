@@ -62,6 +62,11 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   routes without errors.
 - Frontend unit proof (2026-08-25): `npm test` → `11 passed`, with the one explicitly skipped test
   file/test preserved as reported by Vitest; no active component regression failed.
+- Playwright golden-path proof (2026-08-25): system Chrome completed the full cached planning flow
+  in `6.8s` (`1 passed`): load Pacoima, layer toggle, `$500k`/`$1M` replanning, scenario change,
+  selected evidence/Street View, explanation, and methodology. The request log assertion found zero
+  FortyGuard calls. Local Playwright uses installed Chrome to avoid C: downloads; CI retains bundled
+  Chromium behavior. The updated config also passes zero-warning ESLint.
 
 ## Numeric claim lineage
 

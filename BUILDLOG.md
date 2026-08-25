@@ -361,6 +361,9 @@
   longer guaranteed to equal every later `$1M` portfolio exactly. Regressions now test material
   rank/set change and the product's explicit missing-evidence behavior instead of freezing obsolete
   membership.
+- Local Playwright initially failed before the golden-path body because its default browser binary
+  was absent from the full C: profile. Local E2E now uses the already-installed system Chrome
+  channel; CI keeps the ordinary bundled Chromium project, so no browser download is moved onto C:.
 - Treated validated configs and processed artifacts—not earlier narrative counts—as the source of
   truth for the methodology audit. `PRODUCT.md`, `ARCHITECTURE.md`, and `README.md` now reflect the
   current 172-candidate catalog, four scenario presets, bounded optional evidence, and protected

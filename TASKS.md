@@ -374,7 +374,7 @@ Do only after all previous tasks pass.
 - [x] lint/type checks
 - [x] production build
 - [x] component/unit tests
-- [ ] Playwright golden path
+- [x] Playwright golden path
 - [ ] responsive test
 - [ ] accessibility check
 

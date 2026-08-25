@@ -1,6 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const deployedBaseUrl = process.env.COOLSPOT_E2E_BASE_URL;
+const localBrowser = process.env.CI ? {} : { channel: "chrome" as const };
 
 export default defineConfig({
   testDir: "./e2e",
@@ -34,5 +35,7 @@ export default defineConfig({
           url: "http://127.0.0.1:3100",
         },
       ],
-  projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
+  projects: [
+    { name: "chromium", use: { ...devices["Desktop Chrome"], ...localBrowser } },
+  ],
 });
