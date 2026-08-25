@@ -386,7 +386,7 @@ Try to disprove:
 - [x] “This intervention will lower temperature by exactly X°C.”
 - [x] “X people will be saved.”
 - [x] “Vulnerability score equals people affected.”
-- [ ] “Street View proves all-day shade.”
+- [x] “Street View proves all-day shade.”
 - [ ] “Environmental parameters predict medical outcomes.”
 - [ ] “Robustness score is statistical confidence.”
 

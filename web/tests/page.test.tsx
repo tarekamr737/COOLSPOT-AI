@@ -6,6 +6,7 @@ import { responseFor } from "./api-fixtures";
 
 describe("Home", () => {
   beforeEach(() => {
+    window.localStorage.clear();
     vi.stubGlobal(
       "fetch",
       vi.fn(async (input: RequestInfo | URL, init?: RequestInit) =>

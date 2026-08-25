@@ -95,6 +95,10 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   a normalized modeled score. Candidate and optimizer configs explicitly state that it is context,
   not a count of people served or affected; the UI labels it “modeled score.” Optimizer tests return
   `8 passed in 4.66s`, and the rendered UI contract returns `11 passed`.
+- All-day-shade claim audit (2026-08-25): targeted UI/API searches find only explicit limitations
+  that dated Street View segmentation is screening evidence and cannot measure or prove all-day
+  shade. Street View evidence tests return `18 passed in 10.08s`; the rendered limitation contract
+  returns `11 passed`, and zero-warning ESLint passes after isolating the tour's local-storage setup.
 
 ## Numeric claim lineage
 

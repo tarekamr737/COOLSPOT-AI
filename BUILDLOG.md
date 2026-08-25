@@ -383,3 +383,7 @@
   source links that depended on color alone. The graphic is now a value-bearing ARIA meter and the
   provenance links retain a visible underline. Keyboard inspection also showed that the skip link
   changed only the fragment, so the named map region is now a programmatic focus target.
+- A focused claim-audit run exposed that the tour test cleared its completion flag only in teardown,
+  allowing the first test to inherit stale local storage from the environment. Setup now clears the
+  same key space before rendering, making the existing UI contract repeatable without changing app
+  behavior.
