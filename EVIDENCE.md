@@ -109,6 +109,10 @@ decision API, explanations, and capability counters.
   to **249,320** and leaving **1,750,680**, above reserve. Metadata and limitations are in the
   adjacent JSON artifact and `data/sources.json`; the temporary signed URL is redacted from every
   persistent request/status record.
+- Graceful-omission proof: the capability records confirmed endpoint access but remains disabled
+  with the quarantine reason. A focused regression proves `require_enabled` fails visibly while the
+  balanced `$500k` optimizer and deterministic selected-site explanation still complete and contain
+  neither Heat Intelligence nor the report's incorrect Long Beach place claim.
 
 ## Pacoima AOI is below the FortyGuard limit
 

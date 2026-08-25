@@ -347,7 +347,7 @@ Do only after all previous tasks pass.
 - [x] Never use the report to rank or optimize sites.
 - [x] Use only as supporting evidence/reporting for a top recommendation.
 - [x] Cache the result and record cost/provenance.
-- [ ] Gracefully omit the feature if unavailable.
+- [x] Gracefully omit the feature if unavailable.
 
 **Acceptance:** optional report strengthens explanation but is never a core dependency.
 

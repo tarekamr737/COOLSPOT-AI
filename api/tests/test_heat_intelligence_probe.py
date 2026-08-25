@@ -8,6 +8,13 @@ from pydantic import ValidationError
 
 from api.app.fortyguard_models import HeatIntelligenceRequest
 from api.app.services import candidates, optimizer
+from api.app.services.capabilities import (
+    FeatureDisabledError,
+    FortyGuardFeature,
+    load_capabilities,
+)
+from api.app.services.decision_api import candidates_response, site_response
+from api.app.services.explanations import explain_selected_candidate
 from api.app.services.heatmap_data import load_heatmap_artifact
 from scripts.cache_fortyguard_heat_intelligence import (
     REPORT_METADATA_PATH,
@@ -93,3 +100,31 @@ def test_completed_report_is_quarantined_from_explanations() -> None:
     ).hexdigest()
     assert artifact.observed_credit_delta == 8_600
     assert artifact.credits_remaining == 1_750_680
+
+
+def test_quarantined_report_is_gracefully_omitted_from_golden_path() -> None:
+    with pytest.raises(FeatureDisabledError, match="quarantined"):
+        load_capabilities().require_enabled(
+            FortyGuardFeature.HEAT_INTELLIGENCE_REPORT
+        )
+
+    portfolio = optimizer.optimize_portfolio(500_000)
+    candidate = next(
+        item
+        for item in candidates_response().candidates
+        if item.id in portfolio.selected_candidate_ids
+    )
+    site = site_response(candidate.site_id)
+    assert site is not None
+    option = next(item for item in site.options if item.candidate.id == candidate.id)
+    explanation = explain_selected_candidate(
+        candidate=candidate,
+        tile=option.tile,
+        intervention=option.intervention,
+        portfolio=portfolio,
+    )
+    displayed = " ".join(
+        (explanation.summary, *explanation.why_selected, *explanation.limitations)
+    ).lower()
+    assert "heat intelligence" not in displayed
+    assert "long beach" not in displayed
