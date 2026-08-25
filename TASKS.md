@@ -362,7 +362,7 @@ Do only after all previous tasks pass.
 - [x] full `pytest`
 - [x] fixture parsing
 - [x] scoring
-- [ ] candidate generation
+- [x] candidate generation
 - [ ] scenario presets
 - [ ] robustness
 - [ ] optimizer

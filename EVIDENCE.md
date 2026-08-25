@@ -41,6 +41,8 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   satellite, and Street View fixture/artifact tests → `34 passed in 1.74s`.
 - Scoring proof (2026-08-25): feature-table formulas and normalization, intervention-specific
   value factors, and exceedance sensitivity regressions → `22 passed in 20.50s`.
+- Candidate-generation proof (2026-08-25): catalog determinism, intervention evidence, exact
+  public-pavement geometry, compatibility, and factor-bound regressions → `13 passed in 15.34s`.
 
 ## Numeric claim lineage
 
