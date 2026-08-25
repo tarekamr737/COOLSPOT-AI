@@ -91,6 +91,10 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   promise of people protected, lives saved, or deaths prevented. Matches are explicit limitations,
   prohibited-phrase regressions, and LLM-output rejection rules. Focused candidate, intervention,
   and explanation tests return `17 passed in 116.91s`.
+- Vulnerability-count claim audit (2026-08-25): targeted UI/API searches show vulnerability only as
+  a normalized modeled score. Candidate and optimizer configs explicitly state that it is context,
+  not a count of people served or affected; the UI labels it “modeled score.” Optimizer tests return
+  `8 passed in 4.66s`, and the rendered UI contract returns `11 passed`.
 
 ## Numeric claim lineage
 
