@@ -359,7 +359,7 @@ Do only after all previous tasks pass.
 
 - [x] `ruff`
 - [x] `mypy`
-- [ ] full `pytest`
+- [x] full `pytest`
 - [ ] fixture parsing
 - [ ] scoring
 - [ ] candidate generation

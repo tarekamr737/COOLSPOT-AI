@@ -35,6 +35,8 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
 - Ruff proof (2026-08-25): `.venv\Scripts\python.exe -m ruff check .` → `All checks passed!`.
 - Mypy proof (2026-08-25): `.venv\Scripts\python.exe -m mypy` →
   `Success: no issues found in 64 source files` under the strict project configuration.
+- Full Pytest proof (2026-08-25): `.venv\Scripts\python.exe -m pytest` →
+  `140 passed in 60.40s`. The run covers every backend test module with no live vendor calls.
 
 ## Numeric claim lineage
 
@@ -732,11 +734,12 @@ decision API, explanations, and capability counters.
   sum to one, and are included in the feature table's scoring-config SHA-256. A functional test
   rebuilds all tiles with a temporary temperature-only preset, verifies every heat score follows
   that preset, and confirms scores differ from the committed default.
-- Ranking sensitivity proof: against the former 50% temperature / 50% persistence baseline, 103 of
-  152 candidate rank positions change and the maximum movement is 23 places. Portfolio membership
-  replacement is 40% at `$250k`, 10% at `$500k`, and 0% at `$1M`; the test therefore classifies the
-  smaller-budget effect as material at the predefined 10% decision threshold. This is a sensitivity
-  result, not a causal claim, because exceedance is dated 2024-07-15 while active layers are 2026.
+- Ranking sensitivity proof: against the former 50% temperature / 50% persistence baseline, at
+  least 10% of the current 172-candidate catalog changes rank or candidate identity and at least one
+  shared candidate moves position. The current refreshed catalog's three preset-budget portfolios
+  are also compared and presently show no membership replacement. The test therefore establishes a
+  material ranking sensitivity, not a portfolio or causal effect; exceedance is dated 2024-07-15
+  while active layers are 2026.
 - API/UI proof: every site response exposes raw and normalized exceedance evidence. Methodology
   publishes the exact 40/35/25 heat weights, both analysis dates, 30 °C threshold/direction,
   canonical request hash, activity ID, artifact SHA-256, measured credit delta, FortyGuard source

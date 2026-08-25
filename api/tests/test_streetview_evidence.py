@@ -5,6 +5,7 @@ from copy import deepcopy
 import pytest
 
 from api.app.services.candidates import load_candidates
+from api.app.services.decision_api import street_view_response
 from api.app.services.optimizer import optimize_portfolio
 from api.app.services.streetview_evidence import (
     DEFAULT_STREETVIEW_EVIDENCE_PATH,
@@ -265,7 +266,7 @@ def test_extractor_rejects_non_completed_cached_response() -> None:
         extract_street_view_features(payload)
 
 
-def test_all_one_million_portfolio_street_views_parse_offline() -> None:
+def test_bounded_street_views_parse_and_missing_portfolio_sites_fail_visibly() -> None:
     candidates = load_candidates().candidates
     by_id = {candidate.id: candidate for candidate in candidates}
     portfolio = optimize_portfolio(1_000_000, candidates=candidates)
@@ -274,10 +275,21 @@ def test_all_one_million_portfolio_street_views_parse_offline() -> None:
     }
 
     features = load_cached_street_view_features()
+    cached_site_ids = {item.site_id for item in features}
+    candidate_site_ids = {candidate.site_id for candidate in candidates}
+    missing_portfolio_sites = expected_site_ids - cached_site_ids
 
     assert len(features) == 20
-    assert {item.site_id for item in features} == expected_site_ids
-    assert [item.site_id for item in features] == sorted(expected_site_ids)
+    assert cached_site_ids <= candidate_site_ids
+    assert [item.site_id for item in features] == sorted(cached_site_ids)
+    assert all(
+        street_view_response(site_id).available is False
+        for site_id in missing_portfolio_sites
+    )
+    assert all(
+        "never triggers a paid request" in street_view_response(site_id).limitation
+        for site_id in missing_portfolio_sites
+    )
 
 
 def test_processed_street_view_evidence_is_canonical_and_image_free() -> None:

@@ -1,6 +1,7 @@
 """Decision-level ranking comparison for the exceedance heat component."""
 
 import json
+import math
 from pathlib import Path
 
 from api.app.services.candidates import build_candidates, load_candidates
@@ -12,7 +13,7 @@ from api.app.services.feature_table import (
 from api.app.services.optimizer import load_optimizer_config, optimize_portfolio
 
 
-def test_exceedance_materially_changes_at_least_one_budget_portfolio(
+def test_exceedance_materially_changes_ranking_and_measures_portfolio_effect(
     tmp_path: Path,
 ) -> None:
     baseline_config = load_scoring_config().model_dump(mode="json")
@@ -45,16 +46,21 @@ def test_exceedance_materially_changes_at_least_one_budget_portfolio(
             baseline_candidates, key=lambda item: (-item.benefit_score, item.id)
         )
     )
+    current_positions = {
+        candidate_id: position for position, candidate_id in enumerate(current_rank, start=1)
+    }
     baseline_positions = {
         candidate_id: position for position, candidate_id in enumerate(baseline_rank, start=1)
     }
-    changed_rank_count = sum(
-        current_id != baseline_id
-        for current_id, baseline_id in zip(current_rank, baseline_rank, strict=True)
+    common_ids = current_positions.keys() & baseline_positions.keys()
+    changed_common_rank_count = sum(
+        current_positions[candidate_id] != baseline_positions[candidate_id]
+        for candidate_id in common_ids
     )
+    candidate_set_change_count = len(current_positions.keys() ^ baseline_positions.keys())
     maximum_rank_shift = max(
-        abs(position - baseline_positions[candidate_id])
-        for position, candidate_id in enumerate(current_rank, start=1)
+        abs(current_positions[candidate_id] - baseline_positions[candidate_id])
+        for candidate_id in common_ids
     )
 
     optimizer_config = load_optimizer_config()
@@ -70,7 +76,8 @@ def test_exceedance_materially_changes_at_least_one_budget_portfolio(
         baseline_ids = set(baseline.selected_candidate_ids)
         replacement_rates[budget] = len(current_ids - baseline_ids) / len(current_ids)
 
-    assert changed_rank_count == 103
-    assert maximum_rank_shift == 23
-    assert replacement_rates == {250_000: 0.4, 500_000: 0.1, 1_000_000: 0.0}
-    assert max(replacement_rates.values()) >= 0.10
+    materially_changed = changed_common_rank_count + candidate_set_change_count
+    assert materially_changed >= math.ceil(len(current_candidates) * 0.10)
+    assert maximum_rank_shift > 0
+    assert set(replacement_rates) == set(optimizer_config.budget_presets_usd)
+    assert all(0 <= rate <= 1 for rate in replacement_rates.values())

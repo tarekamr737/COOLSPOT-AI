@@ -356,6 +356,11 @@
   Runtime output misread Celsius as Fahrenheit, assigned Pacoima coordinates to Long Beach / Signal
   Hill, and added uncited local estimates. Successful endpoint access therefore does not make this
   particular report decision-safe; it remains cached for audit but is excluded from explanations.
+- Full Pytest exposed two stale test assumptions after the refreshed catalog: exceedance can change
+  pavement candidate identity as well as rank, and the bounded 20-site Street View cache is no
+  longer guaranteed to equal every later `$1M` portfolio exactly. Regressions now test material
+  rank/set change and the product's explicit missing-evidence behavior instead of freezing obsolete
+  membership.
 - Treated validated configs and processed artifacts—not earlier narrative counts—as the source of
   truth for the methodology audit. `PRODUCT.md`, `ARCHITECTURE.md`, and `README.md` now reflect the
   current 172-candidate catalog, four scenario presets, bounded optional evidence, and protected
