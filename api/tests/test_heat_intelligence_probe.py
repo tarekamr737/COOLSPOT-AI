@@ -1,9 +1,12 @@
 """Offline tests for the single governed Heat Intelligence probe target."""
 
+import inspect
+
 import pytest
 from pydantic import ValidationError
 
 from api.app.fortyguard_models import HeatIntelligenceRequest
+from api.app.services import candidates, optimizer
 from api.app.services.heatmap_data import load_heatmap_artifact
 from scripts.probe_fortyguard_heat_intelligence import (
     RECEIPT_PATH,
@@ -57,3 +60,12 @@ def test_committed_probe_receipt_matches_canonical_request() -> None:
     assert receipt.request == build_probe_request(candidate)
     assert receipt.credits_remaining_before == 1_759_280
     assert receipt.hard_reserve == 500_000
+
+
+def test_heat_intelligence_is_not_a_ranking_or_optimizer_dependency() -> None:
+    """Fail if the optional report is wired into either deterministic decision path."""
+
+    for module in (candidates, optimizer):
+        source = inspect.getsource(module).lower()
+        assert "heat_intelligence" not in source
+        assert "fortyguard_heat_intelligence_probe" not in source

@@ -344,7 +344,7 @@ Do only after all previous tasks pass.
 
 - [x] Verify current `/v1/heat_intelligence` documentation.
 - [x] Probe once only if hackathon-key access and credits permit.
-- [ ] Never use the report to rank or optimize sites.
+- [x] Never use the report to rank or optimize sites.
 - [ ] Use only as supporting evidence/reporting for a top recommendation.
 - [ ] Cache the result and record cost/provenance.
 - [ ] Gracefully omit the feature if unavailable.

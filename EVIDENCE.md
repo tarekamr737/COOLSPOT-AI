@@ -90,6 +90,10 @@ decision API, explanations, and capability counters.
   and observed cost remain unconfirmed until this exact activity reaches a terminal state.
 - Safety boundary: the capability remains disabled/unconfirmed and the report cannot enter ranking,
   optimization, or the core demo path while Processing.
+- Decision-boundary proof: `test_heat_intelligence_is_not_a_ranking_or_optimizer_dependency`
+  inspects both deterministic decision modules and fails if either references Heat Intelligence or
+  its probe artifact. Candidate generation continues to use versioned heat/public/optional
+  screening evidence; CP-SAT continues to consume only candidate factors and scenario weights.
 
 ## Pacoima AOI is below the FortyGuard limit
 
