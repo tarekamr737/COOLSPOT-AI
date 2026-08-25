@@ -87,6 +87,10 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   temperature forecast or predicted site reduction. The explanation guard's adversarial provider
   test rejects “will reduce temperatures” language; focused explanation/decision tests return
   `13 passed in 10.56s`.
+- People-saved claim audit (2026-08-25): targeted UI/API searches find no affirmative count or
+  promise of people protected, lives saved, or deaths prevented. Matches are explicit limitations,
+  prohibited-phrase regressions, and LLM-output rejection rules. Focused candidate, intervention,
+  and explanation tests return `17 passed in 116.91s`.
 
 ## Numeric claim lineage
 

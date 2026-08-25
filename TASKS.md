@@ -384,7 +384,7 @@ Try to disprove:
 
 - [x] “This stop is unshaded.”
 - [x] “This intervention will lower temperature by exactly X°C.”
-- [ ] “X people will be saved.”
+- [x] “X people will be saved.”
 - [ ] “Vulnerability score equals people affected.”
 - [ ] “Street View proves all-day shade.”
 - [ ] “Environmental parameters predict medical outcomes.”
