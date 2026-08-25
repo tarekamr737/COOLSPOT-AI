@@ -72,6 +72,12 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   showed zero horizontal overflow and map-before-list-before-evidence order at 320px, 390px,
   768px, 844px landscape, and desktop. The new boundary regression returns `1 passed in 13.4s`;
   zero-warning ESLint and strict TypeScript also pass.
+- Accessibility proof (2026-08-25): Chrome Lighthouse snapshot audits score `100` accessibility,
+  `100` best practices, and zero failed audits on both desktop and mobile after correcting the
+  confidence bar's ARIA semantics and adding a non-color cue to inline provenance links. Live
+  keyboard inspection confirms the skip link transfers focus to the named map workspace. The new
+  accessibility test plus the responsive regression return `2 passed in 7.5s`; lint and strict
+  TypeScript pass.
 
 ## Numeric claim lineage
 

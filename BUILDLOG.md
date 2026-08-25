@@ -379,3 +379,7 @@
   the viewport at 844px landscape. The mobile header now gives status/actions their own row, and the
   existing single-column workspace breakpoint begins at 896px. A Playwright boundary regression
   locks both fixes while preserving the desktop map-first layout.
+- Lighthouse found one invalid accessible-name pattern on the confidence graphic and two inline
+  source links that depended on color alone. The graphic is now a value-bearing ARIA meter and the
+  provenance links retain a visible underline. Keyboard inspection also showed that the skip link
+  changed only the fragment, so the named map region is now a programmatic focus target.

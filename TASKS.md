@@ -376,7 +376,7 @@ Do only after all previous tasks pass.
 - [x] component/unit tests
 - [x] Playwright golden path
 - [x] responsive test
-- [ ] accessibility check
+- [x] accessibility check
 
 ### Claim audit
 
