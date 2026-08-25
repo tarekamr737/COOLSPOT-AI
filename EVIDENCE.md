@@ -43,6 +43,8 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   value factors, and exceedance sensitivity regressions → `22 passed in 20.50s`.
 - Candidate-generation proof (2026-08-25): catalog determinism, intervention evidence, exact
   public-pavement geometry, compatibility, and factor-bound regressions → `13 passed in 15.34s`.
+- Scenario-preset proof (2026-08-25): all four versioned weight sets re-score cached features,
+  remain deterministic/feasible, and pass through the zero-vendor optimize API → `3 passed`.
 
 ## Numeric claim lineage
 

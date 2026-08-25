@@ -363,7 +363,7 @@ Do only after all previous tasks pass.
 - [x] fixture parsing
 - [x] scoring
 - [x] candidate generation
-- [ ] scenario presets
+- [x] scenario presets
 - [ ] robustness
 - [ ] optimizer
 - [ ] credit governor
