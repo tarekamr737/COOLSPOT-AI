@@ -99,6 +99,11 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   that dated Street View segmentation is screening evidence and cannot measure or prove all-day
   shade. Street View evidence tests return `18 passed in 10.08s`; the rendered limitation contract
   returns `11 passed`, and zero-warning ESLint passes after isolating the tour's local-storage setup.
+- Medical-outcome claim audit (2026-08-25): targeted UI/API searches find environmental parameters
+  only as dated point thermal context with an explicit limitation that source completeness does not
+  establish medical risk, individual exposure, feasibility, or cooling outcomes. The typed schema
+  rejects a fabricated medical-risk score; all environmental evidence/probe tests return
+  `12 passed in 7.63s`.
 
 ## Numeric claim lineage
 
