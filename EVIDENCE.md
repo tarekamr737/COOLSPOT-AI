@@ -57,6 +57,9 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   → `15 passed in 2.86s`.
 - Frontend lint/type proof (2026-08-25): `npm run lint` completes with zero warnings and
   `npm run typecheck` regenerates Next route types then passes strict `tsc --noEmit`.
+- Production-build proof (2026-08-25): `npm run build` compiles Next.js 16.3.1 successfully,
+  completes TypeScript and static-page generation, and emits the static workspace plus API proxy
+  routes without errors.
 
 ## Numeric claim lineage
 

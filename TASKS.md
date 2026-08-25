@@ -372,7 +372,7 @@ Do only after all previous tasks pass.
 ### Frontend
 
 - [x] lint/type checks
-- [ ] production build
+- [x] production build
 - [ ] component/unit tests
 - [ ] Playwright golden path
 - [ ] responsive test
