@@ -33,6 +33,8 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
 ## Full regression gates
 
 - Ruff proof (2026-08-25): `.venv\Scripts\python.exe -m ruff check .` → `All checks passed!`.
+- Mypy proof (2026-08-25): `.venv\Scripts\python.exe -m mypy` →
+  `Success: no issues found in 64 source files` under the strict project configuration.
 
 ## Numeric claim lineage
 

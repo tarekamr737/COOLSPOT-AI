@@ -358,7 +358,7 @@ Do only after all previous tasks pass.
 ### Backend
 
 - [x] `ruff`
-- [ ] `mypy`
+- [x] `mypy`
 - [ ] full `pytest`
 - [ ] fixture parsing
 - [ ] scoring
