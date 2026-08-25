@@ -23,9 +23,28 @@ state at that task's completion and may be superseded by this snapshot or a late
 | Scoring/config guide | `config/README.md` now defines calculation order, normalization/missing-data behavior, all component and scenario weights, candidate factor fallbacks, robustness semantics, non-scoring evidence, and each config file's authority. It explicitly separates the permitted-evidence catalog from active numeric rules. All 42 focused scoring-to-optimizer tests pass without changing hashed decision artifacts. |
 | Evidence-specific scalar language | The Impeccable-reviewed tour now labels confidence as `Site-specific` instead of presenting a fixed `0.5`. Current docs describe neutral values only as evidence-dimension or candidate-specific fallbacks, and the early universal-fallback milestone is explicitly marked superseded. All 11 UI tests, strict TypeScript, and lint pass. |
 | Cool-pavement availability | Support is active rather than claimed speculatively: 20 candidates each map to an exact AOI-clipped StreetsLA pavement asset with surface, positive width, and PCI category; the optimizer selects cool pavement within the supported `$5M` custom range. All 15 focused candidate/optimizer tests pass. |
+| Numeric claim audit | Every displayed/API number belongs to one of the lineage classes below: vendor observation, authoritative public input, cited price/research evidence, deterministic derivation, or explicit user/config planning assumption. The 48-test traceability suite passes. |
 
 Machine-readable provenance remains in `data/sources.json`, the capability snapshot in
 `data/processed/fortyguard_capabilities.json`, and versioned decision assumptions in `config/`.
+
+## Numeric claim lineage
+
+| Numeric claim class | Authoritative lineage | Enforced proof |
+| --- | --- | --- |
+| Heat, persistence, exceedance, and peak time | Cached FortyGuard artifacts with analysis dates, activity/request identifiers, and SHA-256 links in `pacoima_tile_features.json` | Feature-table canonical/hash/formula tests |
+| Transit activity, POIs, and ACS context | `pacoima_public_data.json`, `data/raw_manifest.json`, and dated/licensed entries in `data/sources.json` | Public/processed-data schema and join tests |
+| Street, environmental, and satellite values | Exact-site normalized artifacts retaining source record hashes/IDs, image or observation dates, and endpoint limitations | Normalized evidence and decision API tests |
+| Normalized component and priority scores | Raw values plus quantile metadata in the tile table; exact weights and missing rules in `config/scoring.json` and `config/scenarios.json` | Bounds, recomputation, config-hash, and four-preset tests |
+| Suitability, feasibility, confidence, and impact | Exact candidate factors, suitability basis, evidence records, config hash, and formula in `pacoima_candidates.json` | Candidate factor recomputation and non-neutral-source tests |
+| Planning prices and cited study ranges | `data/processed/interventions.json` source IDs, URLs, publication dates, package basis, range, and “not a quote” disclaimer | Catalog range/source-integrity tests |
+| Portfolio totals and robustness | Requested budget, integer CP-SAT coefficients, selected candidate factors, and exact four-preset site counts | Determinism, budget, mutual-exclusion, and frequency tests |
+| Credit counts and refresh cost | Measured usage artifacts and the balanced `fortyguard_capabilities.json` counters | Credit governor, capability, and zero-vendor replan tests |
+
+The browser consumes only typed API responses, displays source links beside evidence, and labels
+model/config outputs as modeled or planning assumptions. The 48-test numeric-lineage suite covers
+feature tables, public data, price catalog, candidates, optional evidence, scenarios, optimizer,
+decision API, explanations, and capability counters.
 
 ## Pacoima AOI is below the FortyGuard limit
 

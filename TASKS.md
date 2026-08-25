@@ -328,7 +328,7 @@ Selected in 4/4 planning scenarios
 - [x] Update all scoring/config documentation.
 - [x] Remove outdated claims about universal `0.5` confidence/feasibility.
 - [x] Remove any claim that cool pavement is supported if still unavailable. *(Not applicable: exact StreetsLA geometry now supports 20 tested candidates.)*
-- [ ] Verify every numeric claim is traceable to:
+- [x] Verify every numeric claim is traceable to:
   - FortyGuard,
   - authoritative public data,
   - cited research,
