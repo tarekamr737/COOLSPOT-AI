@@ -48,6 +48,8 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
 - Robustness proof (2026-08-25): site-level selection frequency is calculated exactly across four
   presets, portfolio/site constraints hold, and methodology preserves the non-statistical meaning
   → `3 passed`.
+- Optimizer proof (2026-08-25): all eight CP-SAT regressions pass across preset/custom budgets,
+  deterministic tie-breaking, site exclusivity, intervention evidence, and selectable pavement.
 
 ## Numeric claim lineage
 

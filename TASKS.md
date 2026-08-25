@@ -365,7 +365,7 @@ Do only after all previous tasks pass.
 - [x] candidate generation
 - [x] scenario presets
 - [x] robustness
-- [ ] optimizer
+- [x] optimizer
 - [ ] credit governor
 - [ ] optional-endpoint failure paths
 
