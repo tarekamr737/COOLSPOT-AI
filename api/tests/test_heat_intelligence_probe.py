@@ -1,5 +1,6 @@
 """Offline tests for the single governed Heat Intelligence probe target."""
 
+import hashlib
 import inspect
 
 import pytest
@@ -87,5 +88,8 @@ def test_completed_report_is_quarantined_from_explanations() -> None:
     assert len(artifact.quality_findings) == 3
     assert artifact.result is not None
     assert artifact.result.report_size_bytes == REPORT_PDF_PATH.stat().st_size
+    assert artifact.result.report_sha256 == hashlib.sha256(
+        REPORT_PDF_PATH.read_bytes()
+    ).hexdigest()
     assert artifact.observed_credit_delta == 8_600
     assert artifact.credits_remaining == 1_750_680

@@ -28,6 +28,7 @@ def test_source_registry_covers_required_inputs() -> None:
         "la_metro_gtfs_bus",
         "la_metro_bus_patronage_2024",
         "census_acs_2024",
+        "fortyguard_heat_intelligence",
     } <= source_ids
     assert all(source.license_notes for source in registry.sources)
     assert all(source.limitations for source in registry.sources)
@@ -47,6 +48,13 @@ def test_source_registry_covers_required_inputs() -> None:
     assert pavement.geometry_provenance is not None
     assert pavement.geometry_provenance.record_count == 1703
     assert pavement.data_vintage.endswith("2026-08-06")
+
+    heat_intelligence = next(
+        source for source in registry.sources if source.id == "fortyguard_heat_intelligence"
+    )
+    assert heat_intelligence.retrieved_at.isoformat() == "2026-08-25"
+    assert "quarantined" in heat_intelligence.title.lower()
+    assert any("Pacoima" in limitation for limitation in heat_intelligence.limitations)
 
 
 def test_read_or_fetch_reuses_successful_cache(tmp_path: Path) -> None:

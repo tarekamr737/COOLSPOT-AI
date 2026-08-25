@@ -346,7 +346,7 @@ Do only after all previous tasks pass.
 - [x] Probe once only if hackathon-key access and credits permit.
 - [x] Never use the report to rank or optimize sites.
 - [x] Use only as supporting evidence/reporting for a top recommendation.
-- [ ] Cache the result and record cost/provenance.
+- [x] Cache the result and record cost/provenance.
 - [ ] Gracefully omit the feature if unavailable.
 
 **Acceptance:** optional report strengthens explanation but is never a core dependency.

@@ -180,6 +180,27 @@
       "artifacts": []
     },
     {
+      "id": "fortyguard_heat_intelligence",
+      "title": "FortyGuard Heat Intelligence API — quarantined urban report",
+      "publisher": "FortyGuard",
+      "dataset_url": "https://docs-api.fortyguard.com/docs/heat-intelligence",
+      "retrieved_at": "2026-08-25",
+      "data_vintage": "One point report submitted for the 2026-08-20 Pacoima TCM observation and completed 2026-08-25",
+      "license_notes": "The cached hackathon API report is retained for audit under the provider account terms; public redistribution rights are not inferred.",
+      "license_url": "https://docs-api.fortyguard.com/",
+      "fields": {
+        "activity_id": "Stored vendor activity identifier for the one governed submission",
+        "request_hash": "Canonical hash of the exact point, temperature, date, and urban analysis request",
+        "report_sha256": "SHA-256 of the cached PDF downloaded from the temporary result link",
+        "observed_credit_delta": "Measured successful completion cost from before/after credit usage"
+      },
+      "limitations": [
+        "The report is quarantined and ineligible for explanations because it misread the supplied Celsius temperature as Fahrenheit and described Pacoima coordinates as Long Beach / Signal Hill.",
+        "It introduces uncited estimates and projections absent from COOLSPOT's structured evidence and is never used in ranking, optimization, or the core demo path."
+      ],
+      "artifacts": []
+    },
+    {
       "id": "lausd_school_sites",
       "title": "LAUSD School Site Locations",
       "publisher": "Los Angeles Unified School District via Los Angeles GeoHub",

@@ -18,7 +18,7 @@ state at that task's completion and may be superseded by this snapshot or a late
 | Credit boundary | The capability snapshot records `1,759,280` credits remaining and the server enforces the `500,000` reserve. Budget/scenario replanning visibly consumes `0 FortyGuard credits`. |
 | UI regression | Strict TypeScript and zero-warning lint pass; 11 active component tests cover the golden workspace, keyboard tour, empty state, recovery, refresh, and zero-vendor replanning. |
 | Decision log | `BUILDLOG.md` records only material runtime discoveries and architecture/product decisions; its current audit entry points readers to validated configs/artifacts rather than copying historical state forward. |
-| Source registry | `data/sources.json` contains 13 unique typed sources. Heatmap, Street View, environmental, and satellite evidence now each disclose provider documentation, retrieval/data dates, retained fields, provider-terms caveat, and decision-safe limitations; all four registry tests pass. |
+| Source registry | `data/sources.json` contains 14 unique typed sources. Heatmap, Street View, environmental, satellite, and quarantined Heat Intelligence outputs disclose provider documentation, retrieval/data dates, retained fields, provider-terms caveats, and decision-safe limitations. |
 | Capability snapshot | The typed capability enum/manifest records successful cached TCM, persistence, exceedance, time-of-measure, environmental, Street View, and satellite access. Heat Intelligence remains disabled/unconfirmed while its one accepted activity is Processing. Six non-core probe attempts reconcile exactly; credits still balance at `240,720` used plus `1,759,280` remaining. |
 | Scoring/config guide | `config/README.md` now defines calculation order, normalization/missing-data behavior, all component and scenario weights, candidate factor fallbacks, robustness semantics, non-scoring evidence, and each config file's authority. It explicitly separates the permitted-evidence catalog from active numeric rules. All 42 focused scoring-to-optimizer tests pass without changing hashed decision artifacts. |
 | Evidence-specific scalar language | The Impeccable-reviewed tour now labels confidence as `Site-specific` instead of presenting a fixed `0.5`. Current docs describe neutral values only as evidence-dimension or candidate-specific fallbacks, and the early universal-fallback milestone is explicitly marked superseded. All 11 UI tests, strict TypeScript, and lint pass. |
@@ -102,6 +102,13 @@ decision API, explanations, and capability counters.
 - PDF QA proof: all 13 pages were text-extracted and rendered locally. Layout was readable, but the
   factual mismatches above make the report unsuitable as supporting evidence despite successful
   delivery.
+- Cache/cost proof: the 832,761-byte PDF is committed at
+  `data/processed/pacoima_heat_intelligence_report.pdf` with SHA-256
+  `08566633fe17e6cc761b21c191dec5703ac688668742c8958c72842458d1f94a`. Activity
+  `a8244e8a-a289-4e4b-919a-13272a8af2b6` cost **8,600 credits**, changing usage from **240,720**
+  to **249,320** and leaving **1,750,680**, above reserve. Metadata and limitations are in the
+  adjacent JSON artifact and `data/sources.json`; the temporary signed URL is redacted from every
+  persistent request/status record.
 
 ## Pacoima AOI is below the FortyGuard limit
 
