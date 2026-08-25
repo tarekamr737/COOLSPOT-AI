@@ -388,7 +388,7 @@ Try to disprove:
 - [x] “Vulnerability score equals people affected.”
 - [x] “Street View proves all-day shade.”
 - [x] “Environmental parameters predict medical outcomes.”
-- [ ] “Robustness score is statistical confidence.”
+- [x] “Robustness score is statistical confidence.”
 
 Fix any UI/API wording that implies those claims.
 

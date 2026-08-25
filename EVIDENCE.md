@@ -25,7 +25,7 @@ state at that task's completion and may be superseded by this snapshot or a late
 | Cool-pavement availability | Support is active rather than claimed speculatively: 20 candidates each map to an exact AOI-clipped StreetsLA pavement asset with surface, positive width, and PCI category; the optimizer selects cool pavement within the supported `$5M` custom range. All 15 focused candidate/optimizer tests pass. |
 | Numeric claim audit | Every displayed/API number belongs to one of the lineage classes below: vendor observation, authoritative public input, cited price/research evidence, deterministic derivation, or explicit user/config planning assumption. The 48-test traceability suite passes. |
 | Heat Intelligence contract | Official FortyGuard documentation checked 2026-08-25 confirms `POST /v1/heat_intelligence` is a Premium-only asynchronous point report. The required request fields, five allowed analysis categories, status lifecycle, and temporary PDF download-link handling are recorded below; no request was made for this documentation-only task. |
-| Full regression | Repository-wide Ruff passes with no violations after the optional Heat Intelligence implementation and quarantine gate. Remaining Section 12 checks are tracked independently in `TASKS.md`. |
+| Full regression | Section 12 passes: repository-wide Ruff, strict Mypy, 140 backend tests, frontend lint/type/build/unit checks, golden/responsive/accessibility browser paths, and all seven unsupported-claim audits are verified below. |
 
 Machine-readable provenance remains in `data/sources.json`, the capability snapshot in
 `data/processed/fortyguard_capabilities.json`, and versioned decision assumptions in `config/`.
@@ -104,6 +104,10 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   establish medical risk, individual exposure, feasibility, or cooling outcomes. The typed schema
   rejects a fabricated medical-risk score; all environmental evidence/probe tests return
   `12 passed in 7.63s`.
+- Robustness-confidence claim audit (2026-08-25): the optimizer schema enforces robustness as exact
+  selected/tested preset frequency, and UI/API copy explicitly says it is not statistical
+  confidence, outcome certainty, or probability. Optimizer tests return `8 passed in 10.60s`; the
+  rendered UI contract returns `11 passed` when run independently of CPU-heavy optimizer tests.
 
 ## Numeric claim lineage
 
