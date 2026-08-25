@@ -60,6 +60,8 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
 - Production-build proof (2026-08-25): `npm run build` compiles Next.js 16.3.1 successfully,
   completes TypeScript and static-page generation, and emits the static workspace plus API proxy
   routes without errors.
+- Frontend unit proof (2026-08-25): `npm test` → `11 passed`, with the one explicitly skipped test
+  file/test preserved as reported by Vitest; no active component regression failed.
 
 ## Numeric claim lineage
 
