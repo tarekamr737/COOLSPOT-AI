@@ -17,6 +17,7 @@ from api.app.fortyguard_models import (
     DateTimeRequest,
     EnvironmentalParametersRequest,
     FortyGuardEndpoint,
+    HeatIntelligenceRequest,
     HeatmapRequest,
     HeatmapResult,
     PollingPolicy,
@@ -398,7 +399,12 @@ def test_typed_optional_endpoint_submissions_use_documented_paths(tmp_path: Path
         )
 
     transport = FakeTransport(
-        [submitted("env-fixture-001"), submitted("sat-fixture-001"), submitted("sv-fixture-001")]
+        [
+            submitted("env-fixture-001"),
+            submitted("sat-fixture-001"),
+            submitted("sv-fixture-001"),
+            submitted("hi-fixture-001"),
+        ]
     )
     date_time = DateTimeRequest(
         start_date=date(2024, 7, 15),
@@ -437,6 +443,15 @@ def test_typed_optional_endpoint_submissions_use_documented_paths(tmp_path: Path
                 back_view=False,
             )
         )
+        await client.submit_heat_intelligence(
+            HeatIntelligenceRequest(
+                latitude=34.26,
+                longitude=-118.42,
+                temperature=38.5,
+                date=date(2024, 7, 15),
+                analysis=("urban",),
+            )
+        )
 
     asyncio.run(submit_all())
 
@@ -444,7 +459,17 @@ def test_typed_optional_endpoint_submissions_use_documented_paths(tmp_path: Path
         "https://api.fortyguard.com/v1/env_params",
         "https://api.fortyguard.com/v1/satellite",
         "https://api.fortyguard.com/v1/streetview",
+        "https://api.fortyguard.com/v1/heat_intelligence",
     ]
+
+    heat_intelligence_payload = transport.calls[-1][3]
+    assert heat_intelligence_payload == {
+        "latitude": 34.26,
+        "longitude": -118.42,
+        "temperature": 38.5,
+        "date": "2024-07-15",
+        "analysis": ["urban"],
+    }
 
 
 def test_satellite_normalization_accepts_observed_dual_image_fields() -> None:

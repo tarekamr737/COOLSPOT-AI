@@ -348,6 +348,10 @@
   it as a Premium-only asynchronous point report returning a temporary signed PDF link, so it stays
   outside scoring/optimization and disabled until one governed request proves key access and leaves
   the hard reserve intact.
+- Submitted the sole Heat Intelligence access probe for the deterministic top balanced `$500k`
+  recommendation after a live `1,759,280`-credit preflight. The accepted activity is persisted as
+  Processing; subsequent work must poll that exact ID, never resubmit, and must keep the capability
+  disabled until the PDF and terminal credit delta are safely cached.
 - Treated validated configs and processed artifacts—not earlier narrative counts—as the source of
   truth for the methodology audit. `PRODUCT.md`, `ARCHITECTURE.md`, and `README.md` now reflect the
   current 172-candidate catalog, four scenario presets, bounded optional evidence, and protected

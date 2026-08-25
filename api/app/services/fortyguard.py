@@ -25,6 +25,7 @@ from api.app.fortyguard_models import (
     EnvironmentalParametersRequest,
     EnvironmentalParametersResult,
     FortyGuardEndpoint,
+    HeatIntelligenceRequest,
     HeatmapRequest,
     HeatmapResult,
     PollingPolicy,
@@ -35,7 +36,11 @@ from api.app.fortyguard_models import (
 )
 
 SubmissionRequest = (
-    HeatmapRequest | EnvironmentalParametersRequest | SatelliteRequest | StreetViewRequest
+    HeatmapRequest
+    | EnvironmentalParametersRequest
+    | SatelliteRequest
+    | StreetViewRequest
+    | HeatIntelligenceRequest
 )
 JSON_OBJECT_ADAPTER = TypeAdapter(dict[str, JsonValue])
 ENDPOINT_PATHS = {
@@ -43,6 +48,7 @@ ENDPOINT_PATHS = {
     FortyGuardEndpoint.ENV_PARAMS: "/v1/env_params",
     FortyGuardEndpoint.SATELLITE: "/v1/satellite",
     FortyGuardEndpoint.STREETVIEW: "/v1/streetview",
+    FortyGuardEndpoint.HEAT_INTELLIGENCE: "/v1/heat_intelligence",
 }
 
 
@@ -321,6 +327,14 @@ class FortyGuardClient:
         """Submit or reuse a canonical street-view-segmentation activity."""
 
         return await self._submit(FortyGuardEndpoint.STREETVIEW, request)
+
+    async def submit_heat_intelligence(
+        self, request: HeatIntelligenceRequest
+    ) -> ActivityHandle:
+        """Submit or reuse a canonical Heat Intelligence report activity."""
+
+        self._validate_date_bounds(request.date, None, 12)
+        return await self._submit(FortyGuardEndpoint.HEAT_INTELLIGENCE, request)
 
     async def get_status(self, activity_id: str) -> ActivityStatus:
         """Return cached terminal state or refresh a known in-flight activity."""

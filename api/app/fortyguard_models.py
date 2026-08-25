@@ -32,6 +32,7 @@ class FortyGuardEndpoint(StrEnum):
     ENV_PARAMS = "env_params"
     SATELLITE = "satellite"
     STREETVIEW = "streetview"
+    HEAT_INTELLIGENCE = "heat_intelligence"
 
 
 class ActivityLifecycle(StrEnum):
@@ -182,6 +183,27 @@ class StreetViewRequest(StrictModel):
     vertical_angle: float = Field(ge=-90, le=90)
     horizontal_angle: float = Field(ge=0, le=360)
     back_view: bool
+
+
+class HeatIntelligenceRequest(StrictModel):
+    """Documented Heat Intelligence point-report submission payload."""
+
+    latitude: float = Field(ge=-90, le=90)
+    longitude: float = Field(ge=-180, le=180)
+    temperature: float = Field(ge=-100, le=100)
+    date: date
+    analysis: tuple[
+        Literal["geographic", "environmental", "urban", "events", "anthropogenic"],
+        ...,
+    ] = Field(min_length=1, max_length=5)
+
+    @model_validator(mode="after")
+    def validate_report_request(self) -> Self:
+        if self.date < date(2019, 1, 1):
+            raise ValueError("Heat Intelligence date must be on or after 2019-01-01")
+        if len(self.analysis) != len(set(self.analysis)):
+            raise ValueError("Heat Intelligence analysis categories must be unique")
+        return self
 
 
 class HeatmapFeature(StrictModel):

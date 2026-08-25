@@ -36,7 +36,7 @@ def test_optional_features_are_explicitly_gated() -> None:
         FortyGuardFeature.STREET_VIEW_SEGMENTATION,
     }
 
-    assert manifest.optional_live_probes_made == 5
+    assert manifest.optional_live_probes_made == 6
     assert manifest.credits_used == 240_720
     assert manifest.credits_remaining == 1_759_280
     exceedance = manifest.require_enabled(FortyGuardFeature.HEATMAP_EXCEEDANCE)
@@ -55,10 +55,13 @@ def test_optional_features_are_explicitly_gated() -> None:
     assert street_view.cached_artifact == "data/processed/pacoima_streetview_sites"
     satellite = manifest.require_enabled(FortyGuardFeature.SATELLITE_SEGMENTATION)
     assert satellite.cached_artifact == "data/processed/fortyguard_satellite_probe.json"
+    heat_intelligence = manifest.get(FortyGuardFeature.HEAT_INTELLIGENCE_REPORT)
+    assert heat_intelligence.probe_attempted is True
+    assert heat_intelligence.access == AccessState.UNCONFIRMED
+    assert heat_intelligence.enabled is False
     for feature in set(FortyGuardFeature) - enabled:
         capability = manifest.get(feature)
         assert capability.enabled is False
         assert capability.access == AccessState.UNCONFIRMED
-        assert capability.probe_attempted is False
         with pytest.raises(FeatureDisabledError, match=feature.value):
             manifest.require_enabled(feature)

@@ -1,0 +1,24 @@
+{
+  "activity_id": "a8244e8a-a289-4e4b-919a-13272a8af2b6",
+  "candidate_id": "tree_canopy:school:53",
+  "credits_remaining_before": 1759280,
+  "hard_reserve": 500000,
+  "request": {
+    "analysis": [
+      "urban"
+    ],
+    "date": "2026-08-20",
+    "latitude": 34.2709562471485,
+    "longitude": -118.415050822736,
+    "temperature": 35.9398
+  },
+  "request_hash": "b6f9a5b7c747b87d5bdbb343956faf4c1ec97013908c93da6f65ddc261a7e5bb",
+  "site_id": "school:53",
+  "site_name": "Pacoima Early Education Center",
+  "status": "Processing",
+  "submitted_at": "2026-08-25T14:14:56.122434Z",
+  "tile_id": "1355",
+  "total_allocation": 2000000,
+  "usage_before": 240720,
+  "version": "1.0"
+}
