@@ -22,6 +22,7 @@ state at that task's completion and may be superseded by this snapshot or a late
 | Capability snapshot | The typed capability enum/manifest now records successful cached TCM, persistence, exceedance, time-of-measure, environmental, Street View, and satellite access; only Heat Intelligence remains unconfirmed. Five non-core probes reconcile exactly, credits still balance at `240,720` used plus `1,759,280` remaining, and capability tests, Ruff, and Mypy pass. |
 | Scoring/config guide | `config/README.md` now defines calculation order, normalization/missing-data behavior, all component and scenario weights, candidate factor fallbacks, robustness semantics, non-scoring evidence, and each config file's authority. It explicitly separates the permitted-evidence catalog from active numeric rules. All 42 focused scoring-to-optimizer tests pass without changing hashed decision artifacts. |
 | Evidence-specific scalar language | The Impeccable-reviewed tour now labels confidence as `Site-specific` instead of presenting a fixed `0.5`. Current docs describe neutral values only as evidence-dimension or candidate-specific fallbacks, and the early universal-fallback milestone is explicitly marked superseded. All 11 UI tests, strict TypeScript, and lint pass. |
+| Cool-pavement availability | Support is active rather than claimed speculatively: 20 candidates each map to an exact AOI-clipped StreetsLA pavement asset with surface, positive width, and PCI category; the optimizer selects cool pavement within the supported `$5M` custom range. All 15 focused candidate/optimizer tests pass. |
 
 Machine-readable provenance remains in `data/sources.json`, the capability snapshot in
 `data/processed/fortyguard_capabilities.json`, and versioned decision assumptions in `config/`.
@@ -593,8 +594,9 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   safety, or constructability. Tests enforce the exact-site match and the neutral fallback.
 - Rule proof: versioned candidate configuration names the exact-site confidence rule, while
   versioned intervention configuration declares the suitability inputs and feasibility gates for
-  shade structures, tree canopy, and cool pavement. Cool pavement cannot become operational until
-  verified public paved geometry exists.
+  shade structures, tree canopy, and cool pavement. At that milestone cool pavement could not
+  become operational until verified public paved geometry existed; the later authoritative-roadway
+  section supersedes this historical gate with exact StreetsLA geometry.
 - Traceability proof: every non-neutral candidate includes one Street View evidence record with
   image dates, usable-view count, all four component scores, derived confidence, artifact source,
   and the screening limitation. At least two verified sites have different scores for these
