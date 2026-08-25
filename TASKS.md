@@ -371,7 +371,7 @@ Do only after all previous tasks pass.
 
 ### Frontend
 
-- [ ] lint/type checks
+- [x] lint/type checks
 - [ ] production build
 - [ ] component/unit tests
 - [ ] Playwright golden path

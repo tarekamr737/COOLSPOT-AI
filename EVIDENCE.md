@@ -55,6 +55,8 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
 - Optional-endpoint failure proof (2026-08-25): environmental/satellite probe guards, capability
   gating, quarantined Heat Intelligence omission, missing Street View, and missing-site responses
   → `15 passed in 2.86s`.
+- Frontend lint/type proof (2026-08-25): `npm run lint` completes with zero warnings and
+  `npm run typecheck` regenerates Next route types then passes strict `tsc --noEmit`.
 
 ## Numeric claim lineage
 
