@@ -52,6 +52,9 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   deterministic tie-breaking, site exclusivity, intervention evidence, and selectable pavement.
 - Credit-governor proof (2026-08-25): reserve denial, duplicate/idempotent ledger behavior,
   governed measurement, and protected live-refresh paths → `8 passed in 1.02s`.
+- Optional-endpoint failure proof (2026-08-25): environmental/satellite probe guards, capability
+  gating, quarantined Heat Intelligence omission, missing Street View, and missing-site responses
+  → `15 passed in 2.86s`.
 
 ## Numeric claim lineage
 

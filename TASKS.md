@@ -367,7 +367,7 @@ Do only after all previous tasks pass.
 - [x] robustness
 - [x] optimizer
 - [x] credit governor
-- [ ] optional-endpoint failure paths
+- [x] optional-endpoint failure paths
 
 ### Frontend
 
