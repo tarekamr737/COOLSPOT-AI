@@ -387,3 +387,8 @@
   allowing the first test to inherit stale local storage from the environment. Setup now clears the
   same key space before rendering, making the existing UI contract repeatable without changing app
   behavior.
+- The pre-deployment blank street background was not a MapLibre or basemap-route regression. The
+  development Next process launched by the agent inherited restricted outbound sockets, producing
+  nine OpenStreetMap proxy 502s and inflating the Next.js issue badge. Running the optimized server
+  with ordinary network access restores every tile and removes development diagnostics. The one
+  remaining browser issue was legitimate, so both planning form controls now have stable ids/names.

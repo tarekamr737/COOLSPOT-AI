@@ -108,6 +108,13 @@ Machine-readable provenance remains in `data/sources.json`, the capability snaps
   selected/tested preset frequency, and UI/API copy explicitly says it is not statistical
   confidence, outcome certainty, or probability. Optimizer tests return `8 passed in 10.60s`; the
   rendered UI contract returns `11 passed` when run independently of CPU-heavy optimizer tests.
+- Pre-deployment map/console proof (2026-08-25): the apparent blank basemap was reproduced only in
+  the agent-launched development server, whose process inherited outbound socket restrictions; all
+  nine `/api/basemap/13/...` requests returned 502 while local decision layers remained available.
+  The current optimized production server was launched with ordinary network access: the page and
+  every visible OpenStreetMap tile return 200, visual inspection shows streets beneath the heat
+  grid, the Next.js development badge is absent, and Chrome reports zero errors, warnings, or
+  issues. `npm run check` and `npm run build` pass on the corrected source.
 
 ## Numeric claim lineage
 
