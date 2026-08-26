@@ -402,7 +402,7 @@ Fix any UI/API wording that implies those claims.
 - [x] Run `scripts/validate_demo.py` against production.
 - [x] Run full Playwright golden path against production URLs.
 - [x] Confirm application works when FortyGuard is unavailable.
-- [ ] Confirm budget and scenario changes make zero FortyGuard calls.
+- [x] Confirm budget and scenario changes make zero FortyGuard calls.
 - [ ] Confirm cached Street View and environmental evidence load correctly.
 - [ ] Verify server-only secrets.
 - [ ] Verify CORS/security configuration.

@@ -49,6 +49,10 @@ test("golden planning path re-optimizes from cached data without FortyGuard call
   await expect(page.getByRole("heading", { name: "$1,000,000 budget" })).toBeVisible();
   await expect(page.getByText("20 sites", { exact: true })).toBeVisible();
 
+  await page.getByLabel("Planning priority").selectOption("exposure_first");
+  await expect(page.getByLabel("Planning priority")).toHaveValue("exposure_first");
+  await expect(page.getByText("H 30 · E 40 · V 20 · O 10")).toBeVisible();
+
   const recommendationButtons = page
     .getByRole("complementary", { name: "Ranked recommendations" })
     .getByRole("button");
@@ -78,5 +82,6 @@ test("golden planning path re-optimizes from cached data without FortyGuard call
 
   expect(optimizeBodies.some((body) => body.includes('"budget_usd":500000'))).toBe(true);
   expect(optimizeBodies.some((body) => body.includes('"budget_usd":1000000'))).toBe(true);
+  expect(optimizeBodies.some((body) => body.includes('"scoring_preset":"exposure_first"'))).toBe(true);
   expect(requestUrls.filter((url) => /fortyguard/i.test(url))).toEqual([]);
 });
