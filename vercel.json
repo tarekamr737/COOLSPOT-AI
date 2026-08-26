@@ -29,6 +29,10 @@
       "destination": { "service": "backend", "path": "/v1/:path*" }
     },
     {
+      "source": "/",
+      "destination": { "service": "web", "path": "/" }
+    },
+    {
       "source": "/:path*",
       "destination": { "service": "web", "path": "/:path*" }
     }
