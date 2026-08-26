@@ -420,7 +420,7 @@ Fix any UI/API wording that implies those claims.
 - [x] Freeze processed artifacts used for judging.
 - [x] Generate hashes/manifests for frozen evidence.
 - [x] Disable unnecessary live experimentation.
-- [ ] Tag final judge-ready commit.
+- [x] Tag final judge-ready commit.
 
 **Acceptance:** final submission is reproducible from committed evidence.
 
