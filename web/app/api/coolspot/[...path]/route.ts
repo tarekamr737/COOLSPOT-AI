@@ -3,10 +3,12 @@ const allowedGetPath = /^(pilot|candidates|data-status|methodology|refresh\/stat
 type RouteContext = { params: Promise<{ path: string[] }> };
 
 function apiBaseUrl(): URL {
+  const vercelHost = process.env.VERCEL_URL ?? process.env.VERCEL_PROJECT_PRODUCTION_URL;
   const raw =
     process.env.BACKEND_URL ??
     process.env.API_BASE_URL ??
     process.env.NEXT_PUBLIC_API_BASE_URL ??
+    (vercelHost ? `https://${vercelHost}` : undefined) ??
     "http://127.0.0.1:8000";
   const url = new URL(raw);
   if (!/^https?:$/.test(url.protocol)) {
