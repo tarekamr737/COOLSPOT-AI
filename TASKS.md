@@ -400,7 +400,7 @@ Fix any UI/API wording that implies those claims.
 
 - [x] Deploy production web/API in frozen demo mode.
 - [x] Run `scripts/validate_demo.py` against production.
-- [ ] Run full Playwright golden path against production URLs.
+- [x] Run full Playwright golden path against production URLs.
 - [ ] Confirm application works when FortyGuard is unavailable.
 - [ ] Confirm budget and scenario changes make zero FortyGuard calls.
 - [ ] Confirm cached Street View and environmental evidence load correctly.
