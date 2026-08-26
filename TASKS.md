@@ -399,14 +399,13 @@ Fix any UI/API wording that implies those claims.
 ## 13 — Deploy the judge build
 
 - [x] Deploy production web/API in frozen demo mode.
-- [ ] Run `scripts/validate_demo.py` against production.
+- [x] Run `scripts/validate_demo.py` against production.
 - [ ] Run full Playwright golden path against production URLs.
 - [ ] Confirm application works when FortyGuard is unavailable.
 - [ ] Confirm budget and scenario changes make zero FortyGuard calls.
 - [ ] Confirm cached Street View and environmental evidence load correctly.
 - [ ] Verify server-only secrets.
 - [ ] Verify CORS/security configuration.
-- [ ] Test Chrome desktop + mobile viewport.
 - [ ] Test one clean incognito session.
 
 **Acceptance:** deployed golden path completes without errors.
