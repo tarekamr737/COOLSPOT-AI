@@ -406,7 +406,7 @@ Fix any UI/API wording that implies those claims.
 - [x] Confirm cached Street View and environmental evidence load correctly.
 - [x] Verify server-only secrets.
 - [x] Verify CORS/security configuration.
-- [ ] Test one clean incognito session.
+- [x] Test one clean incognito session.
 
 **Acceptance:** deployed golden path completes without errors.
 
