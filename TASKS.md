@@ -419,7 +419,7 @@ Fix any UI/API wording that implies those claims.
 - [x] Preserve at least `500,000` credits unless explicitly justified otherwise.
 - [x] Freeze processed artifacts used for judging.
 - [x] Generate hashes/manifests for frozen evidence.
-- [ ] Disable unnecessary live experimentation.
+- [x] Disable unnecessary live experimentation.
 - [ ] Tag final judge-ready commit.
 
 **Acceptance:** final submission is reproducible from committed evidence.
