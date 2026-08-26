@@ -298,8 +298,11 @@ CI and automated tests must not make live FortyGuard calls.
 
 ## Project status
 
-The hackathon MVP is implemented and validated locally. Deployment and final demo freeze remain
-tracked in [`TASKS.md`](TASKS.md). The cached dataset currently includes 172 compatible candidates
+**Judge build status:** Production deployment validated. The golden path passes against Vercel,
+processed evidence is frozen and hash-verified, and judging runs entirely from cached,
+source-attributed FortyGuard evidence with zero paid API calls during replanning.
+
+The cached dataset currently includes 172 compatible candidates
 (111 shade structures, 41 tree-canopy options, and 20 cool-pavement options), real FortyGuard TCM,
 persistence, and exceedance evidence, 20 cached Street View records, 10 environmental finalist
 records, and one satellite pavement record.
