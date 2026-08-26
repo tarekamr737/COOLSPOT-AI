@@ -44,7 +44,7 @@ function interventionLabel(value: Candidate["intervention_type"]) {
 }
 
 function BrandMark() {
-  return <Image alt="" aria-hidden="true" className={styles.brandMark} height={48} priority src="/coolspot-logo.png" width={48} />;
+  return <Image alt="" aria-hidden="true" className={styles.brandMark} height={48} priority src="/coolspot-logo.png" unoptimized width={48} />;
 }
 
 function latestCompleteDate() {
