@@ -405,7 +405,7 @@ Fix any UI/API wording that implies those claims.
 - [x] Confirm budget and scenario changes make zero FortyGuard calls.
 - [x] Confirm cached Street View and environmental evidence load correctly.
 - [x] Verify server-only secrets.
-- [ ] Verify CORS/security configuration.
+- [x] Verify CORS/security configuration.
 - [ ] Test one clean incognito session.
 
 **Acceptance:** deployed golden path completes without errors.
