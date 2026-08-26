@@ -1,4 +1,3 @@
-##  COOLSPOT AI
 <p align="center">
   <img src="web/public/coolspot-logo.png" alt="COOLSPOT AI logo" width="112" />
 </p>
