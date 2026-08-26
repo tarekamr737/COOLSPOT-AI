@@ -5,6 +5,20 @@
 <h1 align="center">COOLSPOT AI</h1>
 
 <p align="center">
+  <a href="https://coolspot-ai.vercel.app"><strong>▶ OPEN THE LIVE DEMO</strong></a>
+</p>
+
+<p align="center">
+  <a href="https://coolspot-ai.vercel.app">
+    <img src="docs/coolspot-dashboard.png" alt="COOLSPOT AI dashboard showing the Pacoima heat map, a ranked $500,000 cooling portfolio, and evidence for the selected site" />
+  </a>
+</p>
+
+<p align="center">
+  <strong>Try this:</strong> <code>$500k</code> → open the <code>#1</code> site → <code>$1M</code> → <code>Equity-first</code>
+</p>
+
+<p align="center">
   <strong>From urban heat evidence to a defensible cooling-investment plan.</strong>
 </p>
 
@@ -18,13 +32,16 @@
 Cities can already see that heat is uneven. The harder operational question is: **where should
 limited cooling funds go first, and why?**
 
-COOLSPOT AI combines cached FortyGuard heat intelligence with authoritative public data for
-Pacoima, Los Angeles. It scores candidate locations transparently, builds a budget-feasible
-portfolio with a deterministic optimizer, and presents the evidence, sources, assumptions, and
-limitations behind every recommendation.
+COOLSPOT AI is an **AI application powered by FortyGuard's Temperature API**. It combines cached
+temperature intelligence with authoritative public data for Pacoima, Los Angeles, scores candidate
+locations transparently, and builds a budget-feasible cooling portfolio.
 
-The core decision path does not depend on an LLM. AI is used only to explain an already-computed
-result from structured evidence.
+> **FortyGuard's Temperature AI provides the heat intelligence → deterministic optimization makes
+> public investment accountable → grounded AI makes the result understandable.**
+
+This separation is deliberate. The LLM never ranks sites, changes costs, or chooses the portfolio.
+OR-Tools produces the reproducible investment decision; grounded AI explains that already-computed
+result using only its structured evidence, sources, assumptions, and limitations.
 
 ## What the application does
 
@@ -44,7 +61,7 @@ result from structured evidence.
 
 ```mermaid
 flowchart LR
-    A[FortyGuard heat evidence] --> D[Normalized tile features]
+    A[FortyGuard Temperature AI] --> D[Normalized heat intelligence]
     B[LA Metro and public places] --> D
     C[Census ACS context] --> D
     P[StreetsLA pavement geometry] --> F
