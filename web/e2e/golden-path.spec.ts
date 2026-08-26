@@ -60,9 +60,20 @@ test("golden planning path re-optimizes from cached data without FortyGuard call
   const secondSiteName = (await secondRecommendation.locator("strong").textContent())?.trim();
   expect(secondSiteName).toBeTruthy();
   await secondRecommendation.click();
-  await expect(page.getByRole("region", { name: `Street context for ${secondSiteName!}` })).toBeVisible();
+  const streetContext = page.getByRole("region", { name: `Street context for ${secondSiteName!}` });
+  await expect(streetContext).toBeVisible();
+  const segmentedImage = streetContext.getByRole("img", { name: `FortyGuard segmented street view for ${secondSiteName!}` });
+  await expect(segmentedImage).toBeVisible();
+  await expect.poll(() => segmentedImage.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
+  await streetContext.getByRole("button", { name: "Street image" }).click();
+  const streetImage = streetContext.getByRole("img", { name: `Street view for ${secondSiteName!}` });
+  await expect(streetImage).toBeVisible();
+  await expect.poll(() => streetImage.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
   await page.getByRole("button", { name: "Close street context" }).click();
   await expect(page.getByRole("heading", { level: 2, name: secondSiteName! })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Weather conditions at this finalist" })).toBeVisible();
+  await expect(page.getByText("Apparent temperature", { exact: true })).toBeVisible();
+  await expect(page.getByText("Relative humidity", { exact: true })).toBeVisible();
 
   await page.getByText("Methodology & limitations", { exact: true }).click();
   await expect(page.getByRole("heading", { name: "Source links" })).toBeVisible();
