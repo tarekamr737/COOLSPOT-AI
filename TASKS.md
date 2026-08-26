@@ -398,7 +398,7 @@ Fix any UI/API wording that implies those claims.
 
 ## 13 — Deploy the judge build
 
-- [ ] Deploy production web/API in frozen demo mode.
+- [x] Deploy production web/API in frozen demo mode.
 - [ ] Run `scripts/validate_demo.py` against production.
 - [ ] Run full Playwright golden path against production URLs.
 - [ ] Confirm application works when FortyGuard is unavailable.
