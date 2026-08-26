@@ -14,15 +14,15 @@
   "rewrites": [
     {
       "source": "/health",
-      "destination": { "service": "backend" }
+      "destination": { "service": "backend", "path": "/health" }
     },
     {
-      "source": "/v1/(.*)",
-      "destination": { "service": "backend" }
+      "source": "/v1/:path*",
+      "destination": { "service": "backend", "path": "/v1/:path*" }
     },
     {
-      "source": "/(.*)",
-      "destination": { "service": "web" }
+      "source": "/:path*",
+      "destination": { "service": "web", "path": "/:path*" }
     }
   ]
 }
