@@ -1,14 +1,4 @@
----
-title: COOLSPOT AI
-emoji: ☀️
-colorFrom: blue
-colorTo: green
-sdk: docker
-app_port: 7860
-fullWidth: true
-short_description: Pacoima cooling-investment planning from cached heat intelligence
----
-
+##  COOLSPOT AI
 <p align="center">
   <img src="web/public/coolspot-logo.png" alt="COOLSPOT AI logo" width="112" />
 </p>
