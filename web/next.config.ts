@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  ...(process.env.VERCEL ? {} : { output: "standalone" as const }),
   async rewrites() {
     const apiBaseUrl =
       process.env.BACKEND_URL ??
