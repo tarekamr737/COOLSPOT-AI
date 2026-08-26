@@ -3,7 +3,15 @@
   "services": {
     "web": {
       "root": "web/",
-      "framework": "nextjs"
+      "framework": "nextjs",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "backend",
+          "format": "url",
+          "env": "BACKEND_URL"
+        }
+      ]
     },
     "backend": {
       "root": "./",
