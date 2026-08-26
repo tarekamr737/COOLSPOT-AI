@@ -415,7 +415,7 @@ Fix any UI/API wording that implies those claims.
 ## 14 — Freeze final hackathon evidence
 
 - [x] Record exact data dates.
-- [ ] Record final FortyGuard credit usage.
+- [x] Record final FortyGuard credit usage.
 - [ ] Preserve at least `500,000` credits unless explicitly justified otherwise.
 - [ ] Freeze processed artifacts used for judging.
 - [ ] Generate hashes/manifests for frozen evidence.
