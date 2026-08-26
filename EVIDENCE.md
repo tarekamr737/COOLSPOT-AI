@@ -30,6 +30,29 @@ state at that task's completion and may be superseded by this snapshot or a late
 Machine-readable provenance remains in `data/sources.json`, the capability snapshot in
 `data/processed/fortyguard_capabilities.json`, and versioned decision assumptions in `config/`.
 
+## Final data dates
+
+These are the exact dates attached to the committed judge-build evidence. A retrieval date records
+when COOLSPOT cached the source; it does not imply that the underlying observation was made that day.
+
+| Source | Evidence date or vintage | Retrieved |
+| --- | --- | --- |
+| Pacoima certified Neighborhood Council boundary | Live service snapshot dated 2026-08-20 | 2026-08-20 |
+| LA City street centerlines | Live service snapshot dated 2026-08-25; published per-feature modification timestamps are retained | 2026-08-25 |
+| LA City pavement condition | `Datasource_DT` 2026-08-06 for all 1,703 cached records | 2026-08-25 |
+| FortyGuard TCM and persistence | 2026-08-20 | 2026-08-21 |
+| FortyGuard historical exceedance and peak-time context | 2024-07-15 | 2026-08-24 |
+| FortyGuard Street View segmentation | Vendor image dates span 2017-05-01 through 2025-12-01 | 2026-08-21 |
+| FortyGuard environmental parameters | 2026-08-20 14:00:00 UTC-08:00 | 2026-08-21 |
+| FortyGuard satellite segmentation | Vendor image year 2026 | 2026-08-25 |
+| FortyGuard Heat Intelligence quarantined report | Input observation 2026-08-20; report completed 2026-08-25 | 2026-08-25 |
+| LAUSD school sites | Layer last edited 2024-06-25 | 2026-08-20 |
+| LA City parks | Layer last edited 2025-08-18 | 2026-08-20 |
+| Los Angeles Public Library branches | Layer last edited 2024-04-09 | 2026-08-20 |
+| LA Metro bus GTFS | Feed service window 2026-06-07 through 2026-12-12 | 2026-08-20 |
+| LA Metro bus-stop patronage | April 2024 | 2026-08-20 |
+| Census ACS and tract geography | 2020-2024 ACS 5-year estimates; tract geography dated 2024-01-01 | 2026-08-20 |
+
 ## Full regression gates
 
 - Ruff proof (2026-08-25): `.venv\Scripts\python.exe -m ruff check .` → `All checks passed!`.
