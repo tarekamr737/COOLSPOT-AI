@@ -26,7 +26,7 @@ state at that task's completion and may be superseded by this snapshot or a late
 | Numeric claim audit | Every displayed/API number belongs to one of the lineage classes below: vendor observation, authoritative public input, cited price/research evidence, deterministic derivation, or explicit user/config planning assumption. The 48-test traceability suite passes. |
 | Heat Intelligence contract | Official FortyGuard documentation checked 2026-08-25 confirms `POST /v1/heat_intelligence` is a Premium-only asynchronous point report. The required request fields, five allowed analysis categories, status lifecycle, and temporary PDF download-link handling are recorded below; no request was made for this documentation-only task. |
 | Full regression | Section 12 passes: repository-wide Ruff, strict Mypy, 140 backend tests, frontend lint/type/build/unit checks, golden/responsive/accessibility browser paths, and all seven unsupported-claim audits are verified below. |
-| Frozen judge artifacts | The 52 Git-tracked files under `data/processed/` have no working-tree differences and are frozen from commit `911f615`. Production runs in `cached_demo` mode with live refresh disabled, so the judge path reads this committed set without mutation. |
+| Frozen judge artifacts | The 52 Git-tracked files under `data/processed/` have no working-tree differences and are frozen from commit `911f615`. `JUDGE_ARTIFACTS.sha256` lists and verifies every file. Production runs in `cached_demo` mode with live refresh disabled, so the judge path reads this committed set without mutation. |
 
 Machine-readable provenance remains in `data/sources.json`, the capability snapshot in
 `data/processed/fortyguard_capabilities.json`, and versioned decision assumptions in `config/`.
