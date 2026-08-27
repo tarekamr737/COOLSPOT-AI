@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import logging
 import os
 import re
 from pathlib import Path
@@ -89,9 +90,10 @@ def explain_selected_candidate(
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 DEFAULT_OPENROUTER_MODEL = "nvidia/nemotron-3-ultra-550b-a55b:free"
-PROMPT_VERSION = "2"
+PROMPT_VERSION = "3"
 ROOT = Path(__file__).resolve().parents[3]
 EXPLANATION_CACHE = ROOT / "data" / "runtime" / "explanations"
+LOGGER = logging.getLogger(__name__)
 
 
 class ExplanationTransport(Protocol):
@@ -156,7 +158,9 @@ def _cache_key(explanation: GroundedExplanation, model: str) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
-def _safe_model_summary(content: str, template: GroundedExplanation) -> bool:
+def _model_summary_rejection(
+    content: str, template: GroundedExplanation
+) -> str | None:
     lowered = content.lower()
     prohibited = (
         "will save",
@@ -169,13 +173,15 @@ def _safe_model_summary(content: str, template: GroundedExplanation) -> bool:
         "will lower",
     )
     if any(phrase in lowered for phrase in prohibited):
-        return False
+        return "prohibited outcome promise"
     supplied_text = " ".join(
         (template.summary, *template.why_selected, *template.limitations)
     )
     supplied_numbers = set(re.findall(r"-?\d+(?:\.\d+)?", supplied_text.replace(",", "")))
     output_numbers = set(re.findall(r"-?\d+(?:\.\d+)?", content.replace(",", "")))
-    return output_numbers <= supplied_numbers
+    if not output_numbers <= supplied_numbers:
+        return "number absent from supplied evidence"
+    return None
 
 
 async def explain_with_optional_llm(
@@ -229,12 +235,31 @@ async def explain_with_optional_llm(
         )
     )
     try:
-        content = await (transport or OpenRouterTransport()).complete(
+        active_transport = transport or OpenRouterTransport()
+        content = await active_transport.complete(
             api_key=api_key,
             model=model,
             prompt=prompt,
         )
-        if not _safe_model_summary(content, template):
+        rejection = _model_summary_rejection(content, template)
+        if rejection is not None:
+            LOGGER.warning("OpenRouter explanation rejected: %s", rejection)
+            repair_instruction = (
+                "The previous draft failed because it used a prohibited outcome promise. "
+                "Do not say will save, protect, reduce, lower, or guarantee. Describe only why "
+                "the optimizer selected the site."
+                if rejection == "prohibited outcome promise"
+                else "The previous draft introduced or reformatted a number. Use only numbers "
+                "copied digit-for-digit from the supplied text; prefer omitting scores and counts."
+            )
+            content = await active_transport.complete(
+                api_key=api_key,
+                model=model,
+                prompt=f"{prompt}\nCorrection required: {repair_instruction}",
+            )
+            rejection = _model_summary_rejection(content, template)
+        if rejection is not None:
+            LOGGER.warning("OpenRouter repaired explanation rejected: %s", rejection)
             return template.model_copy(
                 update={
                     "fallback_reason": (

@@ -37,6 +37,18 @@ class RateLimitedTransport:
         raise httpx2.HTTPStatusError("rate limited", request=request, response=response)
 
 
+class RepairTransport:
+    def __init__(self, first: str, repaired: str) -> None:
+        self.responses = iter((first, repaired))
+        self.calls = 0
+        self.prompts: list[str] = []
+
+    async def complete(self, *, api_key: str, model: str, prompt: str) -> str:
+        self.calls += 1
+        self.prompts.append(prompt)
+        return next(self.responses)
+
+
 def selected_context() -> tuple[object, object, object, object]:
     portfolio = optimize_portfolio(500_000)
     candidate = next(
@@ -150,6 +162,35 @@ def test_unsafe_model_claim_falls_back_to_template(tmp_path: Path) -> None:
     assert result.mode == "template"
     assert result.fallback_reason is not None
     assert "grounding checks" in result.fallback_reason
+
+
+def test_rejected_model_wording_gets_one_grounded_repair_attempt(tmp_path: Path) -> None:
+    candidate, tile, intervention, portfolio = selected_context()
+    transport = RepairTransport(
+        "This investment will reduce temperatures for 999 people.",
+        "This site ranks in the selected portfolio because the supplied heat and planning "
+        "evidence supports it; the planning cost is an assumption and field checks remain "
+        "required.",
+    )
+    result = asyncio.run(
+        explain_with_optional_llm(
+            candidate=candidate,  # type: ignore[arg-type]
+            tile=tile,  # type: ignore[arg-type]
+            intervention=intervention,  # type: ignore[arg-type]
+            portfolio=portfolio,  # type: ignore[arg-type]
+            environ={
+                "EXPLANATION_MODE": "openrouter",
+                "OPENROUTER_API_KEY": "test-key",
+            },
+            transport=transport,
+            cache_root=tmp_path,
+        )
+    )
+
+    assert result.mode == "openrouter"
+    assert result.fallback_reason is None
+    assert transport.calls == 2
+    assert "Correction required:" in transport.prompts[1]
 
 
 def test_model_cannot_add_a_number_absent_from_supplied_evidence(tmp_path: Path) -> None:
