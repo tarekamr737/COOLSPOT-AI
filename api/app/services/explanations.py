@@ -276,10 +276,17 @@ async def explain_with_optional_llm(
                 "summary": content,
             }
         )
-        cache_path.parent.mkdir(parents=True, exist_ok=True)
-        temporary = cache_path.with_suffix(".json.part")
-        temporary.write_text(generated.model_dump_json(indent=2), encoding="utf-8")
-        os.replace(temporary, cache_path)
+        try:
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            temporary = cache_path.with_suffix(".json.part")
+            temporary.write_text(generated.model_dump_json(indent=2), encoding="utf-8")
+            os.replace(temporary, cache_path)
+        except OSError as error:
+            # Serverless bundles such as Vercel's /var/task are read-only. Caching is an
+            # optimization, so a valid grounded explanation must still reach the user.
+            LOGGER.warning(
+                "OpenRouter explanation cache write skipped: %s", type(error).__name__
+            )
         return generated
     except httpx2.HTTPStatusError as error:
         reason = (

@@ -2,6 +2,7 @@
 
 import asyncio
 from pathlib import Path
+from unittest.mock import patch
 
 import httpx2
 
@@ -95,6 +96,35 @@ def test_openrouter_rewrites_only_the_summary_and_is_cached(tmp_path: Path) -> N
     assert regenerated.mode == "openrouter"
     assert transport.calls == 2
     assert "Previous wording to avoid:" in transport.prompts[1]
+
+
+def test_valid_explanation_survives_read_only_serverless_cache(tmp_path: Path) -> None:
+    candidate, tile, intervention, portfolio = selected_context()
+    transport = StubTransport(
+        "This site ranks in the selected portfolio because the supplied heat and planning "
+        "evidence supports it; the planning cost is an assumption and field checks remain "
+        "required."
+    )
+
+    with patch.object(Path, "mkdir", side_effect=OSError("read-only filesystem")):
+        result = asyncio.run(
+            explain_with_optional_llm(
+                candidate=candidate,  # type: ignore[arg-type]
+                tile=tile,  # type: ignore[arg-type]
+                intervention=intervention,  # type: ignore[arg-type]
+                portfolio=portfolio,  # type: ignore[arg-type]
+                environ={
+                    "EXPLANATION_MODE": "openrouter",
+                    "OPENROUTER_API_KEY": "test-key",
+                },
+                transport=transport,
+                cache_root=tmp_path / "unavailable",
+            )
+        )
+
+    assert result.mode == "openrouter"
+    assert result.fallback_reason is None
+    assert transport.calls == 1
 
 
 def test_peak_heat_hour_is_explanation_context_only() -> None:
