@@ -88,7 +88,7 @@ def explain_selected_candidate(
 
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-DEFAULT_OPENROUTER_MODEL = "stealth/ox-alpha"
+DEFAULT_OPENROUTER_MODEL = "nvidia/nemotron-3-ultra-550b-a55b:free"
 PROMPT_VERSION = "2"
 ROOT = Path(__file__).resolve().parents[3]
 EXPLANATION_CACHE = ROOT / "data" / "runtime" / "explanations"

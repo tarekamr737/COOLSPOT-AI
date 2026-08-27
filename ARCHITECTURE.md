@@ -69,7 +69,7 @@ COOLSPOT_REFRESH_TOKEN=
 NEXT_PUBLIC_API_BASE_URL=
 EXPLANATION_MODE=template
 OPENROUTER_API_KEY=
-OPENROUTER_MODEL=stealth/ox-alpha
+OPENROUTER_MODEL=nvidia/nemotron-3-ultra-550b-a55b:free
 ```
 
 Never prefix the FortyGuard key with `NEXT_PUBLIC_`.
@@ -317,7 +317,8 @@ must never expose the FortyGuard key or refresh token to the client bundle.
 ## Explanations
 Default deterministic template generated from site evidence.
 
-Optional `EXPLANATION_MODE=openrouter` with default configured model `stealth/ox-alpha`:
+Optional `EXPLANATION_MODE=openrouter` with default configured model
+`nvidia/nemotron-3-ultra-550b-a55b:free`:
 - input is one compact JSON object for selected site,
 - include only cited evidence already in system,
 - output schema: `summary`, `why_selected`, `limitations`,

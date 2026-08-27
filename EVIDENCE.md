@@ -14,7 +14,7 @@ state at that task's completion and may be superseded by this snapshot or a late
 | Deterministic planning | CP-SAT enforces budget and one intervention per site; four versioned scoring presets are locally re-scored. |
 | Robustness semantics | The API/UI report site selection frequency across exactly four presets, never statistical confidence or probability. |
 | Bounded optional evidence | Committed normalized artifacts contain 20 Street View records, 10 environmental finalists, and one satellite pavement record. Missing records remain visibly unavailable. |
-| Explanation boundary | Deterministic templates are the default; optional `stealth/ox-alpha` wording is source-constrained, cached, and cannot rank or add evidence. |
+| Explanation boundary | Deterministic templates are the default; optional `nvidia/nemotron-3-ultra-550b-a55b:free` wording is source-constrained, cached, and cannot rank or add evidence. |
 | Credit boundary | Final production status and the committed capability snapshot record `249,320` credits used and `1,750,680` remaining from 2,000,000; the server enforces the `500,000` reserve. Budget/scenario replanning visibly consumes `0 FortyGuard credits`. |
 | UI regression | Strict TypeScript and zero-warning lint pass; 11 active component tests cover the golden workspace, keyboard tour, empty state, recovery, refresh, and zero-vendor replanning. |
 | Decision log | `BUILDLOG.md` records only material runtime discoveries and architecture/product decisions; its current audit entry points readers to validated configs/artifacts rather than copying historical state forward. |
@@ -704,7 +704,11 @@ decision API, explanations, and capability counters.
   Next build passes; `scripts/validate_demo.py` passes 4 layers, 152 candidates, both golden budgets,
   and unchanged `1,983,120` credits; production-origin Playwright returns `1 passed`.
 
-## Ox Alpha is the active grounded explanation model
+## Historical Ox Alpha validation (superseded)
+
+This section records the model validation completed on 22 August 2026. The current configured
+grounded-explanation model is `nvidia/nemotron-3-ultra-550b-a55b:free`; the historical evidence
+below remains unchanged for audit continuity.
 
 - OpenRouter's live public model catalog returned the exact ID `stealth/ox-alpha`, display name
   `Ox Alpha`, and zero prompt/completion pricing on 22 August 2026. Its metadata reports mandatory

@@ -23,7 +23,7 @@ class StubTransport:
 
     async def complete(self, *, api_key: str, model: str, prompt: str) -> str:
         assert api_key == "test-key"
-        assert model == "stealth/ox-alpha"
+        assert model == "nvidia/nemotron-3-ultra-550b-a55b:free"
         assert "Verified summary:" in prompt
         self.calls += 1
         self.prompts.append(prompt)
@@ -65,7 +65,7 @@ def test_openrouter_rewrites_only_the_summary_and_is_cached(tmp_path: Path) -> N
         "environ": {
             "EXPLANATION_MODE": "openrouter",
             "OPENROUTER_API_KEY": "test-key",
-            "OPENROUTER_MODEL": "stealth/ox-alpha",
+            "OPENROUTER_MODEL": "nvidia/nemotron-3-ultra-550b-a55b:free",
         },
         "transport": transport,
         "cache_root": tmp_path,

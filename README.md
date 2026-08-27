@@ -207,7 +207,7 @@ Open <http://127.0.0.1:7860>.
 | `API_BASE_URL` | `http://127.0.0.1:8000` | Server-side API origin used by Next.js |
 | `EXPLANATION_MODE` | `template` | `template` or optional `openrouter` explanation mode |
 | `OPENROUTER_API_KEY` | empty | Server-only OpenRouter credential |
-| `OPENROUTER_MODEL` | `stealth/ox-alpha` | OpenRouter model used only for grounded explanations |
+| `OPENROUTER_MODEL` | `nvidia/nemotron-3-ultra-550b-a55b:free` | OpenRouter model used only for grounded explanations |
 
 Never expose `FORTYGUARD_API_KEY`, `OPENROUTER_API_KEY`, or `COOLSPOT_REFRESH_TOKEN` through a
 `NEXT_PUBLIC_` variable or commit them to source control.
